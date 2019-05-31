@@ -43,8 +43,8 @@ public class StoreController extends HttpServlet {
 		} else if(command.equals("/storeLanking")) {
 			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/store/storeLanking.jsp");
 			view.forward(request, response);
-		} 
-		
+		}
+	
 		if(actionForward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
 			view.forward(request, response);
