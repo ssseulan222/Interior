@@ -8,10 +8,18 @@ public class UploadDTO {
 	private int pnum;
 	private String title;
 	private String place;
+	private String style;
 	private String info;
 	private String category;
 	private String url;
 	private String tag;
+	
+	public String getStyle() {
+		return style;
+	}
+	public void setStyle(String style) {
+		this.style = style;
+	}
 	
 	public String getOname() {
 		return oname;
