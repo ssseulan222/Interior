@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.interior.action.ActionForward;
 import com.interior.store.StoreService;
 
 /**
@@ -31,9 +32,25 @@ public class StoreController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command=request.getPathInfo();
+		ActionForward actionForward = null;
+		System.out.println(command);
 		if(command.equals("/storeMain")) {
 			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/store/storeMain.jsp");
 			view.forward(request, response);
+		} else if(command.equals("/storeCategory")) {
+			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/store/storeCategory.jsp");
+			view.forward(request, response);
+		} else if(command.equals("/storeLanking")) {
+			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/store/storeLanking.jsp");
+			view.forward(request, response);
+		} 
+		
+		if(actionForward.isCheck()) {
+			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
+			view.forward(request, response);
+		}
+		else {
+			response.sendRedirect(actionForward.getPath());
 		}
 	}
 

@@ -12,7 +12,7 @@
 
   <servlet>
   	<servlet-name>store</servlet-name>
-  	<servlet-class>com.interior.control.StoreContoller</servlet-class>
+  	<servlet-class>com.interior.control.StoreController</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>store</servlet-name>

@@ -2,7 +2,7 @@ package com.interior.store;
 
 public class StoreDTO {
 	
-	private String num;
+	private int num;
 	private String name;
 	private int price;
 	private boolean saleCheck;
@@ -16,10 +16,10 @@ public class StoreDTO {
 	private int ranking;
 	private int hit;
 	private int scrap;
-	public String getNum() {
+	public int getNum() {
 		return num;
 	}
-	public void setNum(String num) {
+	public void setNum(int num) {
 		this.num = num;
 	}
 	public String getName() {

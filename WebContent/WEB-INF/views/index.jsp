@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>프로젝트홈</title>
 </head>
 <body>
-<a href="<%=application.getContextPath()%>/store/storeMain">Store</a>
+<a href="<%=application.getContextPath()%>/store/storeMain">스토어홈</a>
+<a href="<%=application.getContextPath()%>/store/storeCategory">카테고리</a>
+<a href="<%=application.getContextPath()%>/store/storeLanking">랭킹</a>
 </body>
 </html>

@@ -11,7 +11,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<title>StoreMain</title>
+<title>스토어홈</title>
 </head>
 <body>
 	<!-- 이미지 슬라이드. width여백없이 100% -->
@@ -19,22 +19,21 @@
 	
 	</div>
 
-	<!-- 오늘의 딜. 카테고리 없이 '더보기' 버튼 클릭으로만 이동 가능 -->
-	<div>
-		<div>
-			<h3>오늘의 딜</h3>
-			<a>더보기</a>
-		</div>
-		<div>
-			<!-- lg: 4*1 / sm : 3*1-->
-		</div>
-	</div>
-
 	<!-- 카테고리 -->
 	<div>
-		<h3>카테고리</h3> <!-- 13개 -->
-		<div>	<!-- lg : 10*1 + 이동버튼  // md : 5*2 + 더보기 (ajax) // sm : 4*2 + 더보기 + 오늘의 딜과 순서 변경-->
-		
+		<h3>카테고리</h3> <!-- 13개 ///// 수정 : 카테고리 사이트에 있는 분류랑 동일하게 함-->	
+		<div>
+			<ul>
+				<li>가구</li>
+				<li>패브릭</li>
+				<li>홈데코/조명</li>
+				<li>가전</li>
+				<li>수납/생활</li>
+				<li>주방</li>
+				<li>DIY자재</li>
+				<li>시공/주문제작</li>
+				<li>반려동물</li>
+			</ul>
 		</div>
 	</div>
 
@@ -56,7 +55,7 @@
 				<option>많은리뷰순</option>
 			</select>
 		</div>
-		<div> 	<!-- lg: 4*n(ajax)  // sm : 2*n(ajax) -->
+		<div> 	<!-- lg: 4*n(ajax)  // sm : 2*n(ajax) ///// -->
 		
 		</div>
 	
