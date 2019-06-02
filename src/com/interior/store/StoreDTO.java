@@ -1,5 +1,7 @@
 package com.interior.store;
 
+import com.interior.upload.UploadDTO;
+
 public class StoreDTO {
 	
 	private int num;
@@ -16,6 +18,7 @@ public class StoreDTO {
 	private int ranking;
 	private int hit;
 	private int scrap;
+	private UploadDTO uploadDTO;
 	public int getNum() {
 		return num;
 	}
@@ -99,5 +102,11 @@ public class StoreDTO {
 	}
 	public void setScrap(int scrap) {
 		this.scrap = scrap;
+	}
+	public UploadDTO getUploadDTO() {
+		return uploadDTO;
+	}
+	public void setUploadDTO(UploadDTO uploadDTO) {
+		this.uploadDTO = uploadDTO;
 	}
 }
