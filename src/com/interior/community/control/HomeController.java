@@ -9,24 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.interior.community.action.Action;
-import com.interior.community.action.ActionForward;
-import com.interior.community.upload.UploadService;
-
 /**
- * Servlet implementation class UploadController
+ * Servlet implementation class HomeController
  */
-@WebServlet("/UploadController")
-public class UploadController extends HttpServlet {
+@WebServlet("/HomeController")
+public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UploadService uploadService;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UploadController() {
+    public HomeController() {
         super();
-        uploadService = new UploadService();
         // TODO Auto-generated constructor stub
     }
 
@@ -34,25 +28,8 @@ public class UploadController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String command = request.getPathInfo();
-		ActionForward actionForward = null;
-		
-		if(command.equals("fileDelete")) {
-			actionForward = uploadService.delete(request, response);
-		}
-		else if(command.equals("fileUpload")) {
-			actionForward = uploadService.insert(request, response);
-		}
-		else if(command.equals("fileUpdate")) {
-			actionForward = uploadService.update(request, response);
-		}
-		if(actionForward.isCheck()) {
-			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
-			view.forward(request, response);
-		}
-		else {
-			response.sendRedirect(actionForward.getPath());
-		}
+		RequestDispatcher view = request.getRequestDispatcher("./WEB-INF/views/index.jsp");
+		view.forward(request, response);
 	}
 
 	/**

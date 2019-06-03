@@ -4,7 +4,8 @@ import java.sql.Connection;
 
 public class QnaDAO {
 
-	//insert
+	//insert(QnaDTO qnaDTO, Connection con): int
+
 	public int insert(QnaDTO qnaDTO, Connection con) throws Exception {
 		int result = 0;
 		
@@ -12,20 +13,24 @@ public class QnaDAO {
 	}
 	
 	
-	//update
+	//update(QnaDTO qnaDTO, Connection con): int
+
 	
 	
-	//delete
+	//delete (int num, Connection con) : int
+
 	
 	
-	//selectList
+	//selectList(SearchRow searchRow, Connection con) : List<QnaDTO>
+
 	
 	
-	//selectOne
+	//selectOne(int num. Connection con) : QnaDTO
+
 	
+	//getNum() : int
+
 	
-	//getNum
-	
-	
-	//getTotalCount
+	//getTotalCount(SearchRow searchRow, Connection con) : int
+
 }

@@ -1,6 +1,8 @@
 package com.interior.community.control;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +48,15 @@ public class QnaController extends HttpServlet {
 		else if(command.equals("/qnaUpdate")) {
 			actionForward = qnaService.update(request, response);
 		}
+		request.setAttribute("board", "qna");
 		
+		if(actionForward.isCheck()) {
+			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
+			view.forward(request, response);
+		}
+		else {
+			response.sendRedirect(actionForward.getPath());
+		}
 		
 		
 	}

@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>QnA 쓰기</title>
 </head>
 <body>
 
-<h1>index page</h1>
 </body>
 </html>
