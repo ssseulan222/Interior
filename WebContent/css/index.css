@@ -1,0 +1,7 @@
+@charset "UTF-8";
+.row {
+	width: 1000px;
+	height: 500px;
+	margin-left:100px;
+	border: 1px solid red;
+}

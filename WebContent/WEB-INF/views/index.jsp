@@ -16,12 +16,24 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="../css/home.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/index.css">
 
 </head>
 <body>
 
+	<!-- 메인 이미지 -->
 	<h1>index page</h1>
-	<div class="row">abc</div>
+	<div class="row">
+	    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/img/none.jpeg" target="_blank">
+          <img src="/img/none.jpeg" alt="Lights" style="width:100%">
+          <div class="caption">
+          </div>
+        </a>
+      </div>
+    </div>
+	</div>
+	
 </body>
 </html>

@@ -6,11 +6,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>집들이 카테고리</title>
+<title>집들이 메인</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/homepartyMain.css">
+
 <c:import url="../temp/bootstrap.jsp" />
 </head>
 <body>
 	<!-- ------------- 커뮤니티-집들이-상단 카테고리--------------- -->
+	<!-- ------------- container start ----------------------->
 
 	<div class="container">
       <button type="button" class="dropdown-toggle" data-toggle="dropdown">
@@ -129,6 +141,49 @@
       
       </ul>
        
+		<!-- ------------- 커뮤니티-집들이-상단 카테고리--------------- -->
 	</div> <!-- end container -->
+	
+	
+	<div class="container">
+  <p>전체 9,999</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/img/none.jpeg" target="_blank">
+          <img src="/img/none.jpeg" alt="Lights" style="width:100%">
+          <div class="caption">
+            <p>업사이클을 활용한 옥탑방 인테리어</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/img/none.jpeg" target="_blank">
+          <img src="/img/none.jpeg" alt="Nature" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/img/none.jpeg" target="_blank">
+          <img src="/img/none.jpeg" alt="Fjords" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+	</div>	
+	</div>
+	</div>
+	
+	
+	
+	
+	
 </body>
 </html>
