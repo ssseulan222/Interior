@@ -18,24 +18,30 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/homepartyMain.css">
 
-<c:import url="../temp/bootstrap.jsp" />
 </head>
 <body>
 	<!-- ------------- 커뮤니티-집들이-상단 카테고리--------------- -->
 	<!-- ------------- container start ----------------------->
 
-	<div class="container">
-      <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-      	정렬 <span class="caret"></span></button>
+	<div id="container">
+	 <div class="btn-group">
+    <button type="button" class="btn btn-primary">정렬</button>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
       <ul class="dropdown-menu" role="menu">
         <li><a href="#">최신순</a></li>
         <li><a href="#">최근 인기순</a></li>
         <li><a href="#">역대 인기순</a></li>
         <li><a href="#">과거순</a></li>
       </ul>
+		</div>
       
-      <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-      	주거형태 <span class="caret"></span></button>
+	 <div class="btn-group">
+    <button type="button" class="btn btn-primary">주거형태</button>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
       <ul class="dropdown-menu" role="menu">
         <li><a href="#">원룸&amp;오피스텔</a></li>
         <li><a href="#">아파트</a></li>
@@ -44,38 +50,52 @@
         <li><a href="#">사무공간</a></li>
         <li><a href="#">상업공간</a></li>
         <li><a href="#">기타</a></li>
-      </ul>     
+      </ul>    
+      </div> 
 
-      <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-      	평수 <span class="caret"></span></button>
+	 <div class="btn-group">
+    <button type="button" class="btn btn-primary">평수</button>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
       <ul class="dropdown-menu" role="menu">
-        <li><button>1-9평</button></li>
-        <li><button>10평대</button></li>
-        <li><button>20평대</button></li>
-        <li><button>30평대</button></li>
-        <li><button>40평대</button></li>
-        <li><button>50평대</button></li>
-        <li><button>60평대</button></li>
-        <li><button>70평 이상</button></li>
+        <li><button>1-9평</button>
+        	<button>10평대</button>
+        	<button>20평대</button>
+        	<button>30평대</button>
+        	<button>40평대</button>
+        	<button>50평대</button>
+        	<button>60평대</button>
+        	<button>70평 이상</button>
+        </li>
       </ul>
+      </div>
  
-       <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-      	예산 <span class="caret"></span></button>
+	 <div class="btn-group">
+    <button type="button" class="btn btn-primary">예산</button>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
       <ul class="dropdown-menu" role="menu">
-        <li><button>1백만원 미만</button></li>
-        <li><button>1백만원대</button></li>
-        <li><button>2백만원대</button></li>
-        <li><button>3백만원대</button></li>
-        <li><button>4백만원대</button></li>
-        <li><button>5백만원대</button></li>
-        <li><button>1천만원대</button></li>
-        <li><button>2천만원대</button></li>
-        <li><button>3천만원대</button></li>
-        <li><button>4천만원+</button></li>
+        <li><button>1백만원 미만</button>
+        <button>1백만원대</button>
+        <button>2백만원대</button>
+        <button>3백만원대</button>
+        <button>4백만원대</button>
+        <button>5백만원대</button>
+        <button>1천만원대</button>
+        <button>2천만원대</button>
+        <button>3천만원대</button>
+        <button>4천만원+</button>
+        </li>
       </ul>
+      </div>
        
-      <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-      	가족형태 <span class="caret"></span></button>
+	 <div class="btn-group">
+    <button type="button" class="btn btn-primary">가족형태</button>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
       <ul class="dropdown-menu" role="menu">
         <li><a href="#">싱글라이프</a></li>
         <li><a href="#">신혼 부부</a></li>
@@ -83,7 +103,9 @@
         <li><a href="#">취학 자녀가 있는 집</a></li>
         <li><a href="#">부모님과 함께 사는 집</a></li>
         <li><a href="#">기타</a></li>
-      </ul>        
+      </ul>       
+      </div> 
+      
        
       <button type="button" class="dropdown-toggle" data-toggle="dropdown">
       	스타일 <span class="caret"></span></button>
@@ -144,6 +166,7 @@
 		<!-- ------------- 커뮤니티-집들이-상단 카테고리--------------- -->
 	</div> <!-- end container -->
 	
+	<!-- 
 	
 	<div class="container">
   <p>전체 9,999</p>
@@ -151,7 +174,7 @@
     <div class="col-md-4">
       <div class="thumbnail">
         <a href="/img/none.jpeg" target="_blank">
-          <img src="/img/none.jpeg" alt="Lights" style="width:100%">
+          <img src="../img/none.jpeg" alt="Lights" style="width:100%">
           <div class="caption">
             <p>업사이클을 활용한 옥탑방 인테리어</p>
           </div>
@@ -161,7 +184,7 @@
     <div class="col-md-4">
       <div class="thumbnail">
         <a href="/img/none.jpeg" target="_blank">
-          <img src="/img/none.jpeg" alt="Nature" style="width:100%">
+          <img src="../img/none.jpeg" alt="Nature" style="width:100%">
           <div class="caption">
             <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
           </div>
@@ -171,7 +194,7 @@
     <div class="col-md-4">
       <div class="thumbnail">
         <a href="/img/none.jpeg" target="_blank">
-          <img src="/img/none.jpeg" alt="Fjords" style="width:100%">
+          <img src="../img/none.jpeg" alt="Fjords" style="width:100%">
           <div class="caption">
             <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
           </div>
@@ -180,7 +203,7 @@
 	</div>	
 	</div>
 	</div>
-	
+	 -->
 	
 	
 	

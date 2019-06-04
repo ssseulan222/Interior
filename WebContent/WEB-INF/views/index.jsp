@@ -20,20 +20,29 @@
 
 </head>
 <body>
-
-	<!-- 메인 이미지 -->
 	<h1>index page</h1>
-	<div class="row">
-	    <div class="col-md-4">
-      <div class="thumbnail">
-        <a href="/img/none.jpeg" target="_blank">
-          <img src="/img/none.jpeg" alt="Lights" style="width:100%">
-          <div class="caption">
-          </div>
-        </a>
-      </div>
-    </div>
+	<div class="container">
+	
+	<!-- 메인 이미지 -->
+	<div class="main_image">
+		<!-- 슬라이드 이미지 -->
+	    <div class="slide_image">
+	    
+	    </div>
+	</div>
+	<div class=>
+		<a href="">
+			<img alt="" src="/img/a1.jpg">
+		</a>
 	</div>
 	
+	
+	
+	
+	
+	
+	</div> <!-- end container -->
+    
+    
 </body>
 </html>

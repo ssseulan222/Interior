@@ -31,4 +31,48 @@
     line-height: 50px;
     padding: 0 10px;
 }
+#image_upload{
+	width: 800px;
+	height: 330px;
+	border : 1px solid red;
+	margin : 0 auto;
+}
+#title_write {
+	padding-top: 30px;
+}
+.form_group {
+	width: 800px;
+	height: 1200px;
+	border : 1px solid red;
+	margin : 0 auto;
+}
+#form_image {
+	clear: both;
+    margin: 0 0 30px;
+    padding: 20px 10px;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+#information > .information_header {
+	margin-bottom: 20px;
+    font-size: 16px;
+}
+#information > .field {
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+#sel1 {
+	width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
