@@ -11,14 +11,17 @@ public class StoreDTO {
 	private int saleRate;
 	private int salePrice;
 	private String category;
+	private int stock;
 	private String seller;
 	private int delivery;
+	
+	// ????? //////////
 	private int grade;
 	private int count;
 	private int ranking;
 	private int hit;
 	private int scrap;
-	private UploadDTO uploadDTO;
+	//private UploadDTO uploadDTO;
 	public int getNum() {
 		return num;
 	}
@@ -103,10 +106,18 @@ public class StoreDTO {
 	public void setScrap(int scrap) {
 		this.scrap = scrap;
 	}
+	/*
 	public UploadDTO getUploadDTO() {
 		return uploadDTO;
 	}
 	public void setUploadDTO(UploadDTO uploadDTO) {
 		this.uploadDTO = uploadDTO;
+	}
+	*/
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 }

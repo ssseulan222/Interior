@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+ul{
+	margin: 0px;
+	padding: 0px;
+}
+li{
+	text-decoration: none;
+	list-style: none;
+	cursor: pointer;
+}
+
+h3, h4{
+	font-weight: 700;
+}
+
+.cat{
+	display: inline-block;
+	border: 1px solid blue;
+	width: 180px;
+	vertical-align: top;
+	height: 300px;
+}
+
+td{
+	padding:10px;
+	vertical-align: top;
+}
+td:first-child {
+	width: 25%;
+	font-weight: 700;
+}
+
+.header{
+	height: 130px;
+	border-bottom: 1px solid lightgray;
+}
+.arrow{
+	height:300px;
+	vertical-align: middle;
+	display: inline-block;
+	margin: auto;
+}
+input[readonly]{
+	background-color: gray;
+}

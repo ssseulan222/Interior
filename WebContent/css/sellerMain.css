@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.header{
+	height: 130px;
+	border-bottom: 1px solid lightgray;
+	margin-bottom: 20px;
+}
+
+.sellerNav{
+	width: 20%;
+	height: 50px;
+	border: 1px solid blue;
+}

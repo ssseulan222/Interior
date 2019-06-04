@@ -1,8 +1,8 @@
-package com.interior.store.seller;
+package com.interior.seller;
 
 public class SellerDTO {
 
-	private int companyName;
+	private String companyName;
 	private String companyNum;
 	private String homepage;
 	private String marketerName;
@@ -12,10 +12,11 @@ public class SellerDTO {
 	private String category;
 	private String info;
 	private String openMarket;
-	public int getCompanyName() {
+	
+	public String getCompanyName() {
 		return companyName;
 	}
-	public void setCompanyName(int companyName) {
+	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
 	public String getCompanyNum() {
