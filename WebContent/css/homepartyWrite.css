@@ -32,26 +32,3 @@
     padding: 0 10px;
 }
 
-/* #header_top>.header_align>.title>.title_icon_left{
-	background-position: left -141px top -180px;
-}
-#header_top>.header_align>.title>.title_icon{
-	width: 40px;
-    height: 40px;
-    color: #ffffff;
-    cursor: pointer;
-    text-align: center;
-    line-height: 40px;
-    margin: 5px;
-    float: left;
-    background-image: url(/img/upload_icon_map.png);
-    background-repeat: no-repeat;
-    background-size: 341px;
-} */
-#image_upload{
-	width: 670px;
-	height : 330px;
-    margin: 0 auto 180px;
-    border : 1px solid red;
-    
-}

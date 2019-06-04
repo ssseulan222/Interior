@@ -22,8 +22,8 @@
 	
 		<div class="header">
 			<a href="">
-			<img class="header_img" alt="" src="/img/common-logo.png">
-			</a>
+<!-- 			<img class="header_img" alt="" src="/img/common-logo.png">
+ -->			</a>
 		</div>
 		
 		<div class="header_align">
@@ -58,8 +58,8 @@
 			"/30"
 		</div>
 		<div class="writer_image">
-			<img alt="" src="/img/m1.png">
-			<div class="nickname"></div>
+<!-- 			<img alt="" src="/img/m1.png">
+ -->			<div class="nickname"></div>
 		</div>
 	</div> <!-- end title -->
 	
