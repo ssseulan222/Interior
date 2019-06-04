@@ -73,7 +73,7 @@
 						<td class="input">
 							<table id="selCat">
 								<tr>
-									<td><input type="checkbox" id="1" value="1" name="cat" class="check">여름/인테리어</td>
+									<td><input type="checkbox" id="1" value="여름/인테리어" name="cat" class="check">여름/인테리어</td>
 									<td><input type="checkbox" id="2" value="2" name="cat" class="check">가구</td>
 									<td><input type="checkbox" id="3" value="3" name="cat" class="check">패브릭</td>
 									<td><input type="checkbox" id="4" value="4" name="cat" class="check">홈데코/조명</td>
@@ -92,7 +92,7 @@
 								</tr>
 							</table>
 							<div id="categoryDiv">
-							선택된 카테고리 : <input type="text" name="category" class="nec3" required="required" readonly="readonly">
+							선택된 카테고리 : <input type="text" id="category" name="category" class="nec3" required="required" readonly="readonly">
 							</div>
 						</td>
 					</tr>

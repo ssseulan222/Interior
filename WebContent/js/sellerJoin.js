@@ -25,9 +25,14 @@ $(function() {
 
 	//var cat=document.getElementsByName('cat');
 	$('.check').click(function() {
-		$(this).each(function() {			
-			
-		});
-	})
+		var cat = "";
+		$('.check').each(function() {
+			if($(this).prop("checked") == true){
+				cat += $(this).val() + " ";
+				$('#category').val(cat);				
+			}
+		})
+	});
+	
 
 });
