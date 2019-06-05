@@ -34,8 +34,18 @@ public class QnaController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String command = request.getPathInfo();
-		ActionForward actionForward = null;
+		ActionForward actionForward = new ActionForward();
 		
+		if(command.equals("/qnaMain")) {
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/views/qna/qnaMain.jsp");
+		}
+		else if(command.equals("/qnaWrite")) {
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/views/qna/qnaWrite.jsp");
+		}
+		/*
+		ActionForward actionForward = null;
 		if(command.equals("/qnaList")) {
 			actionForward = qnaService.list(request, response);
 		}
@@ -49,7 +59,7 @@ public class QnaController extends HttpServlet {
 			actionForward = qnaService.update(request, response);
 		}
 		request.setAttribute("board", "qna");
-		
+		*/
 		if(actionForward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
 			view.forward(request, response);

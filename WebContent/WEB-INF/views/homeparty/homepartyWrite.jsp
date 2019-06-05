@@ -48,16 +48,21 @@
 	<div id="title_write">
 		<form action="/action_page.php">
 			<div class="form_group">
-				<label for="title_name">온라인 집들이</label> <input type="text"
-					class="form-control" placeholder="제목을 입력해주세요." name="title_name">
-				<br>
+			
+				<label for="title_name">온라인 집들이</label> 
+				<input type="text" class="form-control" placeholder="제목을 입력해주세요." name="title_name">
+				<br><br>
+				
 				<div id="form_image">
-					<img alt="" src="../img/320.png">nickName
+					<img alt="" src="../img/320.png">&nbsp;&nbsp;nickName
 				</div>
+				
 				<div id="information">
 					<p class="information_header">정보를 많이 입력해 주실수록 검색 결과에 많이 노출되어 조회수가 올라갑니다.</p>
 					<div class="field">
-						<div class="place">공간*
+						<div class="form-group">
+						
+						<div class="place">공간*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<select id="sel1">
 								<option>원룸&amp;오피스텔</option>
 								<option>아파트</option>
@@ -67,15 +72,22 @@
 								<option>상업공간</option>
 								<option>기타</option>
 							</select>
-							<div class="place">평수*
+							</div>
+							<br><br>
+							
+							<div class="place">평수*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="text" id="sel1">
 							</div>
-							<div class="work">작업*
+							<br><br>
+							
+							<div class="work">작업*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="radio" name="gener">셀프 • DIY&nbsp;&nbsp;&nbsp;&nbsp;  
 								<input type="radio" name="gener">반셀프&nbsp;&nbsp;&nbsp;&nbsp;   
 								<input type="radio" name="gener">전문가
 							</div>
-							<div class="bun">분야*
+							<br><br>
+							
+							<div class="bun">분야*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<select>
 									<option>리모델링</option>
 									<option>홈스타일링</option>
@@ -83,6 +95,8 @@
 									<option>건축</option>
 								</select>
 							</div>
+							<br><br>
+							
 							<div class="family">가족형태*
 								<select>
 									<option>선택해주세요.</option>
@@ -94,7 +108,9 @@
 									<option>기타</option>
 								</select>
 							</div>
-								<div class="style">스타일
+							<br><br>
+							
+								<div class="style">스타일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<select>
 									<option>선택해주세요.</option>
 									<option>모던</option>
@@ -110,24 +126,33 @@
 									<option>유니크&amp;믹스매치</option>
 								</select>
 							</div>
-							<div class="day">기간
+							<br><br>
+							
+							<div class="day">기간&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="text" id="sel2">
 								<input type="radio">주&nbsp;&nbsp;&nbsp;&nbsp;  
 								<input type="radio">개월&nbsp;&nbsp;&nbsp;&nbsp;   
 							</div>
-							<div class="day">예산
+							<br><br>
+							
+							<div class="day">예산&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="text" id="sel3">
 							</div>
+							<br><br>
 							<div class="total_color">전체 톤
 
 							</div>
+							<br><br>
 							<div class="wall_color">벽 컬러
 							
 							</div>
+							<br><br>
 							<div class="floor_color">바닥 컬러
 							
 							</div>
-							<div class="style">세부공사
+							<br><br>
+							
+							<div class="style">세부공사&nbsp;&nbsp;
 								<select>
 									<option>선택해주세요.</option>
 									<option>헤링본 마루</option>
@@ -145,11 +170,15 @@
 									<option>발코니확장</option>
 								</select>
 							</div>
-							<div class="link">링크
+							<br><br>
+							
+							<div class="link">링크&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="text" id="sel4" placeholder="버튼 클릭 이동URL">
 								<input type="text" id="sel5" placeholder="하단 버튼명">
 							</div>
-							<div class="location">지역
+							<br><br>
+							
+							<div class="location">지역&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<select class="first_select">
 									<option value="">시/도 선택</option>
 									<option value="0">서울특별시</option>
@@ -198,9 +227,13 @@
 									<option value="25">중랑구</option>
 								</select>
 							</div>
-							<div class="c">(C)
+							<br><br>
+							
+							<div class="c">(C)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="text" id="sel6" placeholder="사진 저작자를 밝혀주세요.">
 							</div>
+							<br><br>
+							
 							<div id="bottom">
 								<div>1. 사진은 설명과 함께 최소 10장 이상 올려주세요.</div>
 						        <div>2. 소개해주시는 공간에 대한 충분한 설명(스토리텔링)을 남겨주세요.</div>
@@ -208,8 +241,7 @@
 						        <div>4. 업로드 후에 일부 사진이 나오지 않는다면, 사진을 삭제한 후 다시 올려주세요.</div>
 						        <div>5. 작성 중에는 임시저장(비공개 등록), 완료 후에는 발행신청을 눌러주세요. 게시글 확인 후 스케줄에 맞춰 오픈됩니다.</div>
 						        <div>6. 게시글 오픈 전/후, 수정이 필요하실때는 [마이홈]-[나의스토리]에서 작성 게시글을 확인하실 수 있습니다</div>
-								
-							</div>
+								</div>
 						</div>
 					</div>
 				</div>

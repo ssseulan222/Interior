@@ -41,9 +41,9 @@ public class HomepartyController extends HttpServlet {
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/views/homeparty/homepartyWrite.jsp");
 		}
-		else if(command.equals("/homepartyMain")) {
+		else if(command.equals("/homeparty")) {
 			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/views/homeparty/homepartyMain.jsp");
+			actionForward.setPath("../WEB-INF/views/homeparty/homeparty.jsp");
 			
 		}
 		if(actionForward.isCheck()) {
