@@ -23,22 +23,78 @@ public class SellerService implements Action{
 		sellerDAO = new SellerDAO();
 	}
 	
+	public ActionForward login(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward=new ActionForward();
+		SellerDTO sellerDTO = null;
+		Connection con = null;
+		
+		String method=request.getMethod();
+		String addr=request.getPathInfo();		
+		
+		int res=0;
+		String msg="";
+		String path="";
+		boolean check=true;
+
+		if(method.equals("GET")&&addr.equals("/sellerLogin")){ 				//판매자 로그인 창
+			path="../WEB-INF/views/seller/sellerLogin.jsp";
+			check=true;
+		
+			
+		} else if(method.equals("GET") && addr.equals("/findPw")) {			// 비밀번호 찾기 창
+			path="../WEB-INF/views/seller/findPw.jsp";
+			check=true;
+			
+			
+		} else if(method.equals("POST") && addr.equals("/sellerLogin")) {	// 로그인 버튼
+			try {
+				con=DBConnect.getConnect();
+				String id=request.getParameter("id");
+				String pw=request.getParameter("pw");
+				sellerDTO = sellerDAO.login(id, pw, con);
+				if(sellerDTO == null) {										// 아이디, 비밀번호가 틀렸을 
+					request.setAttribute("msg", "잘못된 아이디입니다.");
+					request.setAttribute("path", "./sellerLogin");
+					check=true;
+					path="../WEB-INF/views/result/result.jsp";
+				} else {
+					
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			
+		} else if(method.equals("POST") && addr.equals("/findPw"))	{		// 비밀번호 찾기 버튼
+			
+			
+		}
+		
+		actionForward.setPath(path);
+		actionForward.setCheck(check);
+		return actionForward;
+	}
+	
 	@Override
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
 		SellerDTO sellerDTO = null;
-		int res=0;
 		Connection con = null;
 		
+		String method=request.getMethod();
+		String addr=request.getPathInfo();
+
+		int res=0;
 		String path="";
 		boolean check=true;
-		String method=request.getMethod();
-		System.out.println(method);
 		
-		if(method.equals("GET")) {	//판매자 회원가입 폼으로 이동
+		
+		if(method.equals("GET")&&addr.equals("/sellerJoin")) {				//판매자 회원가입 창
 			path="../WEB-INF/views/seller/sellerJoin.jsp";
 			check=true;
-		} else {	// 판매자 신청 완료
+		
+			
+		} else if(method.equals("POST") && addr.equals("/sellerJoin")) {	// 판매자 신청 버튼
 			try {
 				con=DBConnect.getConnect();
 				sellerDTO = new SellerDTO();
@@ -49,7 +105,8 @@ public class SellerService implements Action{
 				e.printStackTrace();
 			}
 			
-		}
+			
+		} 
 		
 		
 		actionForward.setPath(path);

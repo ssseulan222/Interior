@@ -6,148 +6,190 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/sellerJoin.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/sellerJoin.css">
 <script src="<%=request.getContextPath()%>/js/sellerJoin.js"></script>
 <title>판매자 회원가입</title>
+
 </head>
 <body>
-	<div class="joinForm">
-		<div id="title">
-			<h4>스토어 관리센터</h4>
-			<h1>입점신청</h1>
+	<div class="sellerJoinFormDiv">
+		<div id="topDiv">
+			<h4 id="top1" class="topInfo">스토어 관리센터</h4>
+			<h1 id="top2" class="topInfo">회원가입</h1>		
 		</div>
+		
 		<hr>
-		<div>
-			<form action="/sellerJoin" method="post">
-			<div>
-				<h3>회사정보</h3>
-				<table>
-
-					<tr>
-						<td class="title">회사이름 <a class="nec">*</a></td>
-						<td class="input"><input type="text" name="companyName" placeholder="오늘의 집" class="nec3" required="required"></td>
-					</tr>
-					<tr>
-						<td class="title">사업자등록번호 <a class="nec">*</a></td>
-						<td class="input"><input type="number" name="companyNum" placeholder="-빼고 숫자만 입력해주세요" class="nec3" required="required"></td>
-					</tr>
-					<tr>
-						<td class="title">홈페이지</td>
-						<td class="input"><input type="text" name="homepage" placeholder="www.ohou.se"></td>
-					</tr>
-					</tbody>
-				</table>
+		
+		<form class="form-horizontal">
+		
+			<div class="session">
+				<div class="mid-titleDiv">
+					<p class="mid-title">회원정보</p>
+				</div>
+	
+				<div class="form-group">
+			      	<label for="id" class="col-sm-3">아이디<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="text" id="id" name="id" class="form-control" placeholder="6자 이상, 대소문자·숫자">
+				    </div>
+			    </div>	
+			    
+			    <div class="form-group">
+			      	<label for="pw" class="col-sm-3">비밀번호<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="password" class="form-control" placeholder="8자 이상, 대소문자·숫자·특수문자">
+				    </div>
+			    </div>
+			    
+			      <div class="form-group">
+			      	<label for="pw" class="col-sm-3">비밀번호 재확인<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="password" id="pw" name="pw" class="form-control" placeholder="비밀번호 다시 입력">
+				    </div>
+			    </div>
 			</div>
+			
 			<hr>
-			<div>
-				<h3>영업담당자 정보</h3>
-				<table class="input">
-
-					<tr>
-						<td class="title">이름 <a class="nec">*</a></td>
-						<td class="input"><input type="text" name="marketerName" placeholder="집냥이" class="nec3" required="required"></td>
-					</tr>
-					<tr>
-						<td class="title">전화번호 <a class="nec">*</a></td>
-						<td class="input"><input type="number" name="phone" placeholder="-빼고 숫자만 입력해주세요" class="nec3" required="required"></td>
-					</tr>
-					<tr>
-						<td class="title">이메일 <a class="nec">*</a></td>
-						<td class="input"><input type="email" name="email" placeholder="zipnyang.ohou.se" class="nec3" required="required"></td>
-					</tr>
-					</tbody>
-				</table>
+			
+			<div class="session">
+				<div class="mid-titleDiv">
+					<p class="mid-title">회사정보</p>
+				</div>
+	
+				<div class="form-group">
+			      	<label for="companyName" class="col-sm-3">회사이름<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="text" id="companyName" name="companyName" class="form-control">
+				    </div>
+			    </div>	
+			    
+			    <div class="form-group">
+			      	<label for="companyNum" class="col-sm-3">사업자등록번호<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="number" id="companyNum" name="companyNum" class="form-control">
+				    </div>
+			    </div>
+			    <div class="form-group">
+			      	<label for="homepage" class="col-sm-3">홈페이지</label>
+					<div class="col-sm-9">
+						<input type="text" id="homepage" name="homepage" class="form-control">
+				    </div>
+			    </div>
 			</div>
+			
 			<hr>
-			<div>
-				<h3>상품정보</h3>
-				<table class="input">
-
-					<tr>
-						<td class="title">대표브랜드 이름 <a class="nec">*</a></td>
-						<td class="input"><input type="text" name="brandName" placeholder="이케아" class="nec3" required="required"></td>
-					</tr>
-					<tr>
-						<td class="title">취급 카테고리 <a class="nec">*</a></td>
-						<td class="input">
-							<table id="selCat">
-								<tr>
-									<td><input type="checkbox" id="1" value="여름/인테리어" name="cat" class="check">여름/인테리어</td>
-									<td><input type="checkbox" id="2" value="2" name="cat" class="check">가구</td>
-									<td><input type="checkbox" id="3" value="3" name="cat" class="check">패브릭</td>
-									<td><input type="checkbox" id="4" value="4" name="cat" class="check">홈데코/조명</td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="5" value="5" name="cat" class="check">가전</td>
-									<td><input type="checkbox" id="6" value="6" name="cat" class="check">수납/생활</td>
-									<td><input type="checkbox" id="7" value="7" name="cat" class="check">주방</td>
-									<td><input type="checkbox" id="8" value="8" name="cat" class="check">DIY셀프시공</td>
-								</tr>
-								<tr>
-									<td><input type="checkbox" id="9" value="9" name="cat" class="check">시공/서비스</td>
-									<td><input type="checkbox" id="10" value="10" name="cat" class="check">반려동물</td>
-									<td><input type="checkbox" id="11" value="11" name="cat" class="check">건자재</td>
-									<td><input type="checkbox" id="12" name="cat" class="check">전체선택/해제</td>
-								</tr>
-							</table>
-							<div id="categoryDiv">
-							선택된 카테고리 : <input type="text" id="category" name="category" class="nec3" required="required" readonly="readonly">
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="title">상품소개 <a class="nec">*</a></td>
-						<td class="input"><textarea name="info" rows="5" cols="" class="nec3" required="required"></textarea></td>
-					</tr>
-					<tr>
-						<td class="title">타입점쇼핑몰 <a class="nec">*</a></td>
-						<td class="input"><input type="text" name="openMarket" placeholder="ex)11번가, 쿠팡" class="nec3" required="required"></td>
-					</tr>
-					<tr>
-						<td class="title">판매 관련 첨부 파일</td>
-						<td class="input"><input type="file"></td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td class="input"><p>※ 참고할 수 있는 파일을 10MB 용량 이하의 이미지, ZIP, PDF 등의 파일 형태로
-							첨부해주세요.<br /> 첨부파일 관련 URL주소가 있다면 상품 소개 입력창에 남겨주세요.</p>
-						</td>
-					</tr>
-					</tbody>
-				</table>
+			
+			<div class="session">
+				<div class="mid-titleDiv">
+					<p class="mid-title">영업담당자 정보</p>
+				</div>
+	
+				<div class="form-group">
+			      	<label for="marketerName" class="col-sm-3">이름<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="text" id="marketerName" name="marketerName" class="form-control">
+				    </div>
+			    </div>	
+			    
+			    <div class="form-group">
+			      	<label for="phone" class="col-sm-3">전화번호<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="number" id="phone" name="phone" class="form-control">
+				    </div>
+			    </div>
+			    <div class="form-group">
+			      	<label for="email" class="col-sm-3">이메일<a class="nec">*</a></label>
+					<div class="col-sm-9">
+						<input type="text" id="email" name="email" class="form-control">
+				    </div>
+			    </div>
 			</div>
+			
 			<hr>
-			<div>
-				<h3>개인정보 수집 및 이용 동의</h3>
-				<p>개인정보보호법, 정보통신망 이용촉진 및 정보보호 등에 관한 법률 등 관련 법령상의 개인정보보호 규정을
-					준수하며, 판매자님이 입점신청 시 필요한 최소한의 개인 정보를 수집합니다.</p>
+			
+			<div class="session">
+				<div class="mid-titleDiv">
+					<p class="mid-title">상품 정보</p>
+				</div>
+	
+				<div class="form-group">
+			      	<label for="brandName" class="col-sm-3">대표브랜드 이름<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="text" id="brandName" name="brandName" class="form-control">
+				    </div>
+			    </div>	
+			    
+			    <div class="form-group">
+			      	<label for="catSelect" class="col-sm-3">취급 카테고리</label>
+					<div class="col-sm-9">
+						
+				    </div>
+			    </div>
+			    
+			    <div class="form-group">
+			      	<label for="category" class="col-sm-3">선택된 카테고리<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="text" id="category" name="category" class="form-control">
+				    </div>
+			    </div>
+			    
+			    <div class="form-group">
+			      	<label for="info" class="col-sm-3">상품소개<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<textarea  id="info" name="info" class="form-control" rows="5"></textarea>
+				    </div>
+			    </div>
+			    <div class="form-group">
+			      	<label for="openMarket" class="col-sm-3">타입점 쇼핑몰</label>
+					<div class="col-sm-9">
+						<input type="text" id="openMarket" name="openMarket" class="form-control">
+				    </div>
+			    </div>
+			    <div class="form-group">
+			      	<label for="file" class="col-sm-3">첨부 파일</label>
+					<div class="col-sm-9">
+						<input type="file" id="file" name="file">
+				    </div>
+			    </div>
+			</div>
+			
+			<hr>
+			
+			<div class="session">
+				<div >
+					<p class="mid-title">개인정보 수집 및 이용 동의</p>
+					<p class="policy">개인정보보호법, 정보통신망 이용촉진 및 정보보호 등에 관한 법률 등 관련 법령상의 개인정보보호 규정을
+						준수하며, 판매자님이 입점신청 시 필요한 최소한의 개인 정보를 수집합니다.</p>
+				</div>
 				<div>
-					<table id="alert">
+					<table class="policyInfo">
 
 						<tr>
-							<td>목적</td>
-							<td>항목</td>
-							<td>보유기간</td>
+							<td class="p1">목적</td>
+							<td class="p1">항목</td>
+							<td class="p1">보유기간</td>
 						</tr>
 						<tr>
-							<td>판매자 식별, 입점 검토, 공지사항의 전달</td>
-							<td>영업담당자의 이름/전화번호/이메일</td>
-							<td>입점 처리기간이 종료되는 시점</td>
+							<td class="p2">판매자 식별, 입점 검토, 공지사항의 전달</td>
+							<td class="p2">영업담당자의 이름/전화번호/이메일</td>
+							<td class="p2">입점 처리기간이 종료되는 시점</td>
 						</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="agree">
-					<input type="checkbox" id="agree" name="agree">
-					 <label>입점신청을 위한 개인정보 수집 및 이용에 동의 <a id="nec2">(필수)</a></label>
+					<input type="checkbox" id="agreeCh" name="agree">
+					 입점신청을 위한 개인정보 수집 및 이용에 동의<span class="required">*</span>
 				</div>
 			</div>
-			<div id="apply">
-				<input type="submit" value="신청완료">
+			
+			<div id="submitDiv">
+				<input type="button" value="신청완료" id="submitBtn">
 			</div>
-			</form>
-		</div>
+			
+		</form>
+
+    
 	</div>
 </body>
 </html>

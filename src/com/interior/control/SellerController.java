@@ -37,10 +37,14 @@ public class SellerController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command=request.getPathInfo();
 		ActionForward actionForward=null;
-	
+		
 		if(command.equals("/sellerJoin")) {
 			
 			actionForward=sellerService.insert(request, response);
+			
+		} else if(command.equals("/sellerLogin")||command.equals("/findPw")) {
+			
+			actionForward=sellerService.login(request, response);
 			
 		} else if(command.equals("/sellerMain")) {
 			

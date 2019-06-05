@@ -2,6 +2,8 @@ package com.interior.seller;
 
 public class SellerDTO {
 
+	private String id;
+	private String pw;
 	private String companyName;
 	private String companyNum;
 	private String homepage;
@@ -72,6 +74,18 @@ public class SellerDTO {
 	}
 	public void setOpenMarket(String openMarket) {
 		this.openMarket = openMarket;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 
 	

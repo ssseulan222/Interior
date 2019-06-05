@@ -22,16 +22,27 @@ $(function() {
 			$('.check').prop('checked', false);
 		}
 	});
+	
+	$('#submit').click(function() {
+		console.log("click");
+	});
 
-	//var cat=document.getElementsByName('cat');
 	$('.check').click(function() {
 		var cat = "";
 		$('.check').each(function() {
 			if($(this).prop("checked") == true){
 				cat += $(this).val() + " ";
-				$('#category').val(cat);				
 			}
-		})
+			$('#category').attr('value',cat);				
+		});
+	});
+	
+	$('#submit').click(function() {
+		if($('.nec3').val() == null){			
+				alert("모두 입력");
+			} else{
+				
+			}
 	});
 	
 
