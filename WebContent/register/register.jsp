@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<link href="../css/register.css?ver2" rel="stylesheet" type="text/css"/>
-<link href="../css/register2.css?ver2" rel="stylesheet" type="text/css"/>
-<script src="../js/register.js?ver2"></script>
-<script src="../js/register2.js?ver2"></script>
+<link href="../css/register.css?ver1" rel="stylesheet" type="text/css"/>
+<link href="../css/register2.css?ver1" rel="stylesheet" type="text/css"/>
+<script src="../js/register.js?ver1"></script>
+<script src="../js/register2.js?ver1"></script>
 </head>
 <body>
 	<div id="he">
@@ -285,19 +285,19 @@
 				<div id="freelancer">
 					<span>신분증을 첨부해주세요.</span><span class="necessary">필수</span><br>
 					<p>주민번호 뒷자리를 포스트잇이나 종이로 가린 뒤 사진으로 찍거나 스캔해서 첨부해주세요.</p>
-					<input type="file" id="upload"><br>
+					<input type="file" class="upload"><br>
 				</div>
 				<div id="individual">
 					<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
 					<input type="text">-<input type="text">-<input type="text"><br>
 					<span>사업자등록증을 첨부해주세요.</span><span class="necessary">필수</span><br>
-					<input type="file" id="upload">
+					<input type="file" class="upload">
 				</div>
 				<div id="corporation">
 					<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
 					<input type="text">-<input type="text">-<input type="text"><br>
 					<span>사업자등록증을 첨부해주세요.</span><span class="necessary">필수</span><br>
-					<input type="file" id="upload"><br>
+					<input type="file" class="upload"><br>
 					<span>전문건설업등록이 되어 있으신가요?</span><span class="necessary">필수</span><br>
 					<input type="checkbox" value="industry"> 네, 등록되어 있습니다.
 				</div>
@@ -307,7 +307,7 @@
 				<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
 					<input type="text">-<input type="text">-<input type="text"><br>
 					<span>사업자등록증을 첨부해주세요.</span><span class="necessary">필수</span><br>
-					<input type="file" id="upload"><br>
+					<input type="file" class="upload"><br>
 					<span>전문건설업등록이 되어 있으신가요?</span><span class="necessary">필수</span><br>
 					<input type="checkbox" value="industry"> 네, 등록되어 있습니다.
 				</div>
