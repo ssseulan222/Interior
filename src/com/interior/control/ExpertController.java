@@ -9,17 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.interior.action.ActionForward;
+import com.interior.expert.ExpertService;
+
 /**
  * Servlet implementation class MainController
  */
-@WebServlet("/MainController")
-public class MainController extends HttpServlet {
+@WebServlet("/ExpertController")
+public class ExpertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ExpertService expertService;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MainController() {
+    public ExpertController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,8 +32,19 @@ public class MainController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("./WEB-INF/view/Main.jsp");
-		view.forward(request, response);
+		String command = request.getPathInfo();
+		System.out.println(command);
+		ActionForward actionForward = null;
+		if(command.equals("/ExpertJoin")) {
+			actionForward = expertService.insert(request, response);
+		}
+		
+		if(actionForward.isCheck()) {
+			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
+			view.forward(request, response);
+		}else {
+			response.sendRedirect(actionForward.getPath());
+		}
 	}
 
 	/**
