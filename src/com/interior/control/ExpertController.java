@@ -32,11 +32,16 @@ public class ExpertController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String command = request.getPathInfo();
 		System.out.println(command);
 		ActionForward actionForward = null;
 		if(command.equals("/ExpertJoin")) {
 			actionForward = expertService.insert(request, response);
+		}else {
+			actionForward = new ActionForward();
+			actionForward.setCheck(true);
+			actionForward.setPath("../Main.do");
 		}
 		
 		if(actionForward.isCheck()) {

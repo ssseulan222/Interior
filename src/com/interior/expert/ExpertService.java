@@ -21,7 +21,7 @@ import com.interior.util.DBConnector;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import sun.security.mscapi.KeyStore.MY;
+
 
 public class ExpertService implements Action{
 	private ExpertDAO expertDAO;
@@ -91,10 +91,11 @@ public class ExpertService implements Action{
 		ActionForward actionForward = new ActionForward();
 
 		actionForward.setCheck(true);
-		actionForward.setPath("../WEB-INF/expert/view/ExpertJoin.jsp");
+		actionForward.setPath("../WEB-INF/view/expert/ExpertJoin.jsp");
 
 		String method = request.getMethod();
 		System.out.println(method);
+		
 		if(method.equals("POST")) {
 			String saveDirectory = request.getServletContext().getRealPath("upload");
 			File f = new File(saveDirectory);

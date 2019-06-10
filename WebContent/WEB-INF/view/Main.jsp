@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
 .body {
@@ -48,7 +48,7 @@
 }
 
 #banner>span {
-	font-family: ³ª´®°íµñ;
+	font-family: ë‚˜ëˆ”ê³ ë”•;
 	font-weight: bold;
 	font-size: 20px;
 }
@@ -79,50 +79,50 @@ border-radius: 20px;
 <body>
 	<div class="body">
 		<div id="banner">
-			<img alt="banner" src="../img/calculator.png"> <span id="text1">½Ã°øº°
-				ºñ¿ëÀÌ ±Ã±ÝÇÏ´Ù¸é? </span><span id="estimate">¿¹»ó°ßÀû</span>
+			<img alt="banner" src="../img/calculator.png"> <span id="text1">ì‹œê³µë³„
+				ë¹„ìš©ì´ ê¶ê¸ˆí•˜ë‹¤ë©´? </span><span id="estimate">ì˜ˆìƒê²¬ì </span>
 		</div>
 		<div id="tag">
-			<span>Àü¹®°¡ Ã£±â</span>
+			<span>ì „ë¬¸ê°€ ì°¾ê¸°</span>
 			<ul>
-				<li>Á¾ÇÕ</li>
-				<li>µµ¹è</li>
-				<li>ÀåÆÇ</li>
-				<li>¸¶·ç</li>
-				<li>ÁÖ¹æ</li>
-				<li>¸ñ°ø</li>
-				<li>¿å½Ç</li>
-				<li>Å¸ÀÏ</li>
-				<li>ÆäÀÎÆ®</li>
-				<li>½ÃÆ®ÇÊ¸§</li>
-				<li>µµ¾î</li>
-				<li>¼¦½Ã</li>
-				<li>ºí¶óÀÎµå</li>
-				<li>¼³ºñ</li>
-				<li>Á¶¸í</li>
+				<li>ì¢…í•©</li>
+				<li>ë„ë°°</li>
+				<li>ìž¥íŒ</li>
+				<li>ë§ˆë£¨</li>
+				<li>ì£¼ë°©</li>
+				<li>ëª©ê³µ</li>
+				<li>ìš•ì‹¤</li>
+				<li>íƒ€ì¼</li>
+				<li>íŽ˜ì¸íŠ¸</li>
+				<li>ì‹œíŠ¸í•„ë¦„</li>
+				<li>ë„ì–´</li>
+				<li>ìƒ·ì‹œ</li>
+				<li>ë¸”ë¼ì¸ë“œ</li>
+				<li>ì„¤ë¹„</li>
+				<li>ì¡°ëª…</li>
 			</ul>
 			<br>
 			<ul>
-				<li>Àü¹®µðÀÚÀÎ</li>
-				<li>¹æ»ê½ÃÀå</li>
-				<li>±âÅ¸</li>
+				<li>ì „ë¬¸ë””ìžì¸</li>
+				<li>ë°©ì‚°ì‹œìž¥</li>
+				<li>ê¸°íƒ€</li>
 			</ul>
 		</div>
 		<div id="recommend">
-			<span>ÃßÃµ ÀÎÅ×¸®¾î Àü¹®°¡</span>
+			<span>ì¶”ì²œ ì¸í…Œë¦¬ì–´ ì „ë¬¸ê°€</span>
 			<div></div>
 		</div>
 		<div id="register">
 			<p>
-				ÀÎÅ×¸®¾î ½Ã°ø Àü¹®°¡ÀÌ½Å°¡¿ä? <a>°¡ÀÔ½ÅÃ»ÇÏ±â</a>
+				ì¸í…Œë¦¬ì–´ ì‹œê³µ ì „ë¬¸ê°€ì´ì‹ ê°€ìš”? <a href="${pageContext.request.contextPath}/expert/ExpertJoin">ê°€ìž…ì‹ ì²­í•˜ê¸°</a>
 			</p>
 		</div>
 		<div id="required">
-			<span>ÀÎÅ×¸®¾î °è¾à Àü ÇÊµ¶!</span>
+			<span>ì¸í…Œë¦¬ì–´ ê³„ì•½ ì „ í•„ë…!</span>
 			<div></div>
 		</div>
 		<div id="portfolio">
-			<span>ÃßÃµ Æ÷Æ®Æú¸®¿À</span>
+			<span>ì¶”ì²œ í¬íŠ¸í´ë¦¬ì˜¤</span>
 			<div></div>
 		</div>
 	</div>

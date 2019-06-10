@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<link href="../css/register.css?ver1" rel="stylesheet" type="text/css"/>
-<link href="../css/register2.css?ver1" rel="stylesheet" type="text/css"/>
-<script src="../js/register.js?ver1"></script>
-<script src="../js/register2.js?ver1"></script>
+<link href="../css/register.css?ver2" rel="stylesheet" type="text/css"/>
+<link href="../css/register2.css?ver2" rel="stylesheet" type="text/css"/>
+<script src="../js/register.js?ver2"></script>
+<script src="../js/register2.js?ver2"></script>
 </head>
 <body>
 	<div id="he">
@@ -179,7 +179,7 @@
 			<div id="q2">
 				<span>대표활동지역을 선택해주세요</span><span class="necessary">필수</span>
 				<p>선택하신 지역의 고객들에게 노출됩니다. 최대 3개까지 선택 가능합니다.</p>
-				<select>
+				<select name ="location" id="location">
 					<option>서울특별시</option>
 					<option>부산광역시</option>
 					<option>대구광역시</option>
@@ -226,18 +226,19 @@
 			<div id="q1">
 				<span>이메일 주소를 입력해주세요.</span><span class="necessary">필수</span>
 				<p>아이디로 사용하실 이메일주소를 입력해주세요.</p>
-				<input type="text" name="email">@ <select>
+				<input type="text" name="email" id="email">@ <div id="email2"><select id="adr">
 					<option selected="selected">선택해주세요</option>
-					<option class="ad">naver.com</option>
-					<option class="ad">hanmail.net</option>
-					<option class="ad">daum.net</option>
-					<option class="ad">gmail.com</option>
-					<option class="ad">nate.com</option>
-					<option class="ad">hotmail.com</option>
-					<option class="ad">outlook.com</option>
-					<option class="ad">icloud.com</option>
+					<option>naver.com</option>
+					<option>hanmail.net</option>
+					<option>daum.net</option>
+					<option>gmail.com</option>
+					<option>nate.com</option>
+					<option>hotmail.com</option>
+					<option>outlook.com</option>
+					<option>icloud.com</option>
 					<option id="self">직접입력</option>
 				</select>
+				</div>
 			</div>
 			<div id="q2">
 				<span>사용하실 비밀번호를 입력해주세요.</span><span class="necessary">필수</span>

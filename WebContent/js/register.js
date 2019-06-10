@@ -265,4 +265,9 @@ $(function () {
 	$("#ad").click(function() {
 		window.open("../register/address.jsp", "", "width=500,height=500");
 	});
+	$("#adr").click(function() {
+		if($(this).attr("selected").text() == "직접입력"){
+			$("#email2").html('<input type="text" name="email" id="adr">');
+		}
+	});
 });
