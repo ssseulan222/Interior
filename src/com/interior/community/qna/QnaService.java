@@ -5,8 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.interior.community.action.Action;
 import com.interior.community.action.ActionForward;
+import com.interior.community.upload.UploadDAO;
 
 public class QnaService implements Action {
+	
+	
 
 	@Override
 	public ActionForward list(HttpServletRequest request, HttpServletResponse response) {

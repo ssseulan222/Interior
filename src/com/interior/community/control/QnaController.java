@@ -15,6 +15,9 @@ import com.interior.community.qna.QnaService;
 /**
  * Servlet implementation class QnaController
  */
+
+				//QNA 컨트롤러
+	
 @WebServlet("/QnaController")
 public class QnaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -7,16 +7,55 @@
 <head>
 <meta charset="UTF-8">
 <title>집들이 글쓰기</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/homepartyWrite.css">
+
+<style type="text/css">
+.img_wrap {
+    width: 300px;
+    margin-top: 50px;
+}
+.img_wrap img {
+    max-width: 100%;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+var sel_file;
+
+	$(document).ready(function() {
+	    $("#input_img").on("change", handleImgFileSelect);
+	}); 
+	
+	function handleImgFileSelect(e) {
+	    var files = e.target.files;
+	    var filesArr = Array.prototype.slice.call(files);
+	
+	    filesArr.forEach(function(f) {
+	        if(!f.type.match("image.*")) {
+	            alert("확장자는 이미지 확장자만 가능합니다.");
+	            return;
+	        }
+	
+	        sel_file = f;
+	
+	        var reader = new FileReader();
+	        reader.onload = function(e) {
+	            $("#img").attr("src", e.target.result);
+	        }
+	        reader.readAsDataURL(f);
+	    });
+	}
+
+
+</script>
+
+
 
 </head>
 <body>
@@ -37,12 +76,28 @@
 		</div>
 	</div> <!-- end header_top -->
 		
-		
+	
+	<!-- <form id="frm" action="/expert/homeparty//homepartyWriteAction" method="post" enctype="multipart/form-data">
+		<input type="hidden" id="temp" name="temp" value="imgUpload">
+	 -->
+	 
 	<!-- 커버사진 추가하기 -->
 	<div id="contents">
-		<div id="image_upload"></div>
+		
+		<div id="image_upload">
+			<input type="file" id="input_img">
+			<div class="img_wrap">
+				<img id="img">
+			</div>
+		<!--  <input type="file" id="fileName" name="fileName">
+		 <input type="submit" value="저장"> -->
+		</div>
 		
 	</div> <!-- end contents -->
+	
+	
+	<!-- </form>
+	 -->
 	
 	
 	<div id="title_write">
@@ -129,9 +184,8 @@
 							<br><br>
 							
 							<div class="day">기간&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="text" id="sel2">
-								<input type="radio">주&nbsp;&nbsp;&nbsp;&nbsp;  
-								<input type="radio">개월&nbsp;&nbsp;&nbsp;&nbsp;   
+								<input type="text" id="sel2">&nbsp;&nbsp;&nbsp;&nbsp; 
+								<input type="radio">개월  
 							</div>
 							<br><br>
 							

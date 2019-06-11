@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.interior.community.action.Action;
 import com.interior.community.action.ActionForward;
 
-public class CommunityService implements Action {
+public class CommunityService implements Action { //집들이 글쓰기
 
 	@Override
 	public ActionForward list(HttpServletRequest request, HttpServletResponse response) {

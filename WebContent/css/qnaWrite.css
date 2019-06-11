@@ -60,5 +60,14 @@
     font-size: 20px;
     font-weight: bold;
     margin-left: 900px;
-    
+}
+.click {
+	width:500px;
+	margin-left:700px;
+}
+.checkbox-inline {
+	margin: 10px;
+}
+.keyword_select {
+	font-weight: bold;
 }

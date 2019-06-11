@@ -5,9 +5,16 @@ public class SearchPager {
 	private Search search;
 	private int curPage;
 	private int startNum;
-	private int lastNuml;
+	private int lastNum;
 	private int curBlock;
+	private int totalBlock;	
 	
+	public int getTotalBlock() {
+		return totalBlock;
+	}
+	public void setTotalBlock(int totalBlock) {
+		this.totalBlock = totalBlock;
+	}
 	public Search getSearch() {
 		return search;
 	}
@@ -26,11 +33,11 @@ public class SearchPager {
 	public void setStartNum(int startNum) {
 		this.startNum = startNum;
 	}
-	public int getLastNuml() {
-		return lastNuml;
+	public int getLastNum() {
+		return lastNum;
 	}
-	public void setLastNuml(int lastNuml) {
-		this.lastNuml = lastNuml;
+	public void setLastNum(int lastNum) {
+		this.lastNum = lastNum;
 	}
 	public int getCurBlock() {
 		return curBlock;

@@ -53,6 +53,7 @@ public class UploadController extends HttpServlet {
 		else {
 			response.sendRedirect(actionForward.getPath());
 		}
+		
 	}
 
 	/**

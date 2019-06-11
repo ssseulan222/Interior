@@ -23,3 +23,28 @@
 	margin: 0 auto;
 	
 }
+.tag {
+	width:500px;
+	margin-top: 30px;
+	margin-left: 210px;
+}
+#keyword {
+	margin-left: 73%;
+	font-weight: bold;
+}
+#hiddenList {
+	margin-top:20px;
+	margin-left: 180px;
+}
+#hiddenList li {
+	list-style: none;
+	margin-left: 20px;
+	float: left;
+	display: inline;
+	
+}
+.c1 {
+	font-weight: bold;
+}
+
+

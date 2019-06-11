@@ -25,14 +25,26 @@
 	
 	<!-- 메인 이미지 -->
 	<div class="main_image">
+	
+	
 		<!-- 슬라이드 이미지 -->
 	    <div class="slide_image">
-	    
+	    	<div class="banner_wraper">
+			    <img src="/img/p1.png">
+			    <img src="/img/p2.png">
+			    <img src="/img/p3.png">
+			    <img src="/img/p4.png">
+			    <img src="/img/p5.png">
+										<!-- 참고 https://ssamlee.tistory.com/13 -->
+			</div>
 	    </div>
+	    
+	    
+	    
 	</div>
 	<div class=>
 		<a href="">
-			<img alt="" src="/img/a1.jpg">
+			<img alt="" src="">
 		</a>
 	</div>
 	

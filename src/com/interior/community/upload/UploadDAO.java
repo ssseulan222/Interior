@@ -36,6 +36,10 @@ public class UploadDAO {
 	//update
 	public int update(UploadDTO uploadDTO, Connection con) throws Exception {
 		int result = 0;
+		String sql = "";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		
 		
 		
 		return result;
@@ -68,9 +72,22 @@ public class UploadDAO {
 		while(rs.next()) {
 			UploadDTO uploadDTO = new UploadDTO();
 			
+			uploadDTO.setOname(rs.getString("oname"));
+			uploadDTO.setFname(rs.getString("fname"));
+			uploadDTO.setNum(rs.getInt("num"));
+			uploadDTO.setPnum(rs.getInt("pnum"));
+			uploadDTO.setTitle(rs.getString("title"));
+			uploadDTO.setPlace(rs.getString("place"));
+			uploadDTO.setStyle(rs.getString("style"));
+			uploadDTO.setInfo(rs.getString("info"));
+			uploadDTO.setCategory(rs.getString("category"));
+			uploadDTO.setUrl(rs.getString("url"));
+			uploadDTO.setTag(rs.getString("tag"));
 			
 		}
 		
+		rs.close();
+		st.close();
 		
 		return ar;
 	}

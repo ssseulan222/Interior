@@ -186,6 +186,24 @@
 		<!-- ------------- 커뮤니티-집들이-상단 카테고리--------------- -->
 	</div> <!-- end container -->
 	
+	<div class="row">
+
+    <div class="img1">
+        <a href="/w3images/lights.jpg" target="_blank">
+          <img src="../img/q1.png" style="max-width: 100%; height: auto;">
+          	<div class="img_title">
+			<p>서울이나 서울 같지 않은 정릉동에서 만난 첫 위안</p>
+          	</div>
+        </a>
+    </div>
+    
+    
+    
+    
+
+	
+	</div> <!-- end row -->
+	
 	
 </body>
 </html>

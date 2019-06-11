@@ -35,12 +35,18 @@
 	
 	width: 800px;
 	height: 330px;
-	border : 1px solid red;
+	background-color:#e6e6e6;
 	margin : 0 auto;
+}
+#input_img {
+	/* max-width: 100%;
+  	height: auto; */
 }
 #title_write {
 	padding-top: 30px;
 }
+
+
 .form_group {
 	width: 800px;
 	height: 1200px;

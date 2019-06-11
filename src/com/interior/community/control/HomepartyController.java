@@ -15,6 +15,8 @@ import com.interior.community.upload.UploadService;
 /**
  * Servlet implementation class HomepartyController
  */
+					//집들이페이지 컨트롤러
+
 @WebServlet("/HomepartyController")
 public class HomepartyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,20 +40,37 @@ public class HomepartyController extends HttpServlet {
 		ActionForward actionForward = new ActionForward();
 		
 		if(command.equals("/homepartyWrite")) {
+			
+			//request.setAttribute("file","test");
+			
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/views/homeparty/homepartyWrite.jsp");
 		}
 		else if(command.equals("/homeparty")) {
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/views/homeparty/homeparty.jsp");
-			
 		}
+		//else if(command.equals("/homepartyWriteAction")) {
+			//uploadService.insert(request, response);
+			//System.out.println("homepartyWriteAction");
+			
+			//UploadController uploadController = new UploadController();
+			//uploadController.doGet(request, response);
+		//}
+		
+		
+		
 		if(actionForward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
 			view.forward(request, response);
-		}else {
+		}
+		else {
 			response.sendRedirect(actionForward.getPath());
 		}
+		
+		
+		
+		
 		
 //		RequestDispatcher view = request.getRequestDispatcher("./WEB-INF/views/homeparty/homepartyWrite.jsp");
 //		view.forward(request, response);

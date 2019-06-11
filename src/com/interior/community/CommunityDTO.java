@@ -1,6 +1,6 @@
 package com.interior.community;
 
-public class CommunityDTO {
+public class CommunityDTO { //집들이 글쓰기
 
 	private int num;
 	private String title;
