@@ -30,21 +30,21 @@
 				<div class="form-group">
 			      	<label for="id" class="col-sm-3">아이디<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="text" id="id" name="id" class="form-control" readonly="readonly" value="${sellerDTO.id}">
+						<input type="text" id="id" name="id" class="form-control" readonly="readonly" value="${sellerDTO.id}" required="required">
 				    </div>
 			    </div>	
 			    
 			    <div class="form-group">
 			      	<label for="pw" class="col-sm-3">비밀번호<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="password" id="pw2" class="form-control" placeholder="8자 이상, 대소문자·숫자·특수문자">
+						<input type="password" id="pw2" class="form-control" placeholder="8자 이상, 대소문자·숫자·특수문자" required="required">
 				    </div>
 			    </div>
 			    
 			      <div class="form-group">
 			      	<label for="pw" class="col-sm-3">비밀번호 재확인<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="password" id="pw" name="pw" class="form-control" placeholder="비밀번호 다시 입력">
+						<input type="password" id="pw" name="pw" class="form-control" placeholder="비밀번호 다시 입력" required="required">
 						<br><div class="form-control2">
 							<p id="cor1" style="color: blue;">비밀번호가 일치합니다</p>
 							<p id="cor2" style="color: red;">비밀번호가 일치하지 않습니디</p>
@@ -63,14 +63,14 @@
 				<div class="form-group">
 			      	<label for="companyName" class="col-sm-3">회사이름<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="text" id="companyName" name="companyName" class="form-control" value="${sellerDTO.companyName}" readonly="readonly">
+						<input type="text" id="companyName" name="companyName" class="form-control" value="${sellerDTO.companyName}" readonly="readonly" required="required">
 				    </div>
 			    </div>	
 			    
 			    <div class="form-group">
 			      	<label for="companyNum" class="col-sm-3">사업자등록번호<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="number" id="companyNum" name="companyNum" class="form-control" value="${sellerDTO.companyNum}"readonly="readonly">
+						<input type="number" id="companyNum" name="companyNum" class="form-control" value="${sellerDTO.companyNum}"readonly="readonly" required="required">
 				    </div>
 			    </div>
 			    <div class="form-group">
@@ -91,20 +91,20 @@
 				<div class="form-group">
 			      	<label for="marketerName" class="col-sm-3">이름<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="text" id="marketerName" name="marketerName" class="form-control" value="${sellerDTO.marketerName}">
+						<input type="text" id="marketerName" name="marketerName" class="form-control" value="${sellerDTO.marketerName}" required="required">
 				    </div>
 			    </div>	
 			    
 			    <div class="form-group">
 			      	<label for="phone" class="col-sm-3">전화번호<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="number" id="phone" name="phone" class="form-control" value="${sellerDTO.phone}">
+						<input type="number" id="phone" name="phone" class="form-control" value="${sellerDTO.phone}" required="required">
 				    </div>
 			    </div>
 			    <div class="form-group">
 			      	<label for="email" class="col-sm-3">이메일<a class="required">*</a></label>
 					<div class="col-sm-9">
-						<input type="text" id="email" name="email" class="form-control" value="${sellerDTO.email}">
+						<input type="text" id="email" name="email" class="form-control" value="${sellerDTO.email}" required="required">
 				    </div>
 			    </div>
 			</div>
@@ -119,7 +119,7 @@
 				<div class="form-group">
 			      	<label for="brandName" class="col-sm-3">대표브랜드 이름<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="text" id="brandName" name="brandName" class="form-control" value="${sellerDTO.brandName}">
+						<input type="text" id="brandName" name="brandName" class="form-control" value="${sellerDTO.brandName}" required="required">
 				    </div>
 			    </div>	
 			    
@@ -167,20 +167,20 @@
 			    <div class="form-group">
 			      	<label for="category" class="col-sm-3">선택된 카테고리<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="text" id="category" name="category" class="form-control" readonly="readonly" value="${sellerDTO.category}">
+						<input type="text" id="category" name="category" class="form-control" readonly="readonly" value="${sellerDTO.category}" required="required">
 				    </div>
 			    </div>
 			    
 			    <div class="form-group">
 			      	<label for="info" class="col-sm-3">상품소개<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<textarea  id="info" name="info" class="form-control" rows="5" style="resize: none;">${sellerDTO.info}</textarea>
+						<textarea  id="info" name="info" class="form-control" rows="5" style="resize: none;" required="required">${sellerDTO.info}</textarea>
 				    </div>
 			    </div>
 			    <div class="form-group">
-			      	<label for="openMarket" class="col-sm-3">타입점 쇼핑몰</label>
+			      	<label for="openMarket" class="col-sm-3">타입점 쇼핑몰<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="text" id="openMarket" name="openMarket" class="form-control" value="${sellerDTO.openMarket}">
+						<input type="text" id="openMarket" name="openMarket" class="form-control" value="${sellerDTO.openMarket}" required="required">
 				    </div>
 			    </div>
 			    <div class="form-group">

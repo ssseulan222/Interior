@@ -9,14 +9,6 @@
     <url-pattern>/index.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>store</servlet-name>
-    <servlet-class>com.interior.control.StoreController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>store</servlet-name>
-    <url-pattern>/store/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>seller</servlet-name>
     <servlet-class>com.interior.control.SellerController</servlet-class>
   </servlet>
@@ -25,11 +17,27 @@
     <url-pattern>/seller/*</url-pattern>
   </servlet-mapping>
   <servlet>
-  <servlet-name>product</servlet-name>
-    <servlet-class>com.interior.control.ProductController</servlet-class>
+    <servlet-name>store</servlet-name>
+    <servlet-class>com.interior.control.StoreController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>product</servlet-name>
+    <servlet-name>store</servlet-name>
+    <url-pattern>/store/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>store</servlet-name>
     <url-pattern>/product/*</url-pattern>
   </servlet-mapping>
+ <filter>  
+         <filter-name>EncodingFilter</filter-name>  
+         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+         <init-param>  
+             <param-name>encoding</param-name>  
+             <param-value>UTF-8</param-value>  
+         </init-param>  
+     </filter>  
+     <filter-mapping>  
+         <filter-name>EncodingFilter</filter-name>  
+         <url-pattern>/*</url-pattern>  
+     </filter-mapping>  
 </web-app>

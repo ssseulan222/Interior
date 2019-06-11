@@ -28,23 +28,24 @@ public class SellerDAO {
 		return res;
 	}
 	
-	public int update(SellerDTO sellerDTO, Connection con) throws Exception{
+	public int update(SellerDTO sellerDTO, String id, Connection con) throws Exception{
 		String sql="update seller set id=?,pw=?,homepage=?,marketerName=?,phone=?,"
-				+ "email=?,brandName=?,category=?,info=?,openMarket=? where companyNum=?";
+				+ "email=?,brandName=?,category=?,info=?,openMarket=?,companyName=?,companyNum=? where id=?";
 		
 		PreparedStatement st= con.prepareStatement(sql);
 		st.setString(1, sellerDTO.getId());
 		st.setString(2, sellerDTO.getPw());
-		st.setString(3, sellerDTO.getCompanyName());
-		st.setString(4, sellerDTO.getCompanyNum());
-		st.setString(5, sellerDTO.getHomepage());
-		st.setString(6, sellerDTO.getMarketerName());
-		st.setString(7, sellerDTO.getPhone());
-		st.setString(8, sellerDTO.getEmail());
-		st.setString(9, sellerDTO.getBrandName());
-		st.setString(10, sellerDTO.getCategory());
-		st.setString(11, sellerDTO.getInfo());
-		st.setString(12, sellerDTO.getOpenMarket());
+		st.setString(3, sellerDTO.getHomepage());
+		st.setString(4, sellerDTO.getMarketerName());
+		st.setString(5, sellerDTO.getPhone());
+		st.setString(6, sellerDTO.getEmail());
+		st.setString(7, sellerDTO.getBrandName());
+		st.setString(8, sellerDTO.getCategory());
+		st.setString(9, sellerDTO.getInfo());
+		st.setString(10, sellerDTO.getOpenMarket());
+		st.setString(11, sellerDTO.getCompanyName());
+		st.setString(12, sellerDTO.getCompanyNum());
+		st.setString(13, id);
 		int res=st.executeUpdate();
 		
 		return res;

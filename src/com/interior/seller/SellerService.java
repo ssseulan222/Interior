@@ -191,12 +191,12 @@ public class SellerService implements Action {
 			HttpSession session = request.getSession();
 			sellerDTO = (SellerDTO)session.getAttribute("sellerDTO");
 			System.out.println("sellerService Update");
-			System.out.println(sellerDTO.getInfo());
+			String id=sellerDTO.getId();
 			try {
 				con=DBConnect.getConnect();
-				res=sellerDAO.update(sellerDTO, con);
+				res=sellerDAO.update(sellerDTO,id, con);
 			} catch (Exception e) {
-				// TODO: handle exception
+				e.printStackTrace();
 			}
 		}
 		

@@ -31,7 +31,12 @@
 	</div>
 	<!-- 상품리스트 -->
 	<div>
-	
+	<div>
+		 <h3>${sessionScope.sellerDTO.id}</h3>
+		 <h3>${sessionScope.sellerDTO.pw}</h3>
+		 <h3>${sessionScope.sellerDTO.info}</h3>
+		 <h3>${sessionScope.sellerDTO.category}</h3>
+	</div>
 	</div>
 	<div>
 		<a href="./sellerUpdate">회원수정</a>&nbsp;&nbsp;&nbsp;
