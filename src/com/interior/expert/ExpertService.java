@@ -94,7 +94,6 @@ public class ExpertService implements Action{
 		actionForward.setPath("../WEB-INF/view/expert/ExpertJoin.jsp");
 
 		String method = request.getMethod();
-		System.out.println(method);
 		
 		if(method.equals("POST")) {
 			String saveDirectory = request.getServletContext().getRealPath("upload");
