@@ -8,6 +8,7 @@ function loadJQuery() {
 
 $(function() {
 
+	//플레이스홀더
 	$('input').click(function() {
 		$(this).removeAttr('placeholder')
 	});
@@ -15,14 +16,33 @@ $(function() {
 		$(this).attr('placeholder', '값을 입력해주세요');
 	});
 
-	$('#12').click(function() {
-		if($(this).is(":checked")){
-			$('.check').prop('checked', true);
-		} else {
-			$('.check').prop('checked', false);
+	//비밀번호
+	$('#cor1').hide();
+	$('#cor2').hide();
+	$('#pw2').keyup(function() {
+		if($('#pw') != null){
+			if($('#pw2').val()==$('#pw').val()){
+				$('#cor1').show();
+				$('#cor2').hide();
+			} else if($('#pw2').val()!=$('#pw').val()){
+				$('#cor1').hide();
+				$('#cor2').show();
+			}
+		}
+	});
+	$('#pw').keyup(function() {
+		if($('#pw2') != null){
+			if($('#pw2').val()==$('#pw').val()){
+				$('#cor1').show();
+				$('#cor2').hide();
+			} else if($('#pw2').val()!=$('#pw').val()){
+				$('#cor1').hide();
+				$('#cor2').show();
+			}
 		}
 	});
 	
+	// 선택된 카테고리 출력되게
 	$('#submit').click(function() {
 		console.log("click");
 	});
@@ -37,13 +57,12 @@ $(function() {
 		});
 	});
 	
-	$('#submit').click(function() {
-		if($('.nec3').val() == null){			
-				alert("모두 입력");
-			} else{
-				
-			}
-	});
-	
+	function joinConfirm() {
+		if($('#id').val().length < 6){
+			alert("아이디를 다시 입력");
+			$(this).focus();
+			return;
+		}
+	}
 
 });

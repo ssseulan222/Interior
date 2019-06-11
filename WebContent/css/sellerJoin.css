@@ -54,6 +54,20 @@ hr{
 	margin-right:10%;
 }
 
+.form-control2{
+	width:80%;
+	float:right;
+	margin-right:10%;
+}
+
+.side{
+	display: inline;
+}
+
+.margin{
+	margin-left: 16px;
+}
+
 input::placeholder
 
 /* 규정 */

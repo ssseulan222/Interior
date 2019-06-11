@@ -29,7 +29,7 @@ public class SellerDAO {
 	}
 	
 	public int update(SellerDTO sellerDTO, Connection con) throws Exception{
-		String sql="update seller set homepage=?,marketerName=?,phone=?,"
+		String sql="update seller set id=?,pw=?,homepage=?,marketerName=?,phone=?,"
 				+ "email=?,brandName=?,category=?,info=?,openMarket=? where companyNum=?";
 		
 		PreparedStatement st= con.prepareStatement(sql);
@@ -50,19 +50,20 @@ public class SellerDAO {
 		return res;
 	}
 
-	public int delete(int num, Connection con) throws Exception{
+	public int delete(String id, Connection con) throws Exception{
 		int res=0;
-		String sql="delete seller where num=?";
+		String sql="delete seller where id=?";
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setInt(1, num);
+		st.setString(1, id);
+		
 		res=st.executeUpdate();
 		return res;
 	}
 	
-	public SellerDTO select(int num, Connection con) throws Exception{
-		String sql="select * from seller where num=?";
+	public SellerDTO select(String id, Connection con) throws Exception{
+		String sql="select * from seller where id=?";
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setInt(1, num);
+		st.setString(1, id);
 		ResultSet rs=st.executeQuery();
 		SellerDTO sellerDTO =null;
 		if(rs.next()) {
@@ -83,20 +84,23 @@ public class SellerDAO {
 		return sellerDTO;
 	}
 	
+	
 	public SellerDTO login(String id, String pw, Connection con) throws Exception{
+		
 		String sql="select * from seller where id=? and pw=?";
 		PreparedStatement st= con.prepareStatement(sql);
 		st.setString(1,id);
-		st.setString(2, pw);
+		st.setString(2,pw);
+		
 		ResultSet rs = st.executeQuery();
 		SellerDTO sellerDTO=null;
 		if(rs.next()) {
-			sellerDTO= new SellerDTO();
+			sellerDTO= new SellerDTO();			
 			sellerDTO.setId(rs.getString("id"));
 			sellerDTO.setPw(rs.getString("pw"));
 			sellerDTO.setCompanyName(rs.getString("companyName"));
 			sellerDTO.setCompanyNum(rs.getString("companyNum"));
-			sellerDTO.setHomepage(rs.getString("hompage"));
+			sellerDTO.setHomepage(rs.getString("homepage"));		
 			sellerDTO.setMarketerName(rs.getString("marketerName"));
 			sellerDTO.setPhone(rs.getString("phone"));
 			sellerDTO.setEmail(rs.getString("email"));
@@ -105,10 +109,8 @@ public class SellerDAO {
 			sellerDTO.setInfo(rs.getString("info"));
 			sellerDTO.setOpenMarket(rs.getString("openMarket"));
 		}
-		
-		return sellerDTO;
-		
-		
+		return sellerDTO;	
 	}
+	
 	
 }

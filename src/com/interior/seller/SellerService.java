@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.interior.action.Action;
 import com.interior.action.ActionForward;
@@ -13,117 +14,157 @@ import com.interior.store.StoreDAO;
 import com.interior.store.StoreDTO;
 import com.interior.util.DBConnect;
 
-public class SellerService implements Action{
-	
+public class SellerService implements Action {
+
 	private StoreDAO storeDAO;
 	private SellerDAO sellerDAO;
-	
+
 	public SellerService() {
-		storeDAO=new StoreDAO();
+		storeDAO = new StoreDAO();
 		sellerDAO = new SellerDAO();
 	}
-	
-	public ActionForward login(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward=new ActionForward();
-		SellerDTO sellerDTO = null;
-		Connection con = null;
-		
-		String method=request.getMethod();
-		String addr=request.getPathInfo();		
-		
-		int res=0;
-		String msg="";
-		String path="";
-		boolean check=true;
 
-		if(method.equals("GET")&&addr.equals("/sellerLogin")){ 				//판매자 로그인 창
-			path="../WEB-INF/views/seller/sellerLogin.jsp";
-			check=true;
+	public ActionForward login(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
 		
-			
-		} else if(method.equals("GET") && addr.equals("/findPw")) {			// 비밀번호 찾기 창
-			path="../WEB-INF/views/seller/findPw.jsp";
-			check=true;
-			
-			
-		} else if(method.equals("POST") && addr.equals("/sellerLogin")) {	// 로그인 버튼
+		Connection con = null;
+
+		String method = request.getMethod();
+		String addr = request.getPathInfo();
+
+		int res = 0;
+		String msg = "";
+		String path = "";
+		boolean check = true;
+
+		if (method.equals("GET") && addr.equals("/sellerLogin")) { // 판매자 로그인 창
+			path = "../WEB-INF/views/seller/sellerLogin.jsp";
+			check = true;
+
+		} else if (method.equals("GET") && addr.equals("/findPw")) { // 비밀번호 찾기 창
+			path = "../WEB-INF/views/seller/findPw.jsp";
+			check = true;
+
+		} else if (method.equals("POST") && addr.equals("/sellerLogin")) { // 로그인 버튼
+			SellerDTO sellerDTO=null;		
 			try {
-				con=DBConnect.getConnect();
-				String id=request.getParameter("id");
-				String pw=request.getParameter("pw");
-				sellerDTO = sellerDAO.login(id, pw, con);
-				if(sellerDTO == null) {										// 아이디, 비밀번호가 틀렸을 
-					request.setAttribute("msg", "잘못된 아이디입니다.");
+				con = DBConnect.getConnect();
+				String id = request.getParameter("id");
+				String pw = request.getParameter("pw");
+				sellerDTO=sellerDAO.login(id, pw, con);
+
+				if(sellerDTO != null) {			// 로그인 성공
+					HttpSession session = request.getSession();
+					check = true;
+					path = "../WEB-INF/views/index.jsp";
+					session.setAttribute("sellerDTO", sellerDTO);
+				} else  {
+					request.setAttribute("msg", "로그인 실패");
 					request.setAttribute("path", "./sellerLogin");
-					check=true;
-					path="../WEB-INF/views/result/result.jsp";
-				} else {
-					
+					check = true;
+					path = "../WEB-INF/views/result/result.jsp";
 				}
+				
 			} catch (Exception e) {
-				// TODO: handle exception
+				e.printStackTrace();
 			}
-			
-			
-		} else if(method.equals("POST") && addr.equals("/findPw"))	{		// 비밀번호 찾기 버튼
-			
+
+		} else if (method.equals("POST") && addr.equals("/findPw")) { // 비밀번호 찾기 버튼
 			
 		}
-		
+
 		actionForward.setPath(path);
 		actionForward.setCheck(check);
 		return actionForward;
 	}
 	
+	public ActionForward logout(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward=new ActionForward();
+		
+		HttpSession session = request.getSession();
+		String path="";
+		boolean check=false;
+		if(session.getAttribute("sellerDTO") != null) {
+			session.invalidate();
+			path="../index.do";
+		}
+		
+		actionForward.setCheck(check);
+		actionForward.setPath(path);
+		
+		return actionForward;
+	}
+
 	@Override
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward=new ActionForward();
+		ActionForward actionForward = new ActionForward();
 		SellerDTO sellerDTO = null;
 		Connection con = null;
-		
-		String method=request.getMethod();
-		String addr=request.getPathInfo();
 
-		int res=0;
-		String path="";
-		boolean check=true;
-		
-		
-		if(method.equals("GET")&&addr.equals("/sellerJoin")) {				//판매자 회원가입 창
-			path="../WEB-INF/views/seller/sellerJoin.jsp";
-			check=true;
-		
-			
-		} else if(method.equals("POST") && addr.equals("/sellerJoin")) {	// 판매자 신청 버튼
+		String method = request.getMethod();
+		String addr = request.getPathInfo();
+
+		int res = 0;
+		String path = "";
+		boolean check = true;
+
+		if (method.equals("GET") && addr.equals("/sellerJoin")) { // 판매자 회원가입 창
+			path = "../WEB-INF/views/seller/sellerJoin.jsp";
+			check = true;
+
+		} else if (method.equals("POST") && addr.equals("/sellerJoin")) { // 판매자 신청 버튼
 			try {
-				con=DBConnect.getConnect();
+				con = DBConnect.getConnect();
 				sellerDTO = new SellerDTO();
-				res=sellerDAO.insert(sellerDTO, con);
-				
+				sellerDTO.setId(request.getParameter("id"));
+				sellerDTO.setPw(request.getParameter("pw"));
+				sellerDTO.setCompanyName(request.getParameter("companyName"));
+				sellerDTO.setCompanyNum(request.getParameter("companyNum"));
+				sellerDTO.setHomepage(request.getParameter("homepage"));
+				sellerDTO.setMarketerName(request.getParameter("marketerName"));
+				sellerDTO.setPhone(request.getParameter("phone"));
+				sellerDTO.setEmail(request.getParameter("email"));
+				sellerDTO.setBrandName(request.getParameter("brandName"));
+				sellerDTO.setCategory(request.getParameter("category"));
+				sellerDTO.setInfo(request.getParameter("info"));
+				sellerDTO.setOpenMarket(request.getParameter("openMarket"));
+
+				System.out.println(sellerDTO.getCategory());
+				res = sellerDAO.insert(sellerDTO, con);
+
+				if (res > 0) { // 성공
+					request.setAttribute("msg", "회원가입 성공");
+					request.setAttribute("path", "../index.do");
+					check = true;
+					path = "../WEB-INF/views/result/result.jsp";
+				} else { // 실패
+					request.setAttribute("msg", "회원가입 실패");
+					request.setAttribute("path", "./sellerJoin");
+					check = true;
+					path = "../WEB-INF/views/result/result.jsp";
+				}
+
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
-		} 
-		
-		
+
+		}
+
 		actionForward.setPath(path);
 		actionForward.setCheck(check);
 		return actionForward;
 	}
 
-
 	@Override
 	public ActionForward list(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-		String path="../WEB-INF/views/seller/sellerMain.jsp";
-		boolean check=true;
+		String path = "../WEB-INF/views/seller/sellerMain.jsp";
+		boolean check = true;
 		actionForward.setPath(path);
 		actionForward.setCheck(check);
 		return actionForward;
-		
+
 	}
 
 	@Override
@@ -134,14 +175,62 @@ public class SellerService implements Action{
 
 	@Override
 	public ActionForward update(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+
+		ActionForward actionForward = new ActionForward();
+		String path="";
+		boolean check=true;
+		int res=0;
+		SellerDTO sellerDTO=null;
+		String method=request.getMethod();
+		
+		if(method.equals("GET")) {
+			path="../WEB-INF/views/seller/sellerUpdate.jsp";
+			
+		} else {
+			Connection con=null;
+			HttpSession session = request.getSession();
+			sellerDTO = (SellerDTO)session.getAttribute("sellerDTO");
+			System.out.println("sellerService Update");
+			System.out.println(sellerDTO.getInfo());
+			try {
+				con=DBConnect.getConnect();
+				res=sellerDAO.update(sellerDTO, con);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
+		actionForward.setPath(path);
+		actionForward.setCheck(check);
+		return actionForward;
 	}
 
 	@Override
 	public ActionForward delete(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		ActionForward actionForward=new ActionForward();
+		String method=request.getMethod();
+		String path="";
+		boolean check=true;
+		int res=0;
+		String id="";
+		HttpSession session = request.getSession();
+		if(method.equals("GET")) {
+			path="../WEB-INF/views/seller/sellerDelete.jsp";
+		} else {
+			Connection con=null;
+			try {
+				con=DBConnect.getConnect();
+				id=(String)session.getAttribute("id");
+				res=sellerDAO.delete(id, con);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
+		actionForward.setCheck(check);
+		actionForward.setPath(path);
+		
+		return actionForward;
 	}
-	
+
 }

@@ -10,25 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.interior.action.ActionForward;
-import com.interior.seller.SellerService;
-import com.interior.store.StoreService;
+import com.interior.product.ProductService;
 
 /**
- * Servlet implementation class SellerController
+ * Servlet implementation class ProductController
  */
-@WebServlet("/SellerController")
-public class SellerController extends HttpServlet {
+@WebServlet("/ProductController")
+public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	SellerService sellerService=null;
-	StoreService storeService=null;
-       
+    ProductService productService=null;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SellerController() {
+    public ProductController() {
         super();
-        sellerService=new SellerService();
-        storeService = new StoreService();
+        productService=new ProductService();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -37,37 +34,10 @@ public class SellerController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command=request.getPathInfo();
 		ActionForward actionForward=null;
-		System.out.println(command);
-		if(command.equals("/sellerJoin")) {
-			
-			actionForward=sellerService.insert(request, response);
-			
-		} else if(command.equals("/sellerLogin")||command.equals("/findPw")) {
-			
-			actionForward=sellerService.login(request, response);
-			
-		} else if(command.equals("/sellerLogout")) {
-			
-			actionForward=sellerService.logout(request, response);
-		
-		} else if(command.equals("/sellerUpdate")){
-			
-			actionForward=sellerService.update(request, response);
-		
-		} else if(command.equals("/sellerDelete")) {
-			
-			actionForward=sellerService.delete(request, response);
-			
-		} else if(command.equals("/sellerMain")) {
-			
-			actionForward = sellerService.list(request, response);
-			
-		} else if(command.equals("/sellerWrite")) {
-			
-			actionForward=storeService.insert(request, response);
-		
-		} 
-
+		if(command.equals("/productInsert")) {
+			System.out.println(command);			
+			actionForward=productService.insert(request, response);
+		}
 		
 		if (actionForward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
@@ -76,7 +46,6 @@ public class SellerController extends HttpServlet {
 			response.sendRedirect(actionForward.getPath());
 		}
 		 
-		
 	}
 
 	/**

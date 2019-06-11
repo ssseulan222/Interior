@@ -20,10 +20,11 @@
 			<form action="/sellerLogin" method="post">
 				<div class="loginDiv">
 					<input type="text" id="id" name="id" title="id" class="login-input" placeholder="아이디">
+				<!-- 	<input type="text" id="companyNum" name="companyNum" title="companyNum" class="login-input" placeholder="사업자 등록번호"> -->
 				</div>
 			
 				<div class="btnDiv">
-					<input type="button" value="아이디로 비밀번호 찾기" id="loginBtn" class="button">
+					<input type="button" value="비밀번호 재설정" id="loginBtn" class="button">
 					<p> 문의사항은 abc@naver.com 으로 연락주세요. </p>
 				</div>
 			</form>

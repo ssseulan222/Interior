@@ -25,14 +25,14 @@
 					<input type="password" id="pw" name="pw" title="pw" class="login-input" placeholder="비밀번호">
 				</div>
 				<div class="btnDiv">
-					<input type="submit" value="로그인" id="loginBtn" class="button">
+					<button id="loginBtn" class="button">로그인</button>
 				</div>
 			</form>
 				<div id="rePwDiv">
 					<a id="rePw">비밀번호 재설정</a>
 				</div>
 				<div class="btnDiv">
-					<input type="button" value="판매자 가입신청" class="button" id="sellerJoinBtn">
+					<button class="button" id="sellerJoinBtn">판매자 가입신청</button>
 				</div>
 		</div>
 	</div>

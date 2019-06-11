@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/common/bs.jsp" />
 <!DOCTYPE html>
 <html>
@@ -11,18 +12,30 @@
 <body>
 <div class="container header">
 	헤더
+	<h1>${sessionScope.sellerDTO.id} 페이지</h1>
 </div>
 <div class="container">
+
 	<div class="sellerNav">
-		<a href="./sellerWrite">상품등록하기</a>&nbsp;&nbsp;&nbsp;
+		<a href="../product/productInsert">상품등록하기</a>&nbsp;&nbsp;&nbsp;
 	</div>
 	
 	<div class="productList">
-	<h3>상품 리스트</h3>
-	<select>
-		<option>판매순</option>
-		<option>최신순</option>
-	</select>
+		<h3>상품 리스트</h3>
+		<div>
+			<select>
+				<option>판매순</option>
+				<option>최신순</option>
+			</select>
+		</div>
+	</div>
+	<!-- 상품리스트 -->
+	<div>
+	
+	</div>
+	<div>
+		<a href="./sellerUpdate">회원수정</a>&nbsp;&nbsp;&nbsp;
+		<a href="./sellerDelete">회원탈퇴</a>
 	</div>
 </div>
 </body>

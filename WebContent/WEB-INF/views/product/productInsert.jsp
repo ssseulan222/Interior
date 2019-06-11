@@ -18,7 +18,7 @@
 </div>
 	<div class="container">
 		<h3>상품등록</h3>
-		<form action="./sellerWrite" method="post">
+		<form action="./productInsert" method="post">
 			<table>
 				<tbody>
 					<tr>
