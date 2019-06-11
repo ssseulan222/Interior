@@ -35,6 +35,7 @@
 			</span>
 		</div>
 		<br>
+		<form action="./ExpertJoin" method="post" id="frm" enctype="multipart/form-data">
 		<div id="body1">
 			<div id="q1">
 				<span>상호를 입력해주세요.</span><span class="necessary">필수</span>
@@ -228,15 +229,15 @@
 				<p>아이디로 사용하실 이메일주소를 입력해주세요.</p>
 				<input type="text" name="email" id="email">@ <div id="email2"><select id="adr">
 					<option class="adr">선택해주세요</option>
-					<option class="adr" id="naver">naver.com</option>
-					<option class="adr" id="hanmail">hanmail.net</option>
-					<option class="adr" id="daum">daum.net</option>
-					<option class="adr" id="email">gmail.com</option>
-					<option class="adr" id="nate">nate.com</option>
-					<option class="adr" id="hotmail">hotmail.com</option>
-					<option class="adr" id="outlook">outlook.com</option>
-					<option class="adr" id="icloud">icloud.com</option>
-					<option class="adr" id="self">직접입력</option>
+					<option class="adr" value="naver.com">naver.com</option>
+					<option class="adr" value="hanmail.net">hanmail.net</option>
+					<option class="adr" value="daum.net">daum.net</option>
+					<option class="adr" value="gmail.com">gmail.com</option>
+					<option class="adr" value="nate.com">nate.com</option>
+					<option class="adr" value="hotmail.com">hotmail.com</option>
+					<option class="adr" value="outlook.com">outlook.com</option>
+					<option class="adr" value="icloud.com">icloud.com</option>
+					<option class="adr" value="self">직접입력</option>
 				</select>
 				</div>
 			</div>
@@ -249,8 +250,8 @@
 			<div id="q3">
 				<span>핸드폰번호를 입력해주세요.</span><span class="necessary">필수</span>
 				<p>연락이 가능한 번호를 입력해주세요.</p>
-				<input type="text" name="phone1">-<input type="text"
-					name="phone2">-<input type="text" name="phone3">
+				<input type="text" id="phone1">-<input type="text"
+					id="phone2">-<input type="text" id="phone3">
 			</div>
 			<div>
 				<button id="before2" class="b_btn">이전</button>
@@ -279,38 +280,38 @@
 			</div>
 			<div id="q4">
 				<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
-				<input type="button" value="미등록(프리랜서)" class="r_check">
-				<input type="button" value="등록(개인사업자)" class="r_check">
-				<input type="button" value="등록(법인사업자)" class="r_check"><br>
-				<input type="button" value="등록(브랜드대리점)" class="r_check">
+				<input type="button" value="freelancer" class="r_check">
+				<input type="button" value="individual" class="r_check">
+				<input type="button" value="corporation" class="r_check"><br>
+				<input type="button" value="brand" class="r_check">
 				<div id="freelancer">
 					<span>신분증을 첨부해주세요.</span><span class="necessary">필수</span><br>
 					<p>주민번호 뒷자리를 포스트잇이나 종이로 가린 뒤 사진으로 찍거나 스캔해서 첨부해주세요.</p>
 					<input type="file" class="upload"><br>
 				</div>
 				<div id="individual">
-					<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
-					<input type="text">-<input type="text">-<input type="text"><br>
+					<span>사업자번호를 입력해주세요.</span><span class="necessary">필수</span><br>
+					<input type="text" id="c_num1">-<input type="text" id="c_num2">-<input type="text" id="c_num3"><br>
 					<span>사업자등록증을 첨부해주세요.</span><span class="necessary">필수</span><br>
 					<input type="file" class="upload">
 				</div>
 				<div id="corporation">
-					<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
+					<span>사업자번호를 입력해주세요.</span><span class="necessary">필수</span><br>
 					<input type="text">-<input type="text">-<input type="text"><br>
 					<span>사업자등록증을 첨부해주세요.</span><span class="necessary">필수</span><br>
 					<input type="file" class="upload"><br>
 					<span>전문건설업등록이 되어 있으신가요?</span><span class="necessary">필수</span><br>
-					<input type="checkbox" value="industry"> 네, 등록되어 있습니다.
+					<input type="checkbox" value="industry" id="c_regi1"> 네, 등록되어 있습니다.
 				</div>
 				<div id="brand">
 				<span>대리점 혹은 제휴점 코드(번호)를 입력해주세요.</span><br>
 				<input type="text">
-				<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
+				<span>사업자번호를 입력해주세요.</span><span class="necessary">필수</span><br>
 					<input type="text">-<input type="text">-<input type="text"><br>
 					<span>사업자등록증을 첨부해주세요.</span><span class="necessary">필수</span><br>
 					<input type="file" class="upload"><br>
 					<span>전문건설업등록이 되어 있으신가요?</span><span class="necessary">필수</span><br>
-					<input type="checkbox" value="industry"> 네, 등록되어 있습니다.
+					<input type="checkbox" value="industry" id="c_regi2"> 네, 등록되어 있습니다.
 				</div>
 			</div>
 			<div id="q5">
@@ -342,6 +343,7 @@
 				<button id="before3" class="b_btn">이전</button>
 				<button id="complete" class="n_btn">완료</button>
 			</div>
+			</form>
 		</div>
 	</div>
 	</div>
