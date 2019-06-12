@@ -15,6 +15,9 @@
 <title>프로젝트홈</title>
 </head>
 <body>
+<div>
+<jsp:include page="./common/header.jsp" />
+</div>
 	<div style="width: 50%; margin-left: 500px">
 		<br>
 		<br>
@@ -32,6 +35,9 @@
 		<c:if test="${sessionScope.sellerDTO.id == null}"> 
 		<a href="<%=application.getContextPath()%>/seller/sellerJoin">판매자회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="<%=application.getContextPath()%>/seller/sellerLogin">판매자로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<br><br><br>
+		<a href="#">일반로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#">전문가로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</c:if>
 		<c:if test="${sessionScope.sellerDTO.id != null}">
 		<p>${sessionScope.sellerDTO.id}님 환영합니다</p>

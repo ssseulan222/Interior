@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="/common/bs.jsp" />
+<jsp:include page="/temp/bs.jsp" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +37,7 @@
 			    <div class="form-group">
 			      	<label for="pw" class="col-sm-3">비밀번호<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="password" id="pw2" class="form-control" placeholder="8자 이상, 대소문자·숫자·특수문자" required="required">
+						<input type="password" id="pw2" class="form-control" placeholder="8자 이상 20자 미만, 대소문자·숫자·특수문자" required="required">
 				    </div>
 			    </div>
 			    
@@ -178,9 +178,9 @@
 				    </div>
 			    </div>
 			    <div class="form-group">
-			      	<label for="openMarket" class="col-sm-3">타입점 쇼핑몰<span class="required">*</span></label>
+			      	<label for="openMarket" class="col-sm-3">타입점 쇼핑몰</label>
 					<div class="col-sm-9">
-						<input type="text" id="openMarket" name="openMarket" class="form-control" value="${sellerDTO.openMarket}" required="required">
+						<input type="text" id="openMarket" name="openMarket" class="form-control" value="${sellerDTO.openMarket}">
 				    </div>
 			    </div>
 			    <div class="form-group">

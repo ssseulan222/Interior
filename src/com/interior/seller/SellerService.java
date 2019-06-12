@@ -23,6 +23,27 @@ public class SellerService implements Action {
 		storeDAO = new StoreDAO();
 		sellerDAO = new SellerDAO();
 	}
+	
+	public ActionForward idCheck(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward=new ActionForward();
+		
+		int check=0;
+		Connection con=null;
+		
+		try {
+			con=DBConnect.getConnect();
+			String id=request.getParameter("id");
+			check=sellerDAO.idCheck(id, con);			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		request.setAttribute("result", check);
+		actionForward.setPath("../WEB-INF/views/seller/idCheck.jsp");
+		actionForward.setCheck(true);
+		
+		return actionForward;
+	}
 
 	public ActionForward login(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
@@ -129,7 +150,6 @@ public class SellerService implements Action {
 				sellerDTO.setInfo(request.getParameter("info"));
 				sellerDTO.setOpenMarket(request.getParameter("openMarket"));
 
-				System.out.println(sellerDTO.getCategory());
 				res = sellerDAO.insert(sellerDTO, con);
 
 				if (res > 0) { // 성공
@@ -183,18 +203,42 @@ public class SellerService implements Action {
 		SellerDTO sellerDTO=null;
 		String method=request.getMethod();
 		
-		if(method.equals("GET")) {
+		// 회원수정 페이지로 이동
+		if(method.equals("GET")) {	
 			path="../WEB-INF/views/seller/sellerUpdate.jsp";
 			
+		// 회원 수정 완료 버튼
 		} else {
 			Connection con=null;
 			HttpSession session = request.getSession();
 			sellerDTO = (SellerDTO)session.getAttribute("sellerDTO");
-			System.out.println("sellerService Update");
 			String id=sellerDTO.getId();
+			
 			try {
 				con=DBConnect.getConnect();
+				sellerDTO.setId(request.getParameter("id"));
+				sellerDTO.setPw(request.getParameter("pw"));
+				sellerDTO.setCompanyName(request.getParameter("companyName"));
+				sellerDTO.setCompanyNum(request.getParameter("companyNum"));
+				sellerDTO.setHomepage(request.getParameter("homepage"));
+				sellerDTO.setMarketerName(request.getParameter("marketerName"));
+				sellerDTO.setPhone(request.getParameter("phone"));
+				sellerDTO.setEmail(request.getParameter("email"));
+				sellerDTO.setBrandName(request.getParameter("brandName"));
+				sellerDTO.setCategory(request.getParameter("category"));
+				sellerDTO.setInfo(request.getParameter("info"));
+				sellerDTO.setOpenMarket(request.getParameter("openMarket"));
 				res=sellerDAO.update(sellerDTO,id, con);
+				if(res>0) {
+					//flash message : 3초 떴다가 자동 사라짐//
+					check=true;
+					path="../WEB-INF/views/seller/sellerMain.jsp";
+				} else {
+					request.setAttribute("msg", "수정 실패");
+					request.setAttribute("path", "../WEB-INF/views/seller/sellerUpdate.jsp");
+					check=true;
+					path="../WEB-INF/views/result/result.jsp";
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -207,21 +251,36 @@ public class SellerService implements Action {
 
 	@Override
 	public ActionForward delete(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward=new ActionForward();
-		String method=request.getMethod();
+		
+		ActionForward actionForward = new ActionForward();
 		String path="";
 		boolean check=true;
 		int res=0;
-		String id="";
-		HttpSession session = request.getSession();
+		SellerDTO sellerDTO=null;
+		String method=request.getMethod();
+		
 		if(method.equals("GET")) {
 			path="../WEB-INF/views/seller/sellerDelete.jsp";
 		} else {
 			Connection con=null;
+			HttpSession session = request.getSession();
+			sellerDTO = (SellerDTO)session.getAttribute("sellerDTO");
+			String id=sellerDTO.getId();
 			try {
 				con=DBConnect.getConnect();
-				id=(String)session.getAttribute("id");
 				res=sellerDAO.delete(id, con);
+				if(res>0) {
+					session.invalidate();
+					request.setAttribute("msg", "탈퇴 성공");
+					request.setAttribute("path", "../index.do");
+					check=true;
+					path="../WEB-INF/views/result/result.jsp";
+				} else {
+					request.setAttribute("msg", "탈퇴 실패");
+					request.setAttribute("path", "../WEB-INF/views/seller/sellerDelete.jsp");
+					check=true;
+					path="../WEB-INF/views/result/result.jsp";
+				}
 			} catch (Exception e) {
 				// TODO: handle exception
 			}

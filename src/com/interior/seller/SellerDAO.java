@@ -8,8 +8,22 @@ import com.interior.store.StoreDTO;
 
 public class SellerDAO {
 	
+	public int idCheck(String id, Connection con) throws Exception{	// id 중복 체크
+		String sql="select id from seller where id=?";
+		PreparedStatement st= con.prepareStatement(sql);
+		st.setString(1, id);
+		ResultSet rs= st.executeQuery();
+		int check=1;
+		if(rs.next()) {
+			check= 0;
+		}
+		rs.close();
+		st.close();
+		return check;	//1= 사용가능/ 0= 사용불가능
+	}
+	
 	public int insert(SellerDTO sellerDTO, Connection con) throws Exception{
-		String sql="insert into seller values(?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into seller values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, sellerDTO.getId());
 		st.setString(2, sellerDTO.getPw());
@@ -23,6 +37,7 @@ public class SellerDAO {
 		st.setString(10, sellerDTO.getCategory());
 		st.setString(11, sellerDTO.getInfo());
 		st.setString(12, sellerDTO.getOpenMarket());
+		st.setString(13, sellerDTO.getAddress());
 		
 		int res=st.executeUpdate();
 		return res;
@@ -30,7 +45,7 @@ public class SellerDAO {
 	
 	public int update(SellerDTO sellerDTO, String id, Connection con) throws Exception{
 		String sql="update seller set id=?,pw=?,homepage=?,marketerName=?,phone=?,"
-				+ "email=?,brandName=?,category=?,info=?,openMarket=?,companyName=?,companyNum=? where id=?";
+				+ "email=?,brandName=?,category=?,info=?,openMarket=?,companyName=?,companyNum=?,address=? where id=?";
 		
 		PreparedStatement st= con.prepareStatement(sql);
 		st.setString(1, sellerDTO.getId());
@@ -45,7 +60,8 @@ public class SellerDAO {
 		st.setString(10, sellerDTO.getOpenMarket());
 		st.setString(11, sellerDTO.getCompanyName());
 		st.setString(12, sellerDTO.getCompanyNum());
-		st.setString(13, id);
+		st.setString(13, sellerDTO.getAddress());
+		st.setString(14, id);
 		int res=st.executeUpdate();
 		
 		return res;
@@ -81,6 +97,7 @@ public class SellerDAO {
 			sellerDTO.setCategory(rs.getString("category"));
 			sellerDTO.setInfo(rs.getString("info"));
 			sellerDTO.setOpenMarket(rs.getString("openMarket"));
+			sellerDTO.setAddress(rs.getString("address"));
 		}
 		return sellerDTO;
 	}
@@ -109,6 +126,7 @@ public class SellerDAO {
 			sellerDTO.setCategory(rs.getString("category"));
 			sellerDTO.setInfo(rs.getString("info"));
 			sellerDTO.setOpenMarket(rs.getString("openMarket"));
+			sellerDTO.setAddress(rs.getString("address"));
 		}
 		return sellerDTO;	
 	}

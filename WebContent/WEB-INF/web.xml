@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>com.interior.filter.EncodingFilter</filter-class>
+    <init-param>
+      <param-name>kind</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>home</servlet-name>
     <servlet-class>com.interior.control.HomeController</servlet-class>
@@ -28,16 +40,7 @@
     <servlet-name>store</servlet-name>
     <url-pattern>/product/*</url-pattern>
   </servlet-mapping>
- <filter>  
-         <filter-name>EncodingFilter</filter-name>  
-         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
-         <init-param>  
-             <param-name>encoding</param-name>  
-             <param-value>UTF-8</param-value>  
-         </init-param>  
-     </filter>  
-     <filter-mapping>  
-         <filter-name>EncodingFilter</filter-name>  
-         <url-pattern>/*</url-pattern>  
-     </filter-mapping>  
+  <session-config>
+    <session-timeout>300</session-timeout>
+  </session-config>
 </web-app>

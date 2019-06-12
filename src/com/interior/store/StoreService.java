@@ -88,7 +88,7 @@ public class StoreService implements Action{
 			}
 			
 		} else { // 상품 등록 폼
-			path="../WEB-INF/views/seller/sellerWrite.jsp";
+			path="../WEB-INF/views/store/storeInsert.jsp";
 			check=true;
 		}
 		actionForward.setPath(path);

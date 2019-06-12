@@ -14,6 +14,7 @@ public class SellerDTO {
 	private String category;
 	private String info;
 	private String openMarket;
+	private String address;
 	
 	public String getCompanyName() {
 		return companyName;
@@ -87,7 +88,14 @@ public class SellerDTO {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	
 
 }
+

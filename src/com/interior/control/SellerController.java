@@ -37,7 +37,6 @@ public class SellerController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command=request.getPathInfo();
 		ActionForward actionForward=null;
-		System.out.println(command);
 		if(command.equals("/sellerJoin")) {
 			
 			actionForward=sellerService.insert(request, response);
@@ -66,8 +65,11 @@ public class SellerController extends HttpServlet {
 			
 			actionForward=storeService.insert(request, response);
 		
-		} 
+		} else if(command.equals("/idCheck")) {
+			actionForward=sellerService.idCheck(request, response);
+		}
 
+		
 		
 		if (actionForward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
