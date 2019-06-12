@@ -263,7 +263,7 @@ $(function () {
 	});
 	
 	$("#ad").click(function() {
-		window.open("../register/address.jsp", "", "width=500,height=500");
+		var pop = window.open("../juso/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
 	});
 	
 });
