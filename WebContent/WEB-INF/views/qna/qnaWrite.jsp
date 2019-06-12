@@ -18,42 +18,56 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaWrite.css">
 <script type="text/javascript">
-var oEditors = [];
 
 $(function() {
-	
-	nhn.husky.EZCreator.createInIFrame({
-          oAppRef: oEditors,
-          elPlaceHolder: "contents",
-          //SmartEditor2Skin.html 파일이 존재하는 경로
-          sSkinURI: "/Servlet_4/se2/SmartEditor2Skin.html",  
-          htParams : {
-              // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-              bUseToolbar : true,             
-              // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-              bUseVerticalResizer : true,     
-              // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-              bUseModeChanger : true,         
-              fOnBeforeUnload : function(){
-                   
-              }
-          }, 
-          fOnAppLoad : function(){
-              //기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-              oEditors.getById["contents"].exec("PASTE_HTML", ["기존 DB에 저장된 내용을 에디터에 적용할 문구"]);
-          },
-          fCreator: "createSEditor2"
-      });
       
-      //저장버튼 클릭시 form 전송
+      //////////////// 저장버튼 클릭시 form 전송
       $("#save").click(function(){
           oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
           $("#frm").submit();
       });
-});
+});    
+      ////////////// 버튼 5개까지 체크하기
+      
+      function count_ck(obj){
+		var chkbox = document.getElementsByName("che");
+		var chkCnt = 0;
+		for(var i=0;i<chkbox.length; i++){
+			if(chkbox[i].checked){
+				chkCnt++;
+			}
+		}
+		if(chkCnt>5){
+			alert("최대 5개까지 선택 가능합니다.");
+			obj.checked = false;
+			return false;
+		}
+	}
+	
+	/////////////// 버튼 개수 출력
+   	function test_checkbox() {
+		var i = false;
+		var values = document.getElementsByName("che");
+		var count = 0;
+		for(var i=0; i<values.length; i++) {
+			if(values[i].checked) {
+				count++;
+			}
+		}
+		if(count<2) {
+			alert("2개 이상 선택");
+		}
+		else {
+			alert(count + " 개 선택했습니다.");
+			i = true;
+		}
+		
+		$('.tag_count_t1').html(count);	//몇개 체크했는지 개수출력
+		
+		return i;
+	}
       
 </script>
-
 </head>
 <body>	
 
@@ -63,7 +77,7 @@ $(function() {
 		</a>
 	</div>
 	
-	<form id="frm" action="./${qna}Main" method="post" enctype="multipart/form-data">
+	<form id="frm" action="/${qna}Main" method="post">
 	
 	
 	<div id="container">
@@ -75,16 +89,16 @@ $(function() {
 			<div class="qna_sub">상품구매, 배송 관련 문의가 필요하시다면 
 				<a href="../qna/qnaMain" id="qna_go">문의하러가기</a> 		<!-- 고객센터로 이동 / 주소 다시확인하기 -->
 			</div>
-		<br>
+			<br>
 				<div class="form-group">
 					<input type="text" class="form-control" id="usr" placeholder="제목을 적어주세요.">
 				</div>
-		<br>
+			<br>
 				<div class="form-group">
 					<textarea class="form-control" rows="17" id="comment" 
 					placeholder="내용을 적어주세요.&#13;&#10;참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다.&#13;&#10; ※ 비슷한 어려움을 겪는 유저를 위해 답변자에게 포인트를 지급하며, 답변이 달린 질문글은 &#13;&#10;삭제할 수 없습니다. &#13;&#10; ※ 인테리어와 관련 없는 질문은 숨김 및 삭제될 수 있습니다." ></textarea>
 				</div>
-		<br>
+			<br>
 		
 			<div class="click">
 			  <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"># 클릭하여 주요 키워드를 입력해주세요.</button> -->
@@ -114,93 +128,93 @@ $(function() {
 			        <div class="modal-body">
 			            <p class="keyword_select">일반</p>				<!-- 체크할때마다 체크박스 카운트 -->
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">리모델링/을수리
+						      <input type="checkbox" name="che" value="1" class="che" onClick="count_ck(this)">리모델링/을수리
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">견적
+						      <input type="checkbox" name="che" value="2" class="che" onClick="count_ck(this)">견적
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">업체추천
+						      <input type="checkbox" name="che" value="3" class="che" onClick="count_ck(this)">업체추천
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">셀프인테리어
+						      <input type="checkbox" name="che" value="4" class="che" onClick="count_ck(this)">셀프인테리어
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">신혼
+						      <input type="checkbox" name="che" value="5" class="che" onClick="count_ck(this)">신혼
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">리폼
+						      <input type="checkbox" name="che" value="6" class="che" onClick="count_ck(this)">리폼
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">디자인 추천
+						      <input type="checkbox" name="che" value="7" class="che" onClick="count_ck(this)">디자인 추천
 						    </label>
 					  	<p class="keyword_select">부분 공정</p>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">가벽
+						      <input type="checkbox" name="che" value="8" class="che" onClick="count_ck(this)">가벽
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">단열
+						      <input type="checkbox" name="che" value="9" class="che" onClick="count_ck(this)">단열
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">도배
+						      <input type="checkbox" name="che" value="10" class="che" onClick="count_ck(this)">도배
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">마루
+						      <input type="checkbox" name="che" value="11" class="che" onClick="count_ck(this)">마루
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">목공
+						      <input type="checkbox" name="che" value="12" class="che" onClick="count_ck(this)">목공
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">몰딩
+						      <input type="checkbox" name="che" value="13" class="che" onClick="count_ck(this)">몰딩
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">바닥
+						      <input type="checkbox" name="che" value="14" class="che" onClick="count_ck(this)">바닥
 						    </label>
 						  <p class="keyword_select">평수</p>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">10평미만
+						      <input type="checkbox" name="che" value="15" class="che" onClick="count_ck(this)">10평미만
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">10평대
+						      <input type="checkbox" name="che" value="16" class="che" onClick="count_ck(this)">10평대
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">20평대
+						      <input type="checkbox" name="che" value="17" class="che" onClick="count_ck(this)">20평대
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">30평대
+						      <input type="checkbox" name="che" value="18" class="che" onClick="count_ck(this)">30평대
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">40평대
+						      <input type="checkbox" name="che" value="19" class="che" onClick="count_ck(this)">40평대
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">50평이상
+						      <input type="checkbox" name="che" value="20" class="che" onClick="count_ck(this)">50평이상
 						    </label>
 						<p class="keyword_select">실내공간</p>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">화장실
+						      <input type="checkbox" name="che" value="21" class="che" onClick="count_ck(this)">화장실
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">베란다
+						      <input type="checkbox" name="che" value="22" class="che" onClick="count_ck(this)">베란다
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">거실
+						      <input type="checkbox" name="che" value="23" class="che" onClick="count_ck(this)">거실
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">주방
+						      <input type="checkbox" name="che" value="24" class="che" onClick="count_ck(this)">주방
 						    </label>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">현관
+						      <input type="checkbox" name="che" value="25" class="che" onClick="count_ck(this)">현관
 						    </label>
   						<p class="keyword_select">기타</p>
 						    <label class="checkbox-inline">
-						      <input type="checkbox" value="">기타
+						      <input type="checkbox" name="che" value="26" class="che" onClick="count_ck(this)">기타
 						    </label>
 			        </div>
 			        
 			        <div class="modal-footer">
 				          <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-				          <button type="button" class="btn btn-default" data-dismiss="modal">선택완료</button>
-				        </div>
+				          <input type="submit" class="btn btn-default" data-dismiss="modal" onclick="return test_checkbox()">
+				    </div>
 			          
 			        </div>
 			      </div>
@@ -213,9 +227,10 @@ $(function() {
 				<span class="tag_count_t2"></span>최대
 				<span class="tag_count_t3">5</span>개
 			</div>
+			
 		<br>
+		
 	</div> <!-- end container -->
-
 			<div class="footer">
 				<div>				<!-- 버튼 클릭하면 질문 메인페이지 이동 -->
 					<input type="button" name="commit" id="save" value="질문 저장하기" class="btn btn-lg btn-priority col-6 offset-3">

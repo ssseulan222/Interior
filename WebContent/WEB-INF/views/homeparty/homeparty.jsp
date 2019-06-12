@@ -7,19 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>집들이</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<c:import url="../temp/bootstrap.jsp"/>
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/homeparty.css">
 
 </head>
 <body>
+<c:import url="../temp/header.jsp" />
 	<!-- ------------- 커뮤니티-집들이-상단 카테고리--------------- -->
 	<!-- ------------- container start ----------------------->
 
@@ -187,23 +182,72 @@
 	</div> <!-- end container -->
 	
 	<div class="row">
-
-    <div class="img1">
-        <a href="/w3images/lights.jpg" target="_blank">
-          <img src="../img/q1.png" style="max-width: 100%; height: auto;">
-          	<div class="img_title">
-			<p>서울이나 서울 같지 않은 정릉동에서 만난 첫 위안</p>
-          	</div>
-        </a>
-    </div>
-    
+	    <div class="col-md-4">
+	      <div class="thumbnail">
+	        <a href="#" target="_blank">
+	          <img src="/img/none.jpeg" alt="Lights" style="width:100%">
+	          <div class="caption">
+	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	          </div>
+	        </a>
+	      </div>
+	    </div>
+	    <div class="col-md-4">
+	      <div class="thumbnail">
+	        <a href="/w3images/nature.jpg" target="_blank">
+	          <img src="/../img/q1.png" alt="Nature" style="width:100%">
+	          <div class="caption">
+	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	          </div>
+	        </a>
+	      </div>
+	    </div>
+	    <div class="col-md-4">
+	      <div class="thumbnail">
+	        <a href="/w3images/fjords.jpg" target="_blank">
+	          <img src="/../img/q2.png" alt="Fjords" style="width:100%">
+	          <div class="caption">
+	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	          </div>
+	        </a>
+	      </div>
+	    </div>
+		<div class="col-md-4">
+	      <div class="thumbnail">
+	        <a href="#" target="_blank">
+	          <img src="/img/none.jpeg" alt="Lights" style="width:100%">
+	          <div class="caption">
+	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	          </div>
+	        </a>
+	      </div>
+	    </div>
+	    <div class="col-md-4">
+	      <div class="thumbnail">
+	        <a href="/w3images/nature.jpg" target="_blank">
+	          <img src="/../img/q1.png" alt="Nature" style="width:100%">
+	          <div class="caption">
+	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	          </div>
+	        </a>
+	      </div>
+	    </div>
+	    <div class="col-md-4">
+	      <div class="thumbnail">
+	        <a href="/w3images/fjords.jpg" target="_blank">
+	          <img src="/../img/q2.png" alt="Fjords" style="width:100%">
+	          <div class="caption">
+	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	          </div>
+	        </a>
+	      </div>
+	    </div>    
     
     
     
 
 	
 	</div> <!-- end row -->
-	
 	
 </body>
 </html>

@@ -40,15 +40,21 @@ public class HomepartyController extends HttpServlet {
 		ActionForward actionForward = new ActionForward();
 		
 		if(command.equals("/homepartyWrite")) {
-			
 			//request.setAttribute("file","test");
-			
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/views/homeparty/homepartyWrite.jsp");
 		}
 		else if(command.equals("/homeparty")) {
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/views/homeparty/homeparty.jsp");
+		}
+		else if(command.equals("/homepartyUpdate")) {
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/views/homeparty/homepartyUpdate.jsp");
+		}
+		else if(command.equals("/homepartyDelete")) {
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/views/homeparty/homepartyDelete.jsp");
 		}
 		//else if(command.equals("/homepartyWriteAction")) {
 			//uploadService.insert(request, response);

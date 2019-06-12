@@ -7,9 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>집들이 글쓰기</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<c:import url="../temp/bootstrap.jsp"/>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/homepartyWrite.css">
 
 <style type="text/css">
@@ -304,6 +302,6 @@ var sel_file;
 	</div> <!-- end title_write -->
 	
 	
-	
+
 </body>
 </html>

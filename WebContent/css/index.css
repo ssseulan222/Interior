@@ -1,20 +1,29 @@
 @charset "UTF-8";
 .container {
-	margin-left: 200px;
+	/* margin-left: 200px;
 	margin-top: 50px;
+	border: 1px solid red; */
+	
 }
 .main_image {
-	width: 1000px;
-	height: 500px;
+	/* width: 600px;
+	height: 500px; */
 	border-bottom : 100px;
-	margin-left:100px;
 	margin-top:6%;
-	border: 1px solid red;
 }
+#img_1 {
+	padding-right: 30px;
+}
+.carousel slide {
+	/* margin: 500px; */	
+}
+
+
+
 .slide_image {
 	width: 300px;
 	height: 500px;
-	margin-left : 105%;
-	border: 1px solid red;
-	
+/* 	margin-left : 105%; 
+	border: 1px solid red;*/
 }
+

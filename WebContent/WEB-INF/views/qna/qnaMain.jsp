@@ -6,14 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>QnA 메인</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<c:import url="../temp/bootstrap.jsp"/>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaMain.css">
 
@@ -36,6 +29,7 @@
 </script>
 </head>
 <body>
+
 	<h1>qna main</h1>
 	<div id="header">
 	<br><br>
@@ -117,6 +111,5 @@
 			
 			
 		</div>
-
 </body>
 </html>
