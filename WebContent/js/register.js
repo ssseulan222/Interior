@@ -1,4 +1,12 @@
 $(function () {
+	
+	$("#open").click(function() {
+		$("#modal").css("display", "inline");
+	});
+	$("#close").click(function() {
+		$("#modal").css("display", "none");
+	});
+	
 	var clicked=0;
 	$(".pro1").click(function () {
 		if(clicked!=3){
@@ -208,6 +216,27 @@ $(function () {
 		});
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
+		if($(this).val()=="미등록(프리랜서)"){
+			$(".q4_d").each(function() {
+				$(this).css("display", "none");
+			});
+			$("#freelancer").css("display", "inline");
+		}else if($(this).val()=="등록(개인사업자)"){
+			$(".q4_d").each(function() {
+				$(this).css("display", "none");
+			});
+			$("#individual").css("display", "inline");
+		}else if($(this).val()=="등록(법인사업자)"){
+			$(".q4_d").each(function() {
+				$(this).css("display", "none");
+			});
+			$("#corporation").css("display", "inline");
+		}else if($(this).val()=="등록(브랜드대리점)"){
+			$(".q4_d").each(function() {
+				$(this).css("display", "none");
+			});
+			$("#brand").css("display", "inline");
+		}
 	});
 
 
@@ -262,7 +291,28 @@ $(function () {
 		}
 	});
 	
-	
-
-
+	$(".c_check").click(function() {
+		var check = 0;
+		$(".c_check").each(function() {
+			if($(this).prop("checked")){
+				check++;
+			}
+		});
+		if(check == 4){
+			$("#allagree").prop("checked", true);
+		}else{
+			$("#allagree").prop("checked", false);
+		}
+	});
+	$("#allagree").click(function() {
+		if($(this).prop("checked")){
+			$(".c_check").each(function() {
+				$(this).prop("checked", true);
+			});
+		}else{
+			$(".c_check").each(function() {
+				$(this).prop("checked", false);
+			});
+		}
+	});
 });

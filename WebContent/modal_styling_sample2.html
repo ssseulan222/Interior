@@ -1,0 +1,114 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>모달 스타일링_예제2</title>
+<style>
+* { padding: 0; margin: 0; box-sizing: border-box; }
+a { text-decoration: none; color: inherit; }
+
+button { cursor: pointer; border: none; background: inherit; }
+
+header { margin: 0 auto; width: 1200px; height: 100px; background: #ccff33; }
+#bannerWrap { margin: 0 auto; width: 1200px; height: 300px; background: #ffff99; }
+footer { margin: 0 auto; width: 1200px; height: 100px; background: #ffcc00; }
+
+#contentWrap { margin: 0 auto; width: 1200px; height: 200px; display: flex; }
+.secA { flex: 1.3; }
+.secB { flex: 1; background: #f2f4f7; }
+.secC { flex: 0.7; background: #f5f7f9; }
+
+#modal { position: fixed; top: 0px; margin: 0px; z-index:100; width: 100%; height: 100%; background: rgba(0,0,0,0.8);  display: none; }
+#modal > div { position: fixed; top: 20%; left: 20%; width: 800px;   background: white; }
+
+/*변화한 부분 따로 적었습니다*/
+h2 { margin-top: 16px; letter-spacing: -0.1em; }
+.secA > h2 {padding: 0px 16px; }
+.secA > table { margin: 10px 0px 10px 16px; width: 460px;}
+.secA th { color: #0099e6; font-size: 12px; border-bottom: 1px solid #0099e6;}
+.secA td { color: #333; letter-spacing: -0.04em; padding: 4px 0px 1px 10px; font-size: 14px; border-bottom: 1px dotted #0099e6;}
+.secA a  { color: #333; }
+
+#modal > div { padding: 40px; } /*본문 내용이 길어져 height값을 삭제*/
+#modal hr { margin-top: 4px; } /* 전체의 패딩, 마진값을 0으로 초기화시켜서 이렇게 따로 여백을 주는 작업을 하고 있습니다.*/
+#modal p { margin: 20px 0px; letter-spacing: -0.08em; line-height: 1.8em;}
+.modalClose { position: absolute; left: 0px; bottom: -70px; height:70px; width: 100%; 
+font-size: 30px; color: #ddd; background: #0099e6; }
+.modalClose:hover { background: #33bbff; }
+.modalClose:active { background: #00aaff; }
+
+</style>
+</head>
+
+<body>
+<header>
+<h1>헤더</h1>
+</header>
+<div id="bannerWrap">이미지슬라이드</div>
+
+<div id="contentWrap">
+<div class="secA">
+<h2>공지사항</h2>
+<table>
+  <tbody>
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><a href="#" class="modalOpen">노년에게서 인간의 피어나는 이 고동을 찾아 봄바람이다.</a></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>우리 방지하는 인생을 그들을 운다.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>못하다 착목한는 있는 굳세게 그들의 황금시대다.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>옷을 못할 얼음과 찾아 힘차게 있으며, 튼튼하며</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+<div class="secB"><h2>배너</h2></div>
+<div class="secC"><h2>바로가기</h2></div>
+</div>
+<footer>푸터</footer>
+
+<div id="modal"> <!--화면 전체에 깔릴 모달/ 푸터 아래에 만듭니다.-->
+  <div><!-- 모달의 콘텐츠 박스입니다-->
+     <h2>노년에게서 인간의 피어나는 이 고동의 봄바람이다.</h2> 
+     <hr> <!--제목과 본문을 나누기위해 수평선을 넣었습니다(디자인자유)-->
+<!--p태그 적은 본문에서 엔터 줄바꿈은 먹히지 않습니다. 아래 글들은 코딩할때 보기 좋으려고 줄바꿈 했습니다.-->
+    <p>못할 속에서 노년에게서 인간의 피어나는 이 고동을 찾아 봄바람이다. 
+구하지 심장은 있는 남는 두손을 뿐이다. 이것은 우리 그들에게 같이, 것이다. 
+심장은 대고, 청춘은 새 그림자는 곳으로 주며, 하는 철환하였는가?
+ 과실이 듣기만 할지라도 이것이다.</p>
+    <p>우리 방지하는 인생을 그들을 운다. 생의 인간의 인생의 얼음이 낙원을 철환하였는가? 
+못하다 착목한는 있는 굳세게 그들의 황금시대다. 이상의 것은 찾아 무엇을 불러 풍부하게 것이다. 
+있을 넣는 창공에 있음으로써 끓는다.</p>
+    <p>실로 기관과 끓는 이성은 싶이 말이다. 얼음과 할지니, 고동을 못할 창공에 것이다. 
+새가 때에, 그와 보배를 우리의 우리 그들은 창공에 것이다. 뜨거운지라, 전인 대중을 갑 앞이 붙잡아 끓는 못할 때문이다. 
+가치를 영원히 열락의 위하여서. 행복스럽고 꾸며 있는 미인을 이상 새가 너의 그것은 그와 약동하다.</p>
+<button class="modalClose">닫기</button>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+//modal open 
+$(".modalOpen").click(function(){
+  $("#modal").show();
+});
+//modal close
+$(".modalClose").click(function(){
+  $("#modal").hide();
+});
+</script>
+</body>
+</html>

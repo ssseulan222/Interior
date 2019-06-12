@@ -8,10 +8,9 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<link href="../css/register.css?ver2" rel="stylesheet" type="text/css" />
-<link href="../css/register2.css?ver2" rel="stylesheet" type="text/css" />
-<script src="../js/register.js?ver2"></script>
-<script src="../js/register2.js?ver2"></script>
+<link href="../css/register.css?ver1" rel="stylesheet" type="text/css" />
+<script src="../js/register.js?ver1"></script>
+<script src="../js/register2.js?ver1"></script>
 <script type="text/javascript">
 function goPopup(){
 	// 주소검색을 수행할 팝업 페이지를 호출합니다.
@@ -268,9 +267,9 @@ function jusoCallBack(roadFullAddr){
 					<input type="text" name="name">
 				</div>
 				<div id="q2">
-					<span>대표 연락처를 입력해주세요.</span> <br>
-					<input type="text" name="phone1">-<input type="text"
-						name="phone2">-<input type="text" name="phone3">
+					<span>대표 연락처를 입력해주세요.</span> <br> <input type="text"
+						name="phone1">-<input type="text" name="phone2">-<input
+						type="text" name="phone3">
 				</div>
 				<div id="q3">
 					<span>사업장 주소를 알려주세요.</span><span class="necessary">필수</span><br>
@@ -282,20 +281,20 @@ function jusoCallBack(roadFullAddr){
 					<input type="button" value="미등록(프리랜서)" class="r_check"> <input
 						type="button" value="등록(개인사업자)" class="r_check"> <input
 						type="button" value="등록(법인사업자)" class="r_check"><br>
-					<input type="button" value="등록(브랜드대리점)" class="r_check">
-					<div id="freelancer">
+					<input type="button" value="등록(브랜드대리점)" class="r_check"><br><br>
+					<div id="freelancer" class="q4_d">
 						<span>신분증을 첨부해주세요.</span><span class="necessary">필수</span><br>
 						<p>주민번호 뒷자리를 포스트잇이나 종이로 가린 뒤 사진으로 찍거나 스캔해서 첨부해주세요.</p>
 						<input type="file" class="upload"><br>
 					</div>
-					<div id="individual">
+					<div id="individual" class="q4_d">
 						<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
 						<input type="text">-<input type="text">-<input
 							type="text"><br> <span>사업자등록증을 첨부해주세요.</span><span
 							class="necessary">필수</span><br> <input type="file"
 							class="upload">
 					</div>
-					<div id="corporation">
+					<div id="corporation" class="q4_d">
 						<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
 						<input type="text">-<input type="text">-<input
 							type="text"><br> <span>사업자등록증을 첨부해주세요.</span><span
@@ -304,7 +303,7 @@ function jusoCallBack(roadFullAddr){
 							class="necessary">필수</span><br> <input type="checkbox"
 							value="industry"> 네, 등록되어 있습니다.
 					</div>
-					<div id="brand">
+					<div id="brand" class="q4_d">
 						<span>대리점 혹은 제휴점 코드(번호)를 입력해주세요.</span><br> <input
 							type="text"> <span>사업자등록여부를 알려주세요.</span><span
 							class="necessary">필수</span><br> <input type="text">-<input
@@ -330,15 +329,16 @@ function jusoCallBack(roadFullAddr){
 				<div id="q6">
 					<span>가입 약관에 동의해주세요.</span><span class="necessary">필수</span>
 					<div>
-						<input type="checkbox" name="agree"> 만 14세 이상입니다. <span
+						<input type="checkbox" name="agree" class="c_check"> 만 14세 이상입니다. <span
 							class="ne">(필수)</span><br> <input type="checkbox"
-							name="agree"> 이용약관에 동의 <span class="ne">(필수)</span><br>
-						<input type="checkbox" name="agree"> 개인정보취급방침에 동의 <span
+							name="agree" class="c_check"> 이용약관에 동의 <span class="ne">(필수)</span><br>
+						<input type="checkbox" name="agree" class="c_check"> 개인정보취급방침에 동의 <span
 							class="ne">(필수)</span><br> <input type="checkbox"
-							name="agree" id="marketing"> 이벤트 및 마케팅 활용에 동의 <span>(선택)</span><br>
+							name="agree" id="marketing" class="c_check"> <span id="open">이벤트 및 마케팅 활용에 동의 <span>(선택)</span></span><br>
 						<input type="checkbox" name="allagree" id="allagree"> 모두
 						동의합니다.
 					</div>
+
 				</div>
 				<div>
 					<button id="before3" class="b_btn">이전</button>
@@ -354,5 +354,34 @@ function jusoCallBack(roadFullAddr){
 		<pre>상호명:(주)버킷플레이스  이메일:contact@bucketplace.net  대표이사:이승재  사업자등록번호119-86-91245  통신판매업신고번호:제2018-서울서초-0580호  주소:서울특별시 서초구 강남대로 373 홍우빌딩 14층 버킷플레이스</pre>
 		<p>Copyright ⓒ 2014 by Bucket Inc All Rights Reserved</p>
 	</footer>
+
+	<div id="modal">
+		<div>
+			<h2>이벤트 및 마케팅 활용 동의</h2>
+			<p>오늘의집 인테리어 전문가 서비스에서 제공하는 이벤트 및 서비스 (제휴서비스 포함) 안내 등 광고성 정보를
+				받으시려면 마케팅 목적 이용에 동의하여 주시기 바랍니다.</p>
+			<table>
+				<thead>
+					<tr>
+						<td>수집방법</td>
+						<td>수집항목</td>
+						<td>수집 및 이용목적</td>
+						<td>보유 및 이용기간</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>이벤트/마케팅홍보</td>
+						<td>당사 및 제휴사 상품 안내, 이벤트 등 광고성 정보 전달 및 참여기회 제공, 회원 대상 각종 마케팅
+							활용, 서비스 이용내역, 서비스 내 구매 및 결제 내역</td>
+						<td>이름, 아이디, 휴대전화번호, 이메일</td>
+						<td>개인정보 이용목적 달성 시, 동의철회 (제휴업체는 제휴계약 종료 시) 및 관계법령에 따른 보관기간까지</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>* 동의를 거부하시는 경우에도 서비스는 이용이 가능합니다.</p>
+			<button id="close">확인</button>
+		</div>
+	</div>
 </body>
 </html>
