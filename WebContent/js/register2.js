@@ -94,24 +94,5 @@ $(function () {
 		}else{
 			c_check = 2;
 		}
-
-		$.post("./ExpertJoin",
-				{
-			contract : contract,
-			pro : pro,
-			space_type : space_type,
-			a_s : a_s,
-			carreer : carreer,
-			pay : pay,
-			deposit : deposit,
-			tag : tag,
-			email : email,
-			phone : phone,
-			r_check : r_check,
-			c_num : c_num,
-			c_regi : c_regi,
-			route : route,
-			c_check : c_check
-				});
 	});
 });

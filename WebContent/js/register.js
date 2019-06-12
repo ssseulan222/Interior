@@ -198,7 +198,7 @@ $(function () {
 			$(this).css("color", "white");
 		}
 	});
-	
+
 	$(".r_check").click(function() {
 		$(".r_check").each(function() {
 			if($(this).css('background-color') == "rgb(53, 197, 240)"){
@@ -209,8 +209,8 @@ $(function () {
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
 	});
-	
-	
+
+
 	$(".route").click(function() {
 		$(".route").each(function() {
 			if($(this).css('background-color') == "rgb(53, 197, 240)"){
@@ -262,8 +262,7 @@ $(function () {
 		}
 	});
 	
-	$("#ad").click(function() {
-		var pop = window.open("../juso/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
-	});
 	
+
+
 });
