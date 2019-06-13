@@ -35,9 +35,7 @@ hr {
 .session {
 	
 }
-label{
-	border: 1px solid green;
-}
+
 .mid-titleDiv {
 	margin-bottom: 5%;
 }
@@ -62,10 +60,54 @@ label{
 	margin-left:1%;
 }
 
+
+/* 카테고리 선택 창 시작 */
+
+
+#selCatDiv{
+	margin-left: 20px;
+	padding:0px;
+}
+
+.selCat{
+	display: inline-block;
+	margin-right:10px;
+	margin-right:40px;
+}
+.selCat:last-child{
+	margin-right:0px;
+}
+
+#cat1 ul{
+	padding-left: 0px;
+	font-size: 1.0em;
+}
+#cat1 li{
+	margin-bottom:5px;
+	list-style:none;
+	font-color: black;
+
+}
+#cat1 li:hover{
+	cursor: pointer;
+}
+
+.category-1{
+	color: black;
+}
+
+.category-1:hover{
+	color:black;
+}
+
+
+/* 카테고리 선택 창 끝 */
+
 .radioBtn{
-	margin-left:3%;
-	border:1px solid red;
-	width: 50%;
+	
+	margin-left:20px;
+	display:inline-block;
+	
 }
 
 

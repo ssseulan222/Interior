@@ -24,7 +24,7 @@
 		<h1>${sessionScope.sellerDTO.id}페이지</h1>
 <br><br><br>
 		<div class="sellerNav">
-			<a href="../store/storeInsert">상품등록하기</a>&nbsp;&nbsp;&nbsp;
+			<a href="../seller/sellerInsert">상품등록하기</a>&nbsp;&nbsp;&nbsp;
 		</div>
 
 		<div class="productList">

@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/storeInsert.css">
-<script src="<%=request.getContextPath()%>/js/storeInsert.js"></script>
+	href="<%=request.getContextPath()%>/css/sellerInsert.css">
+<script src="<%=request.getContextPath()%>/js/sellerInsert.js"></script>
 <title>판매자 상품등록</title>
 
 </head>
@@ -21,7 +21,7 @@
 
 		<hr>
 
-		<form class="form-horizontal" action="./storeInsert" method="post">
+		<form class="form-horizontal" action="./sellerInsert" method="post">
 			<div class="session">
 
 				<div class="mid-titleDiv">
@@ -30,8 +30,7 @@
 				<div class="form-group">
 					<label for="seller" class="col-sm-3">판매자<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="text" id="seller" name="seller" class="form-control"
-						 required="required" readonly="readonly" value="${sessionScope.sellerDTO.companyName}">
+						<input type="text" id="seller" name="seller" class="form-control" required="required" readonly="readonly" value="${sessionScope.sellerDTO.companyName}" style="background-color: #f9f9f9c4; ">
 					</div>
 				</div>
 			</div>
@@ -52,8 +51,34 @@
 				
 				<div class="form-group">
 					<label for="category" class="col-sm-3">카테고리<span class="required">*</span></label>
+					<div id="selCatDiv" class="col-sm-7">
+						<div id="cat1" class="selCat col-sm-3">
+							<h4>대분류</h4>
+							<hr>
+								<ul>
+									<li><a class="category-1" id="1">가구</a></li>
+									<li><a class="category-1" id="2">패브릭</a></li>
+									<li><a class="category-1" id="3">홈데코/조명</a></li>
+									<li><a class="category-1" id="4">가전</a></li>
+									<li><a class="category-1" id="5">수납/생활</a></li>
+									<li><a class="category-1" id="6">주방</a></li>
+									<li><a class="category-1" id="7">DIY자재</a></li>
+									<li><a class="category-1" id="8">시공/주문제작</a></li>
+									<li><a class="category-1" id="9">반려동물</a></li>
+								</ul>
+						</div>
+						<div id="cat2" class="selCat col-sm-3">
+							b
+						</div>
+						<div id="cat3" class="selCat col-sm-3">
+							c
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="category" class="col-sm-3"></label>
 					<div class="col-sm-9">
-						<input type="text" id="category" name="category" class="form-control" readonly="readonly">
+						<input type="text" id="category" name="category" class="form-control" placeholder="선택된 카테고리" readonly="readonly" style="background-color: #f9f9f9c4; ">
 					</div>
 				</div>
 
@@ -90,7 +115,7 @@
 				<div class="form-group">
 					<label for="salePrice" class="col-sm-3">할인가<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="number" id="salePrice" name="salePrice" class="form-control" readonly="readonly"><span class="unit">원</span>
+						<input type="number" id="salePrice" name="salePrice" class="form-control" placeholder="할인된 가격을 입력해주세요"><span class="unit">원</span>
 					</div>
 				</div>
 
@@ -107,7 +132,7 @@
 				<div class="form-group">
 					<label for="point" class="col-sm-3">포인트 적립률<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="number" id="point" name="point" class="form-control" readonly="readonly"><span class="unit">P</span>
+						<input type="number" id="point" name="point" class="form-control" readonly="readonly" style="background-color: #f9f9f9c4; "><span class="unit">P</span>
 					</div>
 				</div>
 

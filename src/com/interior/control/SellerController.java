@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.interior.action.ActionForward;
 import com.interior.seller.SellerService;
-import com.interior.store.StoreService;
 
 /**
  * Servlet implementation class SellerController
@@ -20,7 +19,7 @@ import com.interior.store.StoreService;
 public class SellerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	SellerService sellerService=null;
-	StoreService storeService=null;
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -28,7 +27,7 @@ public class SellerController extends HttpServlet {
     public SellerController() {
         super();
         sellerService=new SellerService();
-        storeService = new StoreService();
+ 
     }
 
 	/**
@@ -37,38 +36,37 @@ public class SellerController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command=request.getPathInfo();
 		ActionForward actionForward=null;
+
 		if(command.equals("/sellerJoin")) {
+			actionForward=sellerService.sellerJoin(request, response);
 			
-			actionForward=sellerService.insert(request, response);
+		} else if(command.equals("/sellerIdCheck")) {
+			actionForward=sellerService.sellerIdCheck(request, response);
 			
-		} else if(command.equals("/sellerLogin")||command.equals("/findPw")) {
+		} else if(command.equals("/sellerLogin")) {
 			
-			actionForward=sellerService.login(request, response);
+			actionForward=sellerService.sellerLogin(request, response);
+		
+		} else if(command.equals("/sellerFindPW")){
+			
+			actionForward=sellerService.sellerFindPw(request, response);
+		
+		} else if(command.equals("/sellerUpdate")) {
+			
+			actionForward=sellerService.sellerUpdate(request, response);
+			
+		} else if(command.equals("/sellerDelte")) {
+			
+			actionForward = sellerService.sellerDelete(request, response);
 			
 		} else if(command.equals("/sellerLogout")) {
 			
-			actionForward=sellerService.logout(request, response);
+			actionForward=sellerService.sellerLogout(request, response);
 		
-		} else if(command.equals("/sellerUpdate")){
-			
-			actionForward=sellerService.update(request, response);
-		
-		} else if(command.equals("/sellerDelete")) {
-			
-			actionForward=sellerService.delete(request, response);
-			
 		} else if(command.equals("/sellerMain")) {
-			
-			actionForward = sellerService.list(request, response);
-			
-		} else if(command.equals("/sellerWrite")) {
-			
-			actionForward=storeService.insert(request, response);
+			actionForward=sellerService.sellerMain(request, response);
 		
-		} else if(command.equals("/idCheck")) {
-			actionForward=sellerService.idCheck(request, response);
 		}
-
 		
 		
 		if (actionForward.isCheck()) {

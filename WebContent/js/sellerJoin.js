@@ -11,7 +11,7 @@ $(function() {
 	var con=false;
 	var check1=0;
 	var check2=0;
-	var idReg=/^[A-Za-z]{1}[A-Za-z0-9]{6,19}$/;
+	var idReg=/^[A-Za-z]{1}[A-Za-z0-9]{5,18}$/;
 	var pwReg=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,19}$/;
 
 	//비밀번호
@@ -80,7 +80,7 @@ $(function() {
 	// 아이디 중복 체크 --- ajax
 	$('#error').hide();
 	$('#right').hide();
-	$('#id').blur(function(){
+	$('#id').keyup(function(){
 		if($(this).val()==""){
 			$('#error').hide();
 			$('#right').hide();
@@ -92,7 +92,7 @@ $(function() {
 			check1=0;
 		} else {
 			$.ajax({
-				url:'./idCheck',
+				url:'./sellerIdCheck',
 				type:'POST',
 				data:{'id':$(this).val()},
 				success: function(data) {
