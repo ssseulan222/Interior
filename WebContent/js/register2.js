@@ -63,11 +63,12 @@ $(function () {
 		});
 
 		email = $("#email").val()+"@";
-		$(".adr").each(function() {
+		$(".ad").each(function() {
 			if($(this).prop("selected")){
 				email += $(this).val();
 			}
 		});
+		email += $("#email2").val();
 		phone = $("#phone1")+$("#phone2")+$("#phone3")
 
 		$(".r_check").each(function() {

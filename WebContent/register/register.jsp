@@ -8,23 +8,21 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<link href="../css/register.css?ver1" rel="stylesheet" type="text/css" />
-<script src="../js/register.js?ver1"></script>
-<script src="../js/register2.js?ver1"></script>
+<link href="../css/register.css?ver2" rel="stylesheet" type="text/css" />
+<script src="../js/register.js?ver2"></script>
+<script src="../js/register2.js?ver2"></script>
 <script type="text/javascript">
-function goPopup(){
-	// 주소검색을 수행할 팝업 페이지를 호출합니다.
-	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
-	var pop = window.open("../jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
-	
-	// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
-    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
-}
+	function goPopup() {
+		// 주소검색을 수행할 팝업 페이지를 호출합니다.
+		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+		var pop = window.open("../jusoPopup.jsp", "pop",
+				"width=570,height=420, scrollbars=yes, resizable=yes");
+	}
 
-function jusoCallBack(roadFullAddr){
-	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
-	document.getElementById(" roadFullAddr ").value = roadFullAddr;
-}	
+	function jusoCallBack(roadFullAddr) {
+		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+		document.getElementById(" roadFullAddr ").value = roadFullAddr;
+	}
 </script>
 </head>
 <body>
@@ -225,18 +223,21 @@ function jusoCallBack(roadFullAddr){
 				<div id="q1">
 					<span>이메일 주소를 입력해주세요.</span><span class="necessary">필수</span>
 					<p>아이디로 사용하실 이메일주소를 입력해주세요.</p>
-					<input type="text" name="email">@ <select>
-						<option selected="selected">선택해주세요</option>
-						<option class="ad">naver.com</option>
-						<option class="ad">hanmail.net</option>
-						<option class="ad">daum.net</option>
-						<option class="ad">gmail.com</option>
-						<option class="ad">nate.com</option>
-						<option class="ad">hotmail.com</option>
-						<option class="ad">outlook.com</option>
-						<option class="ad">icloud.com</option>
-						<option id="self">직접입력</option>
-					</select>
+					<input type="text" id="email">@
+					<span id="s_email">
+						<select>
+							<option selected="selected" id="selecteed">선택해주세요</option>
+							<option class="ad" value="naver.com">naver.com</option>
+							<option class="ad" value="hanmail.net">hanmail.net</option>
+							<option class="ad" value="daum.net">daum.net</option>
+							<option class="ad" value="gmail.com">gmail.com</option>
+							<option class="ad" value="nate.com">nate.com</option>
+							<option class="ad" value="hotmail.com">hotmail.com</option>
+							<option class="ad" value="outlook.com">outlook.com</option>
+							<option class="ad" value="icloud.com">icloud.com</option>
+							<option id="self" class="ad">직접입력</option>
+						</select>
+					</span>
 				</div>
 				<div id="q2">
 					<span>사용하실 비밀번호를 입력해주세요.</span><span class="necessary">필수</span>
@@ -281,7 +282,8 @@ function jusoCallBack(roadFullAddr){
 					<input type="button" value="미등록(프리랜서)" class="r_check"> <input
 						type="button" value="등록(개인사업자)" class="r_check"> <input
 						type="button" value="등록(법인사업자)" class="r_check"><br>
-					<input type="button" value="등록(브랜드대리점)" class="r_check"><br><br>
+					<input type="button" value="등록(브랜드대리점)" class="r_check"><br>
+					<br>
 					<div id="freelancer" class="q4_d">
 						<span>신분증을 첨부해주세요.</span><span class="necessary">필수</span><br>
 						<p>주민번호 뒷자리를 포스트잇이나 종이로 가린 뒤 사진으로 찍거나 스캔해서 첨부해주세요.</p>
@@ -329,14 +331,15 @@ function jusoCallBack(roadFullAddr){
 				<div id="q6">
 					<span>가입 약관에 동의해주세요.</span><span class="necessary">필수</span>
 					<div>
-						<input type="checkbox" name="agree" class="c_check"> 만 14세 이상입니다. <span
+						<input type="checkbox" name="agree" class="c_check"> 만 14세
+						이상입니다. <span class="ne">(필수)</span><br> <input
+							type="checkbox" name="agree" class="c_check"> <a href="./clause1.jsp" target="_blank">이용약관</a>에 동의 <span
 							class="ne">(필수)</span><br> <input type="checkbox"
-							name="agree" class="c_check"> 이용약관에 동의 <span class="ne">(필수)</span><br>
-						<input type="checkbox" name="agree" class="c_check"> 개인정보취급방침에 동의 <span
+							name="agree" class="c_check"> <a href="./caluse2.jsp" target="_blank">개인정보취급방침</a>에 동의 <span
 							class="ne">(필수)</span><br> <input type="checkbox"
-							name="agree" id="marketing" class="c_check"> <span id="open">이벤트 및 마케팅 활용에 동의 <span>(선택)</span></span><br>
-						<input type="checkbox" name="allagree" id="allagree"> 모두
-						동의합니다.
+							name="agree" id="marketing" class="c_check"> <span
+							id="open">이벤트 및 마케팅 활용에 동의 <span>(선택)</span></span><br> <input
+							type="checkbox" name="allagree" id="allagree"> 모두 동의합니다.
 					</div>
 
 				</div>

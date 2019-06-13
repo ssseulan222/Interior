@@ -315,4 +315,14 @@ $(function () {
 			});
 		}
 	});
+	
+	$("#s_email").mouseout(function() {
+		$(".ad").each(function() {
+			if($(this).prop("selected")){
+				if($(this).attr("id")=="self"){
+					$("#email2").html('<input type="text" id="email2" name="email2">');
+				}
+			}
+		});
+	});
 });
