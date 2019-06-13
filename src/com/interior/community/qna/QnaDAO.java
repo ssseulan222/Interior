@@ -14,15 +14,15 @@ public class QnaDAO {
 	//insert(QnaDTO qnaDTO, Connection con): int
 	public int insert(QnaDTO qnaDTO, Connection con) throws Exception {
 		int result = 0;
-		String sql = "insert into qna values(?,?,?,?,?,sysdate,?)";
+		String sql = "insert into qna values(?,?,?,?,sysdate,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setString(1, qnaDTO.getTitle());
-		st.setString(2, qnaDTO.getContents());
-		st.setString(3, qnaDTO.getTag());
+		st.setInt(1, qnaDTO.getNum());
+		st.setString(2, qnaDTO.getTitle());
+		st.setString(3, qnaDTO.getContents());
 		st.setString(4, qnaDTO.getWriter());
-		st.setString(5, qnaDTO.getNum());
-		st.setInt(6, qnaDTO.getHit());
+		st.setInt(5, qnaDTO.getHit());
+		st.setString(6, qnaDTO.getTag());
 		
 		result = st.executeUpdate();
 		st.close();
@@ -54,13 +54,14 @@ public class QnaDAO {
 		
 		while(rs.next()) {
 			QnaDTO qnaDTO = new QnaDTO();
+			
+			qnaDTO.setNum(rs.getInt("num"));
 			qnaDTO.setTitle(rs.getString("title"));
 			qnaDTO.setContents(rs.getString("contents"));
-			qnaDTO.setTag(rs.getString("tag"));
 			qnaDTO.setWriter(rs.getString("writer"));
-			qnaDTO.setNum(rs.getString("num"));
 			qnaDTO.setReg_date(rs.getDate("reg_date"));
 			qnaDTO.setHit(rs.getInt("hit"));
+			qnaDTO.setTag(rs.getString("tag"));
 			ar.add(qnaDTO);
 		}
 		rs.close();
@@ -79,13 +80,14 @@ public class QnaDAO {
 		
 		if(rs.next()) {
 			qnaDTO = new QnaDTO();
+			
+			qnaDTO.setNum(rs.getInt("num"));
 			qnaDTO.setTitle(rs.getString("title"));
 			qnaDTO.setContents(rs.getString("contents"));
-			qnaDTO.setTag(rs.getString("tag"));
 			qnaDTO.setWriter(rs.getString("writer"));
-			qnaDTO.setNum(rs.getString("num"));
 			qnaDTO.setReg_date(rs.getDate("reg_date"));
 			qnaDTO.setHit(rs.getInt("hit"));
+			qnaDTO.setTag(rs.getString("tag"));
 		}
 		rs.close();
 		st.close();
@@ -98,7 +100,7 @@ public class QnaDAO {
 	public int getNum() throws Exception {
 		int result = 0;
 		Connection con = DBConnector.getConnect();
-		String sql = "select qna from dual";
+		String sql = "select qna_seq.nextval from dual";
 		PreparedStatement st = con.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 		rs.next();

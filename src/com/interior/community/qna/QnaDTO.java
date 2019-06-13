@@ -8,8 +8,15 @@ public class QnaDTO {
 	private String contents;
 	private String tag;
 	private String writer;
-	private String num;
+	private int num;
 	private Date reg_date;
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	private int hit;
 	
 	public String getTitle() {
@@ -35,12 +42,6 @@ public class QnaDTO {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
-	}
-	public String getNum() {
-		return num;
-	}
-	public void setNum(String num) {
-		this.num = num;
 	}
 	public Date getReg_date() {
 		return reg_date;

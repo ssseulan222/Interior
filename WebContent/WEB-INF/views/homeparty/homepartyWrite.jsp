@@ -294,12 +294,18 @@ var sel_file;
 						        <div>5. 작성 중에는 임시저장(비공개 등록), 완료 후에는 발행신청을 눌러주세요. 게시글 확인 후 스케줄에 맞춰 오픈됩니다.</div>
 						        <div>6. 게시글 오픈 전/후, 수정이 필요하실때는 [마이홈]-[나의스토리]에서 작성 게시글을 확인하실 수 있습니다</div>
 								</div>
+									
+									<div id="action_btn">1234
+										<div id="publish_submit" class="right positive">발행신청</div>
+										<div id="private_submit" class="right has_border">임시저장</div>	
+									</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</form>
 	</div> <!-- end title_write -->
+	
 	
 	
 

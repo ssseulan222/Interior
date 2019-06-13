@@ -1,31 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>QnA 쓰기</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<c:import url="../temp/bootstrap.jsp" />
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaWrite.css">
 <script type="text/javascript">
 
 $(function() {
+	$("#save").click(function() {
+		alert("zzz");
+	});
       
       //////////////// 저장버튼 클릭시 form 전송
-      $("#save").click(function(){
+      /* $("#save").click(function(){
           oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
           $("#frm").submit();
-      });
+      }); */
 });    
       ////////////// 버튼 5개까지 체크하기
       
@@ -77,7 +72,7 @@ $(function() {
 		</a>
 	</div>
 	
-	<form id="frm" action="/${qna}Main" method="post">
+	<form id="frm" action="./qnaWrite" method="post" enctype="multipart/form-data">
 	
 	
 	<div id="container">
@@ -91,11 +86,11 @@ $(function() {
 			</div>
 			<br>
 				<div class="form-group">
-					<input type="text" class="form-control" id="usr" placeholder="제목을 적어주세요.">
+					<input type="text" class="form-control" id="title" name="title" placeholder="제목을 적어주세요.">
 				</div>
 			<br>
 				<div class="form-group">
-					<textarea class="form-control" rows="17" id="comment" 
+					<textarea class="form-control" rows="17" id="contents" name="contents"
 					placeholder="내용을 적어주세요.&#13;&#10;참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다.&#13;&#10; ※ 비슷한 어려움을 겪는 유저를 위해 답변자에게 포인트를 지급하며, 답변이 달린 질문글은 &#13;&#10;삭제할 수 없습니다. &#13;&#10; ※ 인테리어와 관련 없는 질문은 숨김 및 삭제될 수 있습니다." ></textarea>
 				</div>
 			<br>
@@ -233,7 +228,8 @@ $(function() {
 	</div> <!-- end container -->
 			<div class="footer">
 				<div>				<!-- 버튼 클릭하면 질문 메인페이지 이동 -->
-					<input type="button" name="commit" id="save" value="질문 저장하기" class="btn btn-lg btn-priority col-6 offset-3">
+					<input type="button" name="commit" id="save" value="질문 저장하기" 
+					class="btn btn-lg btn-priority col-6 offset-3">
 				</div>
 				
 			</div>	<!-- end footer -->
