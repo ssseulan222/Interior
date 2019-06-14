@@ -174,10 +174,11 @@
 					</div>
 					<div class="navigation-primary__user unlogged">
 						<div class="navigation-primary__user__unlogged">
-							<a class="navigation-primary__user__unlogged__login"
-								href="#">로그인</a> <a
-								class="navigation-primary__user__unlogged__register"
-								href="#">회원가입</a>
+							<a class="navigation-primary__user__unlogged__login" style="font-size: 15px"
+								href="${pageContext.request.contextPath}/member/memberLoginlist">로그인</a>
+						
+							<a class="navigation-primary__user__unlogged__register" style="font-size: 15px"
+								href="${pageContext.request.contextPath}/member/memberJoinlist">회원가입</a>
 						</div>
 					</div>
 				</div>
