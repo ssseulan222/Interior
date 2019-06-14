@@ -14,6 +14,13 @@ $(function() {
 	var idReg=/^[A-Za-z]{1}[A-Za-z0-9]{5,18}$/;
 	var pwReg=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,19}$/;
 
+	//엔터키 방지
+	$('input').keydown(function() {
+	    if (event.keyCode === 13) {
+	        event.preventDefault();
+	    }
+	});
+	
 	//비밀번호
 	$('#cor1').hide();
 	$('#cor2').hide();
@@ -47,25 +54,30 @@ $(function() {
 		}
 	});
 	
+	
 	$('#pw2').blur(function() {
-		if(!pwReg.test($('#pw2').val())){
-			alert("올바른 비밀번호를 작성해주세요");
-			$(this).val('');
+		if($(this).val() != ''){
+			if(!pwReg.test($('#pw2').val())){
+				alert("올바른 비밀번호를 작성해주세요");
+				$(this).val('');
+			}
 		}
 	});
 	
 	$('#pw').blur(function() {
-		if(!pwReg.test($('#pw').val())){
-			alert("올바른 비밀번호를 작성해주세요");
-			$(this).val('');
-		} else {
-			check2=1;
+		if($(this).val() != ''){
+			if(!pwReg.test($('#pw').val())){
+				alert("올바른 비밀번호를 작성해주세요");
+				$(this).val('');
+			} else {
+				check2=1;
+			}
 		}
 	});
 	
 	
 	// 선택된 카테고리 출력되게
-
+	
 	$('.check').click(function() {
 		var cat = "";
 		$('.check').each(function() {

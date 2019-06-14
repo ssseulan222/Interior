@@ -58,7 +58,9 @@ public class SellerService {
 
 				if (res > 0) { // 성공
 					request.setAttribute("msg", "회원가입 성공");
-					request.setAttribute("path", "../index.do");
+					request.setAttribute("path", "./sellerLogin");
+					// request.setAttribute("method", "POST");
+					// request.setAttribute("DTO", sellerDTO);
 					check = true;
 					path = "../WEB-INF/views/result/result.jsp";
 				} else { // 실패
@@ -142,7 +144,7 @@ public class SellerService {
 				e.printStackTrace();
 			}
 
-		} 
+		}
 
 		actionForward.setPath(path);
 		actionForward.setCheck(check);
@@ -150,8 +152,8 @@ public class SellerService {
 	}
 
 	public ActionForward sellerFindPw(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward=new ActionForward();
-		return actionForward;		
+		ActionForward actionForward = new ActionForward();
+		return actionForward;
 	}
 
 	public ActionForward sellerUpdate(HttpServletRequest request, HttpServletResponse response) {
@@ -162,6 +164,9 @@ public class SellerService {
 		int res = 0;
 		SellerDTO sellerDTO = null;
 		String method = request.getMethod();
+		HttpSession session = request.getSession();
+		sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
+		if (sellerDTO != null) {
 
 		// 회원수정 페이지로 이동
 		if (method.equals("GET")) {
@@ -170,8 +175,6 @@ public class SellerService {
 			// 회원 수정 완료 버튼
 		} else {
 			Connection con = null;
-			HttpSession session = request.getSession();
-			sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
 			String id = sellerDTO.getId();
 
 			try {
@@ -204,6 +207,10 @@ public class SellerService {
 				e.printStackTrace();
 			}
 		}
+		} else {
+			check = false;
+			path = "../WEB-INF/views/index.do";
+		}
 
 		actionForward.setPath(path);
 		actionForward.setCheck(check);
@@ -218,32 +225,39 @@ public class SellerService {
 		int res = 0;
 		SellerDTO sellerDTO = null;
 		String method = request.getMethod();
+		HttpSession session = request.getSession();
+		sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
+		if (sellerDTO != null) {
 
-		if (method.equals("GET")) {
-			path = "../WEB-INF/views/seller/sellerDelete.jsp";
-		} else {
-			Connection con = null;
-			HttpSession session = request.getSession();
-			sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
-			String id = sellerDTO.getId();
-			try {
-				con = DBConnect.getConnect();
-				res = sellerDAO.sellerDelete(id, con);
-				if (res > 0) {
-					session.invalidate();
-					request.setAttribute("msg", "탈퇴 성공");
-					request.setAttribute("path", "../index.do");
-					check = true;
-					path = "../WEB-INF/views/result/result.jsp";
-				} else {
-					request.setAttribute("msg", "탈퇴 실패");
-					request.setAttribute("path", "../WEB-INF/views/seller/sellerDelete.jsp");
-					check = true;
-					path = "../WEB-INF/views/result/result.jsp";
+			if (method.equals("GET")) {
+				path = "../WEB-INF/views/seller/sellerDelete.jsp";
+			} else {
+				Connection con = null;
+				String id = sellerDTO.getId();
+
+				try {
+					con = DBConnect.getConnect();
+					res = sellerDAO.sellerDelete(id, con);
+					if (res > 0) {
+						session.invalidate();
+						request.setAttribute("msg", "탈퇴 성공");
+						request.setAttribute("path", "../index.do");
+						check = true;
+						path = "../WEB-INF/views/result/result.jsp";
+					} else {
+						request.setAttribute("msg", "탈퇴 실패");
+						request.setAttribute("path", "../WEB-INF/views/seller/sellerDelete.jsp");
+						check = true;
+						path = "../WEB-INF/views/result/result.jsp";
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
 				}
-			} catch (Exception e) {
-				// TODO: handle exception
+
 			}
+		} else {
+			check = false;
+			path = "../WEB-INF/views/index.do";
 		}
 
 		actionForward.setCheck(check);
@@ -273,20 +287,27 @@ public class SellerService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public ActionForward sellerMain(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-		String path = "../WEB-INF/views/seller/sellerMain.jsp";
+		String path="";;
 		boolean check = true;
+		SellerDTO sellerDTO = null;
+		HttpSession session = request.getSession();
+		sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
+		if (sellerDTO != null) {
+			path= "../WEB-INF/views/seller/sellerMain.jsp";
+		} else {
+			check=false;
+			path= "../index.do";
+		}
 		actionForward.setPath(path);
 		actionForward.setCheck(check);
 		return actionForward;
 	}
 
-	
 	/*--------------------------이전-------------------------------------*/
-	
-	
+
 	public ActionForward cat2(HttpServletRequest request, HttpServletResponse response) {
 
 		ActionForward actionForward = new ActionForward();
@@ -302,8 +323,5 @@ public class SellerService {
 		actionForward.setCheck(check);
 		return actionForward;
 	}
-
-
-
 
 }

@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/sellerInsert.css">
-<script src="<%=request.getContextPath()%>/js/sellerInsert.js"></script>
+	href="<%=request.getContextPath()%>/css/productInsert.css">
+<script src="<%=request.getContextPath()%>/js/productInsert.js"></script>
 <title>판매자 상품등록</title>
 
 </head>
@@ -21,7 +21,7 @@
 
 		<hr>
 
-		<form class="form-horizontal" action="./sellerInsert" method="post">
+		<form class="form-horizontal" action="./productInsert" method="post"  enctype="multipart/form-data">
 			<div class="session">
 
 				<div class="mid-titleDiv">
@@ -50,42 +50,55 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="category" class="col-sm-3">카테고리<span class="required">*</span></label>
-					<div id="selCatDiv" class="col-sm-7">
-						<div id="cat1" class="selCat col-sm-3">
-							<h4>대분류</h4>
-							<hr>
-								<ul>
-									<li><a class="category-1" id="1">가구</a></li>
-									<li><a class="category-1" id="2">패브릭</a></li>
-									<li><a class="category-1" id="3">홈데코/조명</a></li>
-									<li><a class="category-1" id="4">가전</a></li>
-									<li><a class="category-1" id="5">수납/생활</a></li>
-									<li><a class="category-1" id="6">주방</a></li>
-									<li><a class="category-1" id="7">DIY자재</a></li>
-									<li><a class="category-1" id="8">시공/주문제작</a></li>
-									<li><a class="category-1" id="9">반려동물</a></li>
-								</ul>
-						</div>
-						<div id="cat2" class="selCat col-sm-3">
-							b
-						</div>
-						<div id="cat3" class="selCat col-sm-3">
-							c
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="category" class="col-sm-3"></label>
+					<label for="mainPhoto" class="col-sm-3">대표사진<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="text" id="category" name="category" class="form-control" placeholder="선택된 카테고리" readonly="readonly" style="background-color: #f9f9f9c4; ">
+						<input type="file" id="mainPhoto" name="file" class="">
+						<p> &nbsp; &nbsp; ※  jpg, png 확장자만 업로드 가능합니다.</p>
 					</div>
 				</div>
-
+				
+				<div class="form-group">
+					<label for="subPhoto" class="col-sm-3">사진 추가<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="file" id="subPhoto" name="file" class="">
+						<p> &nbsp; &nbsp; ※ 최대 4장까지 jpg, png 확장자만 추가 가능합니다.</p>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="category" class="col-sm-3">카테고리<span class="required">*</span></label>
+					<div class="col-sm-9">
+					<div class="col-sm-12 selCatDiv">
+						<a class="category-1" id="1"><span class="selCat col-sm-3">가구</span></a>
+						<a class="category-1" id="2"><span class="selCat col-sm-3">패브릭</span></a>
+						<a class="category-1" id="3"><span class="selCat col-sm-3 right">홈데코/조명</span></a>
+					</div>
+					<div class="col-sm-12 selCatDiv">
+						<a class="category-1" id="4"><span class="selCat col-sm-3">가전</span></a>
+						<a class="category-1" id="5"><span class="selCat col-sm-3">수납/생활</span></a>
+						<a class="category-1" id="6"><span class="selCat col-sm-3 right">주방</span></a>
+					</div>
+					<div class="col-sm-12 selCatDiv">
+						<a class="category-1" id="7"><span class="selCat col-sm-3 bottom">DIY자재</span></a>
+						<a class="category-1" id="8"><span class="selCat col-sm-3 bottom">시공/주문</span></a>
+						<a class="category-1" id="9"><span class="selCat col-sm-3 bottom right">반려동물</span></a>
+					</div>
+					</div>
+					<input type="hidden" id="category" name="category" class="form-control" placeholder="선택된 카테고리" style="background-color: #f9f9f9c4; ">
+				
+				</div>
+				
 				<div class="form-group">
 					<label for="info" class="col-sm-3">제품설명<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<textarea rows="5" cols="" name="info" id="info" class="form-control" style="resize: none;"></textarea>
+						<textarea rows="5" cols="" name="smartEditor" id="info" class="form-control" style="resize: none;"></textarea>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="stock" class="col-sm-3">재고<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="number" id="stock" name="stock" class="form-control" placeholder="수량을 입력해주세요"><span class="unit">개</span>
 					</div>
 				</div>
 
@@ -123,8 +136,8 @@
 					<label for="lowesPrice" class="col-sm-3">최저가 체크<span class="required">*</span></label>
 					<div class="radioBtn">
 						<div>
-							<input type="radio" id="lowesPrice" name="lowesPrice" checked="checked" value="1"> 최저가가 맞습니다.
-							<input type="radio" id="lowesPrice" name="lowesPrice" value="0"> 최저가가 아닙니다.
+							<input type="radio" id="lowesPrice1" name="lowesPrice" checked="checked" value="1"> 최저가가 맞습니다.
+							<input type="radio" id="lowesPrice2" name="lowesPrice" value="0"> 최저가가 아닙니다.
 						</div>
 					</div>
 				</div>
@@ -167,8 +180,8 @@
 					<label for="freeDeliv" class="col-sm-3">무료택배 체크<span class="required">*</span></label>
 					<div class="radioBtn">
 						<div>
-							<input type="radio" id="freeDeliv" name="freeDeliv" checked="checked" value="1"> 무료택배
-							<input type="radio" id="freeDeliv" name="freeDeliv" value="0"> 유료택배
+							<input type="radio" id="freeDeliv1" name="freeDeliv"> 무료택배
+							<input type="radio" id="freeDeliv2" name="freeDeliv"> 유료택배
 						</div>
 					</div>
 				</div>
@@ -205,7 +218,7 @@
 				<div class="form-group">
 					<label for="sendPlace" class="col-sm-3">보내실곳</label>
 					<div class="col-sm-9">
-						<input type="text" id="sendPlace" name="sendPlace" class="form-control" placeholder="우편번호와 주소를 입력해주세요." value="${sellerDTO.address}">
+						<input type="text" id="sendPlace" name="sendPlace" class="form-control" value="${sellerDTO.address}">
 					</div>
 				</div>
 
@@ -241,12 +254,72 @@
 
 			<div id="submitDiv">
 
-				<input type="submit" id="submitBtn" value="신청완료">
+				<input type="submit" id="submitBtn" value="등록하기">
 			</div>
 
 		</form>
-
-
 	</div>
+
+	<script type="text/javascript">
+	
+	var oEditors = [];
+
+		nhn.husky.EZCreator.createInIFrame({
+
+			oAppRef : oEditors,
+
+			elPlaceHolder : "smartEditor",
+
+			//SmartEditor2Skin.html 파일이 존재하는 경로
+
+			sSkinURI : "/se2/SmartEditor2Skin.html",
+
+			htParams : {
+
+				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+
+				bUseToolbar : true,
+
+				// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+
+				bUseVerticalResizer : true,
+
+				// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+
+				bUseModeChanger : true,
+
+				fOnBeforeUnload : function() {
+
+				}
+
+			},
+
+			fOnAppLoad : function() {
+
+				//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
+
+				oEditors.getById["smartEditor"].exec("PASTE_HTML", [ "" ]);
+
+			},
+
+			fCreator : "createSEditor2"
+
+		});
+
+		//네이버 에디터 작성 데이터 전송하기 
+
+		$("#submitBoardBtn").click(function() {
+
+			oEditors.getById["smartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
+
+		});
+
+		$("#submitModifyBoardBtn").click(function() {
+
+			oEditors.getById["smartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
+
+		});
+	</script>
+
 </body>
 </html>

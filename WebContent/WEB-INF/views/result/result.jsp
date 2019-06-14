@@ -19,6 +19,11 @@
 <script type="text/javascript">
 	alert("${requestScope.msg}");
 	location.href="${path}";	/* 'requestScope.' 생략가능 */
+	/* var method="${method}";
+	var DTO=${DTO};
+	if(method=="POST"){
+		
+	} */
 </SCRIPT>
 
 </body>

@@ -24,7 +24,7 @@
 		<h1>${sessionScope.sellerDTO.id}페이지</h1>
 <br><br><br>
 		<div class="sellerNav">
-			<a href="../seller/sellerInsert">상품등록하기</a>&nbsp;&nbsp;&nbsp;
+			<a href="../product/productInsert">상품등록하기</a>&nbsp;&nbsp;&nbsp;
 		</div>
 
 		<div class="productList">
@@ -36,13 +36,22 @@
 					<option>최신순</option>
 				</select>
 			</div>
+		<br>
+		<br>
+		<br>
 		</div>
 		<!-- 상품리스트 -->
-		<br>
-		<br>
-		<br>
+		
 		<div>
-		tt1
+			
+		</div>
+		
+		
+		
+		
+		
+		<div>
+		
 			
 		</div>
 		<br><br><br>

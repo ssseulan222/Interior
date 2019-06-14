@@ -63,41 +63,37 @@ hr {
 
 /* 카테고리 선택 창 시작 */
 
-
-#selCatDiv{
-	margin-left: 20px;
-	padding:0px;
-}
-
 .selCat{
-	display: inline-block;
-	margin-right:10px;
-	margin-right:40px;
-}
-.selCat:last-child{
-	margin-right:0px;
+	display: inline;
+	height:40px;
+	text-align: center;
+	border-top:1px solid lightgray;
+	border-left:1px solid lightgray;
 }
 
-#cat1 ul{
-	padding-left: 0px;
-	font-size: 1.0em;
+.bottom{
+	border-bottom:1px solid lightgray;
 }
-#cat1 li{
-	margin-bottom:5px;
-	list-style:none;
-	font-color: black;
 
+.right{
+	border-right: 1px solid lightgray;
 }
-#cat1 li:hover{
-	cursor: pointer;
+
+
+.selCat a{
+	height: 40px;
+	width: 100%;
 }
 
 .category-1{
 	color: black;
+	line-height: 40px;
 }
 
 .category-1:hover{
 	color:black;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 

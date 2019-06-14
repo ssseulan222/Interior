@@ -36,8 +36,6 @@
 	href="https://d1nyaccf3kuclt.cloudfront.net/assets/v3/bucket_ui/components-c5c2e6628b430c4bad9c1e71e4581ec7181028e78869db55aeef72a802151eb6.css">
 <link rel="stylesheet" media="screen"
 	href="https://d1nyaccf3kuclt.cloudfront.net/assets/v3/layout/application-f0e8777a43714b34fc55239ca0a7dafa06952ecff2becbe9df530b9c78213afd.css">
-<script
-	src="https://d1nyaccf3kuclt.cloudfront.net/assets/v3/application-9ee548f338e432129d4be1bc7c9b4e23b39c147db214acaf83ce512df6887333.js"></script>
 <link rel="stylesheet" media="all"
 	href="https://d1nyaccf3kuclt.cloudfront.net/assets/v3/home/index-64530b8f7e4907730fde28c3358fe48ea530d9ca4bd4bf4ec3fff69231d8f8a8.css">
 </head>

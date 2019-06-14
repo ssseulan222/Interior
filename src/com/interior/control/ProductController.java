@@ -32,9 +32,10 @@ public class ProductController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String command=request.getContextPath();
+		String command=request.getPathInfo();
 		ActionForward actionForward = null;
 		if(command.equals("/productInsert")) {
+			
 			actionForward=productService.productInsert(request, response);
 		
 		} else if(command.equals("/productUpdate")) {

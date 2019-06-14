@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sellerJoin.css">
-<script src="<%=request.getContextPath()%>/js/sellerJoin.js"></script>
+<script src="<%=request.getContextPath()%>/js/sellerUpdate.js"></script>
 <title>판매자 회원가입</title>
 
 </head>
@@ -189,12 +189,7 @@
 						<input type="text" id="openMarket" name="openMarket" class="form-control" value="${sellerDTO.openMarket}">
 				    </div>
 			    </div>
-			    <div class="form-group">
-			      	<label for="file" class="col-sm-3">첨부 파일</label>
-					<div class="col-sm-9">
-						<input type="file" id="file" name="file">
-				    </div>
-			    </div>
+			   
 			</div>
 			
 			<hr>

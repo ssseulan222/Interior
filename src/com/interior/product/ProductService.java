@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.interior.action.ActionForward;
 import com.interior.util.DBConnect;
@@ -24,6 +25,8 @@ public class ProductService {
 		boolean check=true;
 		ProductDTO productDTO = null;
 		int res=0;
+		
+		
 		if(method.equals("POST")) {	// 상품등록완료
 			
 			Connection con = null;
@@ -60,13 +63,13 @@ public class ProductService {
 				path = "./sellerMain";
 			} else { // 실패
 				request.setAttribute("msg", "상품 등록 실패");
-				request.setAttribute("path", "./sellerMain");
+				request.setAttribute("path", "./productInsert");
 				check = true;
 				path = "../WEB-INF/views/result/result.jsp";
 			}
 			
-		} else { // 상품 등록 폼
-			path="../WEB-INF/views/store/storeInsert.jsp";
+		} else { // 상품 등록 페이지로
+			path="../WEB-INF/views/product/productInsert.jsp";
 			check=true;
 		}
 		actionForward.setPath(path);

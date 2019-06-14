@@ -193,17 +193,8 @@
 						<input type="text" id="openMarket" name="openMarket" class="form-control">
 				    </div>
 			    </div>
-			    <div class="form-group">
-			      	<label for="file" class="col-sm-3">첨부 파일</label>
-					<div class="col-sm-9">
-						<input type="file" id="file" name="file">
-						<br>
-						<div class="phar">
-							<p>※ 참고할 수 있는 파일을 10MB 용량 이하의 이미지, ZIP, PDF 등의 파일 형태로 첨부해주세요.<br>
-							※ 첨부파일 관련 URL주소가 있다면 상품 소개 입력창에 남겨주세요.</p>
-						</div>
-					</div>
-			    </div>
+
+
 			</div>
 			
 			<hr>
@@ -251,7 +242,7 @@
       // 주소검색을 수행할 팝업 페이지를 호출합니다.
       // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
       var pop = window.open("../address/jusoPopup.jsp", "pop",
-            "width=570,height=420, scrollbars=yes, resizable=yes");
+            "width=570,height=420, scrollbars=yes, resizable=yes,left=500,top=200");
    }
 
    function jusoCallBack(roadFullAddr,zipNo) {

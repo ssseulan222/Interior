@@ -55,7 +55,7 @@ public class SellerController extends HttpServlet {
 			
 			actionForward=sellerService.sellerUpdate(request, response);
 			
-		} else if(command.equals("/sellerDelte")) {
+		} else if(command.equals("/sellerDelete")) {
 			
 			actionForward = sellerService.sellerDelete(request, response);
 			
