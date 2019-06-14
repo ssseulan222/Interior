@@ -14,15 +14,15 @@ public class QnaDAO {
 	//insert(QnaDTO qnaDTO, Connection con): int
 	public int insert(QnaDTO qnaDTO, Connection con) throws Exception {
 		int result = 0;
-		String sql = "insert into qna values(?,?,?,?,sysdate,?,?)";
+		String sql = "insert into qna values(qna_seq.nextval,?,?,?,sysdate,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setInt(1, qnaDTO.getNum());
-		st.setString(2, qnaDTO.getTitle());
-		st.setString(3, qnaDTO.getContents());
-		st.setString(4, qnaDTO.getWriter());
-		st.setInt(5, qnaDTO.getHit());
-		st.setString(6, qnaDTO.getTag());
+		//st.setInt(1, qnaDTO.getNum());
+		st.setString(1, qnaDTO.getTitle());
+		st.setString(2, qnaDTO.getContents());
+		st.setString(3, qnaDTO.getWriter());
+		st.setInt(4, qnaDTO.getHit());
+		st.setString(5, qnaDTO.getTag());
 		
 		result = st.executeUpdate();
 		st.close();
@@ -36,6 +36,17 @@ public class QnaDAO {
 	
 	
 	//delete (int num, Connection con) : int
+	public int delete(int num, Connection con) throws Exception {
+		int result = 0;
+		String sql = "delete qna where num=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, num);
+		result = st.executeUpdate();
+		st.close();
+		//con.close();
+		
+		return result;
+	}
 
 	
 	
@@ -44,7 +55,7 @@ public class QnaDAO {
 		ArrayList<QnaDTO> ar = new ArrayList<QnaDTO>();
 		String sql = "select * from "
 				+ "(select rownum R, Q.* from "
-				+ "(select * from qna where " + searchRow.getSearch().getKind()+ "like ? order by ref desc, step asc) Q) "
+				+ "(select * from qna where " + searchRow.getSearch().getKind()+ " like ? order by num desc) Q) "
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+searchRow.getSearch().getSearch()+"%");
@@ -115,7 +126,7 @@ public class QnaDAO {
 	//getTotalCount(SearchRow searchRow, Connection con) : int
 	public int getTotalCount(SearchRow searchRow, Connection con) throws Exception {
 		int result = 0;
-		String sql = "select count(num) from qna where" + searchRow.getSearch().getKind() + " like ?";
+		String sql = "select count(num) from qna where " + searchRow.getSearch().getKind() + " like ?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+searchRow.getSearch().getSearch()+"%");
 		ResultSet rs = st.executeQuery();

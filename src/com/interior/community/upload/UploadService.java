@@ -14,12 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.interior.community.CommunityDTO;
 import com.interior.community.action.Action;
 import com.interior.community.action.ActionForward;
+import com.interior.community.util.DBConnector;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.sun.org.apache.bcel.internal.generic.RET;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 public class UploadService implements Action {
+	
+	private UploadDAO uploadDAO;
+	
+	public UploadService() {
+		uploadDAO = new UploadDAO();
+	}
 
 	@Override
 	public ActionForward list(HttpServletRequest request, HttpServletResponse response) {
@@ -95,8 +102,23 @@ public class UploadService implements Action {
 
 	@Override
 	public ActionForward delete(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		ActionForward actionForward = new ActionForward();
+		int result = 0;
+		Connection con = null;
+		
+		try {
+			con = DBConnector.getConnect();
+			int pnum = Integer.parseInt(request.getParameter("pnum"));
+			result = uploadDAO.delete(pnum, con);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("result", result);
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/common/result2.jsp");
+		
+		return actionForward;
 	}
 
 }

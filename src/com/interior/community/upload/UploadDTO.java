@@ -2,10 +2,12 @@ package com.interior.community.upload;
 
 public class UploadDTO {
 
+	private int pnum;
+	private int num;
 	private String oname;
 	private String fname;
-	private int num;
-	private int pnum;
+	
+	/*
 	private String title;
 	private String place;
 	private String style;
@@ -13,13 +15,7 @@ public class UploadDTO {
 	private String category;
 	private String url;
 	private String tag;
-	
-	public String getStyle() {
-		return style;
-	}
-	public void setStyle(String style) {
-		this.style = style;
-	}
+	*/
 	
 	public String getOname() {
 		return oname;
@@ -45,6 +41,15 @@ public class UploadDTO {
 	public void setPnum(int pnum) {
 		this.pnum = pnum;
 	}
+	
+	/*
+	public String getStyle() {
+		return style;
+	}
+	public void setStyle(String style) {
+		this.style = style;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -81,4 +86,5 @@ public class UploadDTO {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
+	*/
 }

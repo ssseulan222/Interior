@@ -77,7 +77,7 @@ public class QnaService implements Action {
 			con = DBConnector.getConnect();
 			totalCount = qnaDAO.getTotalCount(searchRow, con);
 			List<QnaDTO> ar = qnaDAO.selectList(searchRow, con);
-			System.out.println(ar.size());
+			//System.out.println("size : " +ar.size());
 			request.setAttribute("list", ar);
 			request.setAttribute("board", "qna");
 			
@@ -115,7 +115,7 @@ public class QnaService implements Action {
 			con = DBConnector.getConnect();
 			int num = Integer.parseInt(request.getParameter("num"));
 			qnaDTO = qnaDAO.selectOne(num, con);
-			ar = uploadDAO.selectList(category, num, con);
+			ar = uploadDAO.selectList(num, con);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -180,8 +180,9 @@ public class QnaService implements Action {
 				}
 				QnaDTO qnaDTO = new QnaDTO();
 				qnaDTO.setTitle(multipartRequest.getParameter("title"));
-				qnaDTO.setWriter(multipartRequest.getParameter("writer"));
 				qnaDTO.setContents(multipartRequest.getParameter("contents"));
+				qnaDTO.setWriter(multipartRequest.getParameter("writer"));
+				//qnaDTO.setTag(multipartRequest.getParameter("che"));
 				
 				con = DBConnector.getConnect();
 				
@@ -247,7 +248,7 @@ public class QnaService implements Action {
 			try {
 				con = DBConnector.getConnect();
 				qnaDTO = qnaDAO.selectOne(num, con);
-				ar = uploadDAO.selectList(category, num, con);
+				ar = uploadDAO.selectList(num, con);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -1,6 +1,25 @@
+<%@page import="com.interior.community.qna.QnaDTO"%>
+<%@page import="com.interior.community.qna.QnaDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	/*
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+	
+	QnaDTO qnaDTO = new QnaDTO();
+	qnaDTO.setTitle(request.getParameter("title"));
+	qnaDTO.setWriter(request.getParameter("writer"));
+	qnaDTO.setContents(request.getParameter("contents"));
+	
+	QnaDAO qnaDAO = new QnaDAO();
+	int result = qnaDAO.insert(qnaDTO);
+	*/
+
+	
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,19 +30,21 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaWrite.css">
 <script type="text/javascript">
 
-$(function() {
-	$("#save").click(function() {
-		alert("zzz");
-	});
-      
-      //////////////// 저장버튼 클릭시 form 전송
-      /* $("#save").click(function(){
-          oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
-          $("#frm").submit();
-      }); */
-});    
+	//location.href="./qnaList.jsp";
+
+	$(function() {
+		$("#save").click(function() {
+			$('#frm').submit();
+		});
+	      
+	      //////////////// 저장버튼 클릭시 form 전송
+	      /* $("#save").click(function(){
+	          oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
+	          $("#frm").submit();
+	      }); */
+	});    
+
       ////////////// 버튼 5개까지 체크하기
-      
       function count_ck(obj){
 		var chkbox = document.getElementsByName("che");
 		var chkCnt = 0;
@@ -82,7 +103,7 @@ $(function() {
 				<!--  <button class="upload_btn"></button> 	<!-- 사진업로드 버튼 / 자리 이동해야됨 --> 
 												
 			<div class="qna_sub">상품구매, 배송 관련 문의가 필요하시다면 
-				<a href="../qna/qnaMain" id="qna_go">문의하러가기</a> 		<!-- 고객센터로 이동 / 주소 다시확인하기 -->
+				<a href="../qna/qnaList" id="qna_go">문의하러가기</a> 		<!-- 고객센터로 이동 / 주소 다시확인하기 -->
 			</div>
 			<br>
 				<div class="form-group">
