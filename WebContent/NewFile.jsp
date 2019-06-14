@@ -14,6 +14,7 @@
 				$("#location").css("display", "inline-block");
 			}else{
 				$("#location").css("display", "none");
+				$(".ul").css("display", "none");
 			}
 		});
 		
@@ -79,7 +80,9 @@ ul{
 	display: none;
 	border: 1px solid black;
 	width: 150px;
+	height:250px;
 	padding: 15px;
+	overflow-y: scroll; 
 }
 li{
 	list-style: none;
