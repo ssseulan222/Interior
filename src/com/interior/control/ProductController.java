@@ -35,7 +35,6 @@ public class ProductController extends HttpServlet {
 		String command=request.getPathInfo();
 		ActionForward actionForward = null;
 		if(command.equals("/productInsert")) {
-			
 			actionForward=productService.productInsert(request, response);
 		
 		} else if(command.equals("/productUpdate")) {

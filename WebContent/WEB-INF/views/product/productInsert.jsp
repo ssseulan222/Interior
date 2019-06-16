@@ -21,7 +21,7 @@
 
 		<hr>
 
-		<form class="form-horizontal" action="./productInsert" method="post"  enctype="multipart/form-data">
+		<form class="form-horizontal" id="frm" action="./productInsert" method="post"  enctype="multipart/form-data">
 			<div class="session">
 
 				<div class="mid-titleDiv">
@@ -91,7 +91,7 @@
 				<div class="form-group">
 					<label for="info" class="col-sm-3">제품설명<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<textarea rows="5" cols="" name="smartEditor" id="info" class="form-control" style="resize: none;"></textarea>
+						<textarea rows="18" cols="" name="info" id="info" class="form-control" style="resize: none;"></textarea>
 					</div>
 				</div>
 				
@@ -261,64 +261,38 @@
 	</div>
 
 	<script type="text/javascript">
-	
 	var oEditors = [];
-
-		nhn.husky.EZCreator.createInIFrame({
-
-			oAppRef : oEditors,
-
-			elPlaceHolder : "smartEditor",
-
-			//SmartEditor2Skin.html 파일이 존재하는 경로
-
-			sSkinURI : "/se2/SmartEditor2Skin.html",
-
-			htParams : {
-
-				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-
-				bUseToolbar : true,
-
-				// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-
-				bUseVerticalResizer : true,
-
-				// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-
-				bUseModeChanger : true,
-
-				fOnBeforeUnload : function() {
-
-				}
-
-			},
-
-			fOnAppLoad : function() {
-
-				//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-
-				oEditors.getById["smartEditor"].exec("PASTE_HTML", [ "" ]);
-
-			},
-
-			fCreator : "createSEditor2"
-
-		});
-
-		//네이버 에디터 작성 데이터 전송하기 
-
-		$("#submitBoardBtn").click(function() {
-
-			oEditors.getById["smartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
-
-		});
-
-		$("#submitModifyBoardBtn").click(function() {
-
-			oEditors.getById["smartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
-
-		});
+	
+	nhn.husky.EZCreator.createInIFrame({
+          oAppRef: oEditors,
+          elPlaceHolder: "info",
+          //SmartEditor2Skin.html 파일이 존재하는 경로
+          sSkinURI: "<%=request.getContextPath()%>/se2/SmartEditor2Skin.html",  
+          htParams : {
+              // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+              bUseToolbar : true,             
+              // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+              bUseVerticalResizer : true,     
+              // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+              bUseModeChanger : true,         
+              fOnBeforeUnload : function(){
+                   
+              }
+          }, 
+          fOnAppLoad : function(){
+              //기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
+              oEditors.getById["info"].exec("PASTE_HTML", [""]);
+          },
+          fCreator: "createSEditor2"
+      });
+      
+      //저장버튼 클릭시 form 전송
+      $("#submitBtn").click(function(){
+          oEditors.getById["info"].exec("UPDATE_CONTENTS_FIELD", []);
+          $("#frm").submit();
+      }); 
+  
+	
 	</script>
 
 </body>

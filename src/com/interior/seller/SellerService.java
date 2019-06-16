@@ -290,16 +290,16 @@ public class SellerService {
 
 	public ActionForward sellerMain(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-		String path="";;
+		String path="";
 		boolean check = true;
-		SellerDTO sellerDTO = null;
 		HttpSession session = request.getSession();
-		sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
-		if (sellerDTO != null) {
-			path= "../WEB-INF/views/seller/sellerMain.jsp";
-		} else {
-			check=false;
-			path= "../index.do";
+		SellerDTO sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
+		path= "../WEB-INF/views/seller/sellerMain.jsp";
+		if(sellerDTO == null) {
+			request.setAttribute("msg", "로그인 세션이 만료되었습니다. 다시 로그인 해주세요");
+			request.setAttribute("path", "../seller/sellerLogin");
+			check = true;
+			path = "../WEB-INF/views/result/result.jsp";
 		}
 		actionForward.setPath(path);
 		actionForward.setCheck(check);

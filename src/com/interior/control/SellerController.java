@@ -64,8 +64,7 @@ public class SellerController extends HttpServlet {
 			actionForward=sellerService.sellerLogout(request, response);
 		
 		} else if(command.equals("/sellerMain")) {
-			actionForward=sellerService.sellerMain(request, response);
-		
+			actionForward=sellerService.sellerMain(request, response);				
 		}
 		
 		

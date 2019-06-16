@@ -14,111 +14,106 @@
 <body>
 
 	<!-- 헤더 -->
-	<div id="header">헤더</div>
+
+	<jsp:include page="../common/header.jsp" />
+
 	<!-- 컨텐츠 -->
 	<section>
 		<!-- 이미지 슬라이드. width여백없이 100% -->
-		<div id="banner" class="container-fluid"></div>
+		<div id="banner" class="container-fluid w3-content">
+			<div class="mySlides w3-container"
+				style="width: 100%; height: 100%; background-color: #D1D1D1; text-align: center;">
+				<img src="<%=request.getContextPath()%>/img/s1.PNG"
+					style="width: 55%; height: auto; line-height: 375px;">
+			</div>
+			<div class="mySlides w3-container"
+				style="width: 100%; height: 100%; background-color: #E3F3F5; text-align: center;">
+				<img src="<%=request.getContextPath()%>/img/s2.PNG"
+					style="width: 50%; height: auto; line-height: 375px;">
+			</div>
+			<div class="mySlides w3-container"
+				style="width: 100%; height: 100%; background-color: #C4E4F2; text-align: center;">
+				<img src="<%=request.getContextPath()%>/img/s3.PNG"
+					style="width: 55%; height: auto; line-height: 375px;">
+			</div>
+		</div>
 
 		<!-- 카테고리 -->
 		<div class="container">
 			<h3>카테고리</h3>
 			<!-- 13개 ///// 수정 : 카테고리 사이트에 있는 분류랑 동일하게 함-->
 			<div id="category">
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/1.png">
-					<div class="cat-name">가구</div>
-				</div>
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/2.png">
-					<div class="cat-name">패브릭</div>
-				</div>
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/3.png">
-					<div class="cat-name">홈데코</div>
-				</div>
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/4.png">
-					<div class="cat-name">가전</div>
-				</div>
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/5.png">
-					<div class="cat-name">수납/생활</div>
-				</div>
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/6.png">
-					<div class="cat-name">주방</div>
-				</div>
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/7.png">
-					<div class="cat-name">DIY자재</div>
-				</div>
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/8.png">
-					<div class="cat-name">주문제작</div>
-				</div>
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/9.png">
-					<div class="cat-name">반려동물</div>
-				</div>
-				<div class="cat">
-					<img src="<%=request.getContextPath()%>/img/0.png">
-					<div class="cat-name">전체보기</div>
-				</div>
-				
+				<a href="./storeCategory?category=1"><span class="cat"> <img
+						src="<%=request.getContextPath()%>/img/c1.PNG"><br> <span
+						class="cat-name">가구</span>
+				</span></a> <a><span class="cat"> <img
+						src="<%=request.getContextPath()%>/img/c2.PNG"><br> <span
+						class="cat-name">패브릭</span>
+				</span></a> <a><span class="cat"> <img
+						src="<%=request.getContextPath()%>/img/c3.PNG"><br> <span
+						class="cat-name">홈데코</span>
+				</span></a> <a><span class="cat"> <img
+						src="<%=request.getContextPath()%>/img/c4.PNG"><br> <span
+						class="cat-name">가전</span>
+				</span></a> <a><span class="cat"> <img
+						src="<%=request.getContextPath()%>/img/c5.PNG"><br> <span
+						class="cat-name">수납/생활</span>
+				</span></a> <a><span class="cat"> <img
+						src="<%=request.getContextPath()%>/img/c6.PNG"><br> <span
+						class="cat-name">주방</span>
+				</span></a> <a><span class="cat"> <img
+						src="<%=request.getContextPath()%>/img/c7.PNG"><br> <span
+						class="cat-name">DIY자재</span>
+				</span></a> <a><span class="cat"> <img
+						src="<%=request.getContextPath()%>/img/c8.PNG"><br> <span
+						class="cat-name">주문제작</span>
+				</span></a> <a><span class="cat"> <img
+						src="<%=request.getContextPath()%>/img/c9.PNG"><br> <span
+						class="cat-name">반려동물</span>
+				</span></a>
 
 			</div>
 		</div>
 
 		<!-- 인기키워드 -->
 		<div class="container">
-			<h3>인기키워드</h3>
+			<h3 class="popkey">인기키워드</h3>
 			<!-- lg : 4*2 // sm : 2*4 -->
 			<div id="keyword">
-				<div class="keyword">
-					인기키워드 1
+				<div class="keyword col-sm-3">
+					<img src="<%=request.getContextPath()%>/img/k1.PNG">
 				</div>
-				<div class="keyword">
-					인기키워드 2
+				<div class="keyword col-sm-3">
+					<img src="<%=request.getContextPath()%>/img/k2.PNG">
 				</div>
-				<div class="keyword">
-					인기키워드 3
+				<div class="keyword col-sm-3">
+					<img src="<%=request.getContextPath()%>/img/k3.PNG">
 				</div>
-				<div class="keyword">
-					인기키워드 4
-				</div>
-				<div class="keyword">
-					인기키워드 5
-				</div>
-				<div class="keyword">
-					인기키워드 6
-				</div>
-				<div class="keyword">
-					인기키워드 7
-				</div>
-				<div class="keyword">
-					인기키워드 8
+				<div class="keyword col-sm-3">
+					<img src="<%=request.getContextPath()%>/img/k4.PNG">
 				</div>
 			</div>
 		</div>
 
 		<!-- 인기상품 -->
 		<div class="container">
-			<h3>인기상품</h3>
-			<div id="product-nav">
+			<div class="subject">
+				<h3 class="popular">인기상품</h3>
+
 				<!-- 오늘의집에서는 호버해서 밑으로 나오는 토글키로 on/off 가능하지만  해당 프로젝트에서는 버튼 클릭으로 on/off + 정렬 기준 축소-->
-				<a>무료배송</a> 
-				<select id="sort">
+				<a class="sort">더보기</a>
+				<select class="sort">
 					<option>인기순</option>
 					<option>판매순</option>
 					<option>낮은가격순</option>
 					<option>최신순</option>
 					<option>많은리뷰순</option>
-				</select>
+				</select> <a class="sort">무료배송</a>
+
 			</div>
 			<div>
 				<!-- lg: 4*n(ajax)  // sm : 2*n(ajax) ///// -->
-				<div class="product">
+				<div class="product col-sm-3">
 					<div>사진</div>
 					<div>판매자</div>
 					<div>이름</div>
@@ -127,7 +122,7 @@
 					<div>스크랩, 조회</div>
 					<div>최저가/배송</div>
 				</div>
-				<div class="product">
+				<div class="product col-sm-3">
 					<div>사진</div>
 					<div>판매자</div>
 					<div>이름</div>
@@ -136,7 +131,7 @@
 					<div>스크랩, 조회</div>
 					<div>최저가/배송</div>
 				</div>
-				<div class="product">
+				<div class="product col-sm-3">
 					<div>사진</div>
 					<div>판매자</div>
 					<div>이름</div>
@@ -145,7 +140,7 @@
 					<div>스크랩, 조회</div>
 					<div>최저가/배송</div>
 				</div>
-				<div class="product">
+				<div class="product col-sm-3">
 					<div>사진</div>
 					<div>판매자</div>
 					<div>이름</div>
@@ -161,6 +156,23 @@
 
 	<!-- 푸터 -->
 
+	<script>
+		var slideIndex = 0;
+		carousel();
 
+		function carousel() {
+			var i;
+			var x = document.getElementsByClassName("mySlides");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			slideIndex++;
+			if (slideIndex > x.length) {
+				slideIndex = 1
+			}
+			x[slideIndex - 1].style.display = "block";
+			setTimeout(carousel, 3000);
+		}
+	</script>
 </body>
 </html>

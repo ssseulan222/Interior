@@ -62,8 +62,10 @@ $(function() {
 	$('#price').blur(function() {
 		if($(this).val() != '' && $('#saleRate').val() != ''){
 			var salePrice =  $(this).val() - $(this).val()*($('#saleRate').val()*0.01);
+			
 			$('#salePrice').val(salePrice);
 			var point=$('#salePrice').val()*0.01;
+		
 			$('#point').val(point);
 		} else {
 			$('#salePrice').val('');
