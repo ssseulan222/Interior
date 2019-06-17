@@ -25,6 +25,7 @@ public class ExpertController extends HttpServlet {
      */
     public ExpertController() {
         super();
+        expertService = new ExpertService();
         // TODO Auto-generated constructor stub
     }
 
