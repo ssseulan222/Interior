@@ -7,27 +7,31 @@ function loadJQuery() {
 }
 
 $(function() {
+	// 엔터방지
 	document.addEventListener('keydown', function(event) {
 	    if (event.keyCode === 13) {
 	        event.preventDefault();
 	    }
 	}, true);
 	
-	// 카테고리 ajax
-	
-	/*$('.category-1').on('click',function() {
-		$.ajax({
-			url:'./cat2',
-			type:'POST',
-			data:{'id':$(this).attr('id')},
-			success:function(data){
-				data.trim();
-			},
-			error:function(data){
-				
-			}
-		});
-	});*/
+	$("#preview").hide();
+	function readURL(input) {
+		 
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+	 
+	        reader.onload = function (e) {
+	            $('#preview-img').attr('src', e.target.result);
+	        }
+	 
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+	 
+	$("#mainPhoto").change(function(){
+		$("#preview").show();
+	    readURL(this);
+	});
 	
 	
 	// 선택된 카테고리 출력되게
@@ -108,29 +112,29 @@ $(function() {
 	
 	// 모두 작성
 	$('#submitBtn').click(function() {
-		if(
-				$('#id').val() != '' &&
-				check1==1 &&
-				$('#pw').val() == $('#pw2').val() &&
-				check2==1&&
-				$('#companyName').val() != ''&&
-				$('#pw').val() != '' &&
-				$('#companyNum').val() != ''&&
-				$('#marketerName').val() != ''&&
-				$('#phone').val() != ''&&
-				$('#email').val() != ''&&
-				$('#brandName').val() != ''&&
-				$('#category').val() != ''&&
-				$('#info').val() != ''&&
+		/*if(
+				$('#seller') != '' &&
+				$('#name') != '' &&
+				$('#category') != '' &&
+				$('#mainPhoto') != '' &&
+				$('#info') != '' &&
+				$('#stock') != '' &&
+				$('#price') != '' &&
+				$('#saleRate') != '' &&
+				$('#salePrice') != '' &&
+				$('.lowestPrice').is(':checked') &&
+				$('#point') != '' &&
+				$('.freeDeliv').is(':checked') &&
+				$('#deliveryFee') != '' &&
 				$('#agreeCh').is(':checked')
-		){
-			con=true;
+			
+		){*/
 			$(this).submit();
 		
-		} else{
+		/*} else{
 			alert('필수가 비었어요');
 			return false;
-		}
+		}*/
 	});
 
 });

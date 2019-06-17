@@ -33,6 +33,7 @@ public class UploadController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ActionForward actionForward = null;
+	
 		String command=request.getPathInfo();
 		if(command.equals("/fileUpload")) {
 			actionForward=uploadService.insert(request, response);

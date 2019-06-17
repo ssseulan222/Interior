@@ -9,6 +9,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/productInsert.css">
 <script src="<%=request.getContextPath()%>/js/productInsert.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <title>판매자 상품등록</title>
 
 </head>
@@ -50,22 +51,6 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="mainPhoto" class="col-sm-3">대표사진<span class="required">*</span></label>
-					<div class="col-sm-9">
-						<input type="file" id="mainPhoto" name="file" class="">
-						<p> &nbsp; &nbsp; ※  jpg, png 확장자만 업로드 가능합니다.</p>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label for="subPhoto" class="col-sm-3">사진 추가<span class="required">*</span></label>
-					<div class="col-sm-9">
-						<input type="file" id="subPhoto" name="file" class="">
-						<p> &nbsp; &nbsp; ※ 최대 4장까지 jpg, png 확장자만 추가 가능합니다.</p>
-					</div>
-				</div>
-				
-				<div class="form-group">
 					<label for="category" class="col-sm-3">카테고리<span class="required">*</span></label>
 					<div class="col-sm-9">
 					<div class="col-sm-12 selCatDiv">
@@ -85,7 +70,26 @@
 					</div>
 					</div>
 					<input type="hidden" id="category" name="category" class="form-control" placeholder="선택된 카테고리" style="background-color: #f9f9f9c4; ">
+				</div>
 				
+					<div class="form-group">
+					<label for="mainPhoto" class="col-sm-3">대표사진<span class="required">*</span></label>
+					<div class="col-sm-9">
+						<input type="file" id="mainPhoto" name="file" class="" accept=".jpg, .png">
+						<p> &nbsp; &nbsp; ※  jpg, png 확장자만 업로드 가능합니다.</p>
+						<!-- 이미지 미리보기 -->
+						<div id="preview" class="col-sm-6">
+							<img id="preview-img" src="#" style="width: 100%; height: auto; border-radius: 4px;">
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="subPhoto" class="col-sm-3">사진 추가</label>
+					<div class="col-sm-9">
+						<input type="file" id="subPhoto" name="file" class="" accept=".jpg, .png">
+						<p> &nbsp; &nbsp; ※ 최대 4장까지 jpg, png 확장자만 추가 가능합니다.</p>
+					</div>
 				</div>
 				
 				<div class="form-group">
@@ -133,11 +137,11 @@
 				</div>
 
 				<div class="form-group">
-					<label for="lowesPrice" class="col-sm-3">최저가 체크<span class="required">*</span></label>
+					<label for="lowesPrice" class="col-sm-3">최저가 체크</label>
 					<div class="radioBtn">
 						<div>
-							<input type="radio" id="lowesPrice1" name="lowesPrice" checked="checked" value="1"> 최저가가 맞습니다.
-							<input type="radio" id="lowesPrice2" name="lowesPrice" value="0"> 최저가가 아닙니다.
+							<input type="radio" id="lowestPrice1" class="lowestPrice" name="lowestPrice" checked="checked" value="1"> 최저가가 맞습니다.
+							<input type="radio" id="lowestPrice2" class="lowestPrice" name="lowesPrice" value="0"> 최저가가 아닙니다.
 						</div>
 					</div>
 				</div>
@@ -159,19 +163,19 @@
 					<p class="mid-title">배송정보</p>
 				</div>
 				<div class="form-group">
-					<label for="delivery" class="col-sm-3">배송종류<span class="required">*</span></label>
+					<label for="delivery" class="col-sm-3">배송종류</label>
 					<div class="col-sm-9">
 						 <input type="text" id="delivery" name="delivery" class="form-control" placeholder="일반택배배송/우체국 택배 등">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="deliveryLocal" class="col-sm-3">배송불가지역<span class="required">*</span></label>
+					<label for="deliveryLocal" class="col-sm-3">배송불가지역</label>
 					<div class="col-sm-9">
 						 <input type="text" id="deliveryLocal" name="deliveryLocal" class="form-control" placeholder="배송불가 지역을 입력해주세요.">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="deliveryDiff" class="col-sm-3">지역별 차등배송비<span class="required">*</span></label>
+					<label for="deliveryDiff" class="col-sm-3">지역별 차등배송비</label>
 					<div class="col-sm-9">
 						<input type="text" id="deliveryDiff" name="deliveryDiff" class="form-control" placeholder="배송비가 차등 부과되는 지역과 배송비를 입력해주세요">
 					</div>
@@ -180,15 +184,15 @@
 					<label for="freeDeliv" class="col-sm-3">무료택배 체크<span class="required">*</span></label>
 					<div class="radioBtn">
 						<div>
-							<input type="radio" id="freeDeliv1" name="freeDeliv"> 무료택배
-							<input type="radio" id="freeDeliv2" name="freeDeliv"> 유료택배
+							<input type="radio" id="freeDeliv1" class="freeDeliv" name="freeDeliv" value="0"> 무료택배
+							<input type="radio" id="freeDeliv2" class="freeDeliv" name="freeDeliv" value="1"> 유료택배
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="deliveryFee" class="col-sm-3">택배비<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="number" id="deliveryFee" name="deliveryFee" class="form-control"><span class="unit">원</span>
+						<input type="number" id="deliveryFee" name="deliveryFee" class="form-control" value="0"><span class="unit">원</span>
 					</div>
 				</div>
 				
@@ -261,38 +265,39 @@
 	</div>
 
 	<script type="text/javascript">
+
 	var oEditors = [];
-	
 	nhn.husky.EZCreator.createInIFrame({
-          oAppRef: oEditors,
-          elPlaceHolder: "info",
-          //SmartEditor2Skin.html 파일이 존재하는 경로
-          sSkinURI: "<%=request.getContextPath()%>/se2/SmartEditor2Skin.html",  
-          htParams : {
-              // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-              bUseToolbar : true,             
-              // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-              bUseVerticalResizer : true,     
-              // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-              bUseModeChanger : true,         
-              fOnBeforeUnload : function(){
-                   
-              }
-          }, 
-          fOnAppLoad : function(){
-              //기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-              oEditors.getById["info"].exec("PASTE_HTML", [""]);
-          },
-          fCreator: "createSEditor2"
-      });
-      
+	    oAppRef: oEditors,
+	    elPlaceHolder: "info",
+	    sSkinURI: "<%=request.getContextPath()%>/se2/SmartEditor2Skin.html",
+	    htParams : {
+            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+            bUseToolbar : true,             
+            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+            bUseVerticalResizer : true,     
+            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+            bUseModeChanger : true,         
+            fOnBeforeUnload : function(){
+                 
+            }
+	    },
+	    fOnAppLoad : function(){
+            //기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
+            oEditors.getById["info"].exec("PASTE_HTML", [""]);
+        },
+	    fCreator: "createSEditor2"
+	});
+ 
+    	
       //저장버튼 클릭시 form 전송
       $("#submitBtn").click(function(){
           oEditors.getById["info"].exec("UPDATE_CONTENTS_FIELD", []);
           $("#frm").submit();
-      }); 
+      });
   
 	
+      
 	</script>
 
 </body>

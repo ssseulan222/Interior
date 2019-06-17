@@ -79,6 +79,9 @@
 								
 								</ul>
 							</li>
+							
+							
+							
 							<li class="navigation-menu__primary">
 								<div class="title">
 									<a href="<%=application.getContextPath()%>/store/storeMain"> <span
@@ -87,23 +90,20 @@
 											class="icon mobile-icon icon-pointer-angle-down-dark-md"></span>
 									</span>
 									</a>
-								</div>
-								<ul>
+									<ul>
 									<li class="navigation-menu__primary__secondary "><a
 										href="<%=application.getContextPath()%>/store/storeMain">스토어홈</a></li>
 
 									<li
 										class="navigation-menu__primary__secondary navigation-menu__category desktop-only ">
-										<a href="#">카테고리</a>
+										<a href="<%=application.getContextPath()%>/store/storeCategory">카테고리</a>
 									</li>
 
 									<li class="navigation-menu__primary__secondary "><a
-										href="#">랭킹</a></li>
-
-
-
-
+										href="<%=application.getContextPath()%>/store/storeRanking">랭킹</a></li>
 								</ul>
+								</div>
+								
 							</li>
 							<li class="navigation-menu__primary">
 								<div class="title">

@@ -6,16 +6,18 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.interior.product.ProductDTO;
 import com.interior.upload.UploadDTO;
 import com.interior.util.DBConnect;
 
 public class UploadDAO {
 
-	public int insert(UploadDTO uploadDTO,Connection con) throws Exception {
+	public int insert(UploadDTO uploadDTO, int num, Connection con) throws Exception {
+		
 		
 		String sql="insert into upload values(upload_seq.nextval,?,?,?)";
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setInt(1, uploadDTO.getNum());
+		st.setInt(1, num);
 		st.setString(2, uploadDTO.getOname());
 		st.setString(3, uploadDTO.getFname());
 		int res=st.executeUpdate();
@@ -71,6 +73,5 @@ public class UploadDAO {
 		st.close();
 		return res;
 	}
-
 
 }

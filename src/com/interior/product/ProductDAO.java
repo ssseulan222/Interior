@@ -3,34 +3,35 @@ package com.interior.product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.interior.page.SearchRow;
 import com.interior.product.ProductDTO;
+import com.interior.prosub.ProLiveDTO;
 
 public class ProductDAO {
 
 	public int productInsert(ProductDTO productDTO, Connection con) throws Exception{
-		String sql="insert into product values(product_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into product values(product_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, productDTO.getName());
-		st.setString(2, productDTO.getSeller());
-		st.setString(3, productDTO.getName());
-		st.setString(4, productDTO.getCategory());
-		st.setString(5, productDTO.getPrice());
-		st.setString(6, productDTO.getSaleRate());
-		st.setString(7, productDTO.getSalePrice());
-		st.setString(8, productDTO.getLowestPrice());
-		st.setString(9, productDTO.getPoint());
-		st.setString(10, productDTO.getDelivery());
-		st.setString(11, productDTO.getDeliveryLocal());
-		st.setString(12, productDTO.getDeliveryDiff());
-		st.setString(13, productDTO.getFreeDeliv());
-		st.setString(14, productDTO.getDeliveryFee());
-		st.setString(15, productDTO.getReturnFee());
-		st.setString(16, productDTO.getExchangeFee());
-		st.setString(17, productDTO.getSendPlace());
+		st.setString(1, productDTO.getSeller());
+		st.setString(2, productDTO.getName());
+		st.setString(3, productDTO.getCategory());
+		st.setString(4, productDTO.getPrice());
+		st.setString(5, productDTO.getSaleRate());
+		st.setString(6, productDTO.getSalePrice());
+		st.setString(7, productDTO.getLowestPrice());
+		st.setString(8, productDTO.getPoint());
+		st.setString(9, productDTO.getDelivery());
+		st.setString(10, productDTO.getDeliveryLocal());
+		st.setString(11, productDTO.getDeliveryDiff());
+		st.setString(12, productDTO.getFreeDeliv());
+		st.setString(13, productDTO.getDeliveryFee());
+		st.setString(14, productDTO.getReturnFee());
+		st.setString(15, productDTO.getExchangeFee());
+		st.setString(16, productDTO.getSendPlace());
 		
 		int res=st.executeUpdate();
 		return res;
@@ -75,6 +76,7 @@ public class ProductDAO {
 		ResultSet rs=st.executeQuery();
 		if(rs.next()) {
 			ProductDTO productDTO = new ProductDTO();
+			ProLiveDTO proLiveDTO = new ProLiveDTO();
 			productDTO.setNum(rs.getString("num"));
 			productDTO.setName(rs.getString("name"));
 			productDTO.setPrice(rs.getString("price"));
@@ -82,11 +84,12 @@ public class ProductDAO {
 			productDTO.setCategory(rs.getString("category"));
 			productDTO.setSeller(rs.getString("seller"));
 			productDTO.setDelivery(rs.getString("delivery"));
-			productDTO.setGrade(rs.getInt("grade"));
-			productDTO.setCount(rs.getInt("count"));
-			productDTO.setRanking(rs.getInt("ranking"));
-			productDTO.setHit(rs.getInt("hit"));
-			productDTO.setScrap(rs.getInt("scrap"));
+			proLiveDTO.setNum(rs.getInt("num"));
+			proLiveDTO.setHit(rs.getInt("hit"));
+			proLiveDTO.setScrap(rs.getInt("scrap"));
+			proLiveDTO.setShared(rs.getInt("shared"));
+			proLiveDTO.setStock(rs.getInt("stock"));
+			
 			ar.add(productDTO);
 		}
 		
@@ -95,12 +98,14 @@ public class ProductDAO {
 	
 	public ProductDTO productSelectOne(int num, Connection con) throws Exception{
 		ProductDTO productDTO = null;
+		ProLiveDTO proLiveDTO = null;
 		String sql="select * from product where num=?";
 		PreparedStatement st= con.prepareStatement(sql);
 		st.setInt(1, num);
 		ResultSet rs=st.executeQuery();
 		if(rs.next()) {
 			productDTO = new ProductDTO();
+			proLiveDTO = new ProLiveDTO();
 			productDTO.setNum(rs.getString("num"));
 			productDTO.setName(rs.getString("name"));
 			productDTO.setPrice(rs.getString("price"));
@@ -108,20 +113,28 @@ public class ProductDAO {
 			productDTO.setCategory(rs.getString("category"));
 			productDTO.setSeller(rs.getString("seller"));
 			productDTO.setDelivery(rs.getString("delivery"));
-			productDTO.setGrade(rs.getInt("grade"));
-			productDTO.setCount(rs.getInt("count"));
-			productDTO.setRanking(rs.getInt("ranking"));
-			productDTO.setHit(rs.getInt("hit"));
-			productDTO.setScrap(rs.getInt("scrap"));
+			proLiveDTO.setNum(rs.getInt("num"));
+			proLiveDTO.setHit(rs.getInt("hit"));
+			proLiveDTO.setScrap(rs.getInt("scrap"));
+			proLiveDTO.setShared(rs.getInt("shared"));
+			proLiveDTO.setStock(rs.getInt("stock"));
+			
 			//productDTO.setUploadDTO;
 		}
 		return productDTO;
 	}
 	
 	
-	public int getNum(){
+	public int getNum(String category, Connection con) throws SQLException{
 		int res=0;
 		
+		String sql="select count(rownum) from product where category=?";
+		PreparedStatement st= con.prepareStatement(sql);
+		st.setString(1, category);
+		ResultSet rs=st.executeQuery();
+		if(rs.next()) {
+			res=rs.getInt("count(rownum");
+		}
 		return res;
 	}
 	

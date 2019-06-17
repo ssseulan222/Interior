@@ -1,5 +1,9 @@
 package com.interior.product;
 
+import com.interior.prosub.ProLiveDTO;
+import com.interior.prosub.ProReviewDTO;
+import com.interior.upload.UploadDTO;
+
 public class ProductDTO {
 	private String num;
 	private String seller;
@@ -18,15 +22,11 @@ public class ProductDTO {
 	private String returnFee;
 	private String exchangeFee;
 	private String sendPlace;
-	
-	// ????? store 테이블 참조하는 다른 테이블??? //////////
-	private int stock;
-	private int grade;
-	private int count;
-	private int ranking;
-	private int hit;
-	private int scrap;
-	//private UploadDTO uploadDTO;
+	/* 
+	private UploadDTO uploadDTO;
+	private ProLiveDTO proLiveDTO;
+	private ProReviewDTO proReviewDTO;
+	*/
 	
 	public String getNum() {
 		return num;
@@ -130,40 +130,25 @@ public class ProductDTO {
 	public void setSendPlace(String sendPlace) {
 		this.sendPlace = sendPlace;
 	}
-	public int getGrade() {
-		return grade;
+	/*
+	public UploadDTO getUploadDTO() {
+		return uploadDTO;
 	}
-	public void setGrade(int grade) {
-		this.grade = grade;
+	public void setUploadDTO(UploadDTO uploadDTO) {
+		this.uploadDTO = uploadDTO;
 	}
-	public int getCount() {
-		return count;
+	public ProLiveDTO getProLiveDTO() {
+		return proLiveDTO;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setProLiveDTO(ProLiveDTO proLiveDTO) {
+		this.proLiveDTO = proLiveDTO;
 	}
-	public int getRanking() {
-		return ranking;
+	public ProReviewDTO getProReviewDTO() {
+		return proReviewDTO;
 	}
-	public void setRanking(int ranking) {
-		this.ranking = ranking;
+	public void setProReviewDTO(ProReviewDTO proReviewDTO) {
+		this.proReviewDTO = proReviewDTO;
 	}
-	public int getHit() {
-		return hit;
-	}
-	public void setHit(int hit) {
-		this.hit = hit;
-	}
-	public int getScrap() {
-		return scrap;
-	}
-	public void setScrap(int scrap) {
-		this.scrap = scrap;
-	}
-	public int getStock() {
-		return stock;
-	}
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
+	*/
+	
 }
