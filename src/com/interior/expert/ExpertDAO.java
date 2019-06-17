@@ -106,7 +106,7 @@ public class ExpertDAO {
 	public int insert(ExpertDTO expertDTO, Connection con) throws Exception{
 		int result = 0;
 		
-		String sql = "insert into expert values (exqert_seq.nextval, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into expert values (exqert_seq.nextval, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null, null)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, expertDTO.getName());
