@@ -22,11 +22,11 @@
 	    });
 	});
 	
-	$(function() {
+	 $(function() {
 		$("#qna_go").click(function() {
 			location.href="./qnaWrite";
 		});
-	});
+	}); 
 	
 
 
@@ -35,9 +35,8 @@
 
 </head>
 <body>
-	<%-- <c:import url="../temp/header.jsp" /> --%>
+	 <%-- <c:import url="../temp/header.jsp" /> --%>
 	
-	<h1>qna list page</h1>
 	
 	<div id="header">
 	<br><br>
@@ -136,7 +135,7 @@
 			<tr>
 				<td>${dto.num}</td>
 				<td><a href="./qnaSelect?num=${dto.num}">${dto.title}</a></td>
-				<td>${dto.contents}</td>
+				<td><a href="./qnaSelect?num=${dto.num}">${dto.contents}</a></td>
 				<td>${dto.writer}</td>
 				<td>${dto.reg_date}</td>
 				<td>${dto.hit}</td>

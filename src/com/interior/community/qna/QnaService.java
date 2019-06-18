@@ -67,9 +67,6 @@ public class QnaService implements Action {
 			search ="";
 		}
 */
-		
-		
-		
 		int totalCount = 0;
 		Connection con = null;
 		
@@ -152,12 +149,12 @@ public class QnaService implements Action {
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/views/qna/qnaWrite.jsp");
 		String method = request.getMethod();
-		System.out.println(method);
+		//System.out.println(method);
 		
 		if(method.equals("POST")) {
 			String saveDirectory = request.getServletContext().getRealPath("upload");
 			File file = new File(saveDirectory);
-			System.out.println("11111");
+			//System.out.println("11111");
 			if(!file.exists()) {
 				file.mkdirs();
 			}
@@ -165,14 +162,14 @@ public class QnaService implements Action {
 			Connection con = null;
 			
 			try {
-				System.out.println("22222");
+				//System.out.println("22222");
 				MultipartRequest multipartRequest = new MultipartRequest(request, saveDirectory, maxPostSize, "UTF-8", new DefaultFileRenamePolicy());
 				Enumeration<String> e = multipartRequest.getFileNames();
 				ArrayList<UploadDTO> ar = new ArrayList<UploadDTO>();
 				while(e.hasMoreElements()) {
-					String s = e.nextElement();
-					String fname = multipartRequest.getFilesystemName(s);
-					String oname = multipartRequest.getOriginalFileName(s);
+					String f1 = e.nextElement();
+					String fname = multipartRequest.getFilesystemName(f1);
+					String oname = multipartRequest.getOriginalFileName(f1);
 					UploadDTO uploadDTO = new UploadDTO();
 					uploadDTO.setFname(fname);
 					uploadDTO.setOname(oname);
@@ -182,7 +179,7 @@ public class QnaService implements Action {
 				qnaDTO.setTitle(multipartRequest.getParameter("title"));
 				qnaDTO.setContents(multipartRequest.getParameter("contents"));
 				qnaDTO.setWriter(multipartRequest.getParameter("writer"));
-				//qnaDTO.setTag(multipartRequest.getParameter("che"));
+				qnaDTO.setTag(multipartRequest.getParameter("tag"));
 				
 				con = DBConnector.getConnect();
 				
@@ -244,7 +241,7 @@ public class QnaService implements Action {
 			Connection con = null;
 			QnaDTO qnaDTO = null;
 			List<UploadDTO> ar = null;
-			String category = null;
+			//String category = null;
 			try {
 				con = DBConnector.getConnect();
 				qnaDTO = qnaDAO.selectOne(num, con);
@@ -270,8 +267,46 @@ public class QnaService implements Action {
 
 	@Override
 	public ActionForward delete(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		ActionForward actionForward = new ActionForward();
+		
+		int qnaDTO = 0;
+		//UploadDTO uploadDTO = null;
+		//int result = 0;
+		Connection con = null;
+		try {
+			con = DBConnector.getConnect();
+			int num = Integer.parseInt(request.getParameter("num"));
+
+			qnaDTO = qnaDAO.delete(num, con);
+			//result = uploadDAO.delete(num, con);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		String path = "";
+		//System.out.println("qnaDTO : " + qnaDTO);
+		if(qnaDTO >0) {
+			actionForward.setCheck(false);
+			path = "./qnaList";
+		}
+		else {
+			request.setAttribute("message", "DELETE FAIL");
+			request.setAttribute("path", "./qnaList");
+			path = "../WEB-INF/views/common/result.jsp";
+			actionForward.setCheck(true);
+		}
+		
+		actionForward.setPath(path);
+		
+		
+		return actionForward;
 	}
 
 }

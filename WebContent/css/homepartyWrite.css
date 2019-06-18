@@ -81,7 +81,7 @@
     bottom: 0;
     z-index: 15;
 }
-.right positive {
+#.right positive {
 	color: #35c5f0;
 	float: right;
     line-height: 70px;
@@ -91,6 +91,8 @@
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
+    
+    
 }
 
 

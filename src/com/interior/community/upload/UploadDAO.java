@@ -51,12 +51,12 @@ public class UploadDAO {
 	
 	
 	//delete
-	public int delete(int pnum, Connection con) throws Exception {
+	public int delete(int num, Connection con) throws Exception {
 		int result = 0;
-		String sql = "delete upload where pnum=?";
+		String sql = "delete upload where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setInt(1, pnum);
+		st.setInt(1, num);
 		
 		result = st.executeUpdate();
 		st.close();

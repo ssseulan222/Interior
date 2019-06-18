@@ -78,7 +78,7 @@ public class QnaController extends HttpServlet {
 		else {
 			actionForward = new ActionForward();
 		}
-		request.setAttribute("board", "qna");
+		//request.setAttribute("board", "qna");
 
 		if(actionForward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
@@ -87,6 +87,7 @@ public class QnaController extends HttpServlet {
 		else {
 			response.sendRedirect(actionForward.getPath());
 		}
+		
 		
 		
 	}

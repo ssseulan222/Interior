@@ -295,10 +295,6 @@ var sel_file;
 						        <div>6. 게시글 오픈 전/후, 수정이 필요하실때는 [마이홈]-[나의스토리]에서 작성 게시글을 확인하실 수 있습니다</div>
 								</div>
 									
-									<div id="action_btn">1234
-										<div id="publish_submit" class="right positive">발행신청</div>
-										<div id="private_submit" class="right has_border">임시저장</div>	
-									</div>
 						</div>
 					</div>
 				</div>
@@ -306,6 +302,10 @@ var sel_file;
 		</form>
 	</div> <!-- end title_write -->
 	
+		<div id="action_btn">
+			<div id="publish_submit" class="right positive">발행신청</div>
+			<div id="private_submit" class="right has_border">임시저장</div>	
+		</div>
 	
 	
 

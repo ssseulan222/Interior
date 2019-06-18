@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.interior.community.page.SearchRow;
 import com.interior.community.util.DBConnector;
-
 public class QnaDAO {
 
 	//insert(QnaDTO qnaDTO, Connection con): int

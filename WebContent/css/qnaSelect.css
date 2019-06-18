@@ -1,0 +1,100 @@
+@charset "UTF-8";
+.titleName {
+	width: 750px;
+	margin-left: 490px;
+	margin-top: 50px;
+	color: #35C5F0;
+    font-weight: bold;
+    font-size: 17px;
+}
+.userName {
+	float: right;
+	margin-top:50px;
+	margin-right: 500px;
+	width: 350px;
+	height: 1000px;
+	/* border: 1px solid red; */
+}
+#btn {
+	margin-left:170px;
+	border-color: #dbdbdb;
+    color: #757575;
+    font-weight: bold;
+}
+.share {
+	margin-top:50px;
+	margin-left:20px;
+	float:left;
+	width: 280px;
+	height: 50px;
+	border: 1px solid #dbdbdb;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 48px;
+    text-align: center;
+    color: #757575;
+}
+.line {
+	margin-top:130px;
+	border-top: 1px solid #ededed;
+}
+.keyword {
+	margin-top: 30px;
+	font-weight: bold;
+	font-size: 19px;
+}
+.tag{
+	margin-top: 15px;
+}
+.qnaTitle{
+	margin-top: 30px;
+	font-weight: bold;
+	font-size: 19px;
+}
+.btn-priority {
+	width:350px;
+	height:70px;
+	background-color: #35C5F0;
+    border-color: #35C5F0;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+ 
+.title {
+	width: 750px;
+	margin-left: 490px;
+	margin-top: 15px;
+	font-weight: bold;
+	font-size: 25px;
+	float:left;
+}
+.con {
+	width: 750px;
+	margin-left: 490px;
+	margin-top: 40px;
+	white-space: pre-line;
+	font-size: 15px;
+    line-height: 1.87;
+    /* float:left; */
+}
+.img {
+	width:700px;
+	height:1000px;
+	margin-left: 490px;
+	margin-top: 40px;
+	border : 1px solid red;
+}
+.date {
+	margin-left: 490px;
+	margin-top: 40px;
+}
+.buttons {
+	margin-left: 1020px;
+}
+
+
+
+ 

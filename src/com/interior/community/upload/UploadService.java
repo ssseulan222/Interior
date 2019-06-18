@@ -17,8 +17,6 @@ import com.interior.community.action.ActionForward;
 import com.interior.community.util.DBConnector;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.sun.org.apache.bcel.internal.generic.RET;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 public class UploadService implements Action {
 	

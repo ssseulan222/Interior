@@ -1,13 +1,186 @@
+<%@page import="com.interior.community.qna.QnaDAO"%>
+<%@page import="com.interior.community.qna.QnaDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>QnA Update Page</title>
+	<c:import url="../temp/bootstrap.jsp" />
+	
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaWrite.css">
+
 </head>
 <body>
-	<h1>QnA Update Page</h1>
+	<div id="header">
+		<a href="../index.do">								<!-- 메인페이지 이동 / 주소 다시확인하기 -->
+			<img alt="" src="../img/main.PNG">
+		</a>
+	</div>
+	
+	<form id="frm" action="./qnaWrite" method="post" enctype="multipart/form-data">
+	
+	
+	<div id="container">
+		<div class="qna">수정하기
+		</div>
+		<br>
+				<!--  <button class="upload_btn"></button> 	<!-- 사진업로드 버튼 / 자리 이동해야됨 --> 
+												
+			<div class="qna_sub">상품구매, 배송 관련 문의가 필요하시다면 
+				<a href="../qna/qnaList" id="qna_go">문의하러가기</a> 		<!-- 고객센터로 이동 / 주소 다시확인하기 -->
+			</div>
+			<br>
+				<div class="form-group">
+					<input type="text" class="form-control" id="title" name="title" value="${dto.title}" placeholder="제목을 적어주세요.">
+				</div>
+			<br>
+				<div class="form-group">
+					<textarea class="form-control" rows="17" id="contents" name="contents">${dto.contents}</textarea>
+				</div>
+			<br>
+		
+			<div class="click">
+			  <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"># 클릭하여 주요 키워드를 입력해주세요.</button> -->
+			 <a href="#" data-toggle="modal" data-target="#myModal" class="click_modal"># 클릭하여 주요 키워드를 입력해주세요.</a>
+			
+			  <div class="modal fade" id="myModal" role="dialog">
+			    <div class="modal-dialog">
+			    
+			      <!-- Modal content-->
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			          <h4 class="modal-title">키워드 선택 (최대 5개 선택 가능)</h4>
+			        </div>
+			        
+			        
+			        
+				  		<!-- <form action="/action_page.php"> -->
+				    <div class="input-group">
+				    	<div class="input-group-btn">
+				        	<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+				      	</div>
+				      	<input type="text" class="form-control" placeholder="궁금한 것을 검색해보세요." name="search">
+				    </div>
+				  		<!-- </form> -->	
+			        
+			        <div class="modal-body">
+			            <p class="keyword_select">일반</p>				<!-- 체크할때마다 체크박스 카운트 -->
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="1" class="tag" onClick="count_ck(this)">리모델링/을수리
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="2" class="tag" onClick="count_ck(this)">견적
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="3" class="tag" onClick="count_ck(this)">업체추천
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="4" class="tag" onClick="count_ck(this)">셀프인테리어
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="5" class="tag" onClick="count_ck(this)">신혼
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="6" class="tag" onClick="count_ck(this)">리폼
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="7" class="tag" onClick="count_ck(this)">디자인 추천
+						    </label>
+					  	<p class="keyword_select">부분 공정</p>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="8" class="tag" onClick="count_ck(this)">가벽
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="9" class="tag" onClick="count_ck(this)">단열
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="10" class="tag" onClick="count_ck(this)">도배
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="11" class="tag" onClick="count_ck(this)">마루
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="12" class="tag" onClick="count_ck(this)">목공
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="13" class="tag" onClick="count_ck(this)">몰딩
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="14" class="tag" onClick="count_ck(this)">바닥
+						    </label>
+						  <p class="keyword_select">평수</p>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="15" class="tag" onClick="count_ck(this)">10평미만
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="16" class="tag" onClick="count_ck(this)">10평대
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="17" class="tag" onClick="count_ck(this)">20평대
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="18" class="tag" onClick="count_ck(this)">30평대
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="19" class="tag" onClick="count_ck(this)">40평대
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="20" class="tag" onClick="count_ck(this)">50평이상
+						    </label>
+						<p class="keyword_select">실내공간</p>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="21" class="tag" onClick="count_ck(this)">화장실
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="22" class="tag" onClick="count_ck(this)">베란다
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="23" class="tag" onClick="count_ck(this)">거실
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="24" class="tag" onClick="count_ck(this)">주방
+						    </label>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="25" class="tag" onClick="count_ck(this)">현관
+						    </label>
+  						<p class="keyword_select">기타</p>
+						    <label class="checkbox-inline">
+						      <input type="checkbox" name="tag" value="26" class="tag" onClick="count_ck(this)">기타
+						    </label>
+			        </div>
+			        
+			        <div class="modal-footer">
+				          <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+				          <input type="submit" class="btn btn-default" data-dismiss="modal" onclick="return test_checkbox()">
+				    </div>
+			          
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+				
+			<div class="tag_count">
+				<span class="tag_count_t1"></span>개&nbsp;		<!-- 태그 추가할떄마다 카운트 증가해야됨 -->
+				<span class="tag_count_t2"></span>최대
+				<span class="tag_count_t3">5</span>개
+			</div>
+			
+		<br>
+		
+	</div> <!-- end container -->
+			<div class="footer">
+				<div>				<!-- 버튼 클릭하면 질문 메인페이지 이동 -->
+					<input type="button" name="commit" id="save" value="질문 수정하기" 
+					class="btn btn-lg btn-priority col-6 offset-3">
+				</div>
+				
+			</div>	<!-- end footer -->
+	  </form>
 
 </body>
 </html>
