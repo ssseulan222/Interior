@@ -5,7 +5,7 @@ import com.interior.prosub.ProReviewDTO;
 import com.interior.upload.UploadDTO;
 
 public class ProductDTO {
-	private String num;
+	private int num;
 	private String seller;
 	private String name;
 	private String category;
@@ -28,10 +28,10 @@ public class ProductDTO {
 	private ProReviewDTO proReviewDTO;
 	*/
 	
-	public String getNum() {
+	public int getNum() {
 		return num;
 	}
-	public void setNum(String num) {
+	public void setNum(int num) {
 		this.num = num;
 	}
 	public String getSeller() {

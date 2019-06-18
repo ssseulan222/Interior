@@ -15,7 +15,7 @@ public class UploadService {
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {
 		
 		ActionForward actionForward = new ActionForward();
-		String saveDirectory = request.getServletContext().getRealPath("/upload");
+		String saveDirectory = request.getServletContext().getRealPath("/productUpload");
 		
 		File file = new File(saveDirectory);
 		if (!file.exists()) {
@@ -35,7 +35,7 @@ public class UploadService {
 			String path = request.getContextPath();
 			
 			// 2.최종결과물
-			result = "&bNewLine=true&sFileURL="+path+"/upload/"+fileName;
+			result = "&bNewLine=true&sFileURL="+path+"/productUpload/"+fileName;
 			
 			// 3.
 			result = callback + "?callback_func=" + callback_func+result;

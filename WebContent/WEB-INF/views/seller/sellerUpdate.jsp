@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/sellerJoin.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/sellerUpdate.css">
 <script src="<%=request.getContextPath()%>/js/sellerUpdate.js"></script>
 <title>판매자 회원가입</title>
 
@@ -197,7 +197,7 @@
 			
 			<div id="submitDiv">
 				<button id="submitBtn">수정완료</button>
-				<!-- <input type="button" onclick="joinConfirm()" value="신청완료"> -->
+				<a href="./sellerDelete">회원탈퇴</a>
 			</div>
 			
 		</form>

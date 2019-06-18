@@ -12,12 +12,12 @@ import com.interior.util.DBConnect;
 
 public class UploadDAO {
 
-	public int insert(UploadDTO uploadDTO, int num, Connection con) throws Exception {
+	public int insert(UploadDTO uploadDTO, Connection con) throws Exception {
 		
 		
 		String sql="insert into upload values(upload_seq.nextval,?,?,?)";
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setInt(1, num);
+		st.setInt(1, uploadDTO.getNum());
 		st.setString(2, uploadDTO.getOname());
 		st.setString(3, uploadDTO.getFname());
 		int res=st.executeUpdate();
@@ -25,6 +25,7 @@ public class UploadDAO {
 		return res;
 		
 	}
+	
 	public UploadDTO selectOne(int num,Connection con) throws Exception {
 		UploadDTO uploadDTO = null;
 		String sql="select * from upload where num=?";
@@ -64,6 +65,7 @@ public class UploadDAO {
 	public void update() throws Exception {
 		
 	}
+	
 	public int delete(int pnum,Connection con) throws Exception {
 		int res=0;
 		String sql="delete upload where pnum=?";

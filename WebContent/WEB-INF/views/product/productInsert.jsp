@@ -83,7 +83,7 @@
 						</div>
 					</div>
 				</div>
-				
+				<!-- 
 				<div class="form-group">
 					<label for="subPhoto" class="col-sm-3">사진 추가</label>
 					<div class="col-sm-9">
@@ -91,7 +91,7 @@
 						<p> &nbsp; &nbsp; ※ 최대 4장까지 jpg, png 확장자만 추가 가능합니다.</p>
 					</div>
 				</div>
-				
+				 -->
 				<div class="form-group">
 					<label for="info" class="col-sm-3">제품설명<span class="required">*</span></label>
 					<div class="col-sm-9">
@@ -135,7 +135,7 @@
 						<input type="number" id="salePrice" name="salePrice" class="form-control" placeholder="할인된 가격을 입력해주세요"><span class="unit">원</span>
 					</div>
 				</div>
-
+				<!-- 
 				<div class="form-group">
 					<label for="lowesPrice" class="col-sm-3">최저가 체크</label>
 					<div class="radioBtn">
@@ -145,7 +145,7 @@
 						</div>
 					</div>
 				</div>
-
+				 -->
 				<div class="form-group">
 					<label for="point" class="col-sm-3">포인트 적립률<span class="required">*</span></label>
 					<div class="col-sm-9">
@@ -180,6 +180,8 @@
 						<input type="text" id="deliveryDiff" name="deliveryDiff" class="form-control" placeholder="배송비가 차등 부과되는 지역과 배송비를 입력해주세요">
 					</div>
 				</div>
+				
+				<!-- 
 				<div class="form-group">
 					<label for="freeDeliv" class="col-sm-3">무료택배 체크<span class="required">*</span></label>
 					<div class="radioBtn">
@@ -189,6 +191,8 @@
 						</div>
 					</div>
 				</div>
+				 -->
+				
 				<div class="form-group">
 					<label for="deliveryFee" class="col-sm-3">택배비<span class="required">*</span></label>
 					<div class="col-sm-9">
