@@ -4,12 +4,14 @@ import java.io.File;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.interior.action.ActionForward;
+import com.interior.page.SearchRow;
 import com.interior.seller.SellerDTO;
 import com.interior.upload.UploadDAO;
 import com.interior.upload.UploadDTO;
@@ -166,6 +168,37 @@ public class ProductService {
 		return actionForward;
 	}
 
+	public ActionForward productSelectList(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		String path="";
+		boolean check=true;
+		Connection con;
+		try {
+			con = DBConnect.getConnect();
+			List<ProductDTO> ar = new ArrayList<ProductDTO>();
+			String category=request.getParameter("category");
+			String sort=request.getParameter("sort");
+			String seller=request.getParameter("seller");
+			SearchRow searchRow=new SearchRow();
+			searchRow.setStartRow(0);
+			searchRow.setLastRow(5);
+			ar = productDAO.productList(category, sort, seller, searchRow, con);
+			
+			HttpSession session=request.getSession();
+			session.setAttribute("ar", ar);
+			
+					
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		actionForward.setCheck(check);
+		actionForward.setPath(path);
+		return actionForward;
+	}
+
 	public ActionForward productUpdate(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 
@@ -173,12 +206,6 @@ public class ProductService {
 	}
 
 	public ActionForward productDelete(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward = new ActionForward();
-
-		return actionForward;
-	}
-
-	public ActionForward productSelectList(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 
 		return actionForward;

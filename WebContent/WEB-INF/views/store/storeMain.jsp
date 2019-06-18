@@ -111,44 +111,16 @@
 				</select> <a class="sort">무료배송</a>
 
 			</div>
+			
+			<!-- 상품리스트불러오기 -->
 			<div>
-				<!-- lg: 4*n(ajax)  // sm : 2*n(ajax) ///// -->
-				<div class="product col-sm-3">
-					<div>사진</div>
-					<div>판매자</div>
-					<div>이름</div>
-					<div>할인율</div>
-					<div>가격</div>
-					<div>스크랩, 조회</div>
-					<div>최저가/배송</div>
-				</div>
-				<div class="product col-sm-3">
-					<div>사진</div>
-					<div>판매자</div>
-					<div>이름</div>
-					<div>할인율</div>
-					<div>가격</div>
-					<div>스크랩, 조회</div>
-					<div>최저가/배송</div>
-				</div>
-				<div class="product col-sm-3">
-					<div>사진</div>
-					<div>판매자</div>
-					<div>이름</div>
-					<div>할인율</div>
-					<div>가격</div>
-					<div>스크랩, 조회</div>
-					<div>최저가/배송</div>
-				</div>
-				<div class="product col-sm-3">
-					<div>사진</div>
-					<div>판매자</div>
-					<div>이름</div>
-					<div>할인율</div>
-					<div>가격</div>
-					<div>스크랩, 조회</div>
-					<div>최저가/배송</div>
-				</div>
+				
+				<%-- <c:forEach begin="">
+				
+				
+				
+				</c:forEach> --%>
+				
 			</div>
 
 		</div>

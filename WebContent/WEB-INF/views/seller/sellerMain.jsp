@@ -31,6 +31,7 @@
 		
 		<hr>
 		
+		
 		<div class="productList" >
 			<div>
 				<h3>제품 리스트</h3>
@@ -43,9 +44,16 @@
 					<a>더보기</a>
 				</div>
 			</div>
+			<!-- 판매가자 올린 제품 최신순 배열 -->
 			<div>
-			
+				
+				<c:forEach begin="0" end="5" items="${sessionScope.ar}" var="ar">
+					<div>
+						<img src="${ar.uploadDTO.fname}" alt="이미지 없음">					
+					</div>
+				</c:forEach>
 			</div>
+		
 		</div>
 		
 		

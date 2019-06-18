@@ -63,22 +63,21 @@ public class ProductDAO {
 		return res;
 	}
 	
-	public List<ProductDTO> productSelectList(String category, String sort, String seller, SearchRow searchRow, Connection con) throws Exception{
+	public List<ProductDTO> productList(String category, String sort, String seller, SearchRow searchRow, Connection con) throws Exception{
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
 		String sql="select * from (select rownum r, c.* from "
 				+ "(select * from product where category=?, seller=? order by ? desc) c) "
 				+ "where r between ? and ?";
 		PreparedStatement st= con.prepareStatement(sql);
 		st.setString(1, category);
-		st.setString(2, sort);		// 정렬방식
-		st.setString(3, seller);	// 일반 회원 -> 모든 판매자
+		st.setString(2, seller);
+		st.setString(3, sort);
 		st.setInt(4, searchRow.getStartRow());
 		st.setInt(5, searchRow.getLastRow());
 		
 		ResultSet rs=st.executeQuery();
 		if(rs.next()) {
 			ProductDTO productDTO = new ProductDTO();
-			ProLiveDTO proLiveDTO = new ProLiveDTO();
 			productDTO.setNum(rs.getInt("num"));
 			productDTO.setName(rs.getString("name"));
 			productDTO.setPrice(rs.getString("price"));
@@ -86,11 +85,6 @@ public class ProductDAO {
 			productDTO.setCategory(rs.getString("category"));
 			productDTO.setSeller(rs.getString("seller"));
 			productDTO.setDelivery(rs.getString("delivery"));
-			proLiveDTO.setNum(rs.getInt("num"));
-			proLiveDTO.setHit(rs.getInt("hit"));
-			proLiveDTO.setScrap(rs.getInt("scrap"));
-			proLiveDTO.setShared(rs.getInt("shared"));
-			proLiveDTO.setStock(rs.getInt("stock"));
 			
 			ar.add(productDTO);
 		}

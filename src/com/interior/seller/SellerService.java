@@ -10,15 +10,50 @@ import javax.servlet.http.HttpSession;
 
 import com.interior.action.Action;
 import com.interior.action.ActionForward;
+import com.interior.page.SearchRow;
+import com.interior.product.ProductDAO;
 import com.interior.util.DBConnect;
 
 public class SellerService {
 
-	private SellerDAO sellerDAO;
+	private SellerDAO sellerDAO = null;
+	private ProductDAO productDAO = null;
 
 	public SellerService() {
 		sellerDAO = new SellerDAO();
+		productDAO = new ProductDAO();
 	}
+
+	public ActionForward sellerMain(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		String path="";
+		boolean check = true;
+		Connection con=null;
+		HttpSession session = request.getSession();
+		SellerDTO sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
+		path= "../WEB-INF/views/seller/sellerMain.jsp";
+		if(sellerDTO == null) {
+			request.setAttribute("msg", "로그인 세션이 만료되었습니다. 다시 로그인 해주세요");
+			request.setAttribute("path", "../seller/sellerLogin");
+			check = true;
+			path = "../WEB-INF/views/result/result.jsp";
+		} else {
+			String category=request.getParameter("category");
+			String sort=request.getParameter("sort");
+			String seller=sellerDTO.getCompanyName();
+			SearchRow searchRow = new SearchRow();
+			try {
+				con=DBConnect.getConnect();
+				productDAO.productList(category, sort, seller, searchRow, con);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		actionForward.setPath(path);
+		actionForward.setCheck(check);
+		return actionForward;
+	}
+
 
 	public ActionForward sellerJoin(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
@@ -288,40 +323,5 @@ public class SellerService {
 		return null;
 	}
 
-	public ActionForward sellerMain(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward = new ActionForward();
-		String path="";
-		boolean check = true;
-		HttpSession session = request.getSession();
-		SellerDTO sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
-		path= "../WEB-INF/views/seller/sellerMain.jsp";
-		if(sellerDTO == null) {
-			request.setAttribute("msg", "로그인 세션이 만료되었습니다. 다시 로그인 해주세요");
-			request.setAttribute("path", "../seller/sellerLogin");
-			check = true;
-			path = "../WEB-INF/views/result/result.jsp";
-		}
-		actionForward.setPath(path);
-		actionForward.setCheck(check);
-		return actionForward;
-	}
-
-	/*--------------------------이전-------------------------------------*/
-
-	public ActionForward cat2(HttpServletRequest request, HttpServletResponse response) {
-
-		ActionForward actionForward = new ActionForward();
-		String path = "";
-		boolean check = true;
-
-		String id = request.getParameter("id");
-		request.setAttribute("id", id);
-
-		path = "../WEB-INF/views/seller/cat2.jsp";
-
-		actionForward.setPath(path);
-		actionForward.setCheck(check);
-		return actionForward;
-	}
 
 }
