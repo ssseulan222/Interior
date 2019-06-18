@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#location{
+#locat{
 	display:none;
 	max-height: 425px;
     overflow: auto;
@@ -11,6 +11,10 @@
     box-shadow: 0 -1px 16px rgba(0,0,0,.2);
     border-radius: 10px;
     background-color: white;
+}
+
+.l1{
+	display: none;
 }
 .location{
 	display: block;
@@ -32,7 +36,7 @@
 }
 
 .location > span {
-	s: 25px;
+	float: right;
 }
 .ul {
 	display:none;

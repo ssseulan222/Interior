@@ -102,8 +102,20 @@ button {
 	border-radius: 25px;
 }
 
+.btn{
+	background-color: white;
+	border: 1px solid gray;
+	padding: 1% 0;
+	width: 100%;
+	border-radius: 25px;
+}
+
 .se {
 	width: 100%;
+	background-color: white;
+	border: 1px solid gray;
+	padding: 1% 0;
+	border-radius: 25px;
 }
 
 #b {
@@ -208,6 +220,7 @@ button {
 	padding: 1% 0;
 	width: 35%;
 	border-radius: 5px;
+	border: none;
 }
 
 p {
@@ -282,5 +295,9 @@ p {
 	display: none;
 }
 #brand{
+	display: none;
+}
+
+.selec{
 	display: none;
 }

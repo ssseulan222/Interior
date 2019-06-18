@@ -136,20 +136,19 @@ $(function () {
 		});
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
-
-		if($(this).val() == "부분"){
+		if($(this).attr("id") == "part"){
 			$("#pro01").css('display','inline');
 			$("#pro02").css('display','none');
 			clicked2=0;
 			$(".pro2").css('background-color', 'white');
 			$(".pro2").css('color', 'black');
-		}else if($(this).val() == "통합"){
+		}else if($(this).attr("id") == "combine"){
 			$("#pro02").css('display','inline');
 			$("#pro01").css('display','none');
 			clicked=0;
 			$(".pro1").css('background-color', 'white');
 			$(".pro1").css('color', 'black');
-		}else if($(this).val() == "종합"){
+		}else if($(this).attr("id") == "synthesis"){
 			$("#pro01").css('display','none');
 			$("#pro02").css('display','none');
 		}
@@ -318,7 +317,7 @@ $(function () {
 	
 	$("#s_email").mouseout(function() {
 		$(".ad").each(function() {
-			if($(this).prop("selected")){
+			if($(this).prop("ted")){
 				if($(this).attr("id")=="self"){
 					$("#email2").html('<input type="text" id="email2" name="email2">');
 				}
@@ -326,10 +325,10 @@ $(function () {
 		});
 	});
 	$("#select").click(function() {
-		if($("#location").css("display") == "none"){
-			$("#location").css("display", "inline-block");
+		if($("#locat").css("display") == "none"){
+			$("#locat").css("display", "inline-block");
 		}else{
-			$("#location").css("display", "none");
+			$("#locat").css("display", "none");
 			$(".ul").css("display", "none");
 		}
 	});
@@ -383,5 +382,19 @@ $(function () {
 			$(".ul").css("display", "none");
 			$("#16").css("display", "inline-block");
 		}
+	});
+	
+	var l1;
+	$(".location").click(function() {
+		l1 = $(this).text();
+	});
+	
+	var l2;
+	$(".l").click(function() {
+		l2 = $(this).html();
+		$("#loc").html(l1+" "+l2);
+		$("#location").html(l1+" "+l2);
+		$("#locat").css("display", "none");
+		$(".ul").css("display", "none");
 	});
 });

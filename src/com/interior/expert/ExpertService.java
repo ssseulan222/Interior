@@ -138,7 +138,12 @@ public class ExpertService implements Action{
 				expertDTO.setR_check(multipartRequest.getParameter("r_check"));
 				expertDTO.setRoute(multipartRequest.getParameter("route"));
 				expertDTO.setC_check(Integer.parseInt(multipartRequest.getParameter("c_check")));
-
+				
+				
+				System.out.println(expertDTO.getName());
+				System.out.println(expertDTO.getContract());
+				
+				
 				con = DBConnector.getConnect();
 
 				int num = expertDAO.getNum();
