@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.interior.page.Search;
 import com.interior.page.SearchRow;
 import com.interior.product.ProductDTO;
 import com.interior.prosub.ProLiveDTO;
@@ -64,17 +63,18 @@ public class ProductDAO {
 		return res;
 	}
 	
-	public List<ProductDTO> productList(Search search, String seller, SearchRow searchRow, Connection con) throws Exception{
+	public List<ProductDTO> productList(String category, String sort, String seller, SearchRow searchRow, Connection con) throws Exception{
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
 		String sql="select * from (select rownum r, c.* from "
 				+ "(select * from product where category=?, seller=? order by ? desc) c) "
 				+ "where r between ? and ?";
 		PreparedStatement st= con.prepareStatement(sql);
-		st.setString(1, search.getCategory());
+		st.setString(1, category);
 		st.setString(2, seller);
-		st.setString(3, search.getSort());
+		st.setString(3, sort);
 		st.setInt(4, searchRow.getStartRow());
 		st.setInt(5, searchRow.getLastRow());
+		
 		ResultSet rs=st.executeQuery();
 		if(rs.next()) {
 			ProductDTO productDTO = new ProductDTO();

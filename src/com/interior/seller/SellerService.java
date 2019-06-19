@@ -2,7 +2,6 @@ package com.interior.seller;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -11,10 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import com.interior.action.Action;
 import com.interior.action.ActionForward;
-import com.interior.page.Search;
 import com.interior.page.SearchRow;
 import com.interior.product.ProductDAO;
-import com.interior.product.ProductDTO;
 import com.interior.util.DBConnect;
 
 public class SellerService {
@@ -41,14 +38,13 @@ public class SellerService {
 			check = true;
 			path = "../WEB-INF/views/result/result.jsp";
 		} else {
-			Search search = new Search();
-			search.setCategory(request.getParameter("category"));
-			search.setSort(request.getParameter("sort"));
+			String category=request.getParameter("category");
+			String sort=request.getParameter("sort");
 			String seller=sellerDTO.getCompanyName();
 			SearchRow searchRow = new SearchRow();
 			try {
 				con=DBConnect.getConnect();
-				
+				productDAO.productList(category, sort, seller, searchRow, con);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
