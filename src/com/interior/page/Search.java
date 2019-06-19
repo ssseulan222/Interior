@@ -44,11 +44,26 @@ public class Search {
 	}
 	public void setCategory(String category) {
 		if(category == null) {
-			this.category="1";
+			this.category="category";
 		} else {
 			this.category=category;
 		}
 	}
+	
+	///////////////////////////////////////////////
+	
+	private String seller;
+	public String getSeller() {
+		return seller;
+	}
+	public void setSeller(String seller) {
+		if(seller == null) {
+			this.seller="seller";
+		} else {
+			this.seller=seller;
+		}
+	}
+	
 	
 	///////////////////////////////////////////////
 	private String keyword;

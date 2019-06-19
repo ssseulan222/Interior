@@ -15,7 +15,19 @@
 
 	<!-- 헤더 -->
 
-	<jsp:include page="../common/header.jsp" />
+<%-- 	<jsp:include page="../common/header.jsp" /> --%>
+	<div class="container">
+		<a href="<%=application.getContextPath()%>/store/storeMain">스토어홈</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="<%=application.getContextPath()%>/store/storeCategory">카테고리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="<%=application.getContextPath()%>/store/storeRanking">랭킹</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<a href="<%=application.getContextPath()%>/seller/sellerJoin">판매자회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="<%=application.getContextPath()%>/seller/sellerLogin">판매자로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<p>${sessionScope.sellerDTO.id}님 환영합니다</p>
+		<a href="<%=application.getContextPath()%>/seller/sellerLogout">로그아웃</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="<%=application.getContextPath()%>/seller/sellerMain">판매자페이지</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
 
 	<!-- 컨텐츠 -->
 	<section>
@@ -113,17 +125,62 @@
 			</div>
 			
 			<!-- 상품리스트불러오기 -->
-			<div>
+			<div class="col-sm-12 productListDiv"> 
 				
-				<%-- <c:forEach begin="">
-				
-				
-				
-				</c:forEach> --%>
+				<c:forEach items="${requestScope.ar}" var="ar">
+					<div class="productWrapDiv col-sm-3">
+						<a href="../product/productSelect?num=${ar.num}" class="productSelect"> 
+							<div class="productDiv">
+								<div class="productImageWrap">
+									<div class="productImageDiv">
+										<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${ar.uploadDTO.fname}" alt="${ar.uploadDTO.oname}">
+										
+										<p>test : ${ar.uploadDTO.fname}</p>
+									</div>
+								</div>
+								<div class="productInfo">
+									<!-- 제품명 -->
+									<p class="name">${ar.name}</p>
+									
+									<div class="span">
+										<!-- 세일률 -->	
+										<span><span class="saleRate">${ar.saleRate}%</span>
+										<!-- 세일가 -->
+										<span class="salePrice">${ar.salePrice}원</span></span>
+									</div>
+									
+									<div class="span">
+										<!-- 별점 -->
+										<span><span class="grade">★</span> <span class="gradePoint">???</span></span>
+										
+										<!-- 리뷰수 -->
+										<span><span class="review">리뷰</span> <span class="reviewCount">???</span></span>
+									</div>
+									
+									<div>
+										
+											<!-- 무료배송 / 유료배송 -->
+											<c:if test="${ar.deliveryFee eq '0'}">
+												<span class="saleDelivery1">무료배송</span>
+											</c:if>				
+											<c:if test="${ar.deliveryFee ne '0'}">
+												<span class="deli">배송 : </span><span class="saleDelivery2">${ar.deliveryFee}원</span>
+											</c:if>
+										
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</c:forEach>
 				
 			</div>
-
+				
+				
+				
 		</div>
+
+			
 	</section>
 
 	<!-- 푸터 -->

@@ -28,7 +28,7 @@ public class UploadDAO {
 	
 	public UploadDTO selectOne(int pnum,Connection con) throws Exception {
 		UploadDTO uploadDTO = null;
-		String sql="select * from upload where pnum=?";
+		String sql="select * from upload where num=?";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setInt(1, pnum);
 		ResultSet rs=st.executeQuery();

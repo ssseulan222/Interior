@@ -66,7 +66,7 @@ public class ProductDAO {
 		return res;
 	}
 	
-	public List<ProductDTO> productAlltList(String sort, String seller, SearchRow searchRow, Connection con) throws Exception{
+	public List<ProductDTO> productList(String sort, String seller, SearchRow searchRow, Connection con) throws Exception{
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
 		String sql="select * from "
 				+ "(select rownum r, c.* from "
@@ -102,6 +102,8 @@ public class ProductDAO {
 		return ar;
 	}
 	
+	
+	
 	public List<ProductDTO> productList(String category, String sort, String seller, SearchRow searchRow, Connection con) throws Exception{
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
 		String sql="select * from "
@@ -118,6 +120,7 @@ public class ProductDAO {
 		ResultSet rs=st.executeQuery();
 		while(rs.next()) {
 			ProductDTO productDTO = new ProductDTO();
+			UploadDTO uploadDTO = new UploadDTO();
 			productDTO.setNum(rs.getInt("num"));
 			productDTO.setName(rs.getString("name"));
 			productDTO.setPrice(rs.getString("price"));
@@ -125,7 +128,45 @@ public class ProductDAO {
 			productDTO.setCategory(rs.getString("category"));
 			productDTO.setSeller(rs.getString("seller"));
 			productDTO.setDelivery(rs.getString("delivery"));
-			
+			uploadDTO.setPnum(rs.getInt("pnum"));
+			uploadDTO.setNum(rs.getInt("num"));
+			uploadDTO.setFname(rs.getString("fname"));
+			uploadDTO.setOname(rs.getString("oname"));
+			productDTO.setUploadDTO(uploadDTO);
+			ar.add(productDTO);
+		}
+		
+		return ar;
+	}
+	/*SearchRow searchRow,*/
+	public List<ProductDTO> productAllList( Connection con) throws Exception{
+		List<ProductDTO> ar = new ArrayList<ProductDTO>();
+		String sql="select * from "
+				+ "(select rownum r, c.* from "
+				+ "(select * from product) c) "
+				+ "order by r desc"; ///*where r between ? and ?*/ 
+		PreparedStatement st= con.prepareStatement(sql);
+		/*
+		st.setInt(1, searchRow.getStartRow());
+		st.setInt(2, searchRow.getLastRow());
+		*/
+		
+		ResultSet rs=st.executeQuery();
+		while(rs.next()) {
+			ProductDTO productDTO = new ProductDTO();
+			UploadDTO uploadDTO = new UploadDTO();
+			productDTO.setNum(rs.getInt("num"));
+			productDTO.setName(rs.getString("name"));
+			productDTO.setPrice(rs.getString("price"));
+			productDTO.setSalePrice(rs.getString("salePrice"));
+			productDTO.setCategory(rs.getString("category"));
+			productDTO.setSeller(rs.getString("seller"));
+			productDTO.setDelivery(rs.getString("delivery"));
+			uploadDTO.setPnum(rs.getInt("pnum"));
+			uploadDTO.setNum(rs.getInt("num"));
+			uploadDTO.setFname(rs.getString("fname"));
+			uploadDTO.setOname(rs.getString("oname"));
+			productDTO.setUploadDTO(uploadDTO);
 			ar.add(productDTO);
 		}
 		

@@ -70,7 +70,7 @@ public class SellerService {
 			try {
 				
 				con=DBConnect.getConnect();
-				ar = productDAO.productAlltList(sort, seller, searchRow, con);
+				ar = productDAO.productList(sort, seller, searchRow, con);
 				
 				request.setAttribute("ar", ar);	// sellerMain.jsp에서 ${requestScope.ar}로 받기
 		

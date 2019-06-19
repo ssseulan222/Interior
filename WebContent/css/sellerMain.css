@@ -44,30 +44,40 @@
 	display: inline-block;
 	padding: 10px;
 	margin: 6px 0px;
-
+	border:1px solid white;
 }
 
+.productWrapDiv:hover{
+	border:1px solid #d3d3d3a8;
+}
 
 .productImageWrap {
 	position: relative;
 	width: 100%;
 	height: 0;
 	overflow: hidden;
-	padding-bottom: 80%;
+	padding-bottom: 100%;
+
 }
 
-.productImage {
+.productImageDiv {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	border:1px solid #795548;
-	border-radius:4px;
+
+}
+
+.productImage{
+	width: 100%;
+	height: 100%;
+	border-radius:8px;
 }
 
 .productInfo {
 	padding:10px;
+
 }
 
 .name {
@@ -89,35 +99,41 @@
 
 .grade {
 	color: rgb(53, 197, 240);
-	font-size:1.2em;
+	font-size:1.0em;
 	font-weight:500;
 }
 
 .gradePoint {
 	font-weight:600;
+	font-size:0.8em;
 }
 
 .review {
 	margin-left:5px;
 	color: #999;
 	font-weight:600;
+	font-size:0.8em;
 }
 
 .reviewCount {
 	color: #999;
 	font-weight:600;
+	font-size:0.8em;
 }
 
 .deli{
 	font-weight:600;
+	font-size:0.8em;
 }
 
 .saleDelivery1 {
 	font-weight:600;
+	font-size:0.8em;
 }
 
 .saleDelivery2 {
 	font-weight:600;
+	font-size:0.8em;
 }
 
 .stock {
@@ -126,4 +142,5 @@
 
 .stockCount {
 	font-weight:600;
+	color:red;
 }
