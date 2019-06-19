@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<link href="../css/register.css" rel="stylesheet" type="text/css" />
-<link href="../css/location.css" rel="stylesheet" type="text/css" />
-<script src="../js/register.js"></script>
-<script src="../js/register2.js"></script>
+<link href="../css/register.css?ver1" rel="stylesheet" type="text/css" />
+<link href="../css/location.css?ver1" rel="stylesheet" type="text/css" />
+<script src="../js/register.js?ver2"></script>
+<!-- <script src="../js/register2.js"></script> -->
 <script type="text/javascript">
 	function goPopup() {
 		// 주소검색을 수행할 팝업 페이지를 호출합니다.
@@ -188,8 +188,7 @@
 					<div id="q2">
 						<span>대표활동지역을 선택해주세요</span><span class="necessary">필수</span>
 						<p>선택하신 지역의 고객들에게 노출됩니다. 최대 3개까지 선택 가능합니다.</p>
-						<span id="select" class="btn">
-							지역선택<span id="down">▼</span>
+						<span id="select" class="btn"> 지역선택<span id="down">▼</span>
 						</span>
 						<div class="l1">
 							<ul id="locat">
@@ -491,8 +490,8 @@
 						<input type="text" name="address">
 
 						<div>
-						<input type="button" id="before1" class="n_btn" value="이전">
-						<input type="button" id="next2" class="n_btn" value="다음">
+							<input type="button" id="before1" class="n_btn" value="이전">
+							<input type="button" id="next2" class="n_btn" value="다음">
 						</div>
 					</div>
 				</div>
@@ -517,7 +516,6 @@
 								<option class="ad" value="hotmail.com">hotmail.com</option>
 								<option class="ad" value="outlook.com">outlook.com</option>
 								<option class="ad" value="icloud.com">icloud.com</option>
-								<option id="self" class="ad">직접입력</option>
 						</select>
 						</span> <span id="addr"></span> <input type="text" name="address"
 							id="address" class="selec">
@@ -531,12 +529,12 @@
 					<div id="q3">
 						<span>핸드폰번호를 입력해주세요.</span><span class="necessary">필수</span>
 						<p>연락이 가능한 번호를 입력해주세요.</p>
-						<input type="text" name="phone1">-<input type="text"
-							name="phone2">-<input type="text" name="phone3">
-						<input type="text" name="phone" id="phone" class="selec">
+						<input type="text" class="ph">-<input type="text"
+							class="ph">-<input type="text" class="ph"> <input
+							type="text" name="phone" id="phone" class="selec">
 					</div>
 					<div>
-					<input type="button" id="before2" class="n_btn" value="이전">
+						<input type="button" id="before2" class="n_btn" value="이전">
 						<input type="button" id="next3" class="n_btn" value="다음">
 					</div>
 				</div>
@@ -549,17 +547,18 @@
 				<div id="body4">
 					<div id="q1">
 						<span>사업자의 대표자명을 알려주세요.</span><span class="necessary">필수</span><br>
-						<input type="text" name="name">
+						<input type="text" name="r_name">
 					</div>
 					<div id="q2">
 						<span>대표 연락처를 입력해주세요.</span> <br> <input type="text"
 							name="phone1">-<input type="text" name="phone2">-<input
-							type="text" name="phone3">
+							type="text" class="r_ph">
+							<input type="text" >
 					</div>
 					<div id="q3">
 						<span>사업장 주소를 알려주세요.</span><span class="necessary">필수</span><br>
-						<input type="text" id=" roadFullAddr " name=" roadFullAddr " />
-						<span id="ad" onClick="goPopup();"  class="btn">주소찾기</span>
+						<input type="text" id=" roadFullAddr " name=" roadFullAddr " /> <span
+							id="ad" onClick="goPopup();" class="btn">주소찾기</span>
 					</div>
 					<div id="q4">
 						<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
@@ -629,10 +628,10 @@
 							</span><br> <input type="checkbox" name="allagree" id="allagree">
 							모두 동의합니다.
 						</div>
-
+						<input type="text" id="c_check" name="c_check" class="selec">
 					</div>
 					<div>
-					<input type="button" id="before3" class="n_btn" value="이전">
+						<input type="button" id="before3" class="n_btn" value="이전">
 						<button id="complete" class="n_btn">완료</button>
 					</div>
 				</div>

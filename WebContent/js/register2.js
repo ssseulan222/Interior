@@ -29,7 +29,7 @@ $(function () {
 		});
 		$(".pro2").each(function() {
 			if($(this).css('background-color') == "rgb(53, 197, 240)"){
-				pro += ","+$(this).val();
+				pro += $(this).val();
 				$("#pro").val(pro);
 			}
 		});

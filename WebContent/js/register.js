@@ -1,4 +1,27 @@
 $(function () {
+	var contract;
+	var pro;
+	var space_type = "주거공간";
+	var a_s;
+	var carreer;
+	var pay;
+	var deposit;
+	var tag;
+	var email;
+	var phone;
+	var r_check;
+	var c_num;
+	var c_regi;
+	var route;
+	var c_check;
+	var r_phone;
+	$(".ph").change(function() {
+		phone = "";
+		$(".ph").each(function() {
+			phone += $(this).val();
+		});
+		$("#phone").val(phone);
+	});
 	
 	$("#open").click(function() {
 		$("#modal").css("display", "inline");
@@ -14,16 +37,37 @@ $(function () {
 				$(this).css("background-color", "#35c5f0");
 				$(this).css("color", "white");
 				clicked+=1;
+				pro = "";
+				$(".pro1").each(function() {
+					if($(this).css('background-color') == "rgb(53, 197, 240)"){
+						pro += " "+$(this).val();
+					}
+				});
+				$("#pro").val(pro);
 			}else{
+				pro = "";
 				$(this).css("background-color", "white");
 				$(this).css("color", "black");
 				clicked-=1;
+				$(".pro1").each(function() {
+					if($(this).css('background-color') == "rgb(53, 197, 240)"){
+						pro += " "+$(this).val();
+					}
+				});
+				$("#pro").val(pro);
 			}
 		}else{
+			pro = "";
 			if($(this).css('background-color') == "rgb(53, 197, 240)"){
 				$(this).css("background-color", "white");
 				$(this).css("color", "black");
 				clicked-=1;
+				$(".pro1").each(function() {
+					if($(this).css('background-color') == "rgb(53, 197, 240)"){
+						pro += " "+$(this).val();
+					}
+				});
+				$("#pro").val(pro);
 			}
 		}
 
@@ -47,16 +91,19 @@ $(function () {
 			if($(this).css('background-color') == "rgb(255, 255, 255)"){
 				$(this).css("background-color", "#35c5f0");
 				$(this).css("color", "white");
+				$("#pro").val($(this).val());
 				clicked2+=1;
 			}else{
 				$(this).css("background-color", "white");
 				$(this).css("color", "black");
+				$("#pro").val($(this).val());
 				clicked2-=1;
 			}
 		}else{
 			if($(this).css('background-color') == "rgb(53, 197, 240)"){
 				$(this).css("background-color", "white");
 				$(this).css("color", "black");
+				$("#pro").val("");
 				clicked2-=1;
 			}
 		}
@@ -83,6 +130,7 @@ $(function () {
 		}else{
 			$(this).css("background-color", "#35c5f0");
 			$(this).css("color", "white");
+			$("#place").val($(this).val());
 		}
 	});
 
@@ -95,6 +143,7 @@ $(function () {
 		});
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
+		$("#a_s").val($(this).val());
 	});
 	$(".carreer").click(function() {
 		$(".carreer").each(function() {
@@ -105,6 +154,7 @@ $(function () {
 		});
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
+		$("#carreer").val($(this).val());
 	});
 	$(".pay").click(function() {
 		$(".pay").each(function() {
@@ -115,6 +165,7 @@ $(function () {
 		});
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
+		$("#pay").val($(this).val());
 	});
 	$(".deposit").click(function() {
 		$(".deposit").each(function() {
@@ -125,6 +176,7 @@ $(function () {
 		});
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
+		$("#deposit").val($(this).val());
 	});
 
 	$(".se").click(function() {
@@ -136,21 +188,25 @@ $(function () {
 		});
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
+		
 		if($(this).attr("id") == "part"){
 			$("#pro01").css('display','inline');
 			$("#pro02").css('display','none');
 			clicked2=0;
 			$(".pro2").css('background-color', 'white');
 			$(".pro2").css('color', 'black');
+			$("#contract").val("부분");
 		}else if($(this).attr("id") == "combine"){
 			$("#pro02").css('display','inline');
 			$("#pro01").css('display','none');
 			clicked=0;
 			$(".pro1").css('background-color', 'white');
 			$(".pro1").css('color', 'black');
+			$("#contract").val("통합");
 		}else if($(this).attr("id") == "synthesis"){
 			$("#pro01").css('display','none');
 			$("#pro02").css('display','none');
+			$("#contract").val("종합");
 		}
 	});
 
@@ -197,13 +253,25 @@ $(function () {
 	});
 
 	$(".tag").click(function() {
+		tag = "";
 		if($(this).css('background-color') != "rgb(255, 255, 255)"){
 			$(this).css("background-color", "white");
 			$(this).css("color", "black");
+			$(".tag").each(function() {
+				if($(this).css('background-color') == "rgb(53, 197, 240)"){
+					tag += $(this).val();
+				}
+			});
 		}else{
 			$(this).css("background-color", "#35c5f0");
 			$(this).css("color", "white");
+			$(".tag").each(function() {
+				if($(this).css('background-color') == "rgb(53, 197, 240)"){
+					tag += " " +$(this).val();
+				}
+			});
 		}
+		$("#tag").val(tag);
 	});
 
 	$(".r_check").click(function() {
@@ -220,21 +288,25 @@ $(function () {
 				$(this).css("display", "none");
 			});
 			$("#freelancer").css("display", "inline");
+			$("#r_check").val("프리랜서");
 		}else if($(this).val()=="등록(개인사업자)"){
 			$(".q4_d").each(function() {
 				$(this).css("display", "none");
 			});
 			$("#individual").css("display", "inline");
+			$("#r_check").val("개인사업자");
 		}else if($(this).val()=="등록(법인사업자)"){
 			$(".q4_d").each(function() {
 				$(this).css("display", "none");
 			});
 			$("#corporation").css("display", "inline");
+			$("#r_check").val("법인사업자");
 		}else if($(this).val()=="등록(브랜드대리점)"){
 			$(".q4_d").each(function() {
 				$(this).css("display", "none");
 			});
 			$("#brand").css("display", "inline");
+			$("#r_check").val("브랜드대리점");
 		}
 	});
 
@@ -248,10 +320,17 @@ $(function () {
 		});
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
+		$("#route").val($(this).val);
 	});
 
 	$(".count").click(function() {
-		if($(this).attr("id") == "1"){
+		$(".count").each(function() {
+			if($(this).css("color") == "rgb(0, 78, 131)"){
+				$(this).css("color", "black");
+			}
+		});
+		$(this).css("color", "#004e83");
+		if($(this).attr("id") == "01"){
 			$("#head1").css("display", "inline-block");
 			$("#body1").css("display", "inline-block");
 			$("#head2").css("display", "none");
@@ -260,7 +339,7 @@ $(function () {
 			$("#body3").css("display", "none");
 			$("#head4").css("display", "none");
 			$("#body4").css("display", "none");
-		}else if($(this).attr("id") == "2"){
+		}else if($(this).attr("id") == "02"){
 			$("#head2").css("display", "inline-block");
 			$("#body2").css("display", "inline-block");
 			$("#head1").css("display", "none");
@@ -269,7 +348,7 @@ $(function () {
 			$("#body3").css("display", "none");
 			$("#head4").css("display", "none");
 			$("#body4").css("display", "none");
-		}else if($(this).attr("id") == "3"){
+		}else if($(this).attr("id") == "03"){
 			$("#head3").css("display", "inline-block");
 			$("#body3").css("display", "inline-block");
 			$("#head1").css("display", "none");
@@ -278,7 +357,7 @@ $(function () {
 			$("#body2").css("display", "none");
 			$("#head4").css("display", "none");
 			$("#body4").css("display", "none");
-		}else if($(this).attr("id") == "4"){
+		}else if($(this).attr("id") == "04"){
 			$("#head4").css("display", "inline-block");
 			$("#body4").css("display", "inline-block");
 			$("#head1").css("display", "none");
@@ -295,6 +374,9 @@ $(function () {
 		$(".c_check").each(function() {
 			if($(this).prop("checked")){
 				check++;
+				if($(this).attr("id") == "marketing"){
+					$("#c_check").val("1");
+				}
 			}
 		});
 		if(check == 4){
@@ -302,27 +384,32 @@ $(function () {
 		}else{
 			$("#allagree").prop("checked", false);
 		}
+		
 	});
 	$("#allagree").click(function() {
 		if($(this).prop("checked")){
 			$(".c_check").each(function() {
 				$(this).prop("checked", true);
 			});
+			$("#c_check").val("1");
 		}else{
 			$(".c_check").each(function() {
 				$(this).prop("checked", false);
+				$("#c_check").val("0");
 			});
 		}
 	});
-	
+	var e;
 	$("#s_email").mouseout(function() {
 		$(".ad").each(function() {
-			if($(this).prop("ted")){
-				if($(this).attr("id")=="self"){
-					$("#email2").html('<input type="text" id="email2" name="email2">');
-				}
+			if($(this).prop("selected")){
+				
+				e = $("#email").val()+"@"+$(this).val();
+				
 			}
 		});
+		$("#address").val(e);
+
 	});
 	$("#select").click(function() {
 		if($("#locat").css("display") == "none"){
@@ -386,14 +473,14 @@ $(function () {
 	
 	var l1;
 	$(".location").click(function() {
-		l1 = $(this).text();
+		l1 = $(this).text().replace(">", " ");
 	});
 	
 	var l2;
 	$(".l").click(function() {
 		l2 = $(this).html();
-		$("#loc").html(l1+" "+l2);
-		$("#location").html(l1+" "+l2);
+		$("#loc").html(l1+l2);
+		$("#location").val(l1+l2);
 		$("#locat").css("display", "none");
 		$(".ul").css("display", "none");
 	});
