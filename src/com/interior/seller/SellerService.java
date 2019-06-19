@@ -16,16 +16,20 @@ import com.interior.page.Search;
 import com.interior.page.SearchRow;
 import com.interior.product.ProductDAO;
 import com.interior.product.ProductDTO;
+import com.interior.upload.UploadDAO;
+import com.interior.upload.UploadDTO;
 import com.interior.util.DBConnect;
 
 public class SellerService {
 
 	private SellerDAO sellerDAO = null;
 	private ProductDAO productDAO = null;
+	private UploadDAO uploadDAO = null;
 
 	public SellerService() {
 		sellerDAO = new SellerDAO();
 		productDAO = new ProductDAO();
+		uploadDAO=new UploadDAO();
 	}
 
 	public ActionForward sellerMain(HttpServletRequest request, HttpServletResponse response) {
@@ -46,8 +50,11 @@ public class SellerService {
 
 		// 판매자 로그인 세션 유지 될 때
 		} else {
+			
 			// 판매자의 제품리스트 뿌리기 : productservice,dao 의 list 결과 ar를 setAttribute ar로 해서 jsp에서 뿌리기.
 			List<ProductDTO> ar = null;
+			
+			int num=0;
 			Search search = new Search();
 			search.setCategory(request.getParameter("category"));
 			String category=search.getCategory();
@@ -66,6 +73,7 @@ public class SellerService {
 				ar = productDAO.productAlltList(sort, seller, searchRow, con);
 				
 				request.setAttribute("ar", ar);	// sellerMain.jsp에서 ${requestScope.ar}로 받기
+		
 				check=true;
 				path= "../WEB-INF/views/seller/sellerMain.jsp";
 

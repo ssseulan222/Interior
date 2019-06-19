@@ -36,5 +36,10 @@
 				</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		var id=document.getElementById('id');
+		id.focus();
+	</script>
 </body>
 </html>

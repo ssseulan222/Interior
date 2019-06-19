@@ -7,9 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sound.sampled.Port;
+
 import com.interior.page.SearchRow;
 import com.interior.product.ProductDTO;
 import com.interior.prosub.ProLiveDTO;
+import com.interior.upload.UploadDTO;
 
 public class ProductDAO {
 	
@@ -67,7 +70,7 @@ public class ProductDAO {
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
 		String sql="select * from "
 				+ "(select rownum r, c.* from "
-				+ "(select * from product where seller=? "
+				+ "(select * from product join upload using(num) where seller=? "
 				+ "order by ? desc) c) where r between ? and ?";
 		PreparedStatement st= con.prepareStatement(sql);
 		st.setString(1, seller);
@@ -78,6 +81,7 @@ public class ProductDAO {
 		ResultSet rs=st.executeQuery();
 		while(rs.next()) {
 			ProductDTO productDTO = new ProductDTO();
+			UploadDTO uploadDTO = new UploadDTO();
 			productDTO.setNum(rs.getInt("num"));
 			productDTO.setName(rs.getString("name"));
 			productDTO.setPrice(rs.getString("price"));
@@ -86,6 +90,11 @@ public class ProductDAO {
 			productDTO.setCategory(rs.getString("category"));
 			productDTO.setSeller(rs.getString("seller"));
 			productDTO.setDeliveryFee(rs.getString("deliveryFee"));
+			uploadDTO.setPnum(rs.getInt("pnum"));
+			uploadDTO.setNum(rs.getInt("num"));
+			uploadDTO.setFname(rs.getString("fname"));
+			uploadDTO.setOname(rs.getString("oname"));
+			productDTO.setUploadDTO(uploadDTO);
 			
 			ar.add(productDTO);
 		}

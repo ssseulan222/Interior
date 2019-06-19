@@ -57,7 +57,9 @@
 							<div class="productDiv">
 								<div class="productImageWrap">
 									<div class="productImage">
-										<img src="../../../productUpload/${uploadDTO.fname}" alt="이미지를 찾을 수 없음">
+										<img src="<%=application.getContextPath() %>/productUpload/${ar.uploadDTO.fname}" alt="${ar.uploadDTO.oname}">
+										
+										<p>test : ${ar.uploadDTO.fname}</p>
 									</div>
 								</div>
 								<div class="productInfo">
