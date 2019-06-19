@@ -13,7 +13,7 @@
 <body>
 
 
-	<jsp:include page="../common/header.jsp" />
+	<%-- <jsp:include page="../common/header.jsp" /> --%>
 
 
 	<div class="container">
@@ -49,19 +49,61 @@
 				해당판매자의 모든 물품을 최신순으로 6개만 보이고 싶음.
 				해당판매자, 모든 제품을 어떻게 파라미터로 보내야하는지 모르겠음	
 			 -->
-			<div>
+			<div class="col-sm-12 productListDiv"> 
 				
-				<%-- <c:forEach begin="0" end="5" items="${sessionScope.ar}" var="ar"> --%>
-					<div>
-						<p>${ar.name}</p>				
+				<c:forEach items="${requestScope.ar}" var="ar">
+					<div class="productWrapDiv col-sm-4">
+						<a href="../product/productSelect?num=${ar.num}" class="productSelect"> 
+							<div class="productDiv">
+								<div class="productImageWrap">
+									<div class="productImage">
+										<img src="../../../productUpload/${uploadDTO.fname}" alt="이미지를 찾을 수 없음">
+									</div>
+								</div>
+								<div class="productInfo">
+									<!-- 제품명 -->
+									<p class="name">${ar.name}</p>
+									
+									<div class="span">
+										<!-- 세일률 -->	
+										<span><span class="saleRate">${ar.saleRate}%</span>
+										<!-- 세일가 -->
+										<span class="salePrice">${ar.salePrice}원</span></span>
+									</div>
+									
+									<div class="span">
+										<!-- 별점 -->
+										<span><span class="grade">★</span> <span class="gradePoint">???</span></span>
+										
+										<!-- 리뷰수 -->
+										<span><span class="review">리뷰</span> <span class="reviewCount">???</span></span>
+									</div>
+									
+									<div>
+										
+											<!-- 무료배송 / 유료배송 -->
+											<c:if test="${ar.deliveryFee eq '0'}">
+												<span class="saleDelivery1">무료배송</span>
+											</c:if>				
+											<c:if test="${ar.deliveryFee ne '0'}">
+												<span class="deli">배송 : </span><span class="saleDelivery2">${ar.deliveryFee}원</span>
+											</c:if>
+											
+										
+										<div class="stock">재고 : <span class="stockCount">???</span>개</div>
+									</div>
+								</div>
+							</div>
+						</a>
 					</div>
-				<%-- </c:forEach> --%>
+				</c:forEach>
 				
 			</div>
 		
 		</div>
 		
 		
+		<hr>
 		<hr>
 		
 		<div>
@@ -75,7 +117,7 @@
 
 	
 
-	<jsp:include page="../common/footer.jsp" />
+	<%-- <jsp:include page="../common/footer.jsp" /> --%>
 
 
 </body>

@@ -28,6 +28,37 @@ public class ProductService {
 		productDAO = new ProductDAO();
 		uploadDAO = new UploadDAO();
 	}
+	
+	public ActionForward productSelectList(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		String path="";
+		boolean check=true;
+		Connection con;
+		try {
+			con = DBConnect.getConnect();
+			List<ProductDTO> ar = new ArrayList<ProductDTO>();
+			String category=request.getParameter("category");
+			String sort=request.getParameter("sort");
+			String seller=request.getParameter("seller");
+			SearchRow searchRow=new SearchRow();
+			searchRow.setStartRow(0);
+			searchRow.setLastRow(5);
+			ar = productDAO.productList(category, sort, seller, searchRow, con);
+			
+			HttpSession session=request.getSession();
+			session.setAttribute("ar", ar);
+			
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		actionForward.setCheck(check);
+		actionForward.setPath(path);
+		return actionForward;
+	}
+
 
 	public ActionForward productInsert(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
@@ -86,7 +117,6 @@ public class ProductService {
 					ArrayList<UploadDTO> ar = new ArrayList<UploadDTO>();
 
 					int num = productDAO.getNum(con);
-					System.out.println(num);
 
 					while (e.hasMoreElements()) {
 						String fileName = e.nextElement();
@@ -98,6 +128,7 @@ public class ProductService {
 						uploadDTO.setNum(num);
 						ar.add(uploadDTO);
 					}
+					
 
 					ProductDTO productDTO = new ProductDTO();
 					productDTO.setNum(num);
@@ -148,11 +179,11 @@ public class ProductService {
 					}
 				}
 				
-				System.out.println("res : "+ res);
-				
 				if (res > 0) { // 성공
+					request.setAttribute("msg", "상품 등록 성공");
+					request.setAttribute("path", "../seller/sellerMain");
 					check = true;
-					path = "../WEB-INF/views/seller/sellerMain.jsp";
+					path = "../WEB-INF/views/result/result.jsp";
 				} else { // 실패
 					request.setAttribute("msg", "상품 등록 실패");
 					request.setAttribute("path", "./productInsert");
@@ -161,37 +192,6 @@ public class ProductService {
 				}
 
 			}
-		}
-		System.out.println("path : " + actionForward.getPath());
-		actionForward.setCheck(check);
-		actionForward.setPath(path);
-		return actionForward;
-	}
-
-	public ActionForward productSelectList(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward = new ActionForward();
-		String path="";
-		boolean check=true;
-		Connection con;
-		try {
-			con = DBConnect.getConnect();
-			List<ProductDTO> ar = new ArrayList<ProductDTO>();
-			String category=request.getParameter("category");
-			String sort=request.getParameter("sort");
-			String seller=request.getParameter("seller");
-			SearchRow searchRow=new SearchRow();
-			searchRow.setStartRow(0);
-			searchRow.setLastRow(5);
-			ar = productDAO.productList(category, sort, seller, searchRow, con);
-			
-			HttpSession session=request.getSession();
-			session.setAttribute("ar", ar);
-			
-					
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 		actionForward.setCheck(check);

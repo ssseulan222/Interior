@@ -44,22 +44,22 @@ public class Search {
 	}
 	public void setCategory(String category) {
 		if(category == null) {
-			this.category="*";
+			this.category="1";
 		} else {
 			this.category=category;
 		}
 	}
 	
 	///////////////////////////////////////////////
-	private String search;
+	private String keyword;
 	public String getSearch() {
-		return search;
+		return keyword;
 	}
 	public void setSearch(String search) {
 		if(search==null) {
-			this.search="";
+			this.keyword="";
 		} else {
-			this.search=search;
+			this.keyword=search;
 		}
 	}
 	

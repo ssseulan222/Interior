@@ -2,7 +2,9 @@ package com.interior.seller;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
+import javax.naming.directory.SearchResult;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,8 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import com.interior.action.Action;
 import com.interior.action.ActionForward;
+import com.interior.page.Search;
 import com.interior.page.SearchRow;
 import com.interior.product.ProductDAO;
+import com.interior.product.ProductDTO;
 import com.interior.util.DBConnect;
 
 public class SellerService {
@@ -31,24 +35,46 @@ public class SellerService {
 		Connection con=null;
 		HttpSession session = request.getSession();
 		SellerDTO sellerDTO = (SellerDTO) session.getAttribute("sellerDTO");
-		path= "../WEB-INF/views/seller/sellerMain.jsp";
+		
+		
+		// 판매자 로그인 세션 없을 때
 		if(sellerDTO == null) {
 			request.setAttribute("msg", "로그인 세션이 만료되었습니다. 다시 로그인 해주세요");
 			request.setAttribute("path", "../seller/sellerLogin");
 			check = true;
 			path = "../WEB-INF/views/result/result.jsp";
+
+		// 판매자 로그인 세션 유지 될 때
 		} else {
-			String category=request.getParameter("category");
-			String sort=request.getParameter("sort");
-			String seller=sellerDTO.getCompanyName();
+			// 판매자의 제품리스트 뿌리기 : productservice,dao 의 list 결과 ar를 setAttribute ar로 해서 jsp에서 뿌리기.
+			List<ProductDTO> ar = null;
+			Search search = new Search();
+			search.setCategory(request.getParameter("category"));
+			String category=search.getCategory();
+			
+			search.setSort(request.getParameter("sort"));
+			String sort=search.getSort();
+			
 			SearchRow searchRow = new SearchRow();
+			searchRow.setStartRow(0);
+			searchRow.setLastRow(5);
+			String seller = sellerDTO.getCompanyName();
+			
 			try {
+				
 				con=DBConnect.getConnect();
-				productDAO.productList(category, sort, seller, searchRow, con);
+				ar = productDAO.productAlltList(sort, seller, searchRow, con);
+				
+				request.setAttribute("ar", ar);	// sellerMain.jsp에서 ${requestScope.ar}로 받기
+				check=true;
+				path= "../WEB-INF/views/seller/sellerMain.jsp";
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}
+		
 		actionForward.setPath(path);
 		actionForward.setCheck(check);
 		return actionForward;

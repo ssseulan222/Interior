@@ -63,20 +63,51 @@ public class ProductDAO {
 		return res;
 	}
 	
+	public List<ProductDTO> productAlltList(String sort, String seller, SearchRow searchRow, Connection con) throws Exception{
+		List<ProductDTO> ar = new ArrayList<ProductDTO>();
+		String sql="select * from "
+				+ "(select rownum r, c.* from "
+				+ "(select * from product where seller=? "
+				+ "order by ? desc) c) where r between ? and ?";
+		PreparedStatement st= con.prepareStatement(sql);
+		st.setString(1, seller);
+		st.setString(2, sort);
+		st.setInt(3, searchRow.getStartRow());
+		st.setInt(4, searchRow.getLastRow());
+		
+		ResultSet rs=st.executeQuery();
+		while(rs.next()) {
+			ProductDTO productDTO = new ProductDTO();
+			productDTO.setNum(rs.getInt("num"));
+			productDTO.setName(rs.getString("name"));
+			productDTO.setPrice(rs.getString("price"));
+			productDTO.setSaleRate(rs.getString("saleRate"));
+			productDTO.setSalePrice(rs.getString("salePrice"));
+			productDTO.setCategory(rs.getString("category"));
+			productDTO.setSeller(rs.getString("seller"));
+			productDTO.setDeliveryFee(rs.getString("deliveryFee"));
+			
+			ar.add(productDTO);
+		}
+		
+		return ar;
+	}
+	
 	public List<ProductDTO> productList(String category, String sort, String seller, SearchRow searchRow, Connection con) throws Exception{
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
-		String sql="select * from (select rownum r, c.* from "
-				+ "(select * from product where category=?, seller=? order by ? desc) c) "
-				+ "where r between ? and ?";
+		String sql="select * from "
+				+ "(select rownum r, c.* from "
+				+ "(select * from product where seller=?, category=?"
+				+ "order by ? desc) c) where r between ? and ?";
 		PreparedStatement st= con.prepareStatement(sql);
-		st.setString(1, category);
-		st.setString(2, seller);
+		st.setString(1, seller);
+		st.setString(2, category);
 		st.setString(3, sort);
 		st.setInt(4, searchRow.getStartRow());
 		st.setInt(5, searchRow.getLastRow());
 		
 		ResultSet rs=st.executeQuery();
-		if(rs.next()) {
+		while(rs.next()) {
 			ProductDTO productDTO = new ProductDTO();
 			productDTO.setNum(rs.getInt("num"));
 			productDTO.setName(rs.getString("name"));
