@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.interior.community.CommunityDTO;
 import com.interior.community.action.Action;
 import com.interior.community.action.ActionForward;
+import com.interior.community.qna.QnaDAO;
+import com.interior.community.qna.QnaDTO;
 import com.interior.community.util.DBConnector;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -21,9 +23,11 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 public class UploadService implements Action {
 	
 	private UploadDAO uploadDAO;
+	private QnaDAO qnaDAO;
 	
 	public UploadService() {
 		uploadDAO = new UploadDAO();
+		qnaDAO = new QnaDAO();
 	}
 
 	@Override
@@ -42,13 +46,18 @@ public class UploadService implements Action {
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/qna/qnaWrite.jsp");
+		
 		
 		String method = request.getMethod();
-		System.out.println("method : " + method);
+		//System.out.println("method : " + method);
+		
+		//String fileName = request.getParameter("file");
+        //System.out.println(fileName);
 		
 		if(method.equals("POST")) {
 			String saveDirectory = request.getServletContext().getRealPath("upload");
-			System.out.println("saveDirectory : " + saveDirectory);
+			//System.out.println("saveDirectory : " + saveDirectory);
 			File f = new File(saveDirectory);
 			if(!f.exists()) {
 				f.mkdirs();
@@ -62,34 +71,61 @@ public class UploadService implements Action {
 				ArrayList<UploadDTO> ar = new ArrayList<UploadDTO>();
 				
 				while(e.hasMoreElements()) {
-					String s = e.nextElement();
-					String fname = multipartRequest.getFilesystemName(s);
-					String oname = multipartRequest.getOriginalFileName(s);
+					String file = e.nextElement();
+					String fname = multipartRequest.getFilesystemName(file);
+					String oname = multipartRequest.getOriginalFileName(file);
 					UploadDTO uploadDTO = new UploadDTO();
 					uploadDTO.setFname(fname);
 					uploadDTO.setOname(oname);
 					ar.add(uploadDTO);
 				}
-				CommunityDTO communityDTO = new CommunityDTO();
-				System.out.println("temp : " + (multipartRequest.getParameter("temp")));
-				//communityDTO.set
+				//CommunityDTO communityDTO = new CommunityDTO();
+				//System.out.println("temp : " + (multipartRequest.getParameter("temp")));
+				con = DBConnector.getConnect();
+				QnaDTO qnaDTO = new QnaDTO();
 				
-			} catch (IOException e) {
+				int num = qnaDTO.getNum();
+				qnaDTO.setNum(num);
+				con.setAutoCommit(false);
+				
+				
+				num = qnaDAO.insert(qnaDTO, con);
+				
+				for(UploadDTO uploadDTO:ar) {
+			 		uploadDTO.setNum(qnaDTO.getNum());
+			 		num = uploadDAO.insert(uploadDTO, con);
+			 		if(num<1) {
+			 			throw new Exception();
+			 		}
+			 	}
+				
+			 	con.commit();
+				
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
 				try {
 					con.rollback();
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				e.printStackTrace();
+			}finally {
+				try {
+					con.setAutoCommit(true);
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			actionForward.setCheck(false);
-			actionForward.setPath("./homepartyWrite");
-		}
-		return actionForward;
+			actionForward.setPath("./qnaList");
+			
+		}//post끝
+		return actionForward;			
+		
 	}
-	
 	
 
 	@Override

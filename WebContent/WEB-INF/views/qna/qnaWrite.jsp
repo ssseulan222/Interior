@@ -97,8 +97,7 @@
 	
 	
 	<div id="container">
-		<div class="qna">질문하기
-		</div>
+		<div class="qna">질문하기</div>
 		<br>
 				<!--  <button class="upload_btn"></button> 	<!-- 사진업로드 버튼 / 자리 이동해야됨 --> 
 												
@@ -251,22 +250,22 @@
 		<br>
 		
 	</div> <!-- end container -->
-	  </form>
-	  
-	  	 <div class="fileBtn">
-			<label for="file">파일 추가</label>
-			<input type="file" id="f1" name="f1">
-		</div>
-	
+	<div class="fileBtn">
+		<label for="file">파일 추가</label> <input type="file" id="file" name="file">
+	</div>
 		<br>
 		<div class="footer">
-			<div>				<!-- 버튼 클릭하면 질문 메인페이지 이동 -->
-				<input type="button" name="commit" id="save" value="질문 저장하기" 
+			<div>
+				<!-- 버튼 클릭하면 질문 메인페이지 이동 -->
+				<input type="button" name="commit" id="save" value="질문 저장하기"
 				class="btn btn-lg btn-priority col-6 offset-3">
 			</div>
-			
-		</div>	<!-- end footer -->	  
-	  
-			
+		</div>
+		
+	  </form>
+
+
+
+
 </body>
 </html>

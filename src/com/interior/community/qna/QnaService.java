@@ -106,7 +106,7 @@ public class QnaService implements Action {
 		QnaDTO qnaDTO = null;
 		List<UploadDTO> ar = null;
 		Connection con = null;
-		String category = null;
+		//String category = null;
 		
 		try {
 			con = DBConnector.getConnect();
@@ -149,14 +149,17 @@ public class QnaService implements Action {
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/views/qna/qnaWrite.jsp");
 		String method = request.getMethod();
-		//System.out.println(method);
+		//System.out.println("method : " + method);
+		
+		//String fileName = request.getParameter("file");
+        //System.out.println(fileName);
 		
 		if(method.equals("POST")) {
 			String saveDirectory = request.getServletContext().getRealPath("upload");
-			File file = new File(saveDirectory);
-			//System.out.println("11111");
-			if(!file.exists()) {
-				file.mkdirs();
+			File f = new File(saveDirectory);
+			System.out.println("saveDirectory : " +  saveDirectory);
+			if(!f.exists()) {
+				f.mkdirs();
 			}
 			int maxPostSize = 1024*1024*100;
 			Connection con = null;
@@ -167,23 +170,24 @@ public class QnaService implements Action {
 				Enumeration<String> e = multipartRequest.getFileNames();
 				ArrayList<UploadDTO> ar = new ArrayList<UploadDTO>();
 				while(e.hasMoreElements()) {
-					String f1 = e.nextElement();
-					String fname = multipartRequest.getFilesystemName(f1);
-					String oname = multipartRequest.getOriginalFileName(f1);
+					String s = e.nextElement();
+					String fname = multipartRequest.getFilesystemName(s);
+					String oname = multipartRequest.getOriginalFileName(s);
 					UploadDTO uploadDTO = new UploadDTO();
 					uploadDTO.setFname(fname);
 					uploadDTO.setOname(oname);
 					ar.add(uploadDTO);
 				}
+				//System.out.println("33333");
 				QnaDTO qnaDTO = new QnaDTO();
 				qnaDTO.setTitle(multipartRequest.getParameter("title"));
 				qnaDTO.setContents(multipartRequest.getParameter("contents"));
 				qnaDTO.setWriter(multipartRequest.getParameter("writer"));
-				qnaDTO.setTag(multipartRequest.getParameter("tag"));
+				//qnaDTO.setTag(multipartRequest.getParameter("tag"));
 				
 				con = DBConnector.getConnect();
 				
-				int num = qnaDTO.getNum();
+				int num = qnaDAO.getNum();
 				qnaDTO.setNum(num);
 				con.setAutoCommit(false);
 				
@@ -218,6 +222,7 @@ public class QnaService implements Action {
 					e.printStackTrace();
 				}
 			}
+			//System.out.println("555");
 			actionForward.setCheck(false);
 			actionForward.setPath("./qnaList");
 			

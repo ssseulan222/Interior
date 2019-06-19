@@ -16,9 +16,9 @@ public class UploadDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		//st.setInt(1, uploadDTO.getPnum());
-		st.setInt(2, uploadDTO.getNum());
-		st.setString(3, uploadDTO.getOname());
-		st.setString(4, uploadDTO.getFname());
+		st.setInt(1, uploadDTO.getNum());
+		st.setString(2, uploadDTO.getOname());
+		st.setString(3, uploadDTO.getFname());
 		
 		/*
 		st.setString(5, uploadDTO.getTitle());
@@ -29,11 +29,9 @@ public class UploadDAO {
 		st.setString(10, uploadDTO.getUrl());
 		st.setString(11, uploadDTO.getTag());
 		*/
-		
 		result = st.executeUpdate();
 		
 		st.close();
-		
 		return result;
 	}
 	

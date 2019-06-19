@@ -13,19 +13,23 @@ public class QnaDAO {
 	//insert(QnaDTO qnaDTO, Connection con): int
 	public int insert(QnaDTO qnaDTO, Connection con) throws Exception {
 		int result = 0;
-		String sql = "insert into qna values(qna_seq.nextval,?,?,?,sysdate,?,?)";
+		String sql = "insert into qna values(qna_seq.nextval,?,?,?,sysdate,0,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		//st.setInt(1, qnaDTO.getNum());
 		st.setString(1, qnaDTO.getTitle());
 		st.setString(2, qnaDTO.getContents());
 		st.setString(3, qnaDTO.getWriter());
-		st.setInt(4, qnaDTO.getHit());
-		st.setString(5, qnaDTO.getTag());
+		//st.setInt(5, qnaDTO.getHit());
+		st.setString(4, qnaDTO.getTag());
+		//st.setInt(6, qnaDTO.getRef());
+		//st.setInt(7, qnaDTO.getStep());
+		//st.setInt(8, qnaDTO.getDepth());
 		
 		result = st.executeUpdate();
 		st.close();
 		
+		//System.out.println("55555555");
 		return result;
 	}
 	
@@ -52,10 +56,18 @@ public class QnaDAO {
 	//selectList(SearchRow searchRow, Connection con) : List<QnaDTO>
 	public List<QnaDTO> selectList(SearchRow searchRow, Connection con) throws Exception {
 		ArrayList<QnaDTO> ar = new ArrayList<QnaDTO>();
+		
+		/*
+		String sql="select * from "
+				+ "(select rownum R, N.* from "
+				+ "(select num, title, contents, writer, reg_date, hit, tag from notice where "+searchRow.getSearch().getKind()+ " like ? order by num desc) N) "
+				+ "where R between ? and ?";		
+		*/
 		String sql = "select * from "
 				+ "(select rownum R, Q.* from "
 				+ "(select * from qna where " + searchRow.getSearch().getKind()+ " like ? order by num desc) Q) "
 				+ "where R between ? and ?";
+		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+searchRow.getSearch().getSearch()+"%");
 		st.setInt(2, searchRow.getStartRow());

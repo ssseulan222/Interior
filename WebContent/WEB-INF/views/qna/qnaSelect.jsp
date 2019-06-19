@@ -54,7 +54,14 @@
 	<div class="contents">
 		<div class="title">${dto.title}</div>
 		<div class="con">${dto.contents}</div>
-		<div class="img">사진 들어가는곳</div>
+		
+		<c:catch>
+			<c:forEach items="${upload}" var="up">
+				<div class="img"><a href="../upload/${up.fname}">${up.oname}</a>사진 들어가는곳</div>
+			</c:forEach>
+		</c:catch>
+		
+		
 		<div class="date">${dto.reg_date}&nbsp;&nbsp;·&nbsp;&nbsp;조회수 : ${dto.hit}</div>
 	</div>
 	
@@ -69,12 +76,12 @@
 		onclick="location.href='./qnaDelete?num=${dto.num}'">삭제하기</button>
 	</div>
 	
-	<c:catch>
+<%-- 	<c:catch>
 		 <c:forEach items="${upload}" var="up">
 		 	<h4>UPLOAD : <a href="../upload/${up.fname}">${up.oname}</a></h4>
 		 </c:forEach>
 		</c:catch>
-	
+	 --%>
 	
 	
 			
