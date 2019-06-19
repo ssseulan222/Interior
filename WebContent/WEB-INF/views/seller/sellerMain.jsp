@@ -37,21 +37,26 @@
 				<h3>제품 리스트</h3>
 				<div>
 					<select>
-						<option>판매순</option>
-						<option>최신순</option>
-						<option>판매순</option>
+						<option value="new">최신순</option>
+						<option value="sell">판매순</option>
+						<option value="popular">인기순</option>
 					</select>
 					<a>더보기</a>
 				</div>
 			</div>
 			<!-- 판매가자 올린 제품 최신순 배열 -->
+			<!-- 
+				해당판매자의 모든 물품을 최신순으로 6개만 보이고 싶음.
+				해당판매자, 모든 제품을 어떻게 파라미터로 보내야하는지 모르겠음	
+			 -->
 			<div>
 				
-				<c:forEach begin="0" end="5" items="${sessionScope.ar}" var="ar">
+				<%-- <c:forEach begin="0" end="5" items="${sessionScope.ar}" var="ar"> --%>
 					<div>
-						<img src="${ar.uploadDTO.fname}" alt="이미지 없음">					
+						<p>${ar.name}</p>				
 					</div>
-				</c:forEach>
+				<%-- </c:forEach> --%>
+				
 			</div>
 		
 		</div>

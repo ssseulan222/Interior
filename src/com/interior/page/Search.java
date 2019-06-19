@@ -12,9 +12,9 @@ public class Search {
 		if(kind == null) {
 			this.kind="store";
 		}else if(kind.equals("s")) {
-			this.kind="store";
-		} else if(kind.equals("p")) {
-			this.kind="photo";
+			this.kind="sell";
+		} else if(kind.equals("n")) {
+			this.kind="new";
 		} else if(kind.equals("h")) {
 			this.kind="house";
 		} else if(kind.equals("q")) {
@@ -24,6 +24,31 @@ public class Search {
 		}
 	}
 	
+	///////////////////////////////////////////////
+	private String sort;
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		if(sort==null) {
+			this.sort="new";
+		} else {
+			this.sort=sort;
+		}
+	}
+	
+	///////////////////////////////////////////////
+	private String category;
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		if(category == null) {
+			this.category="*";
+		} else {
+			this.category=category;
+		}
+	}
 	
 	///////////////////////////////////////////////
 	private String search;
@@ -37,5 +62,6 @@ public class Search {
 			this.search=search;
 		}
 	}
+	
 	
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.interior.action.ActionForward;
+import com.interior.page.Search;
 import com.interior.page.SearchRow;
 import com.interior.seller.SellerDTO;
 import com.interior.upload.UploadDAO;
@@ -176,14 +177,23 @@ public class ProductService {
 		try {
 			con = DBConnect.getConnect();
 			List<ProductDTO> ar = new ArrayList<ProductDTO>();
-			String category=request.getParameter("category");
-			String sort=request.getParameter("sort");
+			Search search = new Search();
+			/*
+			 * String category=request.getParameter("category"); String
+			 * sort=request.getParameter("sort");
+			 */
+			search.setCategory(request.getParameter("category"));
+			search.setSort(request.getParameter("sort"));
 			String seller=request.getParameter("seller");
 			SearchRow searchRow=new SearchRow();
 			searchRow.setStartRow(0);
 			searchRow.setLastRow(5);
-			ar = productDAO.productList(category, sort, seller, searchRow, con);
-			
+			ar = productDAO.productList(search, seller, searchRow, con);
+			if(ar!=null) {
+				System.out.println("ok");
+			} else {
+				System.out.println("null");
+			}
 			HttpSession session=request.getSession();
 			session.setAttribute("ar", ar);
 			
