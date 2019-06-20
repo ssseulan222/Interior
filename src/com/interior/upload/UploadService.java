@@ -16,7 +16,7 @@ public class UploadService {
 		
 		ActionForward actionForward = new ActionForward();
 		String saveDirectory = request.getServletContext().getRealPath("/productUpload");
-		
+		System.out.println(saveDirectory);
 		File file = new File(saveDirectory);
 		if (!file.exists()) {
 			file.mkdirs();

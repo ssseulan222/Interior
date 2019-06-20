@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+.top{
+	
+	margin-top:30px;
+}
+
+.productImageWrap {
+	position: relative;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 100%;
+
+}
+
+.productImageDiv {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+}
+
+.productImage{
+	width: 100%;
+	height: 100%;
+	border-radius:8px;
+} 
+
+.brandName{
+	font-size:0.9em;
+	color:#757575;
+	margin-bottom:0px;
+}
+
+.brandName a, .brandName a:hover{
+	color: gray;
+	text-decoration: none;
+	cursor: pointer;
+	cursor: #757575;
+}
+
+.name{
+	font-size:2.0em;
+	color:black;
+	margin-bottom:20px;
+}
+
+.priceInfo{
+	
+}
+
+.saleRateDiv{
+	
+}
+
+.vertical{
+	display:inline-block;
+	margin-right:20px;
+}
+
+.saleRate{
+	font-size:3.0em;
+	font-weight:600;
+	color:#35C5F0;
+}
+
+.unit{
+	color:#35C5F0;
+	font-weight:600;
+	font-size:1.2em;''
+}
+
+.priceDiv{
+	
+}
+
+.price{
+	color: #757575;
+}
+
+.salePrice{
+	font-size:2.0em;
+	font-weight:700;
+}
+.pointDiv{
+	
+}
+
+.point{
+	color:#35C5F0;
+	font-weight:600;
+}
+.ment{
+	color:#757575;
+	font-size:0.9em;
+	font-weight:550
+}
+
+.delivery{
+	font-size: 15px;
+    line-height: 15px;
+}
+
+.deliveryFeeDiv{
+	
+}
+
+.freeD{
+	border-radius:4px;
+}
+
+.freeDImg{
+	width:10%;
+	border-radius:4px;
+}
+.deliveryFee{
+	font-weight:550;
+}
+
+.selectBrandNameDiv{
+	text-align:right;
+	display:block;
+}
+
+.selectBrandName a, .selectBrandName a:hover{
+	font-weight: bold;
+    color: #35C5F0;
+    font-size: 15px;
+    line-height: 15px;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.optionDiv{
+	
+}
+
+.option{
+	width:100%;
+	height:40px;
+	border-radius:4px;
+	margin-top:20px;
+	margin-bottom:30px;
+	border:1px solid #a7a6a678;
+	padding:10px;
+}
+
+.totalPrice{
+	padding:0px;
+	line-height:30px;
+
+}
+.orderPriceWon{
+	float:right;
+}
+.block{
+	display:inline-block;
+}
+
+.order{
+	font-size: 15px;
+}
+.orderPrice{
+	font-size:28px;
+}
+
+.won{
+	font-size:28px;
+	margin-left:5px;
+}
+.btns{
+	margin-top:20px;
+}
+.btnDiv{
+	padding:0px 5px;
+	height:60px;
+}
+.btn{
+	width:100%:
+}
+#basket{
+	height:100%;
+	background-color: white;
+	border-radius: 4px;
+    font-size: 17px;
+    font-weight:bold;
+  	border:1px solid #35C5F0;
+  	color:#35C5F0;
+}
+#buy{
+	height:100%;
+	background-color: #35C5F0;
+	border-radius: 4px;
+    font-size: 17px;
+    font-weight:bold;
+  	color:white;
+}
+
+#detail{
+	margin-top:50px;
+}
+
+.navbar{
+	background-color: white;
+	border:1px solid lightgray;
+}
+
+#myNavBar{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

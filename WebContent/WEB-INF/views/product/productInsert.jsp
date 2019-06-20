@@ -43,10 +43,18 @@
 				<div class="mid-titleDiv">
 					<p class="mid-title">상품정보</p>
 				</div>
+				
+				<div class="form-group">
+					<label for="brandName" class="col-sm-3">브랜드명</label>
+					<div class="col-sm-9">
+						<input type="text" id="brandName" name="brandName" class="form-control" placeholder="제품의 브랜드를 입력해주세요">
+					</div>
+				</div>
+				
 				<div class="form-group">
 					<label for="name" class="col-sm-3">제품명<span class="required">*</span></label>
 					<div class="col-sm-9">
-						<input type="text" id="name" name="name" class="form-control" placeholder="상품명을 입력해주세요">
+						<input type="text" id="name" name="name" class="form-control" placeholder="제품명을 입력해주세요">
 					</div>
 				</div>
 				
@@ -299,7 +307,10 @@
           oEditors.getById["info"].exec("UPDATE_CONTENTS_FIELD", []);
           $("#frm").submit();
       });
-  
+  	
+    
+		
+	
 	
       
 	</script>

@@ -71,12 +71,12 @@
 								<div class="productImageWrap">
 									<div class="productImageDiv">
 										<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${ar.uploadDTO.fname}" alt="${ar.uploadDTO.oname}">
-										
-										<p>test : ${ar.uploadDTO.fname}</p>
+		
 									</div>
 								</div>
 								<div class="productInfo">
 									<!-- 제품명 -->
+									<p class="brandName">${ar.brandName}</p>
 									<p class="name">${ar.name}</p>
 									
 									<div class="span">

@@ -29,6 +29,34 @@ public class ProductService {
 		uploadDAO = new UploadDAO();
 	}
 	
+	public ActionForward productSelect(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		String path = "";
+		boolean check = true;
+		int num=Integer.parseInt(request.getParameter("num"));
+		ProductDTO productDTO = null;
+		try {
+			Connection con=DBConnect.getConnect();
+			productDTO=productDAO.productSelectOne(num, con);
+			if(productDTO == null) {
+				request.setAttribute("msg", "판매가 중단된 제품입니다.");
+				request.setAttribute("path", "../store/storeMain");
+				check=true;
+				path="../WEB-INF/views/result/result.jsp";
+			} else {
+				request.setAttribute("productDTO", productDTO);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		path = "../WEB-INF/views/product/productSelect.jsp?num="+num;
+
+		actionForward.setPath(path);
+		actionForward.setCheck(check);
+		return actionForward;
+	}
+	
 	public ActionForward productSelectList(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		String path="";
@@ -134,16 +162,17 @@ public class ProductService {
 					productDTO.setNum(num);
 					productDTO.setSeller(multipartRequest.getParameter("seller"));
 					productDTO.setName(multipartRequest.getParameter("name"));
+					productDTO.setBrandName(multipartRequest.getParameter("brandName"));
 					productDTO.setCategory(multipartRequest.getParameter("category"));
 					productDTO.setPrice(multipartRequest.getParameter("price"));
 					productDTO.setSaleRate(multipartRequest.getParameter("saleRate"));
 					productDTO.setSalePrice(multipartRequest.getParameter("salePrice"));
-					productDTO.setLowestPrice(multipartRequest.getParameter("lowestPrice"));
+
 					productDTO.setPoint(multipartRequest.getParameter("point"));
 					productDTO.setDelivery(multipartRequest.getParameter("delivery"));
 					productDTO.setDeliveryLocal(multipartRequest.getParameter("deliveryLocal"));
 					productDTO.setDeliveryDiff(multipartRequest.getParameter("deliveryDiff"));
-					productDTO.setFreeDeliv(multipartRequest.getParameter("freeDeliv"));
+	
 					productDTO.setDeliveryFee(multipartRequest.getParameter("deliveryFee"));
 					productDTO.setReturnFee(multipartRequest.getParameter("returnFee"));
 					productDTO.setExchangeFee(multipartRequest.getParameter("exchangeFee"));
@@ -241,3 +270,4 @@ public class ProductService {
 		return actionForward;
 	}
 }
+

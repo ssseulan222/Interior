@@ -26,44 +26,19 @@ public class StoreService {
 		ActionForward actionForward = new ActionForward();
 		String path = "";
 		boolean check = true;
-
-		List<ProductDTO> ar = new ArrayList<ProductDTO>();
-
-		int page = 0;
-		int num = 0;
-
-		Search search = new Search();
-		search.setCategory(request.getParameter("category"));
-		String category = search.getCategory();
-		System.out.println(category);
-
-		search.setSort(request.getParameter("sort"));
-		String sort = search.getSort();
 		
-		search.setSeller(request.getParameter("seller"));
-		String seller=search.getSeller();
-
-		SearchRow searchRow = new SearchRow();
-		searchRow.setStartRow(0);
-		searchRow.setLastRow(5);
-
 		Connection con;
-
+		List<ProductDTO> ar = new ArrayList<ProductDTO>();
 		try {
 			con = DBConnect.getConnect();
-			ar = productDAO.productAllList(con);
-			System.out.println("ar size : "+ar.size());
-
-			// 판매자의 제품리스트 뿌리기 : productservice,dao 의 list 결과 ar를 setAttribute ar로 해서 jsp에서
-			// 뿌리기.
-
-			request.setAttribute("ar", ar); // sellerMain.jsp에서 ${requestScope.ar}로 받기
-
-
+			ar=productDAO.productAllList(con);
+			request.setAttribute("allProductAr", ar);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
+
 
 		path = "../WEB-INF/views/store/storeMain.jsp";
 		
@@ -113,15 +88,5 @@ public class StoreService {
 		return actionForward;
 	}
 
-	public ActionForward storeSelect(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward = new ActionForward();
-		String path = "";
-		boolean check = true;
-
-		path = "../WEB-INF/views/store/storeSelect.jsp";
-
-		actionForward.setPath(path);
-		actionForward.setCheck(check);
-		return actionForward;
-	}
+	
 }

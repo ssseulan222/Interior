@@ -79,7 +79,11 @@
 	padding:10px;
 
 }
-
+.brandName{
+	font-size: 0.8em;
+	color:#05161fad;
+	margin:0;
+}
 .name {
 	color:#424242;
 }

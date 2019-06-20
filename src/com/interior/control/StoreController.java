@@ -44,9 +44,6 @@ public class StoreController extends HttpServlet {
 		} else if(command.equals("/storeRanking")) {
 			actionForward=storeService.storeRanking(request, response);
 
-		} else if(command.equals("/storeSelect")) {
-			actionForward=storeService.storeSelect(request, response);
-			
 		}
 		
 		if(actionForward.isCheck()) {

@@ -61,6 +61,9 @@ public class ProductController extends HttpServlet {
 		} else if(command.equals("/productShare")) {
 			actionForward=productService.productUpdate(request, response);
 		
+		} else if(command.equals("/productSelect")) {
+			actionForward=productService.productSelect(request, response);
+			
 		}
 		
 		if(actionForward.isCheck()) {

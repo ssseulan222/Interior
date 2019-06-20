@@ -110,15 +110,15 @@
 		<!-- 인기상품 -->
 		<div class="container">
 			<div class="subject">
-				<h3 class="popular">인기상품</h3>
+				<h3 class="popular">최신상품</h3>
 
 				<!-- 오늘의집에서는 호버해서 밑으로 나오는 토글키로 on/off 가능하지만  해당 프로젝트에서는 버튼 클릭으로 on/off + 정렬 기준 축소-->
 				<a class="sort">더보기</a>
 				<select class="sort">
+					<option>최신순</option>
 					<option>인기순</option>
 					<option>판매순</option>
 					<option>낮은가격순</option>
-					<option>최신순</option>
 					<option>많은리뷰순</option>
 				</select> <a class="sort">무료배송</a>
 
@@ -127,19 +127,18 @@
 			<!-- 상품리스트불러오기 -->
 			<div class="col-sm-12 productListDiv"> 
 				
-				<c:forEach items="${requestScope.ar}" var="ar">
+				<c:forEach items="${allProductAr}" var="ar">
 					<div class="productWrapDiv col-sm-3">
 						<a href="../product/productSelect?num=${ar.num}" class="productSelect"> 
 							<div class="productDiv">
 								<div class="productImageWrap">
 									<div class="productImageDiv">
 										<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${ar.uploadDTO.fname}" alt="${ar.uploadDTO.oname}">
-										
-										<p>test : ${ar.uploadDTO.fname}</p>
 									</div>
 								</div>
 								<div class="productInfo">
 									<!-- 제품명 -->
+									<p class="brandName">${ar.brandName}</p>
 									<p class="name">${ar.name}</p>
 									
 									<div class="span">

@@ -62,13 +62,14 @@ $(function() {
 	});
 
 	
+	
 	// 가격정보, 포인트
 	$('#price').blur(function() {
 		if($(this).val() != '' && $('#saleRate').val() != ''){
 			var salePrice =  $(this).val() - $(this).val()*($('#saleRate').val()*0.01);
 			
 			$('#salePrice').val(salePrice);
-			var point=$('#salePrice').val()*0.01;
+			var point=Math.ceil($('#salePrice').val()*0.01);
 		
 			$('#point').val(point);
 		} else {
@@ -96,6 +97,9 @@ $(function() {
 			$('#point').val(point);
 		}
 	});
+	
+
+	
 	
 	// 무료택배
 	$('#freeDeliv1').click(function() {

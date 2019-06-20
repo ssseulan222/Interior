@@ -45,8 +45,24 @@ public class Search {
 	public void setCategory(String category) {
 		if(category == null) {
 			this.category="category";
-		} else {
-			this.category=category;
+		} else if(category.equals("1")) {
+			this.category="가구";
+		} else if(category.equals("2")) {
+			this.category="패브릭";
+		}else if(category.equals("1")) {
+			this.category="홈데코/조명";
+		}else if(category.equals("1")) {
+			this.category="가전";
+		}else if(category.equals("1")) {
+			this.category="수납/생활";
+		}else if(category.equals("1")) {
+			this.category="주방";
+		}else if(category.equals("1")) {
+			this.category="DIY자재";
+		}else if(category.equals("1")) {
+			this.category="시공/주문";
+		}else if(category.equals("1")) {
+			this.category="반려동물";
 		}
 	}
 	
