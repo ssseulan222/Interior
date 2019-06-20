@@ -6,10 +6,10 @@ public class ExpertDTO {
 	private String contract;
 	private String pro;
 	private String space_type;
-	private int a_s;
-	private int career;
-	private int pay;
-	private int deposit;
+	private String a_s;
+	private String career;
+	private String pay;
+	private String deposit;
 	private String tag;
 	private String location;
 	private String present;
@@ -25,18 +25,7 @@ public class ExpertDTO {
 	private int c_check;
 	private String info;
 	private int confirm;
-	public int getConfirm() {
-		return confirm;
-	}
-	public void setConfirm(int confirm) {
-		this.confirm = confirm;
-	}
-	public String getInfo() {
-		return info;
-	}
-	public void setInfo(String info) {
-		this.info = info;
-	}
+	
 	public int getNum() {
 		return num;
 	}
@@ -67,28 +56,28 @@ public class ExpertDTO {
 	public void setSpace_type(String space_type) {
 		this.space_type = space_type;
 	}
-	public int getA_s() {
+	public String getA_s() {
 		return a_s;
 	}
-	public void setA_s(int a_s) {
+	public void setA_s(String a_s) {
 		this.a_s = a_s;
 	}
-	public int getCareer() {
+	public String getCareer() {
 		return career;
 	}
-	public void setCareer(int career) {
+	public void setCareer(String career) {
 		this.career = career;
 	}
-	public int getPay() {
+	public String getPay() {
 		return pay;
 	}
-	public void setPay(int pay) {
+	public void setPay(String pay) {
 		this.pay = pay;
 	}
-	public int getDeposit() {
+	public String getDeposit() {
 		return deposit;
 	}
-	public void setDeposit(int deposit) {
+	public void setDeposit(String deposit) {
 		this.deposit = deposit;
 	}
 	public String getTag() {
@@ -154,8 +143,8 @@ public class ExpertDTO {
 	public String getR_check() {
 		return r_check;
 	}
-	public void setR_check(String regist_check) {
-		this.r_check = regist_check;
+	public void setR_check(String r_check) {
+		this.r_check = r_check;
 	}
 	public String getRoute() {
 		return route;
@@ -166,7 +155,19 @@ public class ExpertDTO {
 	public int getC_check() {
 		return c_check;
 	}
-	public void setC_check(int check) {
-		this.c_check = check;
+	public void setC_check(int c_check) {
+		this.c_check = c_check;
+	}
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
+	public int getConfirm() {
+		return confirm;
+	}
+	public void setConfirm(int confirm) {
+		this.confirm = confirm;
 	}
 }

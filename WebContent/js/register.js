@@ -14,13 +14,21 @@ $(function () {
 	var c_regi;
 	var route;
 	var c_check;
-	var r_phone;
+	var r_,hphone;
 	$(".ph").change(function() {
 		phone = "";
 		$(".ph").each(function() {
 			phone += $(this).val();
 		});
 		$("#phone").val(phone);
+	});
+	
+	$(".r_ph").change(function() {
+		phone = "";
+		$(".r_ph").each(function() {
+			phone += $(this).val();
+		});
+		$("#r_phone").val(phone);
 	});
 	
 	$("#open").click(function() {
@@ -124,14 +132,20 @@ $(function () {
 	});
 
 	$(".place").click(function() {
+		space_type = ""; 
 		if($(this).css('background-color') != "rgb(255, 255, 255)"){
 			$(this).css("background-color", "white");
 			$(this).css("color", "black");
 		}else{
 			$(this).css("background-color", "#35c5f0");
 			$(this).css("color", "white");
-			$("#place").val($(this).val());
 		}
+		$(".place").each(function() {
+			if($(this).css('background-color') == "rgb(53, 197, 240)"){
+				space_type += $(this).val();
+			}
+		});
+		$("#place").val(space_type);
 	});
 
 	$(".a_s").click(function() {
@@ -320,7 +334,8 @@ $(function () {
 		});
 		$(this).css("background-color", "#35c5f0");
 		$(this).css("color", "white");
-		$("#route").val($(this).val);
+		
+		$("#route").val($(this).val());
 	});
 
 	$(".count").click(function() {

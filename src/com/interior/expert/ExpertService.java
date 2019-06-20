@@ -121,10 +121,10 @@ public class ExpertService implements Action{
 				expertDTO.setContract(multipartRequest.getParameter("contract"));
 				expertDTO.setPro(multipartRequest.getParameter("pro"));
 				expertDTO.setSpace_type(multipartRequest.getParameter("space_type"));
-				expertDTO.setA_s(Integer.parseInt(multipartRequest.getParameter("a_s")));
-				expertDTO.setCareer(Integer.parseInt(multipartRequest.getParameter("career")));
-				expertDTO.setPay(Integer.parseInt(multipartRequest.getParameter("pay")));
-				expertDTO.setDeposit(Integer.parseInt(multipartRequest.getParameter("deposit")));
+				expertDTO.setA_s(multipartRequest.getParameter("a_s"));
+				expertDTO.setCareer(multipartRequest.getParameter("career"));
+				expertDTO.setPay(multipartRequest.getParameter("pay"));
+				expertDTO.setDeposit(multipartRequest.getParameter("deposit"));
 				expertDTO.setTag(multipartRequest.getParameter("tag"));
 				expertDTO.setLocation(multipartRequest.getParameter("location"));
 				expertDTO.setPresent(multipartRequest.getParameter("present"));
@@ -151,7 +151,7 @@ public class ExpertService implements Action{
 				con.setAutoCommit(false);
 
 				num = expertDAO.insert(expertDTO, con);
-
+				System.out.println(num);
 				for(UploadDTO uploadDTO : ar) {
 					uploadDTO.setNum(expertDTO.getNum());
 					num = uploadDAO.insert(uploadDTO, con);

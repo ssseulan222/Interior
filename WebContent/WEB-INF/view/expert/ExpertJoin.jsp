@@ -551,9 +551,9 @@
 					</div>
 					<div id="q2">
 						<span>대표 연락처를 입력해주세요.</span> <br> <input type="text"
-							name="phone1">-<input type="text" name="phone2">-<input
+							class="r_ph">-<input type="text" class="r_ph">-<input
 							type="text" class="r_ph">
-							<input type="text" >
+							<input type="text" name="r_ph" id="r_phone">
 					</div>
 					<div id="q3">
 						<span>사업장 주소를 알려주세요.</span><span class="necessary">필수</span><br>

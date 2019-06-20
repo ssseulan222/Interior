@@ -91,8 +91,8 @@ public class ExpertDAO {
 			expertDTO.setPro(rs.getString("pro"));
 			expertDTO.setLocation(rs.getString("location"));
 			expertDTO.setAddress(rs.getString("address"));
-			expertDTO.setCareer(rs.getInt("career"));
-			expertDTO.setA_s(rs.getInt("a_s"));
+			expertDTO.setCareer(rs.getString("career"));
+			expertDTO.setA_s(rs.getString("a_s"));
 			expertDTO.setTag(rs.getString("tag"));
 			expertDTO.setInfo(rs.getString("info"));
 		}
@@ -106,17 +106,17 @@ public class ExpertDAO {
 	public int insert(ExpertDTO expertDTO, Connection con) throws Exception{
 		int result = 0;
 		
-		String sql = "insert into expert values (exqert_seq.nextval, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null, null)";
+		String sql = "insert into expert values (expert_seq.nextval, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null, null)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, expertDTO.getName());
 		st.setString(2, expertDTO.getContract());
 		st.setString(3, expertDTO.getPro());
 		st.setString(4, expertDTO.getSpace_type());
-		st.setInt(5, expertDTO.getA_s());
-		st.setInt(6, expertDTO.getCareer());
-		st.setInt(7, expertDTO.getPay());
-		st.setInt(8, expertDTO.getDeposit());
+		st.setString(5, expertDTO.getA_s());
+		st.setString(6, expertDTO.getCareer());
+		st.setString(7, expertDTO.getPay());
+		st.setString(8, expertDTO.getDeposit());
 		st.setString(9, expertDTO.getTag());
 		st.setString(10, expertDTO.getLocation());
 		st.setString(11, expertDTO.getPresent());
