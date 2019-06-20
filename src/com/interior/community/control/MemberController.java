@@ -2,6 +2,7 @@ package com.interior.community.control;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +37,7 @@ public class MemberController extends HttpServlet {
 		String command = request.getPathInfo();
 		ActionForward actionForward = new ActionForward();
 		if(command.equals("/memberJoinlist")) {
-			System.out.println("22222");
+			//System.out.println("22222");
 			actionForward = memberService.list(request, response);
 			
 		}else if(command.equals("/memberJoin")) {
@@ -67,6 +68,15 @@ public class MemberController extends HttpServlet {
 			actionForward = memberService.memberHousewarming(request, response);
 		}else if(command.equals("/memberQuestions")) {
 			actionForward = memberService.memberQuestions(request, response);
+		}else if(command.equals("/memberMyShoppingQuestions")) {
+			actionForward = memberService.memberMyShoppingQuestions(request, response);
+		}else if(command.equals("/memberMyWriteReview")) {
+			actionForward = memberService.memberMyWriteReview(request, response);
+		}else if(command.equals("/memberusepolicy")) {
+			actionForward = memberService.memberusepolicy(request, response);
+		}else if(command.equals("/memberprivacy")) {
+			//System.out.println("aa");
+			actionForward = memberService.memberprivacylist(request, response);
 		}
 		
 		

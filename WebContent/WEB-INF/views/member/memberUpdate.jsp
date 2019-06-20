@@ -5,8 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/MyPageProfiletop.css" type="text/css">
+<jsp:include page="../temp/header.jsp" />
+<style type="text/css">
+	
+</style>
+<script type="text/javascript">
+	
+</script>
 </head>
 <body>
-<h1>Update Page</h1>
+	
 </body>
 </html>

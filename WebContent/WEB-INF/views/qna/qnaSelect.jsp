@@ -1,10 +1,13 @@
 <%@page import="java.sql.Connection"%>
 <%@ page import="com.interior.community.qna.QnaDAO" %>
 <%@ page import="com.interior.community.qna.QnaDTO" %>
+<%@ page import="com.interior.community.upload.UploadDAO" %>
+<%@ page import="com.interior.community.upload.UploadDTO" %>
+<%@ page import="com.interior.community.upload.UploadService" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,10 +60,11 @@
 		
 		<c:catch>
 			<c:forEach items="${upload}" var="up">
-				<div class="img"><a href="../upload/${up.fname}">${up.oname}</a>사진 들어가는곳</div>
+				<div class="img"><a href="../upload/${up.fname}">${up.oname}사진 들어가는곳</a></div>
 			</c:forEach>
 		</c:catch>
 		
+		<%-- <a href="../upload/${up.fname}">${up.oname}</a> --%>
 		
 		<div class="date">${dto.reg_date}&nbsp;&nbsp;·&nbsp;&nbsp;조회수 : ${dto.hit}</div>
 	</div>

@@ -1,6 +1,7 @@
 package com.interior.community.member;
 
 import java.sql.Connection;
+
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,33 @@ public class MemberService implements Action {
 	public MemberService() {
 		memberDAO = new MemberDAO();
 	}
+	public ActionForward memberprivacylist(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/member/memberprivacylist.jsp");
+		return actionForward;
+		
+	}
+	public ActionForward memberusepolicy(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/member/memberusepolicylist.jsp");
+		return actionForward;
+	}
+	public ActionForward memberMyWriteReview(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/member/memberMyWriteReview.jsp");
+		return actionForward;
 
+	}
+	public ActionForward memberMyShoppingQuestions(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/member/memberMyShoppingQuestions.jsp");
+		return actionForward;
+	}
+	
 	public ActionForward memberQuestions(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		actionForward.setCheck(true);
@@ -88,10 +115,11 @@ public class MemberService implements Action {
 		ActionForward actionForward = new ActionForward();
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession();
 		MemberDTO memberDTO = new MemberDTO();
 		Connection con ;
 		MemberDTO m = null;
+		String login = null;
 		int result =0;
 		try {
 			con = DBConnector.getConnect();
@@ -101,17 +129,11 @@ public class MemberService implements Action {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(result==0) {
-			session.setAttribute("login", result);
+		if(m !=null) {
+			session.setAttribute("m", m);
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/views/common/Loginresult.jsp");
-		}else if(result==1) {
-			session.setAttribute("LoginDate", m);
-			session.setAttribute("login", result);
-			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/views/common/Loginresult.jsp");
-		}else if(result==-1) {
-			session.setAttribute("login", result);
+		}else{
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/views/common/Loginresult.jsp");
 		}

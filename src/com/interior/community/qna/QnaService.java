@@ -106,7 +106,6 @@ public class QnaService implements Action {
 		QnaDTO qnaDTO = null;
 		List<UploadDTO> ar = null;
 		Connection con = null;
-		//String category = null;
 		
 		try {
 			con = DBConnector.getConnect();
@@ -125,26 +124,118 @@ public class QnaService implements Action {
 			}
 		}
 		String path = "";
-		
 		if(qnaDTO != null) {
 			request.setAttribute("dto", qnaDTO);
 			request.setAttribute("upload", ar);
 			path = "../WEB-INF/views/qna/qnaSelect.jsp";
 		}
 		else {
-			request.setAttribute("message", "NO DATA");
-			request.setAttribute("path", "./qnaSelect");
+			request.setAttribute("message", "no data");
+			request.setAttribute("path", "./qnaList");
 			path = "../WEB-INF/views/common/result.jsp";
 		}
 		actionForward.setCheck(true);
 		actionForward.setPath(path);
 		return actionForward;
 		
-		
 	}
 
 	@Override
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {
+		
+		ActionForward actionForward = new ActionForward();
+		
+		String method = request.getMethod(); //get, post
+		boolean check = true;
+		String path="../WEB-INF/views/qna/qnaWrite.jsp";
+		
+		if(method.equals("POST")) { //POST : 파라미터가 주소창에 노출안됨
+			QnaDTO qnaDTO = new QnaDTO();
+			
+			String saveDirectory = request.getServletContext().getRealPath("upload"); //서버랑 이프로젝트랑 이어줌
+			System.out.println(saveDirectory);
+			
+			int maxPostSize = 1024*1024*10; // byte단위 -> 10MB
+			String encoding = "UTF-8";
+			MultipartRequest multi = null; // MultipartRequest : 여러개 리퀘스트 하나로 합쳐줌
+			
+			try { 
+				multi = new MultipartRequest(request, saveDirectory, maxPostSize, encoding, new DefaultFileRenamePolicy());
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+			
+			String fileName = multi.getFilesystemName("file"); //파일의 파라미터이름 적기
+			
+			String oName = multi.getOriginalFileName("file"); //파일의 파라미터이름 적기
+			
+			UploadDTO uploadDTO = new UploadDTO();
+			uploadDTO.setFname(fileName);
+			uploadDTO.setOname(oName);
+			
+			qnaDTO.setTitle(multi.getParameter("title"));
+			qnaDTO.setWriter(multi.getParameter("writer"));
+			qnaDTO.setContents(multi.getParameter("contents"));
+
+			int result=0;
+			Connection con=null;
+			try {
+				con = DBConnector.getConnect();
+				//auto commit 해제
+				con.setAutoCommit(false);
+				
+				int num = qnaDAO.getNum();
+				qnaDTO.setNum(num);
+				result = qnaDAO.insert(qnaDTO, con);
+						 
+				uploadDTO.setNum(num);
+				result=uploadDAO.insert(uploadDTO, con);
+				if(result<1) {
+					throw new Exception();
+				}
+			
+				con.commit();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block\
+				result=0;
+				try {
+					con.rollback();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				e.printStackTrace();
+			}finally {
+				try {
+					con.setAutoCommit(true);
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			if(result>0) {
+				check=false;
+				path="./qnaList";
+				
+			}else {
+				request.setAttribute("message", "Write Fail");
+				request.setAttribute("path", "./qnaList");
+				check=true;
+				path="../WEB-INF/views/common/result.jsp";
+				
+			}//post 끝
+			
+		}
+		
+		actionForward.setCheck(check);
+		actionForward.setPath(path);
+		
+		return actionForward;
+		
+		/* ***** 원래 기존거 ******
 		ActionForward actionForward = new ActionForward();
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/views/qna/qnaWrite.jsp");
@@ -222,13 +313,13 @@ public class QnaService implements Action {
 					e.printStackTrace();
 				}
 			}
-			//System.out.println("555");
 			actionForward.setCheck(false);
 			actionForward.setPath("./qnaList");
 			
 		}//post끝
 		return actionForward;			
 		
+		 */
 	}
 
 	@Override

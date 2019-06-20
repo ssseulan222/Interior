@@ -62,7 +62,7 @@
     	display: block;
 	    width: 100%;
 	    margin : 0px;
-	    height: 50px;
+	    height: 35px;
 	    margin: 0;
 	    font-size: 15px;
 	    line-height: 50px;
@@ -84,6 +84,32 @@
 	    color: inherit;
 	    text-decoration: none;
     }
+    .btn-priority {
+	    background-color: #35C5F0;
+	    border-color: #35C5F0;
+	    color: white;
+	    display: block;
+	    width: 100%;
+	    height: 50px;
+	    margin: 20px 0;
+	    padding: 13px 15px;
+	    font-size: 17px;
+	    line-height: 1.41;
+	    box-sizing: border-box;
+	    display: inline-block;
+	    padding: 0;
+	    border-width: 1px;
+	    border-style: solid;
+	    text-align: center;
+	    border-radius: 15px;
+	    font-weight: bold;
+	}
+	.icon-page-home{
+		margin-top : 200px;
+		height: 50px;
+		text-align: center;
+		display: block;
+	}
     
 </style>
 <script type="text/javascript">
@@ -94,15 +120,15 @@
 	<div class="sign-in-form">
 		<div>
 		
-		<a href="../index.do"><span>오늘의 집</span></a>
+		<a href="../index.do"><span class="icon-page-home">오늘의 집</span></a>
 			<form class="sign-in-form__form" id="login-form" action="./memberLoginData" accept-charset="UTF-8" method="post" value="">
 			
-		    	<input placeholder="이메일" autofocus="autofocus" type="text" name="email" id="email">
+		    	<input placeholder="이메일" autofocus="autofocus" type="text" name="email" id="email" class="sign-in-form_form_input">
 			    <div>
-			        <input placeholder="비밀번호" autocomplete="off"  type="password" name="pw" id="pw" value="">
+			        <input placeholder="비밀번호" autocomplete="off"  type="password" name="pw" id="pw" value="" class="sign-in-form_form_input">
 			        <!--  <p class="sign-in-form__form__password__caps">Caps Lock이<br>켜져있네요!</p>   -->
 			    </div>
-			    <input type="button" class="btn btn-default" id="login" value="로그인">
+			    <input type="button" class="btn btn-default btn-priority" id="login" value="로그인">
 			    <div id="result">
 			
 				</div>

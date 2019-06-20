@@ -29,7 +29,6 @@ public class QnaDAO {
 		result = st.executeUpdate();
 		st.close();
 		
-		//System.out.println("55555555");
 		return result;
 	}
 	
@@ -113,6 +112,7 @@ public class QnaDAO {
 		}
 		rs.close();
 		st.close();
+		
 		
 		return qnaDTO;
 	}

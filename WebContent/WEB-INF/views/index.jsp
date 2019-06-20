@@ -23,8 +23,8 @@
 	
 	<!-- 메인 이미지 -->
 	<div class="main_image">
-		<div class="img" style="width:800px; float:left;">
-		    <img src="<%=request.getContextPath() %>/img/s1.jpeg" id="img_1" style="width: 800px; height: 500px;">
+		<div class="img" style="width:840px; float:left;">
+		    <img src="<%=request.getContextPath() %>/img/s1.jpeg" id="img_1" style="width: 820px; height: 500px;">
 		    <%-- <img src="<%=request.getContextPath() %>/img/p1.png" id="img_2" style="width: 300px; height: 500px;"> --%>
 		    
 		</div>   
@@ -74,28 +74,53 @@
 		      <span class="sr-only">Next</span>
 		    </a>
 		  </div>
-		    
-		    
-		    
-		    
-		
-	</div>
-	
-	
-		<%-- <!-- 슬라이드 이미지 -->
-	    <div class="slide_image">
-	    	<div class="banner_wraper">
-			    <img src="<%=request.getContextPath() %>/img/p1.png">
-			    <img src="/img/p2.png">
-			    <img src="/img/p3.png">
-			    <img src="/img/p4.png">
-			    <img src="/img/p5.png">
-			</div>
-	    </div> --%>
-	
-	
-	
+	 </div>
 	</div> <!--  end container-->
+	
+		  <div class="category">
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d1.jpg"></a>
+		    		<div class="text">신혼가구</div>
+		    </div>
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d2.jpg"></a>
+		    		<div class="text">쇼핑하기</div>
+		    </div>
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d3.jpg"></a>
+		    		<div class="text">평수별집구경</div>
+		    </div>		    
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d4.jpg"></a>
+		    		<div class="text">공간별사진</div>
+		    </div>
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d5.jpg"></a>
+		    		<div class="text">시공업체찾기</div>
+		    </div>			    
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d6.jpg"></a>
+		    		<div class="text">시공견적계산</div>
+		    </div>			  
+		  
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d7.jpg"></a>
+		    		<div class="text">셀프가이드</div>
+		    </div>	
+		    		  
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d8.jpg"></a>
+		    		<div class="text">질문과답변</div>
+		    </div>			  
+		</div>	   
+	
+	
+	
     
     
 </body>

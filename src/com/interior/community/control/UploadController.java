@@ -16,7 +16,7 @@ import com.interior.community.upload.UploadService;
 /**
  * Servlet implementation class UploadController
  */
-@WebServlet("/UploadController")
+@WebServlet("/fileController")
 public class UploadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UploadService uploadService;
@@ -37,13 +37,13 @@ public class UploadController extends HttpServlet {
 		String command = request.getPathInfo();
 		ActionForward actionForward = null;
 		
-		if(command.equals("fileDelete")) {
+		if(command.equals("/fileDelete")) {
 			actionForward = uploadService.delete(request, response);
 		}
-		else if(command.equals("fileUpload")) {
+		else if(command.equals("/fileUpload")) {
 			actionForward = uploadService.insert(request, response);
 		}
-		else if(command.equals("fileUpdate")) {
+		else if(command.equals("/fileUpdate")) {
 			actionForward = uploadService.update(request, response);
 		}
 		if(actionForward.isCheck()) {

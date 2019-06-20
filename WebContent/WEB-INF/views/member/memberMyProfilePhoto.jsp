@@ -5,13 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<jsp:include page="../temp/header.jsp" />
 <script type="text/javascript">
 	
 </script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/MyPageProfiletop.css" type="text/css">
+<jsp:include page="../temp/header.jsp" />
 <style type="text/css">
-	
+	body{
+		margin-top: 50px;
+	}
 	
 	.nav-nav{
 		font-size: 15px;
@@ -78,15 +80,15 @@
 				<nav class="page-myhome-nav">
 					<ul style="transform : translateX(0px);">
 						<li class="page-nav-item"><a class="active" href="./memberMyHome">프로필</a></li>
-						<li class="page-nav-item"><a href="#">나의쇼핑</a></li>
-						<li class="page-nav-item"><a href="#">나의리뷰</a></li>
+						<li class="page-nav-item"><a href="./memberMyShopping">나의쇼핑</a></li>
+						<li class="page-nav-item"><a href="./memberMyReview">나의리뷰</a></li>
 						<li class="page-nav-item"><a href="#">설정</a></li>
 					</ul>
 				</nav>
 				<nav class="page-myhome-nav">
 					<ul style="transform : translateX(0px);">
 						<li class="page-nav-item" style="font-size: 15px;"><a href="./memberMyHome">모두보기</a></li>
-						<li class="page-nav-item" style="font-size: 15px;"><a href="./memberMyProfilePhoto" class="active">사진</a></li>
+						<li class="page-nav-item" style="font-size: 15px;"><a href="./memberMyProfilePhoto" class="active-botton active">사진</a></li>
 						<li class="page-nav-item" style="font-size: 15px;"><a href="./memberHousewarming">집들이</a></li>
 						<li class="page-nav-item" style="font-size: 15px;"><a href="./memberQuestions">질문과답변</a></li>
 					</ul>
@@ -100,7 +102,7 @@
 						<div class="sticky-child" style="position: relative;">
 							<div class="user-profile">
 								<div class="user-profile-image">
-									<img alt="myhomemain" src="../images/myhomemain.png">
+									<img alt="myhomemain" src="../img/myhomemain.png">
 								</div>
 								<div class="user-profile-top">
 									<div style="margin-top: 10px">

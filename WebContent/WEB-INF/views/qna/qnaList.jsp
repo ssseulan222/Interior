@@ -146,6 +146,25 @@
 	</table>
 	</div>
 	
+	<div class="page">
+  		<ul class="pager">
+  			<c:if test="${pager.curBlock gt 1}"> 
+   			<li class="previous"><a href="./qnaList?curPage=${pager.startNum-1}&kind=${pager.search.kind}&search=${pager.search.search}">Previous</a></li>
+  			</c:if>
+  			
+  			<li>
+  			<ul class="pagination">
+  				<c:forEach begin="${pager.startNum }" end="${pager.lastNum}" var="i">
+ 	  				<li><a href="./qnaList?curPage=${i}&kind=${pager.search.kind}&search=${pager.search.search}">${i}</a></li>
+  				</c:forEach>
+ 			</ul>
+  			</li>
+  			
+  			<c:if test="${pager.curBlock lt pager.totalBlock}">
+    		<li class="next"><a href="./qnaList?curPage=${pager.lastNum+1}&kind=${pager.search.kind}&search=${pager.search.search}">Next</a></li>
+  			</c:if>
+  		</ul>
+	</div>
 	
 	
 		

@@ -1,11 +1,13 @@
 package com.interior.community.member;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.interior.community.util.DBConnector;
 import com.sun.swing.internal.plaf.metal.resources.metal;
+
 
 public class MemberDAO {
 	 private static MemberDAO instance;
@@ -150,7 +152,7 @@ public class MemberDAO {
 			st.setString(2, memberDTO.getPw());
 			st.setString(3, memberDTO.getNickname());
 		result = st.executeUpdate();
-		System.out.println("dd");
+		//System.out.println("dd");
 		st.close();
 		return result;
 	}

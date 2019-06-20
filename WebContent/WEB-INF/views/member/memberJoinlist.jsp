@@ -253,18 +253,162 @@
 	
 	.font_block {
 		width: 100%;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 		margin-top: 10px;
 	}
 	
 	.check_font {
 		margin-bottom: 10px;
 	}
+	main {
+	    margin-top: 60px;
+	    margin-bottom: 60px;
+	}
+	.form-control {
+	    transition: .2s border-color, .2s box-shadow, .2s background-color;
+	    display: block;
+	    box-sizing: border-box;
+	    height: 40px;
+	    width: 100%;
+	    padding: 0 15px;
+	    line-height: 40px;
+	    border-radius: 10px;
+	    border: solid 1px #dbdbdb;
+	    background-color: white;
+	    color: #424242;
+	    font-size: 12px;
+	}
+	.email-control{
+		display:inline-block;
+		width: 46%;
+		transition: .2s border-color, .2s box-shadow, .2s background-color;
+	    box-sizing: border-box;
+	    height: 40px;
+	    padding: 0 15px;
+	    line-height: 40px;
+	    border-radius: 10px;
+	    border: solid 1px #dbdbdb;
+	    background-color: white;
+	    color: #424242;
+	    font-size: 12px;
+	}
+	.signup-form__policy{
+		margin-bottom: 30px;
+		margin-top: 40px;
+	}
+	.signup-form__policy__check-all {
+	    height: 22px;
+	    line-height: 22px;
+	    position: relative;
+	    margin-bottom: 15px;
+	}
+	.bold {
+	    font-weight: bold;
+	}
+	.signup-form__policy__check-all>.form-check {
+	    position: absolute;
+	    right: 15px;
+	    top: 0;
+	}
+	.form-check-label {
+	    cursor: pointer;
+	    display: block;
+	    margin-bottom: 10px;
+	    padding-left: 32px;
+	    min-height: 22px;
+	    line-height: 22px;
+	    position: relative;
+	}
 	
-	
+	.check-img {
+	    box-sizing: border-box;
+	    height: 22px;
+	    width: 22px;
+	    border-radius: 4px;
+	    background-color: white;
+	    border: solid 1px #dbdbdb;
+	    display: block;
+	    transition: .2s ease;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	}
+	.signup-form__policy__policy-list{
+		border: solid 1px #dbdbdb;
+	    padding: 15px;
+	    box-sizing: border-box;
+	}
+	.signup-form__policy__more-14__form-check{
+		position: absolute;
+		right: 0;
+		top : 0;
+	}
+	.signup-form__policy__policy-item{
+		min-height: 22px;
+	    position: relative;
+	    line-height: 22px;
+	}
+	.text-red {
+    	color: #F77;
+	}
+	.form-check{
+		position: absolute;
+    right: 0;
+    top: 0;
+	}
+	.text-gray-light {
+	    color: #bdbdbd;
+	}
+	.check-img:after {
+	    content: "";
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%, -50%);
+	    box-sizing: border-box;
+	    display: block;
+	    width: 14px;
+	    height: 14px;
+	    background-size: 14px;
+	    background-color : blue;
+	    background-image: url(../img/ic-checkbox.png);
+	    opacity: 0;
+	}
+	#join {
+	    width: 100%;
+	    margin-bottom: 30px;
+	}
+	.btn-priority {
+	    background-color: #35C5F0;
+	    border-color: #35C5F0;
+	    color: white;
+	}
+	.btn-lg {
+	    line-height: 1;
+	    height: 70px;
+	    padding: 26px 0;
+	    font-size: 18px;
+	}
+	.btn {
+		margin-top : 20px;
+	    box-sizing: border-box;
+	    display: inline-block;
+	    padding: 0;
+	    border-width: 1px;
+	    border-style: solid;
+	    text-align: center;
+	    border-radius: 4px;
+	    font-weight: bold;
+	}
 </style>
 </head>
 <body>
+<header id="simplefield-gnb" class="simplified-gnb">
+	<div>
+		<a href="${pageContext.request.contextPath}/index.do">오늘의집</a>
+	</div>
+</header>
+<main role="main">
 	<section id="member_wrap">
 		<div>
 			<div>
@@ -275,7 +419,7 @@
 			</div>
 			<div>
 				<!-- 전문가 페이지 이동 -->
-				<a class="form-radio-label" href="#"><input type="radio"> <span class="radio-img"></span>시공전문가
+				<a class="form-radio-label" href="#"><input type="radio"> <span class="radio-img"></span>판매자회원가입
 				</a>
 			</div>
 			<div>
@@ -288,68 +432,112 @@
 		<form action="./memberJoin" method="get" enctype="multipart/form-data" id="frm">
 			<div class="form-group">
 				<label for="title" id="email" name="email"
-					class="font_block form-control">이메일</label>
+					class="font_block">이메일</label>
 				<div style="width: 100%">
-					<input type="text" class="form-control_first" id="email_first"
-						name="email_first" size="10"> <span>@</span> <input
-						type="text" class="form-control_last" id="email_last"
+					<input type="text" class="form-control_first email-control" id="email_first"
+						name="email_first"> 
+						<span>@</span> 
+						<input type="text" class="form-control_last email-control" id="email_last"
 						name="email_last">
 				</div>
 				<div id="result" class="result_font"></div>
 			</div>
 			<br>
 			<div class="form-group">
-				<label for="title" id="pww" class="font_block form-control">비밀번호</label>
+				<label for="title" id="pww" class="font_block">비밀번호</label>
 				<p id="font_pw" class="font_block">8자이상 영문 대 소문자, 숫자, 특수문자를
 					사용하세요.</p>
 				<div style="width: 100%">
-					<input type="password" class="form-controll" id="pw" name="pw">
+					<input type="password" class="form-controll  form-control" id="pw" name="pw">
 				</div>
 				<div id="result_pw" class="result_font"></div>
 			</div>
 			<div class="form-group">
-				<label for="title" id="pwwcheck" class="font_block form-control">비밀번호확인</label>
+				<label for="title" id="pwwcheck" class="font_block">비밀번호확인</label>
 				<div style="width: 100%">
-					<input type="password" class="form-controll" id="pwcheck"
+					<input type="password" class="form-controll  form-control" id="pwcheck"
 						name="pwcheck">
 				</div>
 				<div id="result_pwpw" class="result_font"></div>
 			</div>
 			<div class="form-group" style="margin-top: 50px;">
-				<label for="title" id="nickname1" class="font_block form-control">별명</label>
+				<label for="title" id="nickname1" class="font_block">별명</label>
 				<p class="font_block">2~15자 자유롭게 입력해주세요.</p>
-				<input type="text" class="form-controll" id="nickname"
+				<input type="text" class="form-controll  form-control" id="nickname"
 					name="nickname" value="">
 				<div id="result_nickname" class="result_font"></div>
 			</div>
-
-			<div class="container">
-				<h2>약관동의</h2>
-				<div class="checkbox font_block">
-					<label><input type="checkbox" id="checkAll"> 전체동의 </label>
+			
+		<section id="signup-form__policy" class="signup-form__policy">
+			<div class="signup-form__policy__check-all">
+				<label class="bold">약관동의</label>
+				<div class="form-check signup-form__policy__check-all__form-check">
+                    <label class="form-check-label text-heading-5 bold">
+                        <input id="checkAll" class="form-check signup-form__policy__check-all__input" type="checkbox">
+                        <span class="check-img"></span>
+                        전체 동의
+                    </label>
+                </div>
+				<div class="signup-form__policy__policy-list">
+				<div class="checkbox signup-form__policy__policy-item">
+					<label for="signup-form__policy__more-14__input">만 14세 이상입니다.</label>
+					<div class="form-check signup-form__policy__more-14__form-check">
+					<label class="form-check-label bold">
+                            <input type="checkbox" id="checka" class="check form-check form-check signup-form__policy__item__input signup-form__policy__more-14__input" name="confirm_upper_14">
+                            <span class="check-img"></span>
+                            동의 <span class="text-red">(필수)</span>
+                        </label>
+					</div>
 				</div>
-				<div class="checkbox">
-					<label><input type="checkbox" class="check check_font"
-						id="checka"> 동의A(필수) </label>
+				
+				<div class="checkbox signup-form__policy__policy-item">
+					<div class="signup-form__policy__policy-item">
+                    <label for="signup-form__policy__use-policy__input">
+                        <a class="bold simplified-footer__policy policy-use underline" href="./memberusepolicy">이용약관</a>
+                    </label>
+                    <div class="form-check signup-form__policy__use-policy__form-check">
+                        <label class="form-check-label bold">
+                            <input type="checkbox" id="checkb" class="check form-check signup-form__policy__item__input signup-form__policy__use-policy__input" name="confirm_use_policy">
+                            <span class="check-img"></span>
+                            동의 <span class="text-red">(필수)</span>
+                        </label>
+                    </div>
+                </div>
 				</div>
-				<div class="checkbox">
-					<label><input type="checkbox" class="check check_font"
-						id="checkb"> 동의B(필수) </label>
+				<div class="checkbox signup-form__policy__policy-item">
+                    <label for="signup-form__policy__privacy__input">
+                        <a class="bold simplified-footer__policy policy-privacy underline" href="./memberprivacy">개인정보취급방침</a>
+                    </label>
+                    <div class="form-check signup-form__policy__privacy__form-check">
+                        <label class="form-check-label bold">
+                            <input type="checkbox" id="checkc" class="check check_font form-check signup-form__policy__item__input signup-form__policy__privacy__input" name="confirm_privacy">
+                            <span class="check-img"></span>
+                            동의 <span class="text-red">(필수)</span>
+                        </label>
+                    </div>
+                </div>
+				<div class="checkbox signup-form__policy__policy-item">
+                    <label for="signup-form__policy__promotion__input">이벤트 등 프로모션 알림 메일 수신</label>
+                    <div class="form-check signup-form__policy__promotion__form-check">
+                        <label class="form-check-label bold">
+                            <input type="checkbox" id="checkid" class="check check_font form-check signup-form__policy__item__input signup-form__policy__promotion__input" name="confirm_market_email">
+                            <span class="check-img"></span>
+                            동의 <span class="text-gray-light">(선택)</span>
+                        </label>
+                    </div>
+                </div>
 				</div>
-				<div class="checkbox">
-					<label><input type="checkbox" class="check check_font"
-						id="checkc"> 동의C(필수) </label>
-				</div>
-				<div class="checkbox">
-					<label><input type="checkbox" class="check check_font"
-						id="checkid"> 동의D(선택)</label>
-				</div>
-				<input type="button" class="btn btn-default" id="join" value="Join">
+				<button id="join" class="btn btn-lg btn-priority btn-default" type="submit" form="new_normal_user">
+            회원가입하기
+        </button>
+        <p id="has-account" style="margin-bottom: 50px;">이미 아이디가 있으신가요?
+        <a class="bold underline" href="./memberLoginlist">로그인</a></p>
+				
 			</div>
+		</section>
 		</form>
-		<p id="has-account">
-			이미 아이디가 있으신가요? <a class="underline" href="./memberLoginlist">로그인</a>
-		</p>
+		
 	</section>
+</main>	
 </body>
 </html>
