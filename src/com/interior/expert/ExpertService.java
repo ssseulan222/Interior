@@ -97,6 +97,7 @@ public class ExpertService implements Action{
 		
 		if(method.equals("POST")) {
 			String saveDirectory = request.getServletContext().getRealPath("upload");
+			System.out.println(saveDirectory);
 			File f = new File(saveDirectory);
 			if (!f.exists()) {
 				f.mkdirs();
@@ -109,8 +110,10 @@ public class ExpertService implements Action{
 				ArrayList<UploadDTO> ar = new ArrayList<UploadDTO>();
 				while (e.hasMoreElements()) {
 					String s = e.nextElement();
+					System.out.println(s);
 					String fname = multipartRequest.getFilesystemName(s);
 					String oname = multipartRequest.getOriginalFileName(s);
+					System.out.println(fname);
 					UploadDTO uploadDTO = new UploadDTO();
 					uploadDTO.setFname(fname);
 					uploadDTO.setOname(oname);
@@ -137,12 +140,7 @@ public class ExpertService implements Action{
 				expertDTO.setAddress(multipartRequest.getParameter("address"));
 				expertDTO.setR_check(multipartRequest.getParameter("r_check"));
 				expertDTO.setRoute(multipartRequest.getParameter("route"));
-				expertDTO.setC_check(Integer.parseInt(multipartRequest.getParameter("c_check")));
-				
-				
-				System.out.println(expertDTO.getName());
-				System.out.println(expertDTO.getContract());
-				
+				expertDTO.setC_check(Integer.parseInt(multipartRequest.getParameter("c_check")));				
 				
 				con = DBConnector.getConnect();
 
@@ -151,10 +149,11 @@ public class ExpertService implements Action{
 				con.setAutoCommit(false);
 
 				num = expertDAO.insert(expertDTO, con);
-				System.out.println(num);
+				
 				for(UploadDTO uploadDTO : ar) {
 					uploadDTO.setNum(expertDTO.getNum());
 					num = uploadDAO.insert(uploadDTO, con);
+					System.out.println(num);
 					if(num<1) {
 						throw new Exception();
 					}

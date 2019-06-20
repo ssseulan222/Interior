@@ -5,26 +5,26 @@ public class ExpertDTO {
 	private String name;
 	private String contract;
 	private String pro;
-	private String space_type;
+	private String space_type = null;
 	private String a_s;
 	private String career;
 	private String pay;
 	private String deposit;
-	private String tag;
+	private String tag = null;
 	private String location;
-	private String present;
-	private String homepage;
+	private String present = null;
+	private String homepage = null;
 	private String email;
 	private String password;
 	private String phone;
 	private String r_name;
-	private String r_phone;
+	private String r_phone = null;
 	private String address;
 	private String r_check;
 	private String route;
 	private int c_check;
-	private String info;
-	private int confirm;
+	private String info = null;
+	private int confirm = 0;
 	
 	public int getNum() {
 		return num;

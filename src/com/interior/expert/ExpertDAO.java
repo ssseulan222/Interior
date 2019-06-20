@@ -106,30 +106,31 @@ public class ExpertDAO {
 	public int insert(ExpertDTO expertDTO, Connection con) throws Exception{
 		int result = 0;
 		
-		String sql = "insert into expert values (expert_seq.nextval, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null, null)";
+		String sql = "insert into expert values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null, null)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, expertDTO.getName());
-		st.setString(2, expertDTO.getContract());
-		st.setString(3, expertDTO.getPro());
-		st.setString(4, expertDTO.getSpace_type());
-		st.setString(5, expertDTO.getA_s());
-		st.setString(6, expertDTO.getCareer());
-		st.setString(7, expertDTO.getPay());
-		st.setString(8, expertDTO.getDeposit());
-		st.setString(9, expertDTO.getTag());
-		st.setString(10, expertDTO.getLocation());
-		st.setString(11, expertDTO.getPresent());
-		st.setString(12, expertDTO.getHomepage());
-		st.setString(13, expertDTO.getEmail());
-		st.setString(14, expertDTO.getPassword());
-		st.setString(15, expertDTO.getPhone());
-		st.setString(16, expertDTO.getR_name());
-		st.setString(17, expertDTO.getR_phone());
-		st.setString(18, expertDTO.getAddress());
-		st.setString(19, expertDTO.getR_check());
-		st.setString(20, expertDTO.getRoute());
-		st.setInt(21, expertDTO.getC_check());
+		st.setInt(1, expertDTO.getNum());
+		st.setString(2, expertDTO.getName());
+		st.setString(3, expertDTO.getContract());
+		st.setString(4, expertDTO.getPro());
+		st.setString(5, expertDTO.getSpace_type());
+		st.setString(6, expertDTO.getA_s());
+		st.setString(7, expertDTO.getCareer());
+		st.setString(8, expertDTO.getPay());
+		st.setString(9, expertDTO.getDeposit());
+		st.setString(10, expertDTO.getTag());
+		st.setString(11, expertDTO.getLocation());
+		st.setString(12, expertDTO.getPresent());
+		st.setString(13, expertDTO.getHomepage());
+		st.setString(14, expertDTO.getEmail());
+		st.setString(15, expertDTO.getPassword());
+		st.setString(16, expertDTO.getPhone());
+		st.setString(17, expertDTO.getR_name());
+		st.setString(18, expertDTO.getR_phone());
+		st.setString(19, expertDTO.getAddress());
+		st.setString(20, expertDTO.getR_check());
+		st.setString(21, expertDTO.getRoute());
+		st.setInt(22, expertDTO.getC_check());
 		
 		result = st.executeUpdate();
 		
@@ -148,6 +149,28 @@ public class ExpertDAO {
 		int result = 0;
 		
 		return result;
+	}
+	
+	public int idCheck(String email, Connection con)throws Exception{
+		String sql ="select id from expert where email=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, email);
+		ResultSet rs = st.executeQuery();
+		int check=1;
+		if(rs.next()) {
+			check=0;
+		}
+		rs.close();
+		st.close();
+		return check;
+	}
+	
+	public ExpertDTO expertLogin(String id, String pw, Connection con)throws Exception{
+		ExpertDTO expertDTO = null;
+		
+		String sql = "select * from expert where email=? and password=?";
+		
+		return expertDTO;
 	}
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 
 <!DOCTYPE html>
 <html>
@@ -571,20 +572,20 @@
 						<div id="freelancer" class="q4_d">
 							<span>신분증을 첨부해주세요.</span><span class="necessary">필수</span><br>
 							<p>주민번호 뒷자리를 포스트잇이나 종이로 가린 뒤 사진으로 찍거나 스캔해서 첨부해주세요.</p>
-							<input type="file" class="upload"><br>
+							<input type="file" name="f1" class="upload"><br>
 						</div>
 						<div id="individual" class="q4_d">
 							<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
 							<input type="text">-<input type="text">-<input
 								type="text"><br> <span>사업자등록증을 첨부해주세요.</span><span
-								class="necessary">필수</span><br> <input type="file"
+								class="necessary">필수</span><br> <input type="file" name="f2" 
 								class="upload">
 						</div>
 						<div id="corporation" class="q4_d">
 							<span>사업자등록여부를 알려주세요.</span><span class="necessary">필수</span><br>
 							<input type="text">-<input type="text">-<input
 								type="text"><br> <span>사업자등록증을 첨부해주세요.</span><span
-								class="necessary">필수</span><br> <input type="file"
+								class="necessary">필수</span><br> <input type="file" name="f2" 
 								class="upload"><br>
 						</div>
 						<div id="brand" class="q4_d">
@@ -593,7 +594,7 @@
 								class="necessary">필수</span><br> <input type="text">-<input
 								type="text">-<input type="text"><br> <span>사업자등록증을
 								첨부해주세요.</span><span class="necessary">필수</span><br> <input
-								type="file" class="upload"><br> <input type="text">-<input
+								type="file" class="upload" name="f3" ><br> <input type="text">-<input
 								type="text">-<input type="text">-<input
 								type="text">
 						</div>

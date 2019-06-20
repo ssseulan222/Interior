@@ -11,20 +11,17 @@ public class UploadDAO {
 	public int insert(UploadDTO uploadDTO, Connection con) throws Exception {
 		int result = 0;
 	
-		if(uploadDTO.equals("expert")) {
-		String sql = "insert into upload values(upload_seq.nextval,?,?,?,null,null,null,null,?,null,null)";
+		String sql = "insert into upload values(upload_seq.nextval,?,?,?)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setInt(1, uploadDTO.getNum());
 		st.setString(2, uploadDTO.getOname());
 		st.setString(3, uploadDTO.getFname());
-		st.setString(4, uploadDTO.getCategory());
 		
 		result = st.executeUpdate();
 		
 		st.close();
-		}
 		
 		return result;
 	}
