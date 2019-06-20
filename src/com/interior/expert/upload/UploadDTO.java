@@ -1,4 +1,4 @@
-package com.interior.upload;
+package com.interior.expert.upload;
 
 public class UploadDTO {
 	private String oname;
