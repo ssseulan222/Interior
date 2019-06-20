@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.interior.action.ActionForward;
-import com.interior.expert.ExpertService1;
+//import com.interior.expert.ExpertService1;
 
 
 /**
@@ -19,14 +19,14 @@ import com.interior.expert.ExpertService1;
 @WebServlet("/ExpertController")
 public class ExpertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ExpertService1 expertService;
+	//private ExpertService1 expertService;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public ExpertController() {
         super();
-        expertService = new ExpertService1();
+     //   expertService = new ExpertService1();
         // TODO Auto-generated constructor stub
     }
 
@@ -38,7 +38,7 @@ public class ExpertController extends HttpServlet {
 		String command = request.getPathInfo();
 		ActionForward actionForward = null;
 		if(command.equals("/ExpertJoin")) {
-			actionForward = expertService.insert(request, response);
+		//	actionForward = expertService.insert(request, response);
 		}else {
 			actionForward = new ActionForward();
 			actionForward.setCheck(true);
