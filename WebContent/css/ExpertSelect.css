@@ -1,0 +1,100 @@
+@charset "UTF-8";
+body{
+	width: 100%;
+	height: 100%;
+	font-size: 13px;
+}
+
+.body{
+	padding-left:15%;
+	padding-top:5%;
+	width: 100%;
+	margin: 0;
+}
+.menu{
+	display:block;
+	width: 100%;
+	height: 5%;
+	padding: 1% 30%;
+}
+.menu li{
+	list-style: none;
+	float: left;
+	padding: 0 10px;
+	font-weight: 700;
+	font-size: 15px;
+}
+
+.menu a{
+	text-decoration: none;
+	color: #424242;
+}
+
+.star{
+	width: 15px;
+	height: 15px;
+	margin: 0;
+}
+
+.tag{
+	display: inline-block;
+	padding: 5px 5px;
+	border-radius: 15px;
+	background-color: #EDEDED;
+	color: #424242;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+#name{
+	color: #424242;
+	font-weight: bold;
+}
+
+#confirm{
+	color: #1778ba;
+}
+
+button {
+	border-radius: 5px;
+}
+
+#advice{
+	background-color: #1778ba;
+	color: white;
+	border: none;
+	padding: 1% 20%;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#more{
+	background-color: #EDEDED;
+	border: none;
+	padding: 1% 1.5%;
+}
+
+.th{
+	color: #424242;
+	font-weight: bold;
+}
+.info{
+	display: block;
+	height: 100%;
+	width: 20%; 
+}
+.review{
+	display: inline-block;
+	height: 30%;
+	width: 60%;
+}
+.portfolio{
+	display: inline-block;
+	height: 30%;
+	width: 60%;
+}
+.photo{
+	display: inline-block;
+	height: 30%;
+	width: 60%;
+}

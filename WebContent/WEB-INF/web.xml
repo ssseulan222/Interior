@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+<<<<<<< HEAD
   <filter>
     <filter-name>encoding</filter-name>
     <filter-class>com.interior.filter.EncodingFilter</filter-class>
@@ -55,4 +56,30 @@
   <session-config>
     <session-timeout>300</session-timeout>
   </session-config>
+=======
+  <servlet>
+    <servlet-name>expert</servlet-name>
+    <servlet-class>com.interior.control.ExpertController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>expert</servlet-name>
+    <url-pattern>/expert/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>main</servlet-name>
+    <servlet-class>com.interior.control.MainController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>main</servlet-name>
+    <url-pattern>/Main.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>file</servlet-name>
+  	<servlet-class>com.interior.control.UploadController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>file</servlet-name>
+  	<url-pattern>/file/*</url-pattern>
+  </servlet-mapping>
+>>>>>>> origin/expert
 </web-app>

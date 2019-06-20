@@ -10,6 +10,7 @@ public interface Action {
 	//select
 	public abstract ActionForward select(HttpServletRequest request, HttpServletResponse response);
 	
+<<<<<<< HEAD
 	// insert
 	public abstract ActionForward insert(HttpServletRequest request, HttpServletResponse response);
 	
@@ -18,4 +19,15 @@ public interface Action {
 	
 	// delete
 	public abstract ActionForward delete(HttpServletRequest request, HttpServletResponse response);
+=======
+	//insert
+	public abstract ActionForward insert(HttpServletRequest request, HttpServletResponse response);
+	
+	//update
+	public abstract ActionForward update(HttpServletRequest request, HttpServletResponse response);
+	
+	//delete
+	public abstract ActionForward delete(HttpServletRequest request, HttpServletResponse response);
+
+>>>>>>> origin/expert
 }

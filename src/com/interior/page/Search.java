@@ -1,13 +1,23 @@
 package com.interior.page;
 
+<<<<<<< HEAD
 //약간 SearchDTO 비슷한 페이지
 public class Search {
 		
 	private String kind;
+=======
+import java.util.HashMap;
+
+public class Search {
+	private String kind;
+	private String search;
+	
+>>>>>>> origin/expert
 	public String getKind() {
 		return kind;
 	}
 	public void setKind(String kind) {
+<<<<<<< HEAD
 		//스토어 s 사진 p 집들이 h 질문 q 전문가 e
 		if(kind == null) {
 			this.kind="store";
@@ -91,8 +101,33 @@ public class Search {
 			this.keyword="";
 		} else {
 			this.keyword=search;
+=======
+		if(kind==null) {
+			this.kind="title";
+		}else if(kind.equals("w")) {
+			this.kind="writer";
+		}else if(kind.equals("c")) {
+			this.kind="contents";
+		}else {
+			this.kind="title";
+		}
+		
+	}
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		if(search==null) {
+			this.search="";
+		}else {
+			this.search = search;
+>>>>>>> origin/expert
 		}
 	}
 	
 	
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/expert
 }

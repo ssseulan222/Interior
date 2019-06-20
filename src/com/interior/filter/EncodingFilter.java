@@ -33,6 +33,13 @@ public class EncodingFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+<<<<<<< HEAD
+=======
+		// TODO Auto-generated method stub
+		// place your code here
+
+		// pass the request along the filter chain
+>>>>>>> origin/expert
 		request.setCharacterEncoding(kind);
 		response.setCharacterEncoding(kind);
 		chain.doFilter(request, response);
@@ -42,7 +49,11 @@ public class EncodingFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
+<<<<<<< HEAD
 		kind = fConfig.getInitParameter("kind");
+=======
+		kind=fConfig.getInitParameter("kind");
+>>>>>>> origin/expert
 	}
 
 }
