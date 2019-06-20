@@ -124,8 +124,9 @@ public class ProductService {
 
 					// 'productUpload의 진짜 경로에 저장
 					String saveDirectory = request.getServletContext().getRealPath("productUpload");
-					
 
+					System.out.println(saveDirectory);
+					
 					// 'productUpload' 파일이 없으면 새로 만들기
 					File f = new File(saveDirectory);
 					if (!f.exists()) {

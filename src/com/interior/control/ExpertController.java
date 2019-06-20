@@ -39,7 +39,16 @@ public class ExpertController extends HttpServlet {
 		ActionForward actionForward = null;
 		if(command.equals("/ExpertJoin")) {
 		//	actionForward = expertService.insert(request, response);
-		}else {
+		}
+		
+		/* ------ 06.20 18:56 - 난슬 ----------*/
+		else if(command.equals("/ExpertMain")){
+			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/expert/ExpertMain.jsp");
+			view.forward(request, response);
+		}
+		/*---------------------------------*/
+		
+		else {
 			actionForward = new ActionForward();
 			actionForward.setCheck(true);
 			actionForward.setPath("../Main.do");

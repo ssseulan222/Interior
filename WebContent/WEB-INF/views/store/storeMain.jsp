@@ -133,7 +133,7 @@
 							<div class="productDiv">
 								<div class="productImageWrap">
 									<div class="productImageDiv">
-										<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${ar.uploadDTO.fname}" alt="${ar.uploadDTO.oname}">
+										<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${ar.uploadDTO.fname}" alt="${ar.uploadDTO.fname}">
 									</div>
 								</div>
 								<div class="productInfo">
