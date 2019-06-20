@@ -8,6 +8,16 @@ public class SearchMakePage {
 	private int curPage;
 	private Search search;
 	
+	  public SearchRow makeRow() {
+	      int startRow = (curPage-1)*perPage+1;
+	      int lastRow = curPage*perPage;
+	      SearchRow searchRow = new SearchRow();
+	      searchRow.setStartRow(startRow);
+	      searchRow.setLastRow(lastRow);
+	      searchRow.setSearch(search);
+	      return searchRow;
+	   }
+	
 	public SearchMakePage(int curPage, String kind, String search) {
 		this(10,curPage,kind,search);
 	}

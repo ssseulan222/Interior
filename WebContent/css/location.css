@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#locat{
+	display:none;
+	max-height: 425px;
+    overflow: auto;
+    position: absolute;
+    width: 200px;
+    min-height: 50px;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 16px rgba(0,0,0,.2);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.location{
+	display: block;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    box-sizing: border-box;
+    border: none;
+    background: #fff;
+    color: #424242;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+.location > span {
+	float: right;
+}
+.ul {
+	display:none;
+	max-height: 425px;
+    overflow: auto;
+    position: absolute;
+    right:50px;
+    width: 200px;
+    min-height: 50px;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 16px rgba(0,0,0,.2);
+    border-radius: 10px;
+    background-color: white;
+}

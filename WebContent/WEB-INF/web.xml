@@ -55,4 +55,20 @@
   <session-config>
     <session-timeout>300</session-timeout>
   </session-config>
+    <servlet>
+    <servlet-name>expert</servlet-name>
+    <servlet-class>com.interior.control.ExpertController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>expert</servlet-name>
+    <url-pattern>/expert/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>main</servlet-name>
+    <servlet-class>com.interior.control.MainController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>main</servlet-name>
+    <url-pattern>/Main.do</url-pattern>
+  </servlet-mapping>
 </web-app>
