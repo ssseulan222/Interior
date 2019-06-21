@@ -248,7 +248,12 @@
 }
 
 .section_con{
-	height: 600px;
+	width:100%;
+}
+
+.info{
+	width:100%;
+	
 }
 
 .menuFixed{
@@ -256,4 +261,7 @@
 	top:0px;
 }
 
-
+.selOption{
+	border-left: 1px solid lightgray;
+	height:80vh;
+}

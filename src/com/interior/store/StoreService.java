@@ -31,7 +31,10 @@ public class StoreService {
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
 		try {
 			con = DBConnect.getConnect();
-			ar=productDAO.productAllList(con);
+			SearchRow searchRow = new SearchRow();
+			searchRow.setStartRow(1);
+			searchRow.setLastRow(20);
+			ar=productDAO.productAllList(searchRow,con);
 			request.setAttribute("allProductAr", ar);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -58,6 +61,8 @@ public class StoreService {
 		String sort = request.getParameter("sort");
 		String seller = request.getParameter("seller");
 		SearchRow searchRow = new SearchRow();
+		searchRow.setStartRow(1);
+		searchRow.setLastRow(40);
 		int page = 0;
 		Connection con;
 

@@ -40,8 +40,14 @@
 			<!-- 이미지 -->
 			<div class="col-sm-6">
 				<div class="productImageWrap">
+					
 					<div class="productImageDiv">
-						<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${productDTO.uploadDTO.fname}" alt="${productDTO.uploadDTO.oname}">
+						<c:if test="${productDTO.uploadDTO.fname != null}">
+							<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${productDTO.uploadDTO.fname}">
+						</c:if>
+						<c:if test="${productDTO.uploadDTO.fname == null}">
+							<img class="productImage" src="<%=application.getContextPath() %>/img/empty.png">
+						</c:if>
 					</div>
 				</div>
 			</div>
@@ -150,7 +156,7 @@
 	           <section class="section">
 	           		<div class="section_con" id="s1">
 		           		<h3>상품정보</h3>
-		           		<div> ${productDTO.info}</div>    		
+		           		<div class="info"> ${productDTO.info}</div>    		
 	           		</div>
 	           		<div class="section_con" id="s2">
 	           			<h1>리뷰</h1>
@@ -160,7 +166,7 @@
 	           		</div>
 	           </section>
            	</div>
-           	<div class="vertical2 col-sm-4">
+           	<div class="vertical2 col-sm-4 selOption">
            		<h3>옵션선택</h3>
            	</div>
          
