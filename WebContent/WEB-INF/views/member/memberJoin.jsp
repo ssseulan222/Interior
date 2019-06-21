@@ -30,7 +30,7 @@
 			</div>
 			<div>
 				<!-- 전문가 페이지 이동 -->
-				<a class="form-radio-label" href="#"><input type="radio"> <span class="radio-img"></span>판매자회원가입
+				<a class="form-radio-label" href="<%=application.getContextPath()%>/seller/sellerJoin"><input type="radio"> <span class="radio-img"></span>판매자회원가입
 				</a>
 			</div>
 			<div>
