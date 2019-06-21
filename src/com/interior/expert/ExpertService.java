@@ -85,6 +85,50 @@ System.out.println("dd");
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public ActionForward selectLogin(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/view/expert/ExpertLogin.jsp");
+		
+		String method = request.getMethod();
+		int num = 0;
+		if(method.equals("POST")) {
+			String email = request.getParameter("emil");
+			String password = request.getParameter("password");
+			
+			Connection con = null;
+			try {
+				con = DBConnect.getConnect();
+				num = expertDAO.expertLogin(email, password, con);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			String path = "";
+			if(num != 0) {
+				request.setAttribute("num", num);
+				path = "../WEB-INF/views/expert/ExpertMain.jsp";
+			}else {
+				request.setAttribute("message", "Fail");
+				request.setAttribute("path", "./expertMain");
+				path="../WEB-INF/views/expert/ExpertLogin.jsp";
+			}
+			actionForward.setCheck(true);
+			actionForward.setPath(path);
+		}
+		
+		return actionForward;
+	}
 
 	@Override
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {

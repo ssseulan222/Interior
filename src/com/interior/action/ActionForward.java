@@ -1,6 +1,6 @@
 package com.interior.action;
 
-public class ActionForward {
+public class  ActionForward{
 
 	private String path;
 	private boolean check;
