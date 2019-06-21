@@ -167,17 +167,16 @@ public class ProductDAO {
 	
 	/*카테고리,판매자 상관없이 모든 상품들 : storeMain*/
 	/*SearchRow searchRow,*/
-	public List<ProductDTO> productAllList(Connection con) throws Exception{
+	public List<ProductDTO> productAllList(SearchRow searchRow,Connection con) throws Exception{
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
-		String sql="select * from "
-				+ "(select rownum r, c.* from "
-				+ "(select * from product join upload using(num)) c) "
-				+ "order by r desc"; ///*where r between ? and ?*/ 
+		String sql=	"select * from (select rownum r, c.* from "
+		+ "(select * from product join upload using(num)) c "
+		+ "order by r desc) where rownum between ? and ? order by r desc";
 		PreparedStatement st= con.prepareStatement(sql);
-		/*
+		
 		st.setInt(1, searchRow.getStartRow());
 		st.setInt(2, searchRow.getLastRow());
-		*/
+		
 		
 		ResultSet rs=st.executeQuery();
 		while(rs.next()) {

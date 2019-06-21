@@ -70,7 +70,13 @@
 							<div class="productDiv">
 								<div class="productImageWrap">
 									<div class="productImageDiv">
-										<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${ar.uploadDTO.fname}" alt="${ar.uploadDTO.oname}">
+										<c:if test="${ar.uploadDTO.fname != null}">
+											<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${ar.uploadDTO.fname}">
+										</c:if>
+										<c:if test="${ar.uploadDTO.fname == null}">
+											<img class="productImage" src="<%=application.getContextPath() %>/img/empty.png">
+										</c:if>
+										
 		
 									</div>
 								</div>

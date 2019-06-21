@@ -29,7 +29,7 @@
 	<div class="container">
 		<nav id="nav" class="col-sm-3">
 			<ul>
-				<li><a href="/store/storeCategory?category=1">가구</a></li>
+				<li><a href="/store/storeCategory">가구</a></li>
 				<li><a href="/store/storeCategory?category=2">패브릭</a></li>
 				<li><a href="/store/storeCategory?category=3">홈데코</a></li>
 				<li><a href="/store/storeCategory?category=4">가전</a></li>

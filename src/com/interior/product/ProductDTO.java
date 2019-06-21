@@ -23,7 +23,7 @@ public class ProductDTO {
 	private String sendPlace;
 	private String info;
 
-	 private UploadDTO uploadDTO; 
+	private UploadDTO uploadDTO; 
 	/*
 	private ProLiveDTO proLiveDTO;
 	private ProReviewDTO proReviewDTO;
