@@ -132,6 +132,7 @@ public class ExpertDAO {
 		st.setString(21, expertDTO.getRoute());
 		st.setInt(22, expertDTO.getC_check());
 		
+		System.out.println(expertDTO.getEmail());
 		result = st.executeUpdate();
 		
 		st.close();

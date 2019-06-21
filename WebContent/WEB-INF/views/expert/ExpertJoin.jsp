@@ -119,7 +119,7 @@
 						<p>중복선택 가능합니다.</p>
 						<br> <input type="button" value="사무공간" class="place">
 						<input type="button" value="상업공간" class="place"> <input
-							type="text" name="Space_type" id="place" class="selec">
+							type="text" name="space_type" id="place" class="selec">
 					</div>
 					<div id="q5">
 						<span>A/S기간을 얼마나 제공하시나요?</span><span class="necessary">필수</span><br>
@@ -137,7 +137,7 @@
 							type="button" value="10-14년" class="carreer"> <br> <input
 							type="button" value="15-19년" class="carreer"> <input
 							type="button" value="20년 이상" class="carreer"> <input
-							type="text" name="carreer" id="carreer" class="selec">
+							type="text" name="career" id="carreer" class="selec">
 					</div>
 					<div id="q7">
 						<span>시공이 가능한 최소금액은 얼마인가요?</span><span class="necessary">필수</span><br>
@@ -482,13 +482,13 @@
 						<span>업체를 한 줄로 소개해주세요.</span>
 						<p>업체이름과 함께 노출되는 한줄 소개 영역에 들어가는 내용입니다. 고객에게 남기실 업체만의 특별한 점을
 							소개해주세요!</p>
-						<input type="text" name="info">
+						<input type="text" name="present">
 					</div>
 					<div id="q4">
 						<span>운영하고 있는 홈페이지나 블로그가 있다면 주소를 입력해주세요.</span>
 						<p>주소를 적어주시면 블로그나 홈페이지에 있는 포트폴리오를 오늘의집에 연결해서 방문자들에게 더 다양한 컨텐츠를
 							제공할 수 있습니다.</p>
-						<input type="text" name="address">
+						<input type="text" name="homepage">
 
 						<div>
 							<input type="button" id="before1" class="n_btn" value="이전">
@@ -519,13 +519,13 @@
 								<option class="ad" value="icloud.com">icloud.com</option>
 						</select>
 						</span> <span id="addr"></span> <input type="text" name="address"
-							id="address" class="selec">
+							id="email" class="selec">
 					</div>
 					<div id="q2">
 						<span>사용하실 비밀번호를 입력해주세요.</span><span class="necessary">필수</span>
 						<p>8글자 이상이며 대문자, 소문자, 숫자, 특수문자 중 3가지가 포함되어야 합니다.</p>
-						<input type="password" name="p1"> <input type="password"
-							name="p2">
+						<input type="password" id="p1" name="password"> <input type="password"
+							id="p2">
 					</div>
 					<div id="q3">
 						<span>핸드폰번호를 입력해주세요.</span><span class="necessary">필수</span>
@@ -554,7 +554,7 @@
 						<span>대표 연락처를 입력해주세요.</span> <br> <input type="text"
 							class="r_ph">-<input type="text" class="r_ph">-<input
 							type="text" class="r_ph">
-							<input type="text" name="r_ph" id="r_phone">
+							<input type="text" name="r_phone" id="r_phone">
 					</div>
 					<div id="q3">
 						<span>사업장 주소를 알려주세요.</span><span class="necessary">필수</span><br>
