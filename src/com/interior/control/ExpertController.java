@@ -49,6 +49,10 @@ public class ExpertController extends HttpServlet {
 		}
 		/*---------------------------------*/
 		
+		else if(command.equals("/ExpertPresent")){
+			actionForward = expertService.selectList(request, response);
+		}
+		
 		else {
 			actionForward = new ActionForward();
 			actionForward.setCheck(true);

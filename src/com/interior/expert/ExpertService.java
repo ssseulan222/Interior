@@ -35,7 +35,7 @@ public class ExpertService implements Action{
 	@Override
 	public ActionForward list(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-System.out.println("dd");
+		System.out.println("dd");
 		int curPage=1;
 
 		try {
@@ -80,24 +80,32 @@ System.out.println("dd");
 		return actionForward;
 	}
 
+	public ActionForward selectList(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+
+
+
+		return actionForward;
+	}
+
 	@Override
 	public ActionForward select(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public ActionForward selectLogin(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-		
+
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/view/expert/ExpertLogin.jsp");
-		
+
 		String method = request.getMethod();
 		int num = 0;
 		if(method.equals("POST")) {
 			String email = request.getParameter("emil");
 			String password = request.getParameter("password");
-			
+
 			Connection con = null;
 			try {
 				con = DBConnect.getConnect();
@@ -113,7 +121,7 @@ System.out.println("dd");
 					e.printStackTrace();
 				}
 			}
-			
+
 			String path = "";
 			if(num != 0) {
 				request.setAttribute("num", num);
@@ -126,7 +134,7 @@ System.out.println("dd");
 			actionForward.setCheck(true);
 			actionForward.setPath(path);
 		}
-		
+
 		return actionForward;
 	}
 
@@ -138,7 +146,7 @@ System.out.println("dd");
 		actionForward.setPath("../WEB-INF/view/expert/ExpertJoin.jsp");
 
 		String method = request.getMethod();
-		
+
 		if(method.equals("POST")) {
 			String saveDirectory = request.getServletContext().getRealPath("upload");
 			System.out.println(saveDirectory);
@@ -185,7 +193,7 @@ System.out.println("dd");
 				expertDTO.setR_check(multipartRequest.getParameter("r_check"));
 				expertDTO.setRoute(multipartRequest.getParameter("route"));
 				expertDTO.setC_check(Integer.parseInt(multipartRequest.getParameter("c_check")));				
-				
+
 				con = DBConnect.getConnect();
 
 				int num = expertDAO.getNum();
@@ -193,7 +201,7 @@ System.out.println("dd");
 				con.setAutoCommit(false);
 
 				num = expertDAO.insert(expertDTO, con);
-				
+
 				for(UploadDTO uploadDTO : ar) {
 					uploadDTO.setNum(expertDTO.getNum());
 					num = uploadDAO.insert(uploadDTO, con);
@@ -227,19 +235,19 @@ System.out.println("dd");
 			actionForward.setPath("../Main.do");
 		}
 
-	return actionForward;
-}
+		return actionForward;
+	}
 
-@Override
-public ActionForward update(HttpServletRequest request, HttpServletResponse response) {
-	// TODO Auto-generated method stub
-	return null;
-}
+	@Override
+	public ActionForward update(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-@Override
-public ActionForward delete(HttpServletRequest request, HttpServletResponse response) {
-	// TODO Auto-generated method stub
-	return null;
-}
+	@Override
+	public ActionForward delete(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
