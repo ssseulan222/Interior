@@ -56,21 +56,23 @@ public class SellerService {
 			
 			int num=0;
 			Search search = new Search();
+			
 			search.setCategory(request.getParameter("category"));
 			String category=search.getCategory();
 			
-			search.setSort(request.getParameter("sort"));
+			search.setSort(request.getParameter("search"));
 			String sort=search.getSort();
 			
 			SearchRow searchRow = new SearchRow();
-			searchRow.setStartRow(0);
-			searchRow.setLastRow(5);
+			searchRow.setStartRow(1);
+			searchRow.setLastRow(8);
 			String seller = sellerDTO.getCompanyName();
 			
 			try {
 				
 				con=DBConnect.getConnect();
-				ar = productDAO.productList(sort, seller, searchRow, con);
+				ar = productDAO.productList(search, seller, searchRow, con);
+				System.out.println("search sort : "+search.getSort());
 				
 				request.setAttribute("ar", ar);	// sellerMain.jsp에서 ${requestScope.ar}로 받기
 		

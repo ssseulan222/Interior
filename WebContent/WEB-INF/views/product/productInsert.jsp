@@ -173,19 +173,19 @@
 				<div class="form-group">
 					<label for="delivery" class="col-sm-3">배송종류</label>
 					<div class="col-sm-9">
-						 <input type="text" id="delivery" name="delivery" class="form-control" placeholder="일반택배배송/우체국 택배 등">
+						 <input type="text" id="delivery" name="delivery" class="form-control" placeholder="일반택배배송/우체국 택배 등" value="일반택배">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="deliveryLocal" class="col-sm-3">배송불가지역</label>
 					<div class="col-sm-9">
-						 <input type="text" id="deliveryLocal" name="deliveryLocal" class="form-control" placeholder="배송불가 지역을 입력해주세요.">
+						 <input type="text" id="deliveryLocal" name="deliveryLocal" class="form-control" placeholder="배송불가 지역을 입력해주세요." value="없음">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="deliveryDiff" class="col-sm-3">지역별 차등배송비</label>
 					<div class="col-sm-9">
-						<input type="text" id="deliveryDiff" name="deliveryDiff" class="form-control" placeholder="배송비가 차등 부과되는 지역과 배송비를 입력해주세요">
+						<input type="text" id="deliveryDiff" name="deliveryDiff" class="form-control" placeholder="배송비가 차등 부과되는 지역과 배송비를 입력해주세요" value="없음">
 					</div>
 				</div>
 				
@@ -221,13 +221,13 @@
 				<div class="form-group">
 					<label for="returnFee" class="col-sm-3">반품배송비</label>
 					<div class="col-sm-9">
-						<input type="text" id="returnFee" name="returnFee" class="form-control">
+						<input type="text" id="returnFee" name="returnFee" class="form-control"><span class="unit">원</span>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="exchangeFee" class="col-sm-3">교환배송비</label>
 					<div class="col-sm-9">
-						<input type="text" id="exchangeFee" name="exchangeFee" class="form-control">
+						<input type="text" id="exchangeFee" name="exchangeFee" class="form-control"><span class="unit">원</span>
 					</div>
 				</div>
 

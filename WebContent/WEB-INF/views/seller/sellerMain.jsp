@@ -50,7 +50,7 @@
 				<h3>제품 리스트</h3>
 				<div>
 					<select>
-						<option value="new">최신순</option>
+						<option value="r">최신순</option>
 						<option value="sell">판매순</option>
 						<option value="popular">인기순</option>
 					</select>

@@ -31,7 +31,7 @@ public class Search {
 	}
 	public void setSort(String sort) {
 		if(sort==null) {
-			this.sort="new";
+			this.sort="r";
 		} else {
 			this.sort=sort;
 		}

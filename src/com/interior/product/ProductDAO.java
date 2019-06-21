@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.sound.sampled.Port;
 
+import com.interior.page.Search;
 import com.interior.page.SearchRow;
 import com.interior.product.ProductDTO;
 import com.interior.prosub.ProLiveDTO;
@@ -30,6 +31,7 @@ public class ProductDAO {
 			productDTO.setNum(rs.getInt("num"));
 			productDTO.setSeller(rs.getString("seller"));
 			productDTO.setBrandName(rs.getString("brandName"));
+			productDTO.setInfo(rs.getString("info"));
 
 			productDTO.setName(rs.getString("name"));
 			productDTO.setCategory(rs.getString("category"));
@@ -124,17 +126,19 @@ public class ProductDAO {
 	/* ------------ 끝 ----------------------- */
 	
 	/*판매자의 모든 제품 : sellerMain*/
-	public List<ProductDTO> productList(String sort, String seller, SearchRow searchRow, Connection con) throws Exception{
+	public List<ProductDTO> productList(Search search, String seller, SearchRow searchRow, Connection con) throws Exception{
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
-		String sql="select * from "
-				+ "(select rownum r, c.* from "
-				+ "(select * from product join upload using(num) where seller=? "
-				+ "order by ? desc) c) where r between ? and ?";
+		String sql="select * from (select rownum r, c.* from "
+				+ "(select * from product join upload using(num) where seller=?) c "
+				+ "order by r desc) where rownum between ? and ? order by r desc";
 		PreparedStatement st= con.prepareStatement(sql);
 		st.setString(1, seller);
-		st.setString(2, sort);
-		st.setInt(3, searchRow.getStartRow());
-		st.setInt(4, searchRow.getLastRow());
+		st.setInt(2, searchRow.getStartRow());
+		st.setInt(3, searchRow.getLastRow());
+		/*
+		 * st.setString(4, search.getSort()); System.out.println("dao list : "
+		 * +search.getSort());
+		 */
 		
 		ResultSet rs=st.executeQuery();
 		while(rs.next()) {
@@ -168,7 +172,7 @@ public class ProductDAO {
 		String sql="select * from "
 				+ "(select rownum r, c.* from "
 				+ "(select * from product join upload using(num)) c) "
-				+ "order by num desc"; ///*where r between ? and ?*/ 
+				+ "order by r desc"; ///*where r between ? and ?*/ 
 		PreparedStatement st= con.prepareStatement(sql);
 		/*
 		st.setInt(1, searchRow.getStartRow());
@@ -192,6 +196,7 @@ public class ProductDAO {
 			uploadDTO.setNum(rs.getInt("num"));
 			uploadDTO.setFname(rs.getString("fname"));
 			uploadDTO.setOname(rs.getString("oname"));
+			productDTO.setInfo(rs.getString("info"));
 			productDTO.setUploadDTO(uploadDTO);
 			
 			ar.add(productDTO);
@@ -202,7 +207,7 @@ public class ProductDAO {
 	
 	/*상품등록*/
 	public int productInsert(ProductDTO productDTO, Connection con) throws Exception{
-		String sql="insert into product values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into product values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, productDTO.getNum());
 		st.setString(2, productDTO.getSeller());
@@ -220,6 +225,7 @@ public class ProductDAO {
 		st.setString(14, productDTO.getReturnFee());
 		st.setString(15, productDTO.getExchangeFee());
 		st.setString(16, productDTO.getSendPlace());
+		st.setString(17, productDTO.getInfo());
 		
 		int res=st.executeUpdate();
 		return res;

@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>스토어홈</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/storeMain.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/storeMain.css">
 
 </head>
 <body>

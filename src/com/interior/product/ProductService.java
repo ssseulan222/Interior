@@ -168,6 +168,7 @@ public class ProductService {
 					productDTO.setPrice(multipartRequest.getParameter("price"));
 					productDTO.setSaleRate(multipartRequest.getParameter("saleRate"));
 					productDTO.setSalePrice(multipartRequest.getParameter("salePrice"));
+					productDTO.setInfo(multipartRequest.getParameter("info"));
 
 					productDTO.setPoint(multipartRequest.getParameter("point"));
 					productDTO.setDelivery(multipartRequest.getParameter("delivery"));

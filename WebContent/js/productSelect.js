@@ -7,6 +7,23 @@ function loadJQuery() {
 }
 
 $(function() {
-
-
+	$('.navmenu').click(function(){
+		var seq=$(this).attr('id');
+		/*해당 섹션의 offset(위에서부터 높이)*/
+		var offset = $('#s'+seq).offset().top;
+		alert(offset);
+		$('body').animate({scrollTop : offset}, 400);
+	});
+	
+	//상단바 고정
+	 $( window ).scroll( function() {
+		 
+         if ( $( document ).scrollTop() > $('.detailBar').offset().top) {
+           $( '.nav' ).addClass( 'menuFixed' );
+         }
+         else {
+           $( '.nav' ).removeClass( 'menuFixed' );
+         }
+       });
+	
 });

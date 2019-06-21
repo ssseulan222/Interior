@@ -21,8 +21,9 @@ public class ProductDTO {
 	private String returnFee;
 	private String exchangeFee;
 	private String sendPlace;
+	private String info;
 
-	private UploadDTO uploadDTO;
+	 private UploadDTO uploadDTO; 
 	/*
 	private ProLiveDTO proLiveDTO;
 	private ProReviewDTO proReviewDTO;
@@ -156,12 +157,18 @@ public class ProductDTO {
 		this.sendPlace = sendPlace;
 	}
 
-	public UploadDTO getUploadDTO() {
-		return uploadDTO;
+	
+	  public UploadDTO getUploadDTO() { return uploadDTO; }
+	  
+	  public void setUploadDTO(UploadDTO uploadDTO) { this.uploadDTO = uploadDTO; }
+	 
+
+	public String getInfo() {
+		return info;
 	}
 
-	public void setUploadDTO(UploadDTO uploadDTO) {
-		this.uploadDTO = uploadDTO;
+	public void setInfo(String info) {
+		this.info = info;
 	}
 
 

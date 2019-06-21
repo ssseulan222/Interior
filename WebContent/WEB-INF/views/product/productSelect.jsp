@@ -9,7 +9,9 @@
 <title>${productDTO.name}</title>
 <link rel="stylesheet"href="<%=request.getContextPath()%>/css/productSelect.css">
 <script src="<%=request.getContextPath()%>/js/productSelect.js"></script>
+<script type="text/javascript">
 
+</script>
 </head>
 <body>
 
@@ -125,24 +127,44 @@
 			
 		</div>
 		
-		<div class="col-sm-12" id="detail">
+		<div class="col-sm-12 header" id="detail">
 			<!-- 메뉴바 -->
-			<div data-spy="scroll" data-target=".navbar" id="nav">
-				<nav class="navbar navbar-inverse">
-					<ul class="nav navbar-nav" id="myNavBar">
-						<li><a href="#product">상품정보</a></li>
-						<li><a href="#review">리뷰</a></li>
-						<li><a href="#order">배송/교환/환불</a>
-					</ul>
-				</nav>
-				
-				<div id="product" style="heigt:1000px;">상품정보</div>
-				<div id="review" style="heigt:1000px;">리뷰</div>
-				<div id="order" style="heigt:1000px;">배송/교환/환불</div>
-					
+			
+			<div class="detailBar">
+
+					<nav class="nav col-sm-12">
+						<ul class="ul">
+							<li class="navmenu" id="1">상품정보</li>
+							<li class="navmenu" id="2">리뷰</li>
+							<li class="navmenu" id="3">배송/교환/환불</li>
+							<li class="navmenu" id="4"></li>
+							<li class="navmenu" id="5"></li>
+						</ul>
+					</nav>	
+		
 			</div>
+			
+			
+			
+			<div class="vertical2 col-sm-8">
+	           <section class="section">
+	           		<div class="section_con" id="s1">
+		           		<h3>상품정보</h3>
+		           		<div> ${productDTO.info}</div>    		
+	           		</div>
+	           		<div class="section_con" id="s2">
+	           			<h1>리뷰</h1>
+	           		</div>
+	           		<div class="section_con"  id="s3">
+	           			<h1>배송/교환/환불</h1>
+	           		</div>
+	           </section>
+           	</div>
+           	<div class="vertical2 col-sm-4">
+           		<h3>옵션선택</h3>
+           	</div>
+         
 		</div>
-	
 	</div>
 	<%-- <jsp:include page="../common/footer.jsp" /> --%>
 
