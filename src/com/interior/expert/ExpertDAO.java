@@ -165,12 +165,22 @@ public class ExpertDAO {
 		return check;
 	}
 	
-	public ExpertDTO expertLogin(String id, String pw, Connection con)throws Exception{
-		ExpertDTO expertDTO = null;
+	public int expertLogin(String email, String password, Connection con)throws Exception{
+		int num = 0;
 		
 		String sql = "select * from expert where email=? and password=?";
 		
-		return expertDTO;
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, email);
+		st.setString(2, password);
+		
+		ResultSet rs = st.executeQuery();
+		if (rs.next()) {
+			num = rs.getInt("num");
+		}
+		rs.close();
+		st.close();
+		return num;
 	}
 	
 }
