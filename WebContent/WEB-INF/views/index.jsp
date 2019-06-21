@@ -1,51 +1,144 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<title>프로젝트홈</title>
+<title>커뮤니티 홈</title>
+<c:import url="../views/common/bootstrap.jsp" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/index.css">
+
+ <script type="text/javascript">
+
+
+
+</script>
+
 </head>
 <body>
-<div>
-<jsp:include page="./common/header.jsp" />
-</div>
-	<div style="width: 50%; margin-left: 500px">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br> 
-		<a href="<%=application.getContextPath()%>/store/storeMain">스토어홈</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/store/storeCategory">카테고리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/store/storeRanking">랭킹</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/expert/ExpertMain">전문가메인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<c:if test="${sessionScope.sellerDTO.id == null}"> 
-		<a href="<%=application.getContextPath()%>/seller/sellerJoin">판매자회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/seller/sellerLogin">판매자로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<br><br><br>
-		<a href="#">일반로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="#">전문가로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		</c:if>
-		<c:if test="${sessionScope.sellerDTO.id != null}">
-		<p>${sessionScope.sellerDTO.id}님 환영합니다</p>
-		<a href="<%=application.getContextPath()%>/seller/sellerLogout">로그아웃</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/seller/sellerMain">판매자페이지</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		</c:if>
+<c:import url="../views/common/header.jsp" />
+
+	<div class="container">
+	<!-- 메인 이미지 -->
+	<div class="main_image">
+		<div class="sample_image">
+		    <img src="<%=request.getContextPath() %>/img/s1.jpeg" id="img_1" style="width: 800px; height: 500px;">
+		</div>   
+		    
+		  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 300px; height: 500px; display: inline-block;">
+		    <!-- Indicators -->
+		    <ol class="carousel-indicators">
+		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		      <li data-target="#myCarousel" data-slide-to="1"></li>
+		      <li data-target="#myCarousel" data-slide-to="2"></li>
+		      <li data-target="#myCarousel" data-slide-to="3"></li>
+		      <li data-target="#myCarousel" data-slide-to="4"></li>
+		    </ol>
 		
-	</div>
+		    <!-- Wrapper for slides -->
+		    <div class="carousel-inner">
+		      <div class="item active">
+		        <img src="<%=request.getContextPath() %>/img/p1.png" style="width: 300px; height: 500px;">
+		      </div>
+		
+		      <div class="item">
+		        <img src="<%=request.getContextPath() %>/img/p2.png" style="width: 300px; height: 500px;">
+		      </div>
+		    
+		      <div class="item">
+		        <img src="<%=request.getContextPath() %>/img/p3.png" style="width: 300px; height: 500px;">
+		      </div>
+		      
+		      <div class="item">
+		        <img src="<%=request.getContextPath() %>/img/p4.png" style="width: 300px; height: 500px;">
+		      </div>
+		      
+		      <div class="item">
+		        <img src="<%=request.getContextPath() %>/img/p5.png" style="width: 300px; height: 500px;">
+		      </div>				      				      
+		      
+		    </div>
+		
+		    <!-- Left and right controls -->
+		    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		      <span class="glyphicon glyphicon-chevron-left"></span>
+		      <span class="sr-only">Previous</span>
+		    </a>
+		    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+		      <span class="glyphicon glyphicon-chevron-right"></span>
+		      <span class="sr-only">Next</span>
+		    </a>
+		  </div>
+			
+		 </div>
+	</div> <!--  end container-->
+	
+		  <div class="category">
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d1.jpg"></a>
+		    		<div class="text">신혼가구</div>
+		    </div>
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d2.jpg"></a>
+		    		<div class="text">쇼핑하기</div>
+		    </div>
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d3.jpg"></a>
+		    		<div class="text">평수별집구경</div>
+		    </div>		    
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d4.jpg"></a>
+		    		<div class="text">공간별사진</div>
+		    </div>
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d5.jpg"></a>
+		    		<div class="text">시공업체찾기</div>
+		    </div>			    
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d6.jpg"></a>
+		    		<div class="text">시공견적계산</div>
+		    </div>			  
+		  
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d7.jpg"></a>
+		    		<div class="text">셀프가이드</div>
+		    </div>	
+		    
+		    <div class="i1">
+		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d8.jpg"></a>
+		    		<div class="text">질문과답변</div>
+		    </div>			  
+		</div>
+
+		<div class="story">오늘의 스토리<br>
+		
+	<!-- 		<div class="s1">
+				<a href=""><img alt="이미지1" src=""></a>
+			</div>
+			
+			<div class="s1">
+				<a href=""><img alt="이미지2" src=""></a>
+			</div>
+			
+			<div class="s1">
+				<a href=""><img alt="이미지3" src=""></a>
+			</div>
+			
+			<div class="s1">
+				<a href=""><img alt="이미지4" src=""></a>
+			</div>			
+		 -->
+		</div>
+	
+
+    
+    
 </body>
 </html>

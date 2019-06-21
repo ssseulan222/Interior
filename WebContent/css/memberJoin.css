@@ -1,0 +1,188 @@
+@charset "UTF-8";
+#member_wrap {
+		width: 360px;
+		margin-right: auto;
+		margin-left: auto;
+		max-width: 100%;
+		box-sizing: border-box;
+		min-height: 1px;
+		font-size: 15px;
+	}
+	
+	.result_font {
+		color: #F77;
+		font-size: 13px;
+	}
+	
+	.form-group {
+		width: 100%;
+		margin-bottom: 5px;
+	}
+	
+	#font_pw {
+		font-size: 11px;
+	}
+	
+	.form-control {
+		width: 100%;
+	}
+	
+	#has-account {
+		text-align: : center;
+		text-decoration: none;
+	}
+	
+	.underline {
+		text-decoration: underline;
+		color: inherit;
+	}
+	
+	.font_block {
+		width: 100%;
+		margin-bottom: 20px;
+		margin-top: 10px;
+	}
+	
+	.check_font {
+		margin-bottom: 10px;
+	}
+	main {
+	    margin-top: 60px;
+	    margin-bottom: 60px;
+	}
+	.form-control {
+	    transition: .2s border-color, .2s box-shadow, .2s background-color;
+	    display: block;
+	    box-sizing: border-box;
+	    height: 40px;
+	    width: 100%;
+	    padding: 0 15px;
+	    line-height: 40px;
+	    border-radius: 10px;
+	    border: solid 1px #dbdbdb;
+	    background-color: white;
+	    color: #424242;
+	    font-size: 12px;
+	}
+	.email-control{
+		display:inline-block;
+		width: 46%;
+		transition: .2s border-color, .2s box-shadow, .2s background-color;
+	    box-sizing: border-box;
+	    height: 40px;
+	    padding: 0 15px;
+	    line-height: 40px;
+	    border-radius: 10px;
+	    border: solid 1px #dbdbdb;
+	    background-color: white;
+	    color: #424242;
+	    font-size: 12px;
+	}
+	.signup-form__policy{
+		margin-bottom: 30px;
+		margin-top: 40px;
+	}
+	.signup-form__policy__check-all {
+	    height: 22px;
+	    line-height: 22px;
+	    position: relative;
+	    margin-bottom: 15px;
+	}
+	.bold {
+	    font-weight: bold;
+	}
+	.signup-form__policy__check-all>.form-check {
+	    position: absolute;
+	    right: 15px;
+	    top: 0;
+	}
+	.form-check-label {
+	    cursor: pointer;
+	    display: block;
+	    margin-bottom: 10px;
+	    padding-left: 32px;
+	    min-height: 22px;
+	    line-height: 22px;
+	    position: relative;
+	}
+	
+	.check-img {
+	    box-sizing: border-box;
+	    height: 22px;
+	    width: 22px;
+	    border-radius: 4px;
+	    background-color: white;
+	    border: solid 1px #dbdbdb;
+	    display: block;
+	    transition: .2s ease;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	}
+	.signup-form__policy__policy-list{
+		border: solid 1px #dbdbdb;
+	    padding: 15px;
+	    box-sizing: border-box;
+	}
+	.signup-form__policy__more-14__form-check{
+		position: absolute;
+		right: 0;
+		top : 0;
+	}
+	.signup-form__policy__policy-item{
+		min-height: 22px;
+	    position: relative;
+	    line-height: 22px;
+	}
+	.text-red {
+    	color: #F77;
+	}
+	.form-check{
+		position: absolute;
+    right: 0;
+    top: 0;
+	}
+	.text-gray-light {
+	    color: #bdbdbd;
+	}
+	.check-img:after {
+	    content: "";
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%, -50%);
+	    box-sizing: border-box;
+	    display: block;
+	    width: 14px;
+	    height: 14px;
+	    background-size: 14px;
+	    background-color : blue;
+	    background-image: url(../img/ic-checkbox.png);
+	    opacity: 0;
+	}
+	#join {
+	    width: 100%;
+	    margin-bottom: 30px;
+	}
+	.btn-priority {
+	    background-color: #35C5F0;
+	    border-color: #35C5F0;
+	    color: white;
+	}
+	.btn-lg {
+	    line-height: 1;
+	    height: 70px;
+	    padding: 26px 0;
+	    font-size: 18px;
+	}
+	.btn {
+		margin-top : 20px;
+	    box-sizing: border-box;
+	    display: inline-block;
+	    padding: 0;
+	    border-width: 1px;
+	    border-style: solid;
+	    text-align: center;
+	    border-radius: 4px;
+	    font-weight: bold;
+	}

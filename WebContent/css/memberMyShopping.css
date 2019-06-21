@@ -1,0 +1,223 @@
+@charset "UTF-8";
+body{
+		margin-top: 50px;
+	}
+	.my-mileage{
+		max-width: 800px;
+		padding: 15px 0;
+		height: 80px;
+		width: 100%;
+	    margin: 30px auto 0;
+	    background-color: #ffffff;
+	    box-sizing: border-box;
+	    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+	    overflow: hidden;
+	}
+	.icon{
+		position: relative;
+		display: inline-block;
+	}
+	.slot{
+		display: block;
+	    float: left;
+	    padding: 8px 0;
+	    box-sizing: border-box;
+	    cursor: pointer;
+	    width: 33.3%;
+	    height: 50px;
+	    text-align: center;
+	    font-size: 0;
+	}
+	.coupon{
+		width: 54px;
+	    height: 34px;
+	    background-image: url(https://d1nyaccf3kuclt.cloudfront.net/assets/icon_map/icon-point.png);
+	    background-repeat: no-repeat;
+	    background-size: 400px;
+	    background-position: top 0 left 0;
+	}
+	.inform{
+		display: inline-block;
+	    margin-left: 15px;
+	    font-size: 16px;
+	    line-height: 34px;
+	    vertical-align: top;
+	}
+	.count{
+		display: inline-block;
+	    margin-left: 10px;
+	    font-size: 16px;
+	    font-weight: bold;
+	    color: #35c5f0;
+	    line-height: 34px;
+	    vertical-align: top;
+	}
+	.center{
+	    border-left: 1px solid #dcdcdc;
+    	border-right: 1px solid #dcdcdc;
+	}
+	.mileage{
+		width: 54px;
+	    height: 34px;
+	    background-image: url(https://d1nyaccf3kuclt.cloudfront.net/assets/icon_map/icon-point.png);
+	    background-repeat: no-repeat;
+	    background-size: 400px;
+	    background-position: top 0 left -74px;
+	}
+	.icon-promotion-welcome{
+		width :54px;
+		height : 35px;
+	    background-position: top -48px left -100px;
+		background-image: url(/assets/icon_map/v3/icon-point.png);
+	}
+	.not-mobile{
+		display: block;
+	}
+	.invite-code{
+		overflow: hidden;
+    	position: relative;
+		max-width: 800px;
+		width: 100%;
+	    margin: 30px auto 0;
+	    background-color: #ffffff;
+	    box-sizing: border-box;
+	    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+	    overflow: hidden;
+	}
+	.invite-code>.slot{
+		display: block;
+	    float: left;
+	    margin: 15px 0;
+	    box-sizing: border-box;
+	    height: 50px;
+	    width: 33.3%;
+	    text-align: center;
+	}
+	.title{
+		font-size: 18px;
+	    font-weight: bold;
+	    line-height: 30px;
+	    color: #3c3c3c;
+	    margin-right: 5px;
+	}
+	.code{
+		font-size: 16px;
+		line-height: 30px;
+		text-align: left;
+	    color: #3c3c3c;
+	}
+	.invite-code div{
+		display: inline-block;
+	}
+	.description{
+		display: inline-block;
+    	font-size: 16px;
+	    color: #3c3c3c;
+    	line-height: 30px;
+	    margin-right: 30px;
+	}
+	.slot.double{
+		width: 66.6%;
+    	border-left: 1px solid #dcdcdc;
+	}
+	.information>a{
+		width: 140px;
+	    height: 40px;
+	    line-height: 30px;
+	    background-color: #35c5f0;
+	    color: #ffffff;
+	    display: inline-block;
+	    border-radius: 4px;
+	    font-weight: bold;
+	}
+	.order-status{
+		padding: 0 45px;
+		text-align: center;
+		max-width: 800px;
+		width: 100%;
+	    margin: 30px auto 0;
+	    background-color: #ffffff;
+	    box-sizing: border-box;
+	    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+	    overflow: hidden;
+		}
+	.step{
+		float: left;
+		margin: 39px 0 33px;
+		cursor: pointer;
+	}
+	.step>.title{
+		font-size: 16px;
+	    line-height: 21px;
+	    width: 75px;
+	    color: #424242;
+	    margin: 0 0 33px;
+	}
+	.step>.count{
+		font-size: 24px;
+	    line-height: 24px;
+	    color: #35c5f0;
+	}
+	.image-arrow{
+		margin: 62.5px 15.5px;
+		display: block;
+	    float: left;
+	    width: 15px;
+	    height: 25px;
+	    background-image: url(https://d1nyaccf3kuclt.cloudfront.net/assets/icon_map/icon-pointer.png);
+	    background-repeat: no-repeat;
+	    background-size: 400px;
+	    background-position: top -35px left -351px;
+	}
+	.order-list-set{
+		padding: 30px 20px 40px;
+		margin-bottom: 30px;
+		max-width: 800px;
+		width: 100%;
+	    margin: 30px auto 0;
+	    background-color: #ffffff;
+	    box-sizing: border-box;
+	    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+	    overflow: hidden;
+	}
+	.order-filter{
+		overflow: hidden;
+		padding-bottom: 30px;
+	}
+	.order-filter>select{
+		width: 170px;
+	    height: 40px;
+	    margin-right: 15px;
+	    padding: 0 15px;
+	    float: left;
+	    font-size: 16px;
+	    line-height: 40px;
+	    color: #424242;
+	    border: 1px solid #dcdcdc;
+	    background-image: url(https://d1nyaccf3kuclt.cloudfront.net/assets/select_arrow.png);
+	    background-color: #ffffff;
+	    background-repeat: no-repeat;
+	    background-position: calc(100% - 15px);
+	    background-size: 18px;
+	}
+	option{
+		font-weight: normal;
+	    display: block;
+	    white-space: pre;
+	    min-height: 1.2em;
+	    padding: 0px 2px 1px;
+	}
+	.banner{
+		display: block;
+	    height: 80px;
+	    width: 100%;
+	    margin: 0 auto;
+	    background-size: cover;
+	    background-position: center;
+	}
+	.not-have-result{
+		padding: 40px 0 20px;
+		text-align: center;
+		font-size: 18px;
+		color: #424242;
+	}

@@ -383,6 +383,6 @@
 		<button class="moreBtn" type="button">더보기</button>
 	</div>
 </div>
-<jsp:include page="../common/footer.jsp" />
+<%-- <jsp:include page="../common/footer.jsp" /> --%>
 </body>
 </html>

@@ -14,7 +14,7 @@
   </filter-mapping>
   <servlet>
     <servlet-name>home</servlet-name>
-    <servlet-class>com.interior.control.HomeController</servlet-class>
+    <servlet-class>com.interior.community.control.HomeController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>home</servlet-name>
@@ -71,4 +71,43 @@
     <servlet-name>main</servlet-name>
     <url-pattern>/Main.do</url-pattern>
   </servlet-mapping>
-</web-app>
+
+ <servlet>
+    <servlet-name>write</servlet-name>
+    <servlet-class>com.interior.community.control.WriteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>write</servlet-name>
+    <url-pattern>/write/*</url-pattern>
+  </servlet-mapping>
+  
+  <context-param>
+    <param-name>view</param-name>
+    <param-value>../WEB-INF/views/</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>member</servlet-name>
+    <servlet-class>com.interior.community.control.MemberController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>member</servlet-name>
+    <url-pattern>/member/*</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>homeparty</servlet-name>
+    <servlet-class>com.interior.community.control.HomepartyController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>homeparty</servlet-name>
+    <url-pattern>/homeparty/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>qna</servlet-name>
+    <servlet-class>com.interior.community.control.QnaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>qna</servlet-name>
+    <url-pattern>/qna/*</url-pattern>
+  </servlet-mapping>
+ 
+  </web-app>

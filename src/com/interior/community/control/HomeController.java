@@ -1,4 +1,4 @@
-package com.interior.control;
+package com.interior.community.control;
 
 import java.io.IOException;
 
@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+		//메인 컨트롤러
 /**
  * Servlet implementation class HomeController
  */

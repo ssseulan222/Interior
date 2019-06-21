@@ -1,0 +1,60 @@
+@charset "UTF-8";@charset "UTF-8";
+#header {
+	width: 100%;
+	height: 300px;
+	margin-top:100px;
+	background-color: whitesmoke;
+	
+}
+.title {
+	width:300px;
+	height:50px;
+	margin: 0 auto;
+	font-weight: bold;
+}
+.title_sub {
+	width:500px;
+	height:50px;
+	margin: 0 auto;
+	font-size : 15px;
+}
+.input-group {
+	width: 730px;
+	margin: 0 auto;
+	
+}
+.tag {
+	width:500px;
+	margin-top: 30px;
+	margin-left: 210px;
+}
+#keyword {
+	margin-left: 73%;
+	font-weight: bold;
+}
+#hiddenList {
+	margin-top:20px;
+	margin-left: 180px;
+}
+#hiddenList li {
+	list-style: none;
+	margin-left: 20px;
+	float: left;
+	display: inline;
+	
+}
+.c1 {
+	font-weight: bold;
+}
+.qna_btn {
+	margin-left: 70%;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.contents {
+	width: 50%;
+	margin: 0 auto;
+	
+}
+
