@@ -29,6 +29,20 @@ public class ProductService {
 		uploadDAO = new UploadDAO();
 	}
 	
+	public ActionForward productOrder(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		String path="";
+		boolean check=true;
+		String command=request.getMethod();
+		if(command.equals("GET")) {
+			path="../WEB-INF/views/product/productOrder.jsp";
+		}
+		
+		actionForward.setPath(path);
+		actionForward.setCheck(check);
+		return actionForward;
+	}
+	
 	public ActionForward productSelect(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		String path = "";
@@ -248,11 +262,7 @@ public class ProductService {
 		return actionForward;
 	}
 
-	public ActionForward productOrder(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward = new ActionForward();
-
-		return actionForward;
-	}
+	
 
 	public ActionForward productBasket(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();

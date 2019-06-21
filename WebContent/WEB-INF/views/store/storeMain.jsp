@@ -54,34 +54,77 @@
 			<h3>카테고리</h3>
 			<!-- 13개 ///// 수정 : 카테고리 사이트에 있는 분류랑 동일하게 함-->
 			<div id="category">
-				<a href="./storeCategory?category=1"><span class="cat"> <img
-						src="<%=request.getContextPath()%>/img/c1.PNG"><br> <span
-						class="cat-name">가구</span>
-				</span></a> <a><span class="cat"> <img
-						src="<%=request.getContextPath()%>/img/c2.PNG"><br> <span
-						class="cat-name">패브릭</span>
-				</span></a> <a><span class="cat"> <img
-						src="<%=request.getContextPath()%>/img/c3.PNG"><br> <span
-						class="cat-name">홈데코</span>
-				</span></a> <a><span class="cat"> <img
-						src="<%=request.getContextPath()%>/img/c4.PNG"><br> <span
-						class="cat-name">가전</span>
-				</span></a> <a><span class="cat"> <img
-						src="<%=request.getContextPath()%>/img/c5.PNG"><br> <span
-						class="cat-name">수납/생활</span>
-				</span></a> <a><span class="cat"> <img
-						src="<%=request.getContextPath()%>/img/c6.PNG"><br> <span
-						class="cat-name">주방</span>
-				</span></a> <a><span class="cat"> <img
-						src="<%=request.getContextPath()%>/img/c7.PNG"><br> <span
-						class="cat-name">DIY자재</span>
-				</span></a> <a><span class="cat"> <img
-						src="<%=request.getContextPath()%>/img/c8.PNG"><br> <span
-						class="cat-name">주문제작</span>
-				</span></a> <a><span class="cat"> <img
-						src="<%=request.getContextPath()%>/img/c9.PNG"><br> <span
-						class="cat-name">반려동물</span>
-				</span></a>
+				<a href="./storeCategory?category=1">
+					<span class="cat"> 
+						<img src="<%=request.getContextPath()%>/img/c1.PNG">
+						<br>
+						<span class="cat-name">가구</span>
+					</span>
+				</a> 
+				<!-- ---------------------------------------------------------- -->
+				<a href="./storeCategory?category=2">
+					<span class="cat"> 
+						<img src="<%=request.getContextPath()%>/img/c2.PNG">
+						<br> 
+						<span class="cat-name">패브릭</span>
+					</span>
+				</a> 
+				<!-- ---------------------------------------------------------- -->
+				<a href="./storeCategory?category=3">
+					<span class="cat"> 
+						<img src="<%=request.getContextPath()%>/img/c3.PNG">
+						<br> 
+						<span class="cat-name">홈데코 </span>
+					</span>
+				</a> 
+				<!-- ---------------------------------------------------------- -->
+				<a href="./storeCategory?category=4">
+					<span class="cat"> 
+					<img src="<%=request.getContextPath()%>/img/c4.PNG">
+					<br> 
+					<span class="cat-name">가전</span>
+					</span>
+				</a> 
+				<!-- ---------------------------------------------------------- -->
+				<a href="./storeCategory?category=5">
+					<span class="cat"> 
+						<img src="<%=request.getContextPath()%>/img/c5.PNG">
+						<br> 
+						<span class="cat-name">수납/생활 </span>
+					</span>
+				</a> 
+				<!-- ---------------------------------------------------------- -->
+				<a href="./storeCategory?category=6">
+					<span class="cat"> 
+						<img src="<%=request.getContextPath()%>/img/c6.PNG">
+						<br> 
+						<span class="cat-name">주방</span>
+					</span>
+				</a> 
+				<!-- ---------------------------------------------------------- -->
+				<a href="./storeCategory?category=7">
+					<span class="cat"> 
+						<img src="<%=request.getContextPath()%>/img/c7.PNG">
+						<br> 
+						<span class="cat-name">DIY자재</span>
+					</span>
+				</a> 
+				<!-- ---------------------------------------------------------- -->
+				<a href="./storeCategory?category=8">
+					<span class="cat"> 
+						<img src="<%=request.getContextPath()%>/img/c8.PNG">
+						<br> 
+						<span class="cat-name">주문제작</span>
+					</span>
+				</a> 
+				<!-- ---------------------------------------------------------- -->
+				<a href="./storeCategory?category=9">
+					<span class="cat"> 
+						<img src="<%=request.getContextPath()%>/img/c9.PNG">
+						<br> 
+						<span class="cat-name">반려동물</span>
+					</span>
+				</a>
 
 			</div>
 		</div>

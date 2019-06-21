@@ -25,5 +25,8 @@ $(function() {
            $( '.nav' ).removeClass( 'menuFixed' );
          }
        });
-	
+	 
+	$('#buy').click(function() {
+		location.href="./productOrder";
+	});
 });
