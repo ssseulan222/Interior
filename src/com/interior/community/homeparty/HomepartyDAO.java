@@ -2,14 +2,17 @@ package com.interior.community.homeparty;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 
 
 public class HomepartyDAO {
+	
+	
 	public int insert(HomepartyDTO homepartyDTO, Connection con)throws Exception{
 		int result=0;
 		String sql ="insert into homeparty (num, title, place, floor, work, workexpert, field, family, "
-				+ "style,term,money,color,wallcolor,floorcolor,detail,location,copywrite) " + 
-				"values(homeparty_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "style,term,money,color,wallcolor,floorcolor,detail,location) " + 
+				"values(homeparty_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, homepartyDTO.getTitle());
 		st.setString(2, homepartyDTO.getPlace());
@@ -26,7 +29,6 @@ public class HomepartyDAO {
 		st.setString(13, homepartyDTO.getFloorcolor());
 		st.setString(14, homepartyDTO.getDetail());
 		st.setString(15, homepartyDTO.getLocation());
-		st.setString(16, homepartyDTO.getCopywrite());
 		result = st.executeUpdate();
 		st.close();
 		return result;

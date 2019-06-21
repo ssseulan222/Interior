@@ -35,9 +35,9 @@ public class WriteController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ActionForward actionForward = null;
 		String command = request.getPathInfo();
-		//System.out.println("11");
+		System.out.println("11");
 		if(command.equals("/WriteHome")) {
-			//System.out.println("22");
+			System.out.println("22");
 			actionForward = writeService.list(request, response);
 		}
 		

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.interior.community.page.SearchRow;
+import com.interior.community.upload.UploadDTO;
 import com.interior.community.util.DBConnector;
 public class QnaDAO {
 
@@ -34,6 +35,21 @@ public class QnaDAO {
 	
 	
 	//update(QnaDTO qnaDTO, Connection con): int
+	public int update(QnaDTO qnaDTO, Connection con) throws Exception {
+		int result = 0;
+		String sql = "update qna set title=?, contents=? where num=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, qnaDTO.getTitle());
+		st.setString(2, qnaDTO.getContents());
+		st.setInt(3, qnaDTO.getNum());
+		
+		result = st.executeUpdate();
+		st.close();
+		
+		
+		return result;
+	}
 
 	
 	
@@ -88,6 +104,7 @@ public class QnaDAO {
 		rs.close();
 		st.close();
 		
+		
 		return ar;
 	}
 	
@@ -109,10 +126,16 @@ public class QnaDAO {
 			qnaDTO.setReg_date(rs.getDate("reg_date"));
 			qnaDTO.setHit(rs.getInt("hit"));
 			qnaDTO.setTag(rs.getString("tag"));
+			
+			//UploadDTO uploadDTO = new UploadDTO();
+			//uploadDTO.setFname(rs.getString("fname"));
+			//uploadDTO.setOname(rs.getString("oname"));
+			//uploadDTO.setNum(rs.getInt("num"));
+			//uploadDTO.setPnum(rs.getInt("pnum"));
+			
 		}
 		rs.close();
 		st.close();
-		
 		
 		return qnaDTO;
 	}
@@ -128,6 +151,7 @@ public class QnaDAO {
 		rs.next();
 		result = rs.getInt(1);
 		DBConnector.disConnect(rs, st, con);
+		
 		
 		return result;
 	

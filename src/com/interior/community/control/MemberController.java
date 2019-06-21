@@ -36,11 +36,7 @@ public class MemberController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command = request.getPathInfo();
 		ActionForward actionForward = new ActionForward();
-		if(command.equals("/memberJoinlist")) {
-			//System.out.println("22222");
-			actionForward = memberService.list(request, response);
-			
-		}else if(command.equals("/memberJoin")) {
+		if(command.equals("/memberJoin")) {
 			actionForward = memberService.insert(request, response);
 		}else if(command.equals("/memberDelete")) {
 			actionForward = memberService.delete(request, response);
@@ -52,8 +48,6 @@ public class MemberController extends HttpServlet {
 			actionForward = memberService.nicknameCheck(request, response);
 		}else if(command.equals("/memberemailCheck")) {
 			actionForward = memberService.emailCheck(request, response);
-		}else if(command.equals("/memberLoginlist")) {
-			actionForward = memberService.Loginlist(request, response);
 		}else if(command.equals("/memberLoginData")) {
 			actionForward = memberService.memberLoginData(request, response);
 		}else if(command.equals("/memberMyHome")) {
@@ -75,7 +69,7 @@ public class MemberController extends HttpServlet {
 		}else if(command.equals("/memberusepolicy")) {
 			actionForward = memberService.memberusepolicy(request, response);
 		}else if(command.equals("/memberprivacy")) {
-			//System.out.println("aa");
+			System.out.println("aa");
 			actionForward = memberService.memberprivacylist(request, response);
 		}
 		

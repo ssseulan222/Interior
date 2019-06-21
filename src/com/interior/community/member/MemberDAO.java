@@ -146,13 +146,13 @@ public class MemberDAO {
 	//회원가입
 	public int insert(MemberDTO memberDTO, Connection con)throws Exception{
 		int result=0;
-		String sql ="insert into member (num, email, pw, nickname, point, coupon, reg_date) values(num.nextval, ?, ?, ?,0,0,sysdate)";
+		String sql ="insert into member (num, email, pw, nickname, point, coupon, reg_date) values(num_seq.nextval, ?, ?, ?,0,0,sysdate)";
 		PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, memberDTO.getEmail());
 			st.setString(2, memberDTO.getPw());
 			st.setString(3, memberDTO.getNickname());
 		result = st.executeUpdate();
-		//System.out.println("dd");
+		System.out.println("dd");
 		st.close();
 		return result;
 	}

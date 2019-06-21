@@ -108,6 +108,13 @@
 				<div class="form-group">
 					<input type="text" class="form-control" id="title" name="title" placeholder="제목을 적어주세요.">
 				</div>
+				
+				<div class="form-group">
+					<input type="text" class="form-control" id="writer" name="writer" value="${m.nickname}" readonly="readonly">
+				</div>
+				
+				
+				
 			<br>
 				<div class="form-group">
 					<textarea class="form-control" rows="17" id="contents" name="contents"

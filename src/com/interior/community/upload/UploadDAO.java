@@ -12,7 +12,7 @@ public class UploadDAO {
 	//insert
 	public int insert(UploadDTO uploadDTO, Connection con) throws Exception {
 		int result = 0;
-		String sql ="insert into upload values(qna_seq.nextval,?,?,?)";
+		String sql ="insert into upload values(upload_seq.nextval,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		//st.setInt(1, uploadDTO.getPnum());
@@ -32,16 +32,13 @@ public class UploadDAO {
 		result = st.executeUpdate();
 		
 		st.close();
+		
 		return result;
 	}
 	
 	//update
 	public int update(UploadDTO uploadDTO, Connection con) throws Exception {
 		int result = 0;
-		String sql = "";
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		
 		
 		
 		return result;

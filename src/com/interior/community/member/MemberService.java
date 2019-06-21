@@ -102,17 +102,15 @@ public class MemberService implements Action {
 	}
 	
 	
-	public ActionForward Loginlist(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward = new ActionForward();
-		actionForward.setCheck(true);
-		System.out.println("로그인");
-		actionForward.setPath("../WEB-INF/views/member/memberLoginlist.jsp");
-		return actionForward;
-	}
+	
 	
 	
 	public ActionForward memberLogin(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
+		String method = request.getMethod();
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/member/memberLogin.jsp");
+		if(method.equals("POST")) {
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 		HttpSession session = request.getSession();
@@ -138,6 +136,7 @@ public class MemberService implements Action {
 			actionForward.setPath("../WEB-INF/views/common/Loginresult.jsp");
 		}
 		request.setAttribute("result", result);
+		}
 		return actionForward;
 	}
 	
@@ -208,17 +207,19 @@ public class MemberService implements Action {
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		MemberDTO memberDTO = new MemberDTO();
-		
-		MemberService memberService = new MemberService();
+		String method = request.getMethod();
+		System.out.println(method);
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/member/memberJoin.jsp");
+		if(method.equals("POST")) {
 		Connection con = null;
 		String nickname = request.getParameter("nickname");
+		System.out.println("nickname"+nickname);
 		String email = request.getParameter("email_first")+'@'+request.getParameter("email_last");
 		memberDTO.setEmail(email);
 		memberDTO.setPw(request.getParameter("pw"));
 		memberDTO.setNickname(request.getParameter("nickname"));
 		int result = 0;
-		System.out.println("email : "+email);
-		System.out.println("nickname : "+nickname);
 		try {
 			con = DBConnector.getConnect();
 			result = memberDAO.insert(memberDTO, con);
@@ -226,14 +227,14 @@ public class MemberService implements Action {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(result);
 		request.setAttribute("result", result);
 		if(result==0) {
 			actionForward.setCheck(true);
-			actionForward.setPath("./memberJoinlist");
+			actionForward.setPath("../index.do");
 		}else {
 			actionForward.setCheck(true);
 			actionForward.setPath("../index.do");
+		}
 		}
 		return actionForward;
 	}

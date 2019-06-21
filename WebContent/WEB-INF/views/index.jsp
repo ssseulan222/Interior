@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>커뮤니티 홈</title>
-<c:import url="./temp/bootstrap.jsp" />
+<c:import url="../views/temp/bootstrap.jsp" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/index.css">
 
  <script type="text/javascript">
@@ -19,17 +19,15 @@
 </head>
 <body>
 <c:import url="../views/temp/header.jsp" />
+
 	<div class="container">
-	
 	<!-- 메인 이미지 -->
 	<div class="main_image">
-		<div class="img" style="width:840px; float:left;">
-		    <img src="<%=request.getContextPath() %>/img/s1.jpeg" id="img_1" style="width: 820px; height: 500px;">
-		    <%-- <img src="<%=request.getContextPath() %>/img/p1.png" id="img_2" style="width: 300px; height: 500px;"> --%>
-		    
+		<div class="sample_image">
+		    <img src="<%=request.getContextPath() %>/img/s1.jpeg" id="img_1" style="width: 800px; height: 500px;">
 		</div>   
 		    
-		  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 300px; height: 500px; float:left;">
+		  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 300px; height: 500px; display: inline-block;">
 		    <!-- Indicators -->
 		    <ol class="carousel-indicators">
 		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -37,7 +35,6 @@
 		      <li data-target="#myCarousel" data-slide-to="2"></li>
 		      <li data-target="#myCarousel" data-slide-to="3"></li>
 		      <li data-target="#myCarousel" data-slide-to="4"></li>
-		      
 		    </ol>
 		
 		    <!-- Wrapper for slides -->
@@ -74,7 +71,8 @@
 		      <span class="sr-only">Next</span>
 		    </a>
 		  </div>
-	 </div>
+			
+		 </div>
 	</div> <!--  end container-->
 	
 		  <div class="category">
@@ -112,15 +110,34 @@
 		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d7.jpg"></a>
 		    		<div class="text">셀프가이드</div>
 		    </div>	
-		    		  
+		    
 		    <div class="i1">
 		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d8.jpg"></a>
 		    		<div class="text">질문과답변</div>
 		    </div>			  
-		</div>	   
+		</div>
+
+		<div class="story">오늘의 스토리<br>
+		
+	<!-- 		<div class="s1">
+				<a href=""><img alt="이미지1" src=""></a>
+			</div>
+			
+			<div class="s1">
+				<a href=""><img alt="이미지2" src=""></a>
+			</div>
+			
+			<div class="s1">
+				<a href=""><img alt="이미지3" src=""></a>
+			</div>
+			
+			<div class="s1">
+				<a href=""><img alt="이미지4" src=""></a>
+			</div>			
+		 -->
+		</div>
 	
-	
-	
+
     
     
 </body>

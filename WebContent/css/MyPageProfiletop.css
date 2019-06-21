@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .user-show-layout{
 		position: relative;
 	}
@@ -16,10 +17,16 @@
 		border-bottom: 1px solid #ededed;
 	    width: 100%;
 	    overflow: hidden;
+	    
 	}
 	.page-myhome-nav ul{
 		text-align:  center;
 		white-space: nowrap;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+	.page-nav-item-nav{
+		font-size: 15px;
 	}
 	.page-nav-item{
 		display: inline-block;
@@ -27,16 +34,34 @@
 	.page-nav-item a{
 		display: block;
 	    padding: 0 10px;
-	    font-weight: 700;
+	    font-weight: 800;
 	    position: relative;
 	    height: 60px;
 	    line-height: 60px;
 	    transition: color .15s ease;
 	    margin-left: 30px;
+	   
+	}
+	a{
+		text-decoration: none;
+	    color: inherit;
 	}
 	.active{
 		color: #35c5f0;
+		border-color: #35C5F0;
 	}
+	.active-botton::after{
+		content: "";
+	    position: absolute;
+	    display: block;
+	    width: 100%;
+	    height: 4px;
+	    background: #35c5f0;
+	    left: 0;
+	    bottom: 0;
+	    margin-bottom: 0px;
+	}
+	
 	.nav-nav{
 		font-size: 15px;
 	}

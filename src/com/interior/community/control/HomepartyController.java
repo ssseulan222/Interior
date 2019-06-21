@@ -43,8 +43,6 @@ public class HomepartyController extends HttpServlet {
 			actionForward = homepartyService.list(request, response);
 		}else if(command.equals("/homepartyWrite")) {
 			actionForward = homepartyService.insert(request, response);
-		}else if(command.equals("/homepartyWritelist")) {
-			actionForward = homepartyService.homepartyWritelist(request, response);
 		}
 		
 		

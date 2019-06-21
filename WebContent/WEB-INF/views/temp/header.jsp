@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -140,11 +141,15 @@
             <div class="navigation-primary__user__unlogged">
             <a class="navigation-primary__write-btn navigation-primary__button button-md" href="${pageContext.request.contextPath}/write/WriteHome" style="font-size: 13px;">글쓰기</a>
             <!-- 비로그인 상태 -->
-              <a href="${pageContext.request.contextPath}/member/memberLoginlist">로그인</a> 
-              <a href="${pageContext.request.contextPath}/member/memberJoinlist">회원가입</a>
-              
+            <c:if test="${m.nickname == null}"> 
+            
+              <a href="${pageContext.request.contextPath}/member/memberLogin">로그인</a> 
+              <a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a>
+              </c:if>
               <!-- 로그인 상태 -->
+              <c:if test="${sessionScope.m.nickname != null}"> 
               <a href="${pageContext.request.contextPath}/member/memberMyHome">마이홈</a>
+              </c:if>
             </div>
           </div>
 		</div>

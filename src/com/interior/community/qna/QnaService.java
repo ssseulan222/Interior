@@ -136,6 +136,8 @@ public class QnaService implements Action {
 		}
 		actionForward.setCheck(true);
 		actionForward.setPath(path);
+		
+		
 		return actionForward;
 		
 	}
@@ -143,6 +145,7 @@ public class QnaService implements Action {
 	@Override
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {
 		
+		/*
 		ActionForward actionForward = new ActionForward();
 		
 		String method = request.getMethod(); //get, post
@@ -234,8 +237,9 @@ public class QnaService implements Action {
 		actionForward.setPath(path);
 		
 		return actionForward;
-		
-		/* ***** 원래 기존거 ******
+	}
+	*/
+	
 		ActionForward actionForward = new ActionForward();
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/views/qna/qnaWrite.jsp");
@@ -319,8 +323,8 @@ public class QnaService implements Action {
 		}//post끝
 		return actionForward;			
 		
-		 */
 	}
+	
 
 	@Override
 	public ActionForward update(HttpServletRequest request, HttpServletResponse response) {

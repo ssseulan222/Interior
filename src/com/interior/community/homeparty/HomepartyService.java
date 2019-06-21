@@ -1,5 +1,7 @@
 package com.interior.community.homeparty;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 
@@ -13,6 +15,8 @@ import javax.sound.midi.Soundbank;
 import com.interior.community.action.Action;
 import com.interior.community.action.ActionForward;
 import com.interior.community.util.DBConnector;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.sun.accessibility.internal.resources.accessibility;
 
 
@@ -23,12 +27,7 @@ public class HomepartyService implements Action {
 		homepartyDAO = new HomepartyDAO();
 	}
 	
-	public ActionForward homepartyWritelist(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward = new ActionForward();
-		actionForward.setCheck(true);
-		actionForward.setPath("../WEB-INF/views/homeparty/homepartyWritelist.jsp");
-		return actionForward;
-	}
+	
 	@Override
 	public ActionForward list(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
@@ -48,35 +47,60 @@ public class HomepartyService implements Action {
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/homeparty/homepartyWrite.jsp");
 		String method = request.getMethod();
+		System.out.println(method);
 		
-		if(method.equals("GET")) {
+		if(method.equals("POST")) {
 			Connection con = null;
 			HomepartyDTO homepartyDTO = new HomepartyDTO();
+			MultipartRequest multipartRequest = null;
+			int maxPostSize = 100*1024*1024;
+			String saveDirectory = request.getServletContext().getRealPath("upload");
 			
-			String title = request.getParameter("hometitle");
-			String place = request.getParameter("place");
-			String floor = request.getParameter("floor");
-			String work = request.getParameter("work");
-			String field = request.getParameter("field");
-			String family = request.getParameter("family");
-			String style = request.getParameter("style");
-			String weekmonth = request.getParameter("weekmonth");
+			File file = new File(saveDirectory);
+			try {
+				multipartRequest = new MultipartRequest(request, saveDirectory, maxPostSize, "UTF-8", new DefaultFileRenamePolicy());
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			String title = multipartRequest.getParameter("hometitle");
+			System.out.println("title"+title);
+			String place = multipartRequest.getParameter("place");
+			String floor = multipartRequest.getParameter("floor");
+			String work = multipartRequest.getParameter("work");
+			String field = multipartRequest.getParameter("field");
+			String family = multipartRequest.getParameter("family");
+			String style = multipartRequest.getParameter("style");
+			String weekmonth = multipartRequest.getParameter("weekmonth");
 			String weekmonthmonth = null;
 			if(weekmonth.equals("1")) {
 				weekmonthmonth = "개월";
 			}else if(weekmonth.equals("0")) {
 				weekmonthmonth = "주";
 			}
-			String [] colorcolor = request.getParameterValues("color");
+			String [] colorcolor = multipartRequest.getParameterValues("color");
 			String color ="";
 			for(int i=0; i<colorcolor.length;i++) {
 				color = color + colorcolor[i];
 			}
-			//System.out.println(color);
-			String weekmonthnumber = request.getParameter("weekmonthnumber");
+			System.out.println(color);
+			String weekmonthnumber = multipartRequest.getParameter("weekmonthnumber");
 			String term = weekmonthnumber + weekmonthmonth;
-			int money = Integer.parseInt(request.getParameter("money"));
+			int money = Integer.parseInt(multipartRequest.getParameter("money"));
+			String wallcolor = multipartRequest.getParameter("wallcolor");
+			String floorcolor = multipartRequest.getParameter("floorcolor");
+			String detail = multipartRequest.getParameter("detail");
+			String location_first = multipartRequest.getParameter("location_first");
+			/*
+			 * String location_last = request.getParameter("location_last"); 
+			 * String location = location_first + " " + location_last;
+			 */
+			String location = location_first;
+			System.out.println("location"+location);
+			System.out.println("floorcolor"+floorcolor);
+			System.out.println("wallcolor"+wallcolor);
 			homepartyDTO.setTitle(title);
 			homepartyDTO.setPlace(place);
 			homepartyDTO.setFloor(floor);
@@ -86,6 +110,12 @@ public class HomepartyService implements Action {
 			homepartyDTO.setStyle(style);
 			homepartyDTO.setTerm(term);
 			homepartyDTO.setMoney(money);
+			homepartyDTO.setColor(color);
+			homepartyDTO.setWallcolor(wallcolor);
+			homepartyDTO.setFloorcolor(floorcolor);
+			homepartyDTO.setDetail(detail);
+			homepartyDTO.setLocation(location);
+			
 			
 			int result = 0;
 			try {
@@ -95,13 +125,13 @@ public class HomepartyService implements Action {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//System.out.println("22");
-			//System.out.println(result);
+			System.out.println("22");
+			System.out.println(result);
 			request.setAttribute("result", result);
 			if(result==0) {
-				actionForward.setPath("../WEB-INF/views/homeparty/homepartyWritelist.jsp");
+				actionForward.setPath("../WEB-INF/views/homeparty/homepartyWrite.jsp");
 			}else if(result==1){
-				actionForward.setPath("../WEB-INF/views/homeparty/homeparty.jsp");
+				actionForward.setPath("../index.do");
 			}
 		}
 		return actionForward;

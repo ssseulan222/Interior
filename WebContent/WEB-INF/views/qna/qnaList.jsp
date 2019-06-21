@@ -112,11 +112,12 @@
 		
 </div>	<!-- end header -->
 	<br>
+	<c:if test="${m.nickname ne null }">
 		<div class="qna_btn">
 			<input type="button" id="qna_go" value="질문하기" style="background-color: #35C5F0;"
 			class="btn btn-lg btn-priority col-6 offset-3">
 		</div>
-	
+	</c:if>
 	<br>
 	<div class="contents">
 	<table class="table table-striped">

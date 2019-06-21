@@ -9,8 +9,64 @@
 <meta charset="UTF-8">
 <title>QnA Update Page</title>
 	<c:import url="../temp/bootstrap.jsp" />
-	
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaWrite.css">
+	
+<script type="text/javascript">
+
+	//location.href="./qnaList.jsp";
+
+	$(function() {
+		$("#save").click(function() {
+			$('#frm').submit();
+		});
+	      
+	      //////////////// 저장버튼 클릭시 form 전송
+	      /* $("#save").click(function(){
+	          oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
+	          $("#frm").submit();
+	      }); */
+	});    
+
+      ////////////// 버튼 5개까지 체크하기
+      function count_ck(obj){
+		var chkbox = document.getElementsByName("tag");
+		var chkCnt = 0;
+		for(var i=0;i<chkbox.length; i++){
+			if(chkbox[i].checked){
+				chkCnt++;
+			}
+		}
+		if(chkCnt>5){
+			alert("최대 5개까지 선택 가능합니다.");
+			obj.checked = false;
+			return false;
+		}
+	}
+	
+	/////////////// 버튼 개수 출력
+   	function test_checkbox() {
+		var i = false;
+		var values = document.getElementsByName("tag");
+		var count = 0;
+		for(var i=0; i<values.length; i++) {
+			if(values[i].checked) {
+				count++;
+			}
+		}
+		if(count<2) {
+			alert("2개 이상 선택");
+		}
+		else {
+			alert(count + " 개 선택했습니다.");
+			i = true;
+		}
+		
+		$('.tag_count_t1').html(count);	//몇개 체크했는지 개수출력
+		
+		return i;
+	}
+      
+</script>	
 
 </head>
 <body>

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,6 +20,7 @@ import com.interior.community.qna.QnaDTO;
 import com.interior.community.util.DBConnector;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.sun.glass.ui.Application;
 
 public class UploadService implements Action {
 	
@@ -44,6 +46,7 @@ public class UploadService implements Action {
 
 	@Override
 	public ActionForward insert(HttpServletRequest request, HttpServletResponse response) {
+		
 		ActionForward actionForward = new ActionForward();
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/views/qna/qnaWrite.jsp");
@@ -56,7 +59,7 @@ public class UploadService implements Action {
         //System.out.println(fileName);
 		
 		if(method.equals("POST")) {
-			String saveDirectory = request.getServletContext().getRealPath("upload");
+			String saveDirectory = request.getServletContext().getRealPath("/upload");
 			//System.out.println("saveDirectory : " + saveDirectory);
 			File f = new File(saveDirectory);
 			if(!f.exists()) {
@@ -74,6 +77,7 @@ public class UploadService implements Action {
 					String file = e.nextElement();
 					String fname = multipartRequest.getFilesystemName(file);
 					String oname = multipartRequest.getOriginalFileName(file);
+					
 					UploadDTO uploadDTO = new UploadDTO();
 					uploadDTO.setFname(fname);
 					uploadDTO.setOname(oname);
@@ -126,7 +130,6 @@ public class UploadService implements Action {
 		return actionForward;			
 		
 	}
-	
 
 	@Override
 	public ActionForward update(HttpServletRequest request, HttpServletResponse response) {

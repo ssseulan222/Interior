@@ -1,4 +1,4 @@
-<%@page import="java.sql.Connection"%>
+<%@ page import="java.sql.Connection"%>
 <%@ page import="com.interior.community.qna.QnaDAO" %>
 <%@ page import="com.interior.community.qna.QnaDTO" %>
 <%@ page import="com.interior.community.upload.UploadDAO" %>
@@ -15,7 +15,7 @@
 
 <title>QnA select Page</title>
 	<c:import url="../temp/bootstrap.jsp" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaSelect.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/qnaSelect.css">
 	
 <script type="text/javascript">
 
@@ -35,7 +35,7 @@
 		<div class="titleName">질문과 답변</div>
 	</div>
 	
-	<div class="userName"><img alt="이미지" src="../img/m1.png">&nbsp;&nbsp;닉네임
+	<div class="userName"><img alt="이미지" src="../img/m1.png">&nbsp;&nbsp;${dto.writer}
 		<button type="button" id="btn" class="btn btn-default">팔로우</button>
 		<div class="share" id="share">공유</div>
 		<div class="line"></div>
@@ -58,27 +58,34 @@
 		<div class="title">${dto.title}</div>
 		<div class="con">${dto.contents}</div>
 		
-		<c:catch>
+		<%-- <a href="<%=request.getContextPath()%>../upload/${ar.fname}">${ar.oname}사진 들어가는곳</a> --%>
+<%-- 	<c:catch>
 			<c:forEach items="${upload}" var="up">
-				<div class="img"><a href="../upload/${up.fname}">${up.oname}사진 들어가는곳</a></div>
 			</c:forEach>
-		</c:catch>
-		
-		<%-- <a href="../upload/${up.fname}">${up.oname}</a> --%>
+		</c:catch> 
+ --%>		
+ 
+ 
+ 
+		<%-- <div class="img">
+			<img src="../upload/${upload.fname}">${upload.oname}
+		</div> --%>
 		
 		<div class="date">${dto.reg_date}&nbsp;&nbsp;·&nbsp;&nbsp;조회수 : ${dto.hit}</div>
 	</div>
 	
 	
+	<c:if test="${dto.writer == m.nickname }">
 	
 	<div class="buttons">
 		<input type="hidden" id="num" value="${dto.num}">
-		<button type="button" id="updateBtn" class="btn btn-primary" 
-		onclick="location.href='./qnaUpdate?num=${dto.num}'">수정하기</button>
+			<button type="button" id="updateBtn" class="btn btn-primary" 
+			onclick="location.href='./qnaUpdate?num=${dto.num}'">수정하기</button>
 		
-		<button type="button" id="deleteBtn" class="btn btn-danger" 
-		onclick="location.href='./qnaDelete?num=${dto.num}'">삭제하기</button>
+			<button type="button" id="deleteBtn" class="btn btn-danger" 
+			onclick="location.href='./qnaDelete?num=${dto.num}'">삭제하기</button>
 	</div>
+	</c:if>
 	
 <%-- 	<c:catch>
 		 <c:forEach items="${upload}" var="up">
