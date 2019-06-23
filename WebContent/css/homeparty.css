@@ -1,19 +1,23 @@
 @charset "UTF-8";
 #container {
-	width:50%;
-	height: 100px;
-	margin-top: 160px;
-	margin-left: 440px;
+   height: 100px;
+    width: 70%;
+    margin: 0 auto;
+}
+.row{
+   
+   width: 70%;
+   margin: 0 auto;
 }
 .img1 {
-	width: 400px;
-	height: 300px;
-	margin-left: 500px;
+   width: 400px;
+   height: 300px;
+   margin-left: 500px;
 }
 .img_title {
-	margin-top: 20px;
-	color: black;
-	font-size: 17px;
-	font-weight:bold;
-	text-align:center;
+   margin-top: 20px;
+   color: black;
+   font-size: 17px;
+   font-weight:bold;
+   text-align:center;
 }

@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+#footer {
+    position: relative !important;
+    margin-top: 60px;
+    background-color: #fafafa;
+    font-size: 10px;
+    padding: 30px 0 50px;
+    color: black;
+    cursor: default;
+}
+.footer__contents-wrap {
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+    width: calc(100% - 30px);
+    max-width: 100%;
+    position: relative;
+}
+}
+.footer__cs {
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+.footer__cs>b {
+    color: #424242;
+}
+.footer__cs>strong {
+    display: inline-block;
+    font-size: 28px;
+    margin: 10px 0 5px;
+    color: #424242;
+}
+.footer__cs {
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+.footer__outbound {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.footer__outbound>a {
+    margin: 0 7.5px;
+}
+.icon-common-footer__a-1 {
+    width: 34px;
+    height: 30px;
+    background-position: left 0px top 0px;
+}
+.icon-common-footer__a-1 {
+    width: 34px;
+    height: 30px;
+    background-position: left 0px top 0px;
+}
+.icon-common-footer__b-1 {
+    width: 34px;
+    height: 30px;
+    background-position: left -40px top 0px;
+}
+.icon-common-footer__c-1 {
+    width: 26px;
+    height: 30px;
+    background-position: left -80px top 0px;
+}
+.icon-common-footer__d-1 {
+    width: 24px;
+    height: 30px;
+    background-position: left -120px top 0px;
+}
+.icon-common-footer__e-1 {
+    width: 34px;
+    height: 30px;
+    background-position: left -160px top 0px;
+}
+.icon-common-footer__f-1 {
+    width: 34px;
+    height: 30px;
+    background-position: left -200px top 0px;
+}
+
+.footer__short-cut {
+    color: #424242;
+    font-weight: bold;
+    margin: 0 5px;
+}
+.footer__short-cuts {
+    display: flex;
+    line-height: 20px;
+    flex-flow: wrap;
+    margin: 0px -5px 10px;
+}
+.footer__address {
+    display: flex;
+    line-height: 20px;
+    flex-flow: wrap;
+    margin: 0px -5px;
+}
+.footer__address__item {
+    margin: 0px 5px;
+}
+.footer__nice {
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.footer__nice > b {
+    color: rgb(66, 66, 66);
+}
+.footer__nice > b {
+    color: rgb(66, 66, 66);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

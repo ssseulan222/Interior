@@ -9,6 +9,27 @@
 <link href="../css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+	
+	 <jsp:include page="../common/header.jsp" />
+ 	<nav class="navigation-secondary-wrap sticky-top" style="height: auto;">
+	    <div class="navigation-secondary__container sticky-content open" data-sticky-enabled="false" style="position: relative;">
+	      <div class="navigation-secondary">
+	        <div class="navigation-secondary__menu"><ul>
+	        <li class="navigation-menu__primary__secondary activee" id="home">
+	    <a href="${pageContext.request.contextPath}/expert/ExpertFound">전문가찾기</a>
+	  </li>
+	
+	        <li class="navigation-menu__primary__secondary" id="homeparty">
+	    <a href="${pageContext.request.contextPath}/store/storeCategory?catergory=1">카테고리</a>
+	  </li>
+	  <li class="navigation-menu__primary__secondary" id="qna">
+	    <a href="${pageContext.request.contextPath}/store/storerRanking">랭킹</a>
+	  </li>
+	    </ul></div>
+	      </div>
+	    </div>
+	  </nav>
+
 	<div class="body">
 		<div id="banner">
 			<img alt="banner" src="../img/calculator.png"> <span id="text1">시공별

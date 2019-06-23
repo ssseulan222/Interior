@@ -9,24 +9,30 @@
 <title>판매자 메인</title>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/sellerMain.css">
+	<script src="<%=request.getContextPath()%>/js/sellerMain.js"></script>
 </head>
 <body>
 
 
-	<%-- <jsp:include page="../common/header.jsp" /> --%>
-			<a href="<%=application.getContextPath()%>/store/storeMain">스토어홈</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/store/storeCategory?category=1">카테고리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/store/storeRanking">랭킹</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-		<a href="<%=application.getContextPath()%>/seller/sellerJoin">판매자회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/seller/sellerLogin">판매자로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		
-		<a href="#">일반로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="#">전문가로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <jsp:include page="../common/header.jsp" />
+ 	<nav class="navigation-secondary-wrap sticky-top" style="height: auto;">
+	    <div class="navigation-secondary__container sticky-content open" data-sticky-enabled="false" style="position: relative;">
+	      <div class="navigation-secondary">
+	        <div class="navigation-secondary__menu"><ul>
+	        <li class="navigation-menu__primary__secondary activee" id="home">
+	    <a href="${pageContext.request.contextPath}/store/storeMain">스토어홈</a>
+	  </li>
 	
-		<p>${sessionScope.sellerDTO.id}님 환영합니다</p>
-		<a href="<%=application.getContextPath()%>/seller/sellerLogout">로그아웃</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/seller/sellerMain">판매자페이지</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	        <li class="navigation-menu__primary__secondary" id="homeparty">
+	    <a href="${pageContext.request.contextPath}/store/storeCategory?catergory=1">카테고리</a>
+	  </li>
+	  <li class="navigation-menu__primary__secondary" id="qna">
+	    <a href="${pageContext.request.contextPath}/store/storerRanking">랭킹</a>
+	  </li>
+	    </ul></div>
+	      </div>
+	    </div>
+	  </nav>
 
 
 	<div class="container">
@@ -36,8 +42,11 @@
 				<h1>${sessionScope.sellerDTO.id}님의 판매센터</h1>
 			</div>
 			<div class="sellerNav">
-				<a href="../product/productInsert"><span class="topBtn">상품등록하기</span></a>
-				<a href="./sellerUpdate"><span class="topBtn">회원정보수정</span></a>
+				<div class="btnDiv">
+					<button id="insertProduct" class="topBtn">상품등록하기</button>
+					<button id="updateSeller" class="topBtn">회원정보수정</button>
+				</div>
+				
 			</div>
 			
 		</div>	

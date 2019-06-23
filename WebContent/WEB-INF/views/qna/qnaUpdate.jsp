@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>QnA Update Page</title>
-	<c:import url="../temp/bootstrap.jsp" />
+	<c:import url="../../views/common/bootstrap.jsp" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaWrite.css">
 	
 <script type="text/javascript">

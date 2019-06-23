@@ -8,16 +8,36 @@
 <meta charset="UTF-8">
 <title>집들이</title>
 <c:import url="../common/bootstrap.jsp"/>
+<style type="text/css">
+	
+</style>
 
-
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/homeparty.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/homeparty.css">
 
 </head>
 <body>
-<c:import url="../common/header.jsp" />
+<c:import url="../common/header.jsp"/>
 	<!-- ------------- 커뮤니티-집들이-상단 카테고리--------------- -->
 	<!-- ------------- container start ----------------------->
+  <nav class="navigation-secondary-wrap sticky-top" style="height: auto;">
+    <div class="navigation-secondary__container sticky-content open" data-sticky-enabled="false" style="position: relative;">
+      <div class="navigation-secondary">
+        <div class="navigation-secondary__menu"><ul>
+        <li class="navigation-menu__primary__secondary" id="home">
+    <a href="${pageContext.request.contextPath}/index.do">홈</a>
+  </li>
 
+        <li class="navigation-menu__primary__secondary   activee" id="homeparty">
+    <a href="${pageContext.request.contextPath}/homeparty/homeparty">집들이</a>
+  </li>
+  <li class="navigation-menu__primary__secondary" id="qna">
+    <a href="${pageContext.request.contextPath}/qna/qnaList">질문과답변</a>
+  </li>
+    </ul></div>
+      </div>
+    </div>
+  </nav>
+  
 	<div id="container">
 	 <div class="btn-group">
     <button type="button" class="btn">정렬</button>
@@ -182,33 +202,33 @@
 		<!-- ------------- 커뮤니티-집들이-상단 카테고리--------------- -->
 	</div> <!-- end container -->
 	
-	<div class="row">
+	<div class="row" style=" width: 70%; margin: 0 auto;">
 	    <div class="col-md-4">
 	      <div class="thumbnail">
 	        <a href="#" target="_blank">
-	          <img src="/img/none.jpeg" alt="Lights" style="width:100%">
+	          <img src="${pageContext.request.contextPath}/img/288.jpg" alt="Lights" style="width:100%">
 	          <div class="caption">
-	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	            <p>작아도 따뜻하게 꾸민 나만의 방 W.최글렛</p>
 	          </div>
 	        </a>
 	      </div>
 	    </div>
 	    <div class="col-md-4">
 	      <div class="thumbnail">
-	        <a href="/w3images/nature.jpg" target="_blank">
-	          <img src="/../img/q1.png" alt="Nature" style="width:100%">
+	        <a href="#" target="_blank">
+	          <img src="${pageContext.request.contextPath}/img/289.jpg" alt="Nature" style="width:100%">
 	          <div class="caption">
-	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	            <p>'혼자'라는 행복을 포기하지 말아요. W. 꽃량화</p>
 	          </div>
 	        </a>
 	      </div>
 	    </div>
 	    <div class="col-md-4">
 	      <div class="thumbnail">
-	        <a href="/w3images/fjords.jpg" target="_blank">
-	          <img src="/../img/q2.png" alt="Fjords" style="width:100%">
+	        <a href="#" target="_blank">
+	          <img src="${pageContext.request.contextPath}/img/300.jpg" alt="Fjords" style="width:100%">
 	          <div class="caption">
-	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	            <p>"오래된 집에 다양한 취미를 전시하며 삽니다" W. 리앙_</p>
 	          </div>
 	        </a>
 	      </div>
@@ -216,29 +236,29 @@
 		<div class="col-md-4">
 	      <div class="thumbnail">
 	        <a href="#" target="_blank">
-	          <img src="/img/none.jpeg" alt="Lights" style="width:100%">
+	          <img src="${pageContext.request.contextPath}/img/301.jpg" alt="Lights" style="width:100%">
 	          <div class="caption">
-	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	            <p>16년 된 전셋집 체리몰딩을 품기로 한 예비 공예작가 W. Soodori</p>
 	          </div>
 	        </a>
 	      </div>
 	    </div>
 	    <div class="col-md-4">
 	      <div class="thumbnail">
-	        <a href="/w3images/nature.jpg" target="_blank">
-	          <img src="/../img/q1.png" alt="Nature" style="width:100%">
+	        <a href="#" target="_blank">
+	          <img src="${pageContext.request.contextPath}/img/302.jpg" alt="Nature" style="width:100%">
 	          <div class="caption">
-	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	            <p>하루하루 여행처럼 사는 그 남자의 아파트 W. 이케아줄자</p>
 	          </div>
 	        </a>
 	      </div>
 	    </div>
 	    <div class="col-md-4">
 	      <div class="thumbnail">
-	        <a href="/w3images/fjords.jpg" target="_blank">
-	          <img src="/../img/q2.png" alt="Fjords" style="width:100%">
+	        <a href="#" target="_blank">
+	          <img src="${pageContext.request.contextPath}/img/303.jpg" alt="Fjords" style="width:100%">
 	          <div class="caption">
-	            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+	            <p>나를 표현하는 캔버스, 내 그림으로 채운 복층 원룸 W. 키치클래식</p>
 	          </div>
 	        </a>
 	      </div>

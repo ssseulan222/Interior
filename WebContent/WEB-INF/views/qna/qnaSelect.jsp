@@ -14,7 +14,7 @@
 <meta charset="UTF-8">
 
 <title>QnA select Page</title>
-	<c:import url="../temp/bootstrap.jsp" />
+	<c:import url="../../views/common/bootstrap.jsp" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/qnaSelect.css">
 	
 <script type="text/javascript">

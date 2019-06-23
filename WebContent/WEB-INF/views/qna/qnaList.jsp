@@ -8,9 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <title>QnA List Page</title>
-	<c:import url="../temp/bootstrap.jsp" />
+	<c:import url="../../views/common/bootstrap.jsp" />
 	
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaList.css">
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaList.css">
 <script type="text/javascript">
 	$(document).ready(function(){
 	    $("#keyword").click(function(){
@@ -35,12 +35,36 @@
 
 </head>
 <body>
-	 <%-- <c:import url="../temp/header.jsp" /> --%>
+<c:import url="../common/header.jsp"/>
+
+
+	<!-- ------------- 커뮤니티-집들이-상단 카테고리--------------- -->
+	<!-- ------------- container start ----------------------->
+  <nav class="navigation-secondary-wrap sticky-top" style="height: auto;">
+    <div class="navigation-secondary__container sticky-content open" data-sticky-enabled="false" style="position: relative;">
+      <div class="navigation-secondary">
+        <div class="navigation-secondary__menu"><ul>
+        <li class="navigation-menu__primary__secondary" id="home">
+    <a href="${pageContext.request.contextPath}/index.do">홈</a>
+  </li>
+
+        <li class="navigation-menu__primary__secondary " id="homeparty">
+    <a href="${pageContext.request.contextPath}/homeparty/homeparty">집들이</a>
+  </li>
+  <li class="navigation-menu__primary__secondary  activee" id="qna">
+    <a href="${pageContext.request.contextPath}/qna/qnaList">질문과답변</a>
+  </li>
+    </ul></div>
+      </div>
+    </div>
+  </nav>
+	 
 	
-	
-	<div id="header">
+	<div id="header" class="container">
 	<br><br>
-		<h1 class="title">질문과 답변</h1>
+		<div class="title_2" style="border: 20px;">
+		<span class="title_1" style="margin: 0 auto;">질문과 답변</span>
+		</div>
 		<div class="title_sub">오늘의집 인테리어 고수들과 전문가들에게 조언을 받으세요.</div>
 		
 		
