@@ -38,13 +38,14 @@ public class ExpertController extends HttpServlet {
 		
 		String command = request.getPathInfo();
 		ActionForward actionForward = null;
+		System.out.println(command);
 		if(command.equals("/ExpertJoin")) {
 			actionForward = expertService.insert(request, response);
 		}
 		else if(command.equals("/ExpertPresent")){
 			actionForward = expertService.selectList(request, response);
 		}
-		else if(command.equals("./ExpertLogin")) {
+		else if(command.equals("/ExpertLogin")) {
 			actionForward = expertService.selectLogin(request, response);
 		}
 		

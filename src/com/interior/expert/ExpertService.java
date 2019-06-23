@@ -98,13 +98,13 @@ public class ExpertService implements Action{
 		ActionForward actionForward = new ActionForward();
 
 		actionForward.setCheck(true);
-		actionForward.setPath("../WEB-INF/views/expert/ExpertLogin.jsp");
+		actionForward.setPath("../WEB-INF/views/expert/ExpertLogin_1.jsp");
 
 		String method = request.getMethod();
 		System.out.println(method);
 		int num = 0;
 		if(method.equals("POST")) {
-			String email = request.getParameter("emil");
+			String email = request.getParameter("email");
 			String password = request.getParameter("password");
 
 			Connection con = null;
@@ -124,13 +124,14 @@ public class ExpertService implements Action{
 			}
 
 			String path = "";
+			System.out.println(num);
 			if(num != 0) {
 				request.setAttribute("num", num);
 				path = "../WEB-INF/views/expert/ExpertMain.jsp";
 			}else {
 				request.setAttribute("message", "Fail");
 				request.setAttribute("path", "./expertMain");
-				path="../WEB-INF/views/expert/ExpertLogin.jsp";
+				path="../WEB-INF/views/expert/ExpertLogin_1.jsp";
 			}
 			actionForward.setCheck(true);
 			actionForward.setPath(path);

@@ -11,7 +11,7 @@ public class UploadDAO {
 	public int insert(UploadDTO uploadDTO, Connection con) throws Exception {
 		int result = 0;
 	
-		String sql = "insert into upload values(upload_seq.nextval,?,?,?)";
+		String sql = "insert into expert_upload values(upload_seq.nextval,?,?,?)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
@@ -29,7 +29,7 @@ public class UploadDAO {
 	public int delete(int pnum, Connection con) throws Exception{
 		int result = 0;
 		
-		String sql = "delete upload where pnum=?";
+		String sql = "delete expert_upload where pnum=?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
@@ -45,7 +45,7 @@ public class UploadDAO {
 	public List<UploadDTO> selectList(int num, Connection con) throws Exception{
 		List<UploadDTO> ar = new ArrayList<UploadDTO>();
 		
-		String sql = "select * from upload where num = ?";
+		String sql = "select * from expert_upload where num = ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
