@@ -8,17 +8,50 @@
 <meta charset="UTF-8">
 <title>커뮤니티 홈</title>
 <c:import url="../views/common/bootstrap.jsp" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/index.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/index.css">
 
  <script type="text/javascript">
 
 
 
 </script>
+<style type="text/css">
+	.container {
+		width:70%;
+		margin: 0 auto;	
+	}
+	.category{
+		width: 100%;
+		margin: 0 auto;
+	}
+	.hit_img{
+		width: 100%;
+	}
+
+</style>
 
 </head>
 <body>
 <c:import url="../views/common/header.jsp" />
+
+<nav class="navigation-secondary-wrap sticky-top" style="height: auto;">
+    <div class="navigation-secondary__container sticky-content open" data-sticky-enabled="false" style="position: relative;">
+      <div class="navigation-secondary">
+        <div class="navigation-secondary__menu"><ul>
+        <li class="navigation-menu__primary__secondary  activee" id="home">
+    <a href="${pageContext.request.contextPath}/index.do">홈</a>
+  </li>
+
+        <li class="navigation-menu__primary__secondary " id="homeparty">
+    <a href="${pageContext.request.contextPath}/homeparty/homeparty">집들이</a>
+  </li>
+  <li class="navigation-menu__primary__secondary" id="qna">
+    <a href="${pageContext.request.contextPath}/qna/qnaList">질문과답변</a>
+  </li>
+    </ul></div>
+      </div>
+    </div>
+  </nav>
 
 	<div class="container">
 	<!-- 메인 이미지 -->
@@ -73,72 +106,63 @@
 		  </div>
 			
 		 </div>
-	</div> <!--  end container-->
+	
 	
 		  <div class="category">
+		
 		    <div class="i1">
-		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d1.jpg"></a>
-		    		<div class="text">신혼가구</div>
-		    </div>
-		    
-		    <div class="i1">
-		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d2.jpg"></a>
+		    	<a href="#"><img alt="" src="${pageContext.request.contextPath}/img/d2.jpg"></a>
 		    		<div class="text">쇼핑하기</div>
 		    </div>
 		    
 		    <div class="i1">
-		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d3.jpg"></a>
+		    	<a href="#"><img alt="" src="${pageContext.request.contextPath}/img/d3.jpg"></a>
 		    		<div class="text">평수별집구경</div>
 		    </div>		    
-		    
-		    <div class="i1">
-		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d4.jpg"></a>
-		    		<div class="text">공간별사진</div>
-		    </div>
-		    
-		    <div class="i1">
-		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d5.jpg"></a>
+		     <div class="i1">
+		    	<a href="#"><img alt="" src="${pageContext.request.contextPath}/img/d5.jpg"></a>
 		    		<div class="text">시공업체찾기</div>
 		    </div>			    
 		    
 		    <div class="i1">
-		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d6.jpg"></a>
+		    	<a href="#"><img alt="" src="${pageContext.request.contextPath}/img/d6.jpg"></a>
 		    		<div class="text">시공견적계산</div>
 		    </div>			  
 		  
 		    <div class="i1">
-		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d7.jpg"></a>
+		    	<a href="#"><img alt="" src="${pageContext.request.contextPath}/img/d7.jpg"></a>
 		    		<div class="text">셀프가이드</div>
 		    </div>	
 		    
 		    <div class="i1">
-		    	<a href="#"><img alt="" src="<%=request.getContextPath() %>/img/d8.jpg"></a>
+		    	<a href="#"><img alt="" src="${pageContext.request.contextPath}/img/d8.jpg"></a>
 		    		<div class="text">질문과답변</div>
 		    </div>			  
 		</div>
+		<br>
 
-		<div class="story">오늘의 스토리<br>
+		<div  class="hit_img" style="font-size : 15px; font-weight: bold; margin-top: 15px;">오늘의 인기 사진<br>
 		
-	<!-- 		<div class="s1">
-				<a href=""><img alt="이미지1" src=""></a>
+		<div class="hit_img_nav">
+			<div class="s1">
+				<a href="#"><img alt="이미지1" src="${pageContext.request.contextPath}/img/hitimg/640.jpg" style="width: 100%; height: 100%;"></a>
 			</div>
 			
 			<div class="s1">
-				<a href=""><img alt="이미지2" src=""></a>
+				<a href="#"><img alt="이미지2" src="${pageContext.request.contextPath}/img/hitimg/6401.jpg" style="width: 100%; height: 100%;"></a>
 			</div>
 			
 			<div class="s1">
-				<a href=""><img alt="이미지3" src=""></a>
+				<a href="#"><img alt="이미지3" src="${pageContext.request.contextPath}/img/hitimg/6402.jpg" style="width: 100%; height: 100%;"></a>
 			</div>
 			
 			<div class="s1">
-				<a href=""><img alt="이미지4" src=""></a>
+				<a href="#"><img alt="이미지4" src="${pageContext.request.contextPath}/img/hitimg/6403.jpg" style="width: 100%; height: 100%;"></a>
 			</div>			
-		 -->
+		</div> 
 		</div>
-	
-
+</div> <!--  end container-->
     
-    
+    <c:import url="../views/common/footer.jsp" />
 </body>
 </html>

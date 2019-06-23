@@ -1,27 +1,5 @@
 @charset "UTF-8";
 
-.totalCount{
-	font-weight: bold;
-	color:gray;
-}
-
-.innerCat {
-	margin-bottom:20px;
-}
-
-.innerCat a{
-	font-size:1.1em;
-	font-weight:bold;
-	color:black;
-	margin-bottom:40px;
-}
-
-.innerCat a:hover{
-	color:black;
-	cursor: pointer;
-	text-decoration: none;
-}
-
 #nav, section {
 	margin-top: 50px;
 	display: inline-block;
@@ -50,16 +28,14 @@ section{
 }
 
 #nav a{
-	list-style: none;
-	text-decoration:none;
-	color: rgba(0,0,0,0.6);
+	color:black;
 }
 
 #nav a:hover{
 	list-style: none;
 	text-decoration:none;
-	font-size:1.1em;
 	color: #35C5F0;;
+	font-size: 1.1em;
 }
 
 .productWrap{
@@ -72,4 +48,16 @@ section{
 .product{
 	border-radius: 4px;
 	height: 100%;
+}
+
+.innerCat a{
+	color:black;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.innerCat a:hover{
+	color:black;
+	font-weight: bold;
+	text-decoration: none;
 }

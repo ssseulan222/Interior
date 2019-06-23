@@ -12,9 +12,11 @@
 <script src="<%=request.getContextPath()%>/js/storeCategory.js"></script>
 </head>
 <body>
-	<%-- <jsp:include page="../common/header.jsp" /> --%>
-		<a href="<%=application.getContextPath()%>/store/storeMain">스토어홈</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/store/storeCategory?category=1">카테고리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+		<jsp:include page="../common/header.jsp" />
+		<%-- <a href="<%=application.getContextPath()%>/store/storeMain">스토어홈</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --%>
+		<%-- <a href="<%=application.getContextPath()%>/store/storeCategory?category=1">카테고리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="<%=application.getContextPath()%>/store/storeRanking">랭킹</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 		<a href="<%=application.getContextPath()%>/seller/sellerJoin">판매자회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -25,8 +27,25 @@
 	
 		<p>${sessionScope.sellerDTO.id}님 환영합니다</p>
 		<a href="<%=application.getContextPath()%>/seller/sellerLogout">로그아웃</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="<%=application.getContextPath()%>/seller/sellerMain">판매자페이지</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+		<a href="<%=application.getContextPath()%>/seller/sellerMain">판매자페이지</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --%>
+		 <nav class="navigation-secondary-wrap sticky-top" style="height: auto;">
+		    <div class="navigation-secondary__container sticky-content open" data-sticky-enabled="false" style="position: relative;">
+		      <div class="navigation-secondary">
+		        <div class="navigation-secondary__menu"><ul>
+		        <li class="navigation-menu__primary__secondary " id="home">
+		    <a href="${pageContext.request.contextPath}/store/storeMain">스토어홈</a>
+		  </li>
+		
+		        <li class="navigation-menu__primary__secondary activee" id="homeparty">
+		    <a href="${pageContext.request.contextPath}/store/storeCategory?catergory=1">카테고리</a>
+		  </li>
+		  <li class="navigation-menu__primary__secondary" id="qna">
+		    <a href="${pageContext.request.contextPath}/store/storerRanking">랭킹</a>
+		  </li>
+		    </ul></div>
+		      </div>
+		    </div>
+		  </nav>
 	<!-- 카테고리 네비게이션 -->
 	<div class="container">
 		<nav id="nav" class="col-sm-3">
@@ -128,6 +147,7 @@
 						</a>
 					</div>
 				</c:forEach>
+				
 			</div>
 			
 		</section>

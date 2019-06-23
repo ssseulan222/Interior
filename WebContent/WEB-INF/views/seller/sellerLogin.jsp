@@ -15,6 +15,7 @@
 		<div id="title">
 			<h4>스토어 관리센터</h4>
 			<h1>판매자 로그인</h1>
+			<a href="../member/memberLogin" class="a"><div class="loginhref">일반 로그인</div></a> <a href="./sellerLogin" class="a"><div class="loginhref">판매자 로그인</div></a> 
 		</div>
 		<div id="contentsDiv">
 			<form action="./sellerLogin" method="post">

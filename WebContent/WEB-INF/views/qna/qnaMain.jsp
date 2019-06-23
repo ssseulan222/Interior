@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>QnA 메인</title>
-<c:import url="../temp/bootstrap.jsp"/>
+<c:import url="../../views/common/bootstrap.jsp" />
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/qnaMain.css">
 

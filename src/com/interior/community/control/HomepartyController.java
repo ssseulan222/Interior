@@ -39,7 +39,7 @@ public class HomepartyController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command = request.getPathInfo();
 		ActionForward actionForward = new ActionForward();
-		if(command.equals("/homepartylist")) {
+		if(command.equals("/homeparty")) {
 			actionForward = homepartyService.list(request, response);
 		}else if(command.equals("/homepartyWrite")) {
 			actionForward = homepartyService.insert(request, response);

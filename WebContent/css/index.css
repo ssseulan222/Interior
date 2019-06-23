@@ -2,7 +2,7 @@
 .container {
 	/* margin-left: 200px;
 	margin-top: 50px;*/ 
-	width:60%;
+	width:80%;
 	margin: 0 auto;	
 }
 .main_image {
@@ -41,13 +41,11 @@
 /* 	margin-left : 105%; 
 	border: 1px solid red;*/
 }
-.category {
-	width:80%;
-	margin-left: 430px;
-}
+
 .i1 {
 	display: inline-block;
 	border: medium;
+	margin-left: 30px;
 }
 .text {
 	text-align: center;
@@ -66,10 +64,17 @@
 .s1 {
 	width:270px;
 	height:350px;
-	margin-top:30px;
+	margin-top:10px;
+	margin-left : 3px;
 	/* display: inline-block; */
-	border: 1px solid red;
 	float: left;
+	width: 22%;
+	padding: 3% 2%;
+}
+.hit_img{
+	
+	margin: 0 auto;
+	width: 70%;
 }
 
 

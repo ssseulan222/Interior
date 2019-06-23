@@ -90,7 +90,7 @@ $(function() {
   
   <li class="navigation-menu__primary">
     <div class="title">
-      <a href="/experts">
+      <a href="../expert/expert">
         <span class="icon mobile-icon icon-shortcut-expert"></span>
         전문가
         <span class="open-btn">
@@ -140,10 +140,10 @@ $(function() {
 <div style="display: none;"></div></form>
         </div> -->
         <div class="navigation-primary__actions" style="display: inline-block;">
-          <button class="navigation-primary__search-btn navigation-primary__button button-sm" title="검색">
+         <!--  <button class="navigation-primary__search-btn navigation-primary__button button-sm" title="검색">
             <span class="icon icon-etc-find-md-gray-dark"></span>
             <span class="icon active icon-etc-find-md-white"></span>
-          </button>
+          </button> -->
           <a class="navigation-primary__write-btn navigation-primary__button button-md" href="/upload_select">글쓰기</a>
           <a class="navigation-primary__cart-btn navigation-primary__button" title="장바구니" href="/cart">
             <span class="icon icon-etc-cart-gray"></span>
@@ -151,8 +151,18 @@ $(function() {
 </a>        </div>
           <div class="navigation-primary__user unlogged">
             <div class="navigation-primary__user__unlogged">
-              <a class="navigation-primary__user__unlogged__login" href="/users/sign_in">로그인</a>
-              <a class="navigation-primary__user__unlogged__register" href="/normal_users/new">회원가입</a>
+            <c:if test="${sessionScope.sellerDTO eq null and sessionScope.memberDTO eq null}">
+              <a class="navigation-primary__user__unlogged__login" href="${pageContext.request.contextPath}/member/memberLogin">로그인</a>
+              <a class="navigation-primary__user__unlogged__register" href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a>
+            </c:if>
+            <c:if test="${sessionScope.sellerDTO ne null}">
+            	<a class="navigation-primary__user__unlogged__login" href="${pageContext.request.contextPath}/seller/sellerMain">판매자센터</a>
+              	<a class="navigation-primary__user__unlogged__register" href="${pageContext.request.contextPath}/seller/sellerLogout">로그아웃</a>
+            </c:if>
+            <c:if test="${sessionScope.memberDTO ne null}">
+            	<a class="navigation-primary__user__unlogged__login" href="${pageContext.request.contextPath}/seller/sellerMain">${memberDTO.nickname}</a>
+              	<a class="navigation-primary__user__unlogged__register" href="${pageContext.request.contextPath}/seller/sellerLogout">로그아웃</a>
+            </c:if>
             </div>
           </div>
       </div>
@@ -160,24 +170,7 @@ $(function() {
   </nav>
   
   
-  <nav class="navigation-secondary-wrap sticky-top" style="height: auto;">
-    <div class="navigation-secondary__container sticky-content open" data-sticky-enabled="false" style="position: relative;">
-      <div class="navigation-secondary">
-        <div class="navigation-secondary__menu"><ul>
-        <li class="navigation-menu__primary__secondary  activee" id="home">
-    <a href="${pageContext.request.contextPath}/index.do">홈</a>
-  </li>
-
-        <li class="navigation-menu__primary__secondary " id="homeparty">
-    <a href="${pageContext.request.contextPath}/homeparty/homeparty">집들이</a>
-  </li>
-  <li class="navigation-menu__primary__secondary" id="qna">
-    <a href="${pageContext.request.contextPath}/qna/qnaList">질문과답변</a>
-  </li>
-    </ul></div>
-      </div>
-    </div>
-  </nav>
+ 
 <%-- 
 <div class="navbar navigation-primary__container">
 	<nav>

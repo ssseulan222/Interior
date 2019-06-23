@@ -22,7 +22,7 @@
 <head>
 <meta charset="UTF-8">
 <title>QnA Delete Page</title>
-<c:import url="../temp/bootstrap.jsp" />
+<c:import url="../../views/common/bootstrap.jsp" />
 
 <script type="text/javascript">
 	<%-- alert('<%=msg%>'); --%>

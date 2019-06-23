@@ -18,7 +18,7 @@
 		<section class="container upload-types">
 			<h2 class="text-black bold">글쓰기</h2>
 			<div class="row">
-			    <section class="col-4 col-lg-3 col-xl-2 upload-types__item__wrap">
+			    <!-- <section class="col-4 col-lg-3 col-xl-2 upload-types__item__wrap">
 			      <a class="upload-types__item upload-types__item__photo" href="/snapshots/upload_card">
 			        <div class="upload-types__item__pictogram">
 			          <div class="upload-types__item__pictogram__contents">
@@ -28,7 +28,7 @@
 			          </div>
 			        </div>
 			        <p class="upload-types__item__caption">예쁜 집 사진을 공유해서 많은 사람들에게 영감을 주세요.</p>
-			</a>    </section>
+			</a>    </section> -->
 			    <section class="col-4 col-lg-3 col-xl-2 upload-types__item__wrap">
 			      <a class="upload-types__item upload-types__item__project" href="../homeparty/homepartyWrite">
 			        <div class="upload-types__item__pictogram">
@@ -49,7 +49,6 @@
 			            <p class="bold">전문가/시공 리뷰</p>
 			          </div>
 			          
-			           
 			        </div>
 			        <p class="upload-types__item__caption">전문가, 시공업체의 리뷰를 쓰고 포인트도 받으세요.</p>
 			</a>    </section>
