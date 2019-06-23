@@ -106,7 +106,6 @@ public class ExpertDAO {
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, expertDTO.getNum());
-		System.out.println(expertDTO.getNum());
 		st.setString(2, expertDTO.getName());
 		st.setString(3, expertDTO.getContract());
 		st.setString(4, expertDTO.getPro());

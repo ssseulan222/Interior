@@ -9,13 +9,16 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="../js/found_ph.js"></script>
-<link href="../css/location.css" rel="stylesheet" type="text/css" />
-<link href="../css/found.css" rel="stylesheet" type="text/css" />
+<script src="../js/found.js"></script>
+<link href="../css/location.css?var1" rel="stylesheet" type="text/css" />
+<link href="../css/found.css?var1" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="main">
-		<span id="ll" class="sp">서울특별시 강남구</span><span id="pp" class="sp">필요시공</span>
-		<div class="l1">
+	<form action="./ExpertFound">
+		<span id="ll" class="sp">서울특별시 강남구</span><span id="pp" class="sp">필요시공</span><button id="btn" class="sp" onclick="click"></button>
+		<input type="text" name="location" id="location" class="loc"><input type="text" name="pro" id="pro" class="loc">
+		</form><div class="l1">
 			<ul id="locat">
 				<li id="seoul" class="location">서울특별시<span>></span></li>
 				<li id="busan" class="location">부산광역시<span>></span></li>
@@ -318,9 +321,9 @@
 			<li class="p">조명</li>
 			<li class="p">전문디자인</li>
 		</ul>
-		<div>
-			<c:if test="${list != null}">
-				<c:forEach begin="0" step="1" end="${list.size() }" var="i">
+		<div id="expert">
+			<c:if test="${list.size() != 0}">
+				<c:forEach begin="0" end="${list.size()-1}" var="i">
 					<div>포트폴리오 준비중</div>
 					<div id="expert">
 						<div id="expert_info">
