@@ -35,7 +35,6 @@ public class ExpertService implements Action{
 	@Override
 	public ActionForward list(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-		System.out.println("dd");
 		int curPage=1;
 
 		try {
@@ -44,9 +43,15 @@ public class ExpertService implements Action{
 			// TODO: handle exception
 		}
 
-		String kind = request.getParameter("kind");
-		String search = request.getParameter("search");
-
+		String kind = "";
+		String search = "";
+		String location = request.getParameter("location");
+		String pro = request.getParameter("pro");
+		if(location==null && pro == null) {
+			location = "서울특별시 강남구";
+			pro = "";
+		}
+		
 		SearchMakePage searchMakePage = new SearchMakePage(curPage, kind, search);
 
 		SearchRow searchRow = searchMakePage.makeRow();
@@ -55,8 +60,8 @@ public class ExpertService implements Action{
 		Connection con = null;
 		try {
 			con = DBConnect.getConnect();
-			totalCount = expertDAO.getTotalCount(searchRow, con);
-			List<ExpertDTO> ar = expertDAO.selectList(searchRow, con);
+			totalCount = expertDAO.getTotalCount(con);
+			List<ExpertDTO> ar = expertDAO.selectList(searchRow, con, location, pro);
 			System.out.println(ar.size());
 			request.setAttribute("list", ar);
 		} catch (Exception e) {
@@ -75,7 +80,7 @@ public class ExpertService implements Action{
 		request.setAttribute("pager", searchPager);
 
 		actionForward.setCheck(true);
-		actionForward.setPath("");
+		actionForward.setPath("../WEB-INF/views/expert/ExpertFound.jsp");
 
 		return actionForward;
 	}
@@ -151,7 +156,6 @@ public class ExpertService implements Action{
 
 		if(method.equals("POST")) {
 			String saveDirectory = request.getServletContext().getRealPath("upload");
-			System.out.println(saveDirectory);
 			File f = new File(saveDirectory);
 			if (!f.exists()) {
 				f.mkdirs();
@@ -164,10 +168,8 @@ public class ExpertService implements Action{
 				ArrayList<UploadDTO> ar = new ArrayList<UploadDTO>();
 				while (e.hasMoreElements()) {
 					String s = e.nextElement();
-					System.out.println(s);
 					String fname = multipartRequest.getFilesystemName(s);
 					String oname = multipartRequest.getOriginalFileName(s);
-					System.out.println(fname);
 					UploadDTO uploadDTO = new UploadDTO();
 					uploadDTO.setFname(fname);
 					uploadDTO.setOname(oname);
@@ -197,7 +199,7 @@ public class ExpertService implements Action{
 				expertDTO.setC_check(Integer.parseInt(multipartRequest.getParameter("c_check")));				
 
 				con = DBConnect.getConnect();
-
+				
 				int num = expertDAO.getNum();
 				expertDTO.setNum(num);
 				con.setAutoCommit(false);
@@ -207,7 +209,6 @@ public class ExpertService implements Action{
 				for(UploadDTO uploadDTO : ar) {
 					uploadDTO.setNum(expertDTO.getNum());
 					num = uploadDAO.insert(uploadDTO, con);
-					System.out.println(num);
 					if(num<1) {
 						throw new Exception();
 					}
