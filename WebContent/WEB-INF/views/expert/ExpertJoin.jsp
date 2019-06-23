@@ -12,12 +12,11 @@
 <link href="../css/register.css?ver1" rel="stylesheet" type="text/css" />
 <link href="../css/location.css?ver1" rel="stylesheet" type="text/css" />
 <script src="../js/register.js?ver2"></script>
-<!-- <script src="../js/register2.js"></script> -->
 <script type="text/javascript">
 	function goPopup() {
 		// 주소검색을 수행할 팝업 페이지를 호출합니다.
 		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
-		var pop = window.open("../jusoPopup.jsp", "pop",
+		var pop = window.open("../address/jusoPopup.jsp", "pop",
 				"width=570,height=420, scrollbars=yes, resizable=yes");
 	}
 
@@ -518,8 +517,8 @@
 								<option class="ad" value="outlook.com">outlook.com</option>
 								<option class="ad" value="icloud.com">icloud.com</option>
 						</select>
-						</span> <span id="addr"></span> <input type="text" name="address"
-							id="email" class="selec">
+						</span> <span id="addr"></span> <input type="text" name="email"
+							id="address" class="selec">
 					</div>
 					<div id="q2">
 						<span>사용하실 비밀번호를 입력해주세요.</span><span class="necessary">필수</span>

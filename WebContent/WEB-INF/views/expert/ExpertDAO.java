@@ -1,0 +1,184 @@
+package com.interior.expert;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.interior.page.SearchRow;
+import com.interior.util.DBConnect;
+
+public class ExpertDAO {
+	
+	public int getNum() throws Exception{
+		int result = 0;
+		
+		Connection con = DBConnect.getConnect();
+		
+		String sql = "select expert_seq.nextval from dual";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		ResultSet rs = st.executeQuery();
+		
+		rs.next();
+		
+		result = rs.getInt(1);
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		return result;
+	}
+	
+	public int getTotalCount(Connection con) throws Exception{
+		int result = 0;
+		
+		String sql = "select count(num) from expert_member";
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		result = rs.getInt(1);
+		rs.close();
+		st.close();
+		
+		return result;
+	}
+	
+	public List<ExpertDTO> selectList(SearchRow searchRow, Connection con, String location, String pro) throws Exception{
+		List<ExpertDTO> ar = new ArrayList<ExpertDTO>();
+		
+		String sql = "select * from expert_member where location like '%"+location+"%'  and pro like '%"+pro+"%' order by num desc";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {
+			ExpertDTO expertDTO = new ExpertDTO();
+			expertDTO.setNum(rs.getInt("num"));
+			expertDTO.setName(rs.getString("name"));
+			expertDTO.setInfo(rs.getString("info"));
+			expertDTO.setConfirm(rs.getInt("confirm"));
+			ar.add(expertDTO);
+		}
+		System.out.println(ar.size());
+		
+		rs.close();
+		st.close();
+		
+		return ar;
+	}
+	
+	public ExpertDTO selectOne(int num, Connection con) throws Exception{
+		ExpertDTO expertDTO = null;
+		
+		String sql = "select * from expert_member where num=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, num);
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			expertDTO = new ExpertDTO();
+			expertDTO.setNum(rs.getInt("num"));
+			expertDTO.setName(rs.getString("name"));
+			expertDTO.setConfirm(rs.getInt("confirm"));
+			expertDTO.setPro(rs.getString("pro"));
+			expertDTO.setLocation(rs.getString("location"));
+			expertDTO.setAddress(rs.getString("address"));
+			expertDTO.setCareer(rs.getString("career"));
+			expertDTO.setA_s(rs.getString("a_s"));
+			expertDTO.setTag(rs.getString("tag"));
+			expertDTO.setInfo(rs.getString("info"));
+		}
+		
+		rs.close();
+		st.close();
+		
+		return expertDTO;
+	}
+	
+	public int insert(ExpertDTO expertDTO, Connection con) throws Exception{
+		int result = 0;
+		
+		String sql = "insert into expert_member values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null, null)";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, expertDTO.getNum());
+		System.out.println(expertDTO.getNum());
+		st.setString(2, expertDTO.getName());
+		st.setString(3, expertDTO.getContract());
+		st.setString(4, expertDTO.getPro());
+		st.setString(5, expertDTO.getSpace_type());
+		st.setString(6, expertDTO.getA_s());
+		st.setString(7, expertDTO.getCareer());
+		st.setString(8, expertDTO.getPay());
+		st.setString(9, expertDTO.getDeposit());
+		st.setString(10, expertDTO.getTag());
+		st.setString(11, expertDTO.getLocation());
+		st.setString(12, expertDTO.getPresent());
+		st.setString(13, expertDTO.getHomepage());
+		st.setString(14, expertDTO.getEmail());
+		st.setString(15, expertDTO.getPassword());
+		st.setString(16, expertDTO.getPhone());
+		st.setString(17, expertDTO.getR_name());
+		st.setString(18, expertDTO.getR_phone());
+		st.setString(19, expertDTO.getAddress());
+		st.setString(20, expertDTO.getR_check());
+		st.setString(21, expertDTO.getRoute());
+		st.setInt(22, expertDTO.getC_check());
+		
+		System.out.println(expertDTO.getEmail());
+		result = st.executeUpdate();
+		
+		st.close();
+		
+		return result;
+	}
+	
+	public int update(ExpertDTO expertDTO, Connection con) throws Exception{
+		int result = 0;
+		
+		return result;
+	}
+	
+	public int delete(int num, Connection con) throws Exception{
+		int result = 0;
+		
+		return result;
+	}
+	
+	public int idCheck(String email, Connection con)throws Exception{
+		String sql ="select id from expert_member where email=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, email);
+		ResultSet rs = st.executeQuery();
+		int check=1;
+		if(rs.next()) {
+			check=0;
+		}
+		rs.close();
+		st.close();
+		return check;
+	}
+	
+	public int expertLogin(String email, String password, Connection con)throws Exception{
+		int num = 0;
+		
+		String sql = "select * from expert_member where email=? and password=?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, email);
+		st.setString(2, password);
+		
+		ResultSet rs = st.executeQuery();
+		if (rs.next()) {
+			num = rs.getInt("num");
+		}
+		rs.close();
+		st.close();
+		return num;
+	}
+	
+}

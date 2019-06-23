@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./css/main.css" rel="stylesheet" type="text/css" />
+<link href="../css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="body">
 		<div id="banner">
-			<img alt="banner" src="./img/calculator.png"> <span id="text1">시공별
+			<img alt="banner" src="../img/calculator.png"> <span id="text1">시공별
 				비용이 궁금하다면? </span><span id="estimate">예상견적</span>
 		</div>
 		<div id="tag">

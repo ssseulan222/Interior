@@ -38,21 +38,19 @@ public class ExpertController extends HttpServlet {
 		
 		String command = request.getPathInfo();
 		ActionForward actionForward = null;
+		System.out.println(command);
 		if(command.equals("/ExpertJoin")) {
 			actionForward = expertService.insert(request, response);
 		}
-		
-		/* ------ 06.20 18:56 - 난슬 ----------*/
-		else if(command.equals("/ExpertMain")){
-			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/expert/ExpertMain.jsp");
-			view.forward(request, response);
-		}
-		/*---------------------------------*/
-		
 		else if(command.equals("/ExpertPresent")){
 			actionForward = expertService.selectList(request, response);
 		}
-		
+		else if(command.equals("/ExpertLogin")) {
+			actionForward = expertService.selectLogin(request, response);
+		}
+		else if(command.equals("/ExpertFound")) {
+			actionForward = expertService.list(request, response);
+		}
 		else {
 			actionForward = new ActionForward();
 			actionForward.setCheck(true);
