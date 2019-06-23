@@ -63,7 +63,7 @@
 		</div>
 		<div id="recommend">
 			<span>추천 인테리어 전문가</span>
-			<div></div>
+			<div class="board"></div>
 		</div>
 		<div id="register">
 			<a href="${pageContext.request.contextPath}/expert/ExpertJoin"><span>인테리어
@@ -71,11 +71,11 @@
 		</div>
 		<div id="required">
 			<span>인테리어 계약 전 필독!</span>
-			<div></div>
+			<div class="board"></div>
 		</div>
 		<div id="portfolio">
 			<span>추천 포트폴리오</span>
-			<div></div>
+			<div class="board"></div>
 		</div>
 	</div>
 </body>

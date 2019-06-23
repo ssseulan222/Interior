@@ -239,7 +239,7 @@ public class ExpertService implements Action{
 				}
 			}
 			actionForward.setCheck(false);
-			actionForward.setPath("../Main.do");
+			actionForward.setPath("./ExpertMain");
 		}
 
 		return actionForward;
