@@ -1,22 +1,6 @@
 @charset "UTF-8";
 
-#insertProduct{
-	height:100%;
-	background-color: white;
-	border-radius: 4px;
-    font-size: 17px;
-    font-weight:bold;
-  	border:1px solid #35C5F0;
-  	color:#35C5F0;
-}
-#updateSeller{
-	height:100%;
-	background-color: #35C5F0;
-	border-radius: 4px;
-    font-size: 17px;
-    font-weight:bold;
-  	color:white;
-}
+
 
 #header {
 	height: 130px;

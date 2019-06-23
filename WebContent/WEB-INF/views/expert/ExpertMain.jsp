@@ -16,11 +16,11 @@
 	      <div class="navigation-secondary">
 	        <div class="navigation-secondary__menu"><ul>
 	        <li class="navigation-menu__primary__secondary activee" id="home">
-	    <a href="${pageContext.request.contextPath}/expert/ExpertFound">전문가찾기</a>
+	    <a href="${pageContext.request.contextPath}/expert/ExpertMain">전문가홈</a>
 	  </li>
 	
 	        <li class="navigation-menu__primary__secondary" id="homeparty">
-	    <a href="${pageContext.request.contextPath}/store/storeCategory?catergory=1">카테고리</a>
+	    <a href="${pageContext.request.contextPath}/expert/ExpertFound">전문가찾기</a>
 	  </li>
 	  <li class="navigation-menu__primary__secondary" id="qna">
 	    <a href="${pageContext.request.contextPath}/store/storerRanking">랭킹</a>

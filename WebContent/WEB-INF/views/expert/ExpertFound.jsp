@@ -10,8 +10,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="../js/found_ph.js"></script>
 <script src="../js/found.js"></script>
-<link href="../css/location.css?var1" rel="stylesheet" type="text/css" />
-<link href="../css/found.css?var1" rel="stylesheet" type="text/css" />
+<link href="../css/location.css" rel="stylesheet" type="text/css" />
+<link href="../css/found.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="main">
