@@ -28,11 +28,11 @@
 </head>
 <body>
 	<div id="he">
-		<a href="#" style="color: white;"><span>오늘의집</span><span>전문가센터</span></a> <span>전문가
-			가입신청</span> <span>오늘의집과 함께하기 어렵지 않아요.<br> 몇 가지 단계만 진행하시면 고객들을
+		<a href="#" style="color: white; font-size: 1.5em;font-weight: bold;"><span>오늘의집</span><span>전문가센터</span></a><br> <br> <br><br>
+		<span>전문가 가입신청</span><br><span>오늘의집과 함께하기 어렵지 않아요.<br>몇 가지 단계만 진행하시면 고객들을
 			만나보실 수 있어요!
 		</span>
-		<img alt="pro_signup" src="">
+		<img alt="pro_signup" src="../img/pro-signup-pc.png" width="150" height="150" style="position: absolute; top:110px; box-sizing: border-box; margin-left: 2%;">
 	</div>
 	<div id="b">
 		<ul id="menuBar">
