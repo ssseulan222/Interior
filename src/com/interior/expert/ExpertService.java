@@ -101,6 +101,7 @@ public class ExpertService implements Action{
 		actionForward.setPath("../WEB-INF/views/expert/ExpertLogin.jsp");
 
 		String method = request.getMethod();
+		System.out.println(method);
 		int num = 0;
 		if(method.equals("POST")) {
 			String email = request.getParameter("emil");
