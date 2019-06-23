@@ -6,10 +6,18 @@ body {
 	height: 100%;
 }
 
+.selec{
+	display: none;
+}
+
 a {
 	text-decoration: none;
 	color: black;
 }
+#he{
+	color: white;
+}
+
 
 .necessary {
 	background-color: #f77;

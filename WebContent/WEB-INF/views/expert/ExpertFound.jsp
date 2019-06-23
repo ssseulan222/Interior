@@ -14,10 +14,30 @@
 <link href="../css/found.css?var3" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<jsp:include page="../common/header.jsp" />
+ 	<nav class="navigation-secondary-wrap sticky-top" style="height: auto;">
+	    <div class="navigation-secondary__container sticky-content open" data-sticky-enabled="false" style="position: relative;">
+	      <div class="navigation-secondary">
+	        <div class="navigation-secondary__menu"><ul>
+	        <li class="navigation-menu__primary__secondary activee" id="home">
+	    <a href="${pageContext.request.contextPath}/expert/ExpertMain">전문가홈</a>
+	  </li>
+	
+	        <li class="navigation-menu__primary__secondary" id="homeparty">
+	    <a href="${pageContext.request.contextPath}/expert/ExpertFound">전문가찾기</a>
+	  </li>
+	  <li class="navigation-menu__primary__secondary" id="qna">
+	    <a href="${pageContext.request.contextPath}/store/storerRanking">랭킹</a>
+	  </li>
+	    </ul></div>
+	      </div>
+	    </div>
+	  </nav>
+
 	<div class="main">
 	<form action="./ExpertFound" id="frm">
 	<div id="select">
-		<span id="ll" class="sp">${location}</span><span id="pp" class="sp"> <c:if test='${pro ne ""}'>${pro}</c:if> <c:if test='${pro eq ""}'>필요시공</c:if> </span><button id="btn" class="sp" onclick="click">검색</button>
+		<span id="ll" class="sp">${location}</span><span id="pp" class="sp"> <c:if test='${not empty pro}'>${pro}</c:if> <c:if test='${empty pro}'>필요시공</c:if> </span><button id="btn" class="sp" onclick="click">검색</button>
 		<input type="text" name="location" id="location" class="loc"><input type="text" name="pro" id="pro" class="loc">
 		</div>
 		</form><div class="l1">
@@ -333,8 +353,8 @@
 							<span id="advice">상담신청</span>
 						</div>
 						<div id="info">
-							<p>${list[i].getInfo()}</p>
-						</div>
+							<p>${list[i].getPresent()}</p>
+						</div><br>
 				</c:forEach>
 			</c:if>
 

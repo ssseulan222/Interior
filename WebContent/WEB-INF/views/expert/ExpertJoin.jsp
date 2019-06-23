@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<link href="../css/register.css?ver1" rel="stylesheet" type="text/css" />
-<link href="../css/location.css?ver1" rel="stylesheet" type="text/css" />
+<link href="../css/register.css?ver2" rel="stylesheet" type="text/css" />
+<link href="../css/location.css?ver2" rel="stylesheet" type="text/css" />
 <script src="../js/register.js?ver2"></script>
 <script type="text/javascript">
 	function goPopup() {
@@ -28,10 +28,11 @@
 </head>
 <body>
 	<div id="he">
-		<a href="#"><span>오늘의집</span><span>전문가센터</span></a> <span>전문가
+		<a href="#" style="color: white;"><span>오늘의집</span><span>전문가센터</span></a> <span>전문가
 			가입신청</span> <span>오늘의집과 함께하기 어렵지 않아요.<br> 몇 가지 단계만 진행하시면 고객들을
 			만나보실 수 있어요!
 		</span>
+		<img alt="pro_signup" src="">
 	</div>
 	<div id="b">
 		<ul id="menuBar">

@@ -52,6 +52,7 @@ public class ExpertService implements Action{
 			pro = "";
 		}
 		
+		
 		SearchMakePage searchMakePage = new SearchMakePage(curPage, kind, search);
 
 		SearchRow searchRow = searchMakePage.makeRow();
@@ -83,7 +84,7 @@ public class ExpertService implements Action{
 		request.setAttribute("pager", searchPager);
 
 		actionForward.setCheck(true);
-		actionForward.setPath("../WEB-INF/views/expetr/ExpertFound.jsp");
+		actionForward.setPath("../WEB-INF/views/expert/ExpertFound.jsp");
 
 		return actionForward;
 	}

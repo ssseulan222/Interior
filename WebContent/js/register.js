@@ -221,6 +221,7 @@ $(function () {
 			$("#pro01").css('display','none');
 			$("#pro02").css('display','none');
 			$("#contract").val("종합");
+			$("#pro").val("종합");
 		}
 	});
 
