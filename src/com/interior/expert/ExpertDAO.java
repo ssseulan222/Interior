@@ -33,12 +33,11 @@ public class ExpertDAO {
 		return result;
 	}
 	
-	public int getTotalCount(SearchRow searchRow, Connection con) throws Exception{
+	public int getTotalCount(Connection con) throws Exception{
 		int result = 0;
 		
-		String sql = "select count(num) from expert_main where " + searchRow.getSearch().getKind() + " like ?";
+		String sql = "select count(num) from expert_member";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+searchRow.getSearch().getSearch()+"%");
 		ResultSet rs = st.executeQuery();
 		rs.next();
 		result = rs.getInt(1);
@@ -48,17 +47,11 @@ public class ExpertDAO {
 		return result;
 	}
 	
-	public List<ExpertDTO> selectList(SearchRow searchRow, Connection con) throws Exception{
+	public List<ExpertDTO> selectList(SearchRow searchRow, Connection con, String location, String pro) throws Exception{
 		List<ExpertDTO> ar = new ArrayList<ExpertDTO>();
 		
-		String sql = "select * from "
-				+ "(select rownum R, Q.* from "
-				+ "(select * from expert where " + searchRow.getSearch().getKind()+" like ? order by num desc) Q) "
-				+ "where R between ? and ?";
+		String sql = "select * from expert_member where location like '%"+location+"%'  and pro like '%"+pro+"%' order by num desc";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+searchRow.getSearch()+"%");
-		st.setInt(2, searchRow.getStartRow());
-		st.setInt(3, searchRow.getLastRow());
 		
 		ResultSet rs = st.executeQuery();
 		
@@ -67,7 +60,10 @@ public class ExpertDAO {
 			expertDTO.setNum(rs.getInt("num"));
 			expertDTO.setName(rs.getString("name"));
 			expertDTO.setInfo(rs.getString("info"));
+			expertDTO.setConfirm(rs.getInt("confirm"));
+			ar.add(expertDTO);
 		}
+		System.out.println(ar.size());
 		
 		rs.close();
 		st.close();
@@ -78,7 +74,7 @@ public class ExpertDAO {
 	public ExpertDTO selectOne(int num, Connection con) throws Exception{
 		ExpertDTO expertDTO = null;
 		
-		String sql = "select * from expert where num=?";
+		String sql = "select * from expert_member where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);
 		ResultSet rs = st.executeQuery();
@@ -106,10 +102,11 @@ public class ExpertDAO {
 	public int insert(ExpertDTO expertDTO, Connection con) throws Exception{
 		int result = 0;
 		
-		String sql = "insert into expert values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null, null)";
+		String sql = "insert into expert_member values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null, null)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, expertDTO.getNum());
+		System.out.println(expertDTO.getNum());
 		st.setString(2, expertDTO.getName());
 		st.setString(3, expertDTO.getContract());
 		st.setString(4, expertDTO.getPro());
@@ -153,7 +150,7 @@ public class ExpertDAO {
 	}
 	
 	public int idCheck(String email, Connection con)throws Exception{
-		String sql ="select id from expert where email=?";
+		String sql ="select id from expert_member where email=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, email);
 		ResultSet rs = st.executeQuery();
@@ -169,7 +166,7 @@ public class ExpertDAO {
 	public int expertLogin(String email, String password, Connection con)throws Exception{
 		int num = 0;
 		
-		String sql = "select * from expert where email=? and password=?";
+		String sql = "select * from expert_member where email=? and password=?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, email);
