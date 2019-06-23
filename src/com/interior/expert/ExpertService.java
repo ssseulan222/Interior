@@ -98,7 +98,7 @@ public class ExpertService implements Action{
 		ActionForward actionForward = new ActionForward();
 
 		actionForward.setCheck(true);
-		actionForward.setPath("../WEB-INF/view/expert/ExpertLogin.jsp");
+		actionForward.setPath("../WEB-INF/views/expert/ExpertLogin.jsp");
 
 		String method = request.getMethod();
 		int num = 0;
@@ -143,7 +143,7 @@ public class ExpertService implements Action{
 		ActionForward actionForward = new ActionForward();
 
 		actionForward.setCheck(true);
-		actionForward.setPath("../WEB-INF/view/expert/ExpertJoin.jsp");
+		actionForward.setPath("../WEB-INF/views/expert/ExpertJoin.jsp");
 
 		String method = request.getMethod();
 
