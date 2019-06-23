@@ -29,3 +29,6 @@ body{
 .main{
 	padding: 3% 25%;	
 }
+.loc{
+	display: none;
+}
