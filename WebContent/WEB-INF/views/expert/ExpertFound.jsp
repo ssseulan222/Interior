@@ -10,20 +10,22 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="../js/found_ph.js"></script>
 <script src="../js/found.js"></script>
-<link href="../css/location.css?var1" rel="stylesheet" type="text/css" />
-<link href="../css/found.css?var1" rel="stylesheet" type="text/css" />
+<link href="../css/location.css?var3" rel="stylesheet" type="text/css" />
+<link href="../css/found.css?var3" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="main">
-	<form action="./ExpertFound">
-		<span id="ll" class="sp">서울특별시 강남구</span><span id="pp" class="sp">필요시공</span><button id="btn" class="sp" onclick="click"></button>
+	<form action="./ExpertFound" id="frm">
+	<div id="select">
+		<span id="ll" class="sp">${location}</span><span id="pp" class="sp"> <c:if test='${pro ne ""}'>${pro}</c:if> <c:if test='${pro eq ""}'>필요시공</c:if> </span><button id="btn" class="sp" onclick="click">검색</button>
 		<input type="text" name="location" id="location" class="loc"><input type="text" name="pro" id="pro" class="loc">
+		</div>
 		</form><div class="l1">
 			<ul id="locat">
 				<li id="seoul" class="location">서울특별시<span>></span></li>
 				<li id="busan" class="location">부산광역시<span>></span></li>
 				<li id="daegu" class="location">대구광역시<span>></span></li>
-				<li id="incheon" class="location">인천광역시<span>></span></li>
+
 				<li id="gwangju" class="location">광주광역시<span>></span></li>
 				<li id="daejeon" class="location">대전광역시<span>></span></li>
 				<li id="ulsan" class="location">울산광역시<span>></span></li>
@@ -324,16 +326,15 @@
 		<div id="expert">
 			<c:if test="${list.size() != 0}">
 				<c:forEach begin="0" end="${list.size()-1}" var="i">
-					<div>포트폴리오 준비중</div>
-					<div id="expert">
+					<div id="portfolio"><img alt="profile" src="../img/default.jpg" id="img_main"></div>
 						<div id="expert_info">
-							<img alt="profile" src=""> <span id="name">${list[i].getName()}</span>
-							<span>상담신청</span>
+						<img alt="default" src="../img/user.png" id="img_user">
+							 <span id="name">${list[i].getName()}</span>
+							<span id="advice">상담신청</span>
 						</div>
 						<div id="info">
 							<p>${list[i].getInfo()}</p>
 						</div>
-					</div>
 				</c:forEach>
 			</c:if>
 

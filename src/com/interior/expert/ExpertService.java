@@ -64,6 +64,8 @@ public class ExpertService implements Action{
 			List<ExpertDTO> ar = expertDAO.selectList(searchRow, con, location, pro);
 			System.out.println(ar.size());
 			request.setAttribute("list", ar);
+			request.setAttribute("location", location);
+			request.setAttribute("pro", pro);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -75,12 +77,13 @@ public class ExpertService implements Action{
 				e.printStackTrace();
 			}
 		}
+		
 
 		SearchPager searchPager = searchMakePage.makePage(totalCount);
 		request.setAttribute("pager", searchPager);
 
 		actionForward.setCheck(true);
-		actionForward.setPath("../WEB-INF/views/expert/ExpertFound.jsp");
+		actionForward.setPath("../WEB-INF/views/expetr/ExpertFound.jsp");
 
 		return actionForward;
 	}

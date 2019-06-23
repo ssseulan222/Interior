@@ -2,6 +2,9 @@
 body{
 	width: 100%;
 	height: 100%;
+	margin: 0;
+	padding: 0;
+	max-width: 1920px;
 }
 
 .ul2 {
@@ -18,17 +21,54 @@ body{
 }
 
 .sp {
-	width: 30px;
 	background-color: #1778ba;
 	color: white;
 	border-radius: 5px;
-	padding: 3px;
+	padding: 3px 10px;
 	margin: 3px;
+	border: none;
 }
 
 .main{
-	padding: 3% 25%;	
+	margin: 3% 25%;
+	height: 100%;
+	width: 100%;	
 }
 .loc{
 	display: none;
+}
+
+#expert{
+	width: 100%;
+	height: 50%;
+	box-sizing: border-box;
+}
+#img_main{
+	width: 250px;
+	height: 200px;
+	border-radius: 15px;
+	box-sizing: border-box;
+}
+#portfolio{
+	width: 15%;
+	height: 300px;
+	float: left;
+}
+#expert_info{
+	width:40%;
+	float: left;
+	margin-left: 2%;
+}
+#name{
+	font-size: 30px;
+}
+
+#advice{
+	float: right;
+}
+
+#img_user{
+	 width: 70px;
+	 height: 70px;
+	 border-radius: 50%; 
 }
