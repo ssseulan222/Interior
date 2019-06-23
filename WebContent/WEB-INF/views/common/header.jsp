@@ -63,7 +63,7 @@ $(function() {
   
   
   
-  <li class="navigation-menu__primary">
+  <li class="navigation-menu__primary" id="store">
     <div class="title">
       <a href="${pageContext.request.contextPath}/store/storeMain">
         <span class="icon mobile-icon icon-shortcut-store"></span>
@@ -90,7 +90,7 @@ $(function() {
   
   <li class="navigation-menu__primary">
     <div class="title">
-      <a href="../expert/expert">
+      <a href="/experts">
         <span class="icon mobile-icon icon-shortcut-expert"></span>
         전문가
         <span class="open-btn">
@@ -139,36 +139,24 @@ $(function() {
   </div>
 <div style="display: none;"></div></form>
         </div> -->
-        <div class="navigation-primary__actions" style="display: inline-block;">
-         <!--  <button class="navigation-primary__search-btn navigation-primary__button button-sm" title="검색">
-            <span class="icon icon-etc-find-md-gray-dark"></span>
-            <span class="icon active icon-etc-find-md-white"></span>
-          </button> -->
-          <a class="navigation-primary__write-btn navigation-primary__button button-md" href="/upload_select">글쓰기</a>
-          <a class="navigation-primary__cart-btn navigation-primary__button" title="장바구니" href="/cart">
-            <span class="icon icon-etc-cart-gray"></span>
-            <span class="icon active icon-etc-cart-white"></span>
-</a>        </div>
+        
           <div class="navigation-primary__user unlogged">
+          <c:if test="${m.nickname == null}">
             <div class="navigation-primary__user__unlogged">
-            <c:if test="${sessionScope.sellerDTO eq null and sessionScope.memberDTO eq null}">
               <a class="navigation-primary__user__unlogged__login" href="${pageContext.request.contextPath}/member/memberLogin">로그인</a>
               <a class="navigation-primary__user__unlogged__register" href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a>
-            </c:if>
-            <c:if test="${sessionScope.sellerDTO ne null}">
-            	<a class="navigation-primary__user__unlogged__login" href="${pageContext.request.contextPath}/seller/sellerMain">판매자센터</a>
-              	<a class="navigation-primary__user__unlogged__register" href="${pageContext.request.contextPath}/seller/sellerLogout">로그아웃</a>
-            </c:if>
-            <c:if test="${sessionScope.memberDTO ne null}">
-            	<a class="navigation-primary__user__unlogged__login" href="${pageContext.request.contextPath}/seller/sellerMain">${memberDTO.nickname}</a>
-              	<a class="navigation-primary__user__unlogged__register" href="${pageContext.request.contextPath}/seller/sellerLogout">로그아웃</a>
-            </c:if>
             </div>
+            </c:if>
+            <c:if test="${sessionScope.m.nickname != null}"> 
+              <a href="${pageContext.request.contextPath}/member/memberMyHome">마이홈</a>
+              <a class="navigation-primary__user__unlogged__logout" href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a>
+               <a class="navigation-primary__write-btn navigation-primary__button button-md" href="${pageContext.request.contextPath}/write/WriteHome" style="font-size: 13px;">글쓰기</a>
+              </c:if>
           </div>
       </div>
     </div>
   </nav>
-  
+ 
   
  
 <%-- 

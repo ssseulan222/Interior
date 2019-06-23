@@ -20,7 +20,6 @@
 	                    'pw' : pw
 	                },
 	                success : function(data) {
-	                	alert(data);
 	                   if (data==0) {
 	                    	$("#login-from").val('');
 	                        $("#result").html("이메일 주소나 비밀번호가 틀립니다.");
@@ -110,14 +109,6 @@
 		text-align: center;
 		display: block;
 	}
-	
-	.a{
-		text-align: center;
-	}
-	
-	#login-form{
-		margin-top:20px;
-	}
     
 </style>
 <script type="text/javascript">
@@ -129,7 +120,6 @@
 		<div>
 		
 		<a href="../index.do"><span class="icon-page-home">오늘의 집</span></a>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./memberLogin" class="a">일반 로그인</a> &nbsp;&nbsp;&nbsp; <a href="../seller/sellerLogin" class="a">판매자 로그인</a>
 			<form class="sign-in-form__form" id="login-form" action="./memberLoginData" accept-charset="UTF-8" method="post" value="">
 			
 		    	<input placeholder="이메일" autofocus="autofocus" type="text" name="email" id="email" class="sign-in-form_form_input">

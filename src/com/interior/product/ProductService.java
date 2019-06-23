@@ -53,6 +53,8 @@ public class ProductService {
 		try {
 			Connection con=DBConnect.getConnect();
 			productDTO=productDAO.productSelectOne(num, con);
+			System.out.println("name : "+productDTO.getName());
+			System.out.println("info : "+productDTO.getInfo());
 			if(productDTO == null) {
 				request.setAttribute("msg", "판매가 중단된 제품입니다.");
 				request.setAttribute("path", "../store/storeMain");
@@ -113,7 +115,7 @@ public class ProductService {
 					// 'productUpload의 진짜 경로에 저장
 					String saveDirectory = request.getServletContext().getRealPath("productUpload");
 
-					System.out.println(saveDirectory);
+					System.out.println("sd : "+saveDirectory);
 					
 					// 'productUpload' 파일이 없으면 새로 만들기
 					File f = new File(saveDirectory);

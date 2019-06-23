@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<jsp:include page="${pageContext.request.contextPath}/temp/header.jsp" />
+<c:import url="../common/header.jsp" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/MyPageProfiletop.css" type="text/css">
 <script type="text/javascript">
 	
@@ -55,7 +55,7 @@
 						<li class="page-nav-item"><a href="./memberMyHome">프로필</a></li>
 						<li class="page-nav-item"><a class="active" href="./memberMyShopping">나의쇼핑</a></li>
 						<li class="page-nav-item"><a href="./memberMyReview">나의리뷰</a></li>
-						<li class="page-nav-item"><a href="#">설정</a></li>
+						<li class="page-nav-item"><a href="./memberUpdate">설정</a></li>
 					</ul>
 				</nav>
 				<nav class="page-myhome-nav">

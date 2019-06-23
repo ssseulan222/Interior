@@ -118,6 +118,7 @@ public class ProductDAO {
 			productDTO.setSaleRate(rs.getString("saleRate"));
 			productDTO.setSalePrice(rs.getString("salePrice"));
 			productDTO.setPoint(rs.getString("point"));
+			productDTO.setInfo(rs.getString("info"));
 			productDTO.setDelivery(rs.getString("delivery"));
 			productDTO.setDeliveryFee(rs.getString("deliveryFee"));
 			productDTO.setDeliveryDiff(rs.getString("deliveryDiff"));

@@ -38,8 +38,6 @@ public class MemberController extends HttpServlet {
 		ActionForward actionForward = new ActionForward();
 		if(command.equals("/memberJoin")) {
 			actionForward = memberService.insert(request, response);
-		}else if(command.equals("/memberDelete")) {
-			actionForward = memberService.delete(request, response);
 		}else if(command.equals("/memberUpdate")) {
 			actionForward = memberService.update(request, response);
 		}else if(command.equals("/memberLogin")) {
@@ -70,8 +68,13 @@ public class MemberController extends HttpServlet {
 		}else if(command.equals("/memberusepolicy")) {
 			actionForward = memberService.memberusepolicy(request, response);
 		}else if(command.equals("/memberprivacy")) {
-			System.out.println("aa");
 			actionForward = memberService.memberprivacylist(request, response);
+		}else if(command.equals("/memberLogout")) {
+			actionForward = memberService.memberLogout(request, response);
+		}else if(command.equals("/memberUpdate")) {
+			
+		}else if(command.equals("/memberDelete")) {
+			actionForward = memberService.memberDelete(request, response);
 		}
 		
 		
