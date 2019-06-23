@@ -149,6 +149,11 @@
 					<div class="btnDiv col-sm-6">
 						<button class="btn col-sm-12" id="buy">구매하기</button>
 					</div>
+					<c:if test="${productDTO.seller eq sellerDTO.companyName}">
+						<div class="col-sm-12 updateDiv">
+							<a class="btn col-sm-4" id="updateBtn" href="./productUpdate?num=${productDTO.num}">수정하기</a>
+						</div>
+					</c:if>
 				</div>
 
 			</div>

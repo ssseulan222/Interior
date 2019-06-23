@@ -220,7 +220,97 @@ public class ProductService {
 
 	public ActionForward productUpdate(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-
+		String path="";
+		boolean check=true;
+		String method=request.getMethod();
+		
+		
+		if(method.equals("GET")) {
+			
+			path="../WEB-INF/views/product/productUpdate.jsp?";
+		} else {
+		
+			int res=0;
+			Connection con = null;
+			try {
+				con = DBConnect.getConnect();
+				
+				// 'productUpload의 진짜 경로에 저장
+				String saveDirectory = request.getServletContext().getRealPath("productUpload");
+	
+				System.out.println(saveDirectory);
+				
+				// 'productUpload' 파일이 없으면 새로 만들기
+				File f = new File(saveDirectory);
+				if (!f.exists()) {
+					f.mkdirs();
+				}
+	
+				/* 파일의 최대 크기 : 10MB */
+				int maxPostSize = 1024 * 1024 * 10;
+	
+				MultipartRequest multipartRequest = new MultipartRequest(request, saveDirectory, maxPostSize,
+						"UTF-8", new DefaultFileRenamePolicy());
+	
+				/* Enumeration : 각의 객체들을 한순간에 하나씩 처리할 수 있는 메소드를 제공하는 켈렉션 */
+				// String 형태의 파일 이름들을 하나씩 처리
+				Enumeration<String> e = multipartRequest.getFileNames();
+	
+				ArrayList<UploadDTO> ar = new ArrayList<UploadDTO>();
+	
+				int num = productDAO.getNum(con);
+	
+				while (e.hasMoreElements()) {
+					String fileName = e.nextElement();
+					UploadDTO uploadDTO = new UploadDTO();
+					String fname = multipartRequest.getFilesystemName(fileName); // 시스템에 저장된 파일 이름
+					String oname = multipartRequest.getOriginalFileName(fileName); // 사용자가 저장할 때의 파일 이름
+					uploadDTO.setFname(fname);
+					uploadDTO.setOname(oname);
+					uploadDTO.setNum(num);
+					ar.add(uploadDTO);
+				}
+				
+				ProductDTO productDTO = new ProductDTO();
+				productDTO.setNum(num);
+				productDTO.setSeller(multipartRequest.getParameter("seller"));
+				productDTO.setName(multipartRequest.getParameter("name"));
+				productDTO.setBrandName(multipartRequest.getParameter("brandName"));
+				productDTO.setCategory(multipartRequest.getParameter("category"));
+				productDTO.setPrice(multipartRequest.getParameter("price"));
+				productDTO.setSaleRate(multipartRequest.getParameter("saleRate"));
+				productDTO.setSalePrice(multipartRequest.getParameter("salePrice"));
+				productDTO.setInfo(multipartRequest.getParameter("info"));
+	
+				productDTO.setPoint(multipartRequest.getParameter("point"));
+				productDTO.setDelivery(multipartRequest.getParameter("delivery"));
+				productDTO.setDeliveryLocal(multipartRequest.getParameter("deliveryLocal"));
+				productDTO.setDeliveryDiff(multipartRequest.getParameter("deliveryDiff"));
+	
+				productDTO.setDeliveryFee(multipartRequest.getParameter("deliveryFee"));
+				productDTO.setReturnFee(multipartRequest.getParameter("returnFee"));
+				productDTO.setExchangeFee(multipartRequest.getParameter("exchangeFee"));
+				productDTO.setSendPlace(multipartRequest.getParameter("sendPlace"));
+				res = productDAO.productUpdate(productDTO, con);
+				if (res > 0) {
+					// flash message : 3초 떴다가 자동 사라짐//
+					check = true;
+					path = "../WEB-INF/views/seller/sellerMain.jsp";
+				} else {
+					request.setAttribute("msg", "수정 실패");
+					request.setAttribute("path", "../WEB-INF/views/seller/sellerUpdate.jsp");
+					check = true;
+					path = "../WEB-INF/views/result/result.jsp";
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		actionForward.setPath(path);
+		actionForward.setCheck(check);
+		
 		return actionForward;
 	}
 

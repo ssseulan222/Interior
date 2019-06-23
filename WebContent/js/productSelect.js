@@ -29,4 +29,8 @@ $(function() {
 	$('#buy').click(function() {
 		location.href="./productOrder";
 	});
+	
+	$('#updateBtn').click(function() {
+		location.href="./productUpdate"
+	});
 });

@@ -18,17 +18,31 @@ import com.interior.upload.UploadDTO;
 public class ProductDAO {
 
 	public int productUpdate(ProductDTO productDTO, Connection con) throws Exception {
-		String sql = "update product set name=?,price=?,saleCheck=?,saleRate=?,"
-				+ "salPrice=?,category=?,stock=?,seller=?,delivery=? where num=?";
+		String sql = "update product set name=?,price=?,saleRate=?,"
+				+ "salPrice=?,category=?,seller=?,delivery=?brandName=?, point=?,deliveryLocal=?, "
+				+ "deliveryDiff=?,deliveryFee=?,returnFee=?,exchangeFee=?,sendPlace=?,info=? where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, productDTO.getName());
+		
 		st.setString(2, productDTO.getPrice());
-		st.setString(4, productDTO.getSaleRate());
-		st.setString(5, productDTO.getSalePrice());
-		st.setString(6, productDTO.getCategory());
-		st.setString(8, productDTO.getSeller());
-		st.setString(9, productDTO.getDelivery());
-		st.setInt(10, productDTO.getNum());
+		st.setString(3, productDTO.getSaleRate());
+		st.setString(4, productDTO.getSalePrice());
+		st.setString(5, productDTO.getCategory());
+		st.setString(6, productDTO.getSeller());
+		st.setString(7, productDTO.getDelivery());
+			
+		st.setString(8, productDTO.getBrandName());
+		st.setString(9, productDTO.getPoint());
+		st.setString(10, productDTO.getDeliveryLocal());
+		st.setString(11, productDTO.getDeliveryDiff());
+		st.setString(12, productDTO.getDeliveryFee());
+		st.setString(13, productDTO.getReturnFee());
+		st.setString(14, productDTO.getExchangeFee());
+		st.setString(15, productDTO.getSendPlace());
+		st.setString(16, productDTO.getInfo());
+		
+		st.setInt(17, productDTO.getNum());
+		
 		int res = st.executeUpdate();
 		return res;
 	}

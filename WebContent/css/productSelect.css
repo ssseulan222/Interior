@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+.updateDiv{
+	margin-top:10px;
+}
+
+.updateBtn{
+	float : right;
+	margin-left:10px;
+}
+
+/* ------------------- */
 .innerCat {
 	margin-bottom:20px;
 }
