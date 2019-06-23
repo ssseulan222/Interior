@@ -318,7 +318,7 @@
 			<li class="p">조명</li>
 			<li class="p">전문디자인</li>
 		</ul>
-		<div>
+		<div id="expert">
 			<c:if test="${list != null}">
 				<c:forEach begin="0" step="1" end="${list.size() }" var="i">
 					<div>포트폴리오 준비중</div>
