@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.interior.action.ActionForward;
+import com.interior.page.Search;
 import com.interior.page.SearchRow;
 import com.interior.seller.SellerDTO;
 import com.interior.upload.UploadDAO;
@@ -59,6 +60,9 @@ public class ProductService {
 				path="../WEB-INF/views/result/result.jsp";
 			} else {
 				request.setAttribute("productDTO", productDTO);
+				Search search = new Search();
+				search.setCategory(productDTO.getCategory());
+				request.setAttribute("category", search.getCategory());
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -71,36 +75,6 @@ public class ProductService {
 		return actionForward;
 	}
 	
-	public ActionForward productSelectList(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward actionForward = new ActionForward();
-		String path="";
-		boolean check=true;
-		Connection con;
-		try {
-			con = DBConnect.getConnect();
-			List<ProductDTO> ar = new ArrayList<ProductDTO>();
-			String category=request.getParameter("category");
-			String sort=request.getParameter("sort");
-			String seller=request.getParameter("seller");
-			SearchRow searchRow=new SearchRow();
-			searchRow.setStartRow(0);
-			searchRow.setLastRow(5);
-			ar = productDAO.productList(category, sort, seller, searchRow, con);
-			
-			HttpSession session=request.getSession();
-			session.setAttribute("ar", ar);
-			
-		
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		actionForward.setCheck(check);
-		actionForward.setPath(path);
-		return actionForward;
-	}
-
 
 	public ActionForward productInsert(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();

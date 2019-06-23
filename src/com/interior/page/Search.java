@@ -43,41 +43,37 @@ public class Search {
 		return category;
 	}
 	public void setCategory(String category) {
-		if(category == null) {
-			this.category="category";
-		} else if(category.equals("1")) {
+		if(category.equals("1")) {
 			this.category="가구";
 		} else if(category.equals("2")) {
 			this.category="패브릭";
-		}else if(category.equals("1")) {
+		}else if(category.equals("3")) {
 			this.category="홈데코/조명";
-		}else if(category.equals("1")) {
+		}else if(category.equals("4")) {
 			this.category="가전";
-		}else if(category.equals("1")) {
+		}else if(category.equals("5")) {
 			this.category="수납/생활";
-		}else if(category.equals("1")) {
+		}else if(category.equals("6")) {
 			this.category="주방";
-		}else if(category.equals("1")) {
+		}else if(category.equals("7")) {
 			this.category="DIY자재";
-		}else if(category.equals("1")) {
+		}else if(category.equals("8")) {
 			this.category="시공/주문";
-		}else if(category.equals("1")) {
+		}else if(category.equals("9")) {
 			this.category="반려동물";
+		} else {
+			this.category="가구";
 		}
 	}
 	
 	///////////////////////////////////////////////
 	
-	private String seller;
-	public String getSeller() {
-		return seller;
+	private String column;
+	public String getColumn() {
+		return column;
 	}
-	public void setSeller(String seller) {
-		if(seller == null) {
-			this.seller="seller";
-		} else {
-			this.seller=seller;
-		}
+	public void setColumn(String column) {
+		this.column=column;
 	}
 	
 	

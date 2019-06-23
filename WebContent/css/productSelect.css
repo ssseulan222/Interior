@@ -1,5 +1,83 @@
 @charset "UTF-8";
 
+.innerCat {
+	margin-bottom:20px;
+}
+
+.innerCat a{
+	font-size:1.1em;
+	font-weight:bold;
+	color:black;
+	margin-bottom:40px;
+}
+
+.innerCat a:hover{
+	color:black;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.tr1 td:first-child, .tr2 td:first-child{
+	font-weight: bold;
+	width:3%;
+	font-size:0.8em;
+	vertical-align: top;
+}
+
+.tr1 td:last-child, .tr2 td:last-child{
+	font-size:0.8em;
+}
+
+.refund{
+	margin-top:20px;
+}
+
+.text-gray-light {
+    color: #bdbdbd;
+    font-size:0.8em;
+}
+
+
+.text-gray-light {
+    color: #bdbdbd;
+}
+
+#product-shipping .refund>p, #product-info-noti .refund>p {
+    margin-bottom: 6px;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+/*-----------------------------*/
+
+.section_con{
+	margin-bottom:50px;
+}
+
+.refundInfo, .productInfo, .reviewtitle{
+	font-size:1.2em;
+	font-weight:bold;
+	margin-top:20px;
+}
+table{
+	width:100%;
+}
+.tr{
+	width:100%;
+}
+
+.tr td{
+	height:40px;
+	border-bottom:1px solid lightgray;
+}
+
+.tr td:first-child{
+	width:30%;
+}
+
+/*--------------------------*/
 .top{
 	
 	margin-top:30px;

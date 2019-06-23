@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="/temp/bs.jsp" />
+<jsp:include page="../common/bootstrap.jsp" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -144,7 +144,7 @@
 				<h3 class="popular">최신상품</h3>
 
 				<!-- 오늘의집에서는 호버해서 밑으로 나오는 토글키로 on/off 가능하지만  해당 프로젝트에서는 버튼 클릭으로 on/off + 정렬 기준 축소-->
-				<a class="sort">더보기</a>
+				<a class="sort" href="./storeCategory?category=1">더보기</a>
 				<select class="sort">
 					<option>최신순</option>
 					<option>인기순</option>
@@ -164,11 +164,11 @@
 							<div class="productDiv">
 								<div class="productImageWrap">
 									<div class="productImageDiv">
-										<c:if test="${ar.uploadDTO.fname != null}">
+										<c:if test="${ar.uploadDTO ne null}">
 											<img class="productImage" src="<%=application.getContextPath() %>/productUpload/${ar.uploadDTO.fname}">
 										</c:if>
-										<c:if test="${ar.uploadDTO.fname == null}">
-											<img class="productImage" src="<%=application.getContextPath() %>/img/empty.png">
+										<c:if test="${ar.uploadDTO eq null}">
+											<img class="productImage" src="<%=application.getContextPath() %>/product/empty.png">
 										</c:if>
 									</div>
 								</div>

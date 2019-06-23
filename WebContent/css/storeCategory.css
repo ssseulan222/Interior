@@ -1,8 +1,29 @@
 @charset "UTF-8";
 
+.totalCount{
+	font-weight: bold;
+	color:gray;
+}
+
+.innerCat {
+	margin-bottom:20px;
+}
+
+.innerCat a{
+	font-size:1.1em;
+	font-weight:bold;
+	color:black;
+	margin-bottom:40px;
+}
+
+.innerCat a:hover{
+	color:black;
+	cursor: pointer;
+	text-decoration: none;
+}
+
 #nav, section {
 	margin-top: 50px;
-	border: 1px solid blue;
 	display: inline-block;
 }
 
@@ -28,14 +49,20 @@ section{
 	font-weight: 1000;
 }
 
-#nav a:hover{
+#nav a{
 	list-style: none;
 	text-decoration:none;
 	color: rgba(0,0,0,0.6);
 }
 
+#nav a:hover{
+	list-style: none;
+	text-decoration:none;
+	font-size:1.1em;
+	color: #35C5F0;;
+}
+
 .productWrap{
-	border: 1px solid red;
 	padding: 0px;
 	height: 30vh;
 	display: inline-block;
@@ -43,7 +70,6 @@ section{
 }
 
 .product{
-	border: 1px solid green;
 	border-radius: 4px;
 	height: 100%;
 }

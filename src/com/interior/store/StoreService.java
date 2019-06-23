@@ -35,6 +35,7 @@ public class StoreService {
 			searchRow.setStartRow(1);
 			searchRow.setLastRow(20);
 			ar=productDAO.productAllList(searchRow,con);
+			
 			request.setAttribute("allProductAr", ar);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -58,23 +59,31 @@ public class StoreService {
 
 		List<ProductDTO> ar = new ArrayList<ProductDTO>();
 		String category = request.getParameter("category");
-		String sort = request.getParameter("sort");
-		String seller = request.getParameter("seller");
+		System.out.println("cat11 : "+category);
+		Search search = new Search();
+		search.setCategory(category);
+		search.setColumn("category");
+		System.out.println("cat2222 : " +search.getCategory());
+		
 		SearchRow searchRow = new SearchRow();
 		searchRow.setStartRow(1);
 		searchRow.setLastRow(40);
+		
 		int page = 0;
 		Connection con;
 
 		try {
 			con = DBConnect.getConnect();
-			//ar = productDAO.productAllList(category, sort, seller, searchRow, con);
+			ar=productDAO.productCatList(category, searchRow, con);
+			request.setAttribute("allProductAr", ar);
+			request.setAttribute("category", search.getCategory());
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		path = "../WEB-INF/views/store/storeCategory.jsp?category=" + category + "&sort=" + sort + "&pageNum" + page;
+		path = "../WEB-INF/views/store/storeCategory.jsp?category=" + category;
 
 		actionForward.setPath(path);
 		actionForward.setCheck(check);

@@ -51,35 +51,31 @@ public class SellerService {
 		// 판매자 로그인 세션 유지 될 때
 		} else {
 			
-			// 판매자의 제품리스트 뿌리기 : productservice,dao 의 list 결과 ar를 setAttribute ar로 해서 jsp에서 뿌리기.
 			List<ProductDTO> ar = null;
 			
 			int num=0;
-			Search search = new Search();
 			
-			search.setCategory(request.getParameter("category"));
-			String category=search.getCategory();
-			
-			search.setSort(request.getParameter("search"));
-			String sort=search.getSort();
-			
-			SearchRow searchRow = new SearchRow();
-			searchRow.setStartRow(1);
-			searchRow.setLastRow(8);
-			String seller = sellerDTO.getCompanyName();
 			
 			try {
 				
 				con=DBConnect.getConnect();
-				ar = productDAO.productList(search, seller, searchRow, con);
-				System.out.println("search sort : "+search.getSort());
+				Search search = new Search();
+				String column="seller";
+				search.setColumn(column);
 				
+				SearchRow searchRow = new SearchRow();
+				searchRow.setStartRow(1);
+				searchRow.setLastRow(8);
+				String seller = sellerDTO.getCompanyName();
+				System.out.println("dd : "+ seller);
+				ar=productDAO.productSellerList(seller, searchRow, con);
 				request.setAttribute("ar", ar);	// sellerMain.jsp에서 ${requestScope.ar}로 받기
 		
 				check=true;
 				path= "../WEB-INF/views/seller/sellerMain.jsp";
 
 			} catch (Exception e) {
+				
 				e.printStackTrace();
 			}
 			
@@ -201,9 +197,9 @@ public class SellerService {
 
 				if (sellerDTO != null) { // 로그인 성공
 					HttpSession session = request.getSession();
+					session.setAttribute("sellerDTO", sellerDTO);
 					check = true;
 					path = "../WEB-INF/views/index.jsp";
-					session.setAttribute("sellerDTO", sellerDTO);
 				} else {
 					request.setAttribute("msg", "로그인 실패");
 					request.setAttribute("path", "./sellerLogin");
@@ -213,6 +209,12 @@ public class SellerService {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			} finally {
+				try {
+					con.close();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
 			}
 
 		}
