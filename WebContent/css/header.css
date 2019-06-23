@@ -1,0 +1,214 @@
+@charset "UTF-8";
+nav{
+	display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+.navigation-primary__container {
+    z-index: 502;
+    left: 0;
+    right: 0;
+    transition: top .1s;
+    background-color: white;
+    border-bottom: 1px solid #ededed;
+}
+.navigation-primary__menu .navigation-menu>li>.title>a {
+    padding: 25px 15px;
+    color: #424242;
+    cursor: pointer;
+}
+.navigation-primary {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    align-items: flex-end;
+    height: 80px;
+    padding: 25px 40px;
+    max-width: 1256px;
+}
+.navigation-primary__logo {
+    position: static;
+    margin-right: 50px;
+    transform: none;
+}
+.navigation-primary__logo>.logo-md {
+    display: inline-block;
+}
+.navigation-primary__logo>.logo-sm {
+    display: none;
+}
+.navigation-primary__menu {
+    display: inline-block;
+}
+.navigation-primary__menu .navigation-menu {
+    white-space: nowrap;
+    
+}
+.navigation-primary__menu.open .navigation-menu>li.activee:not(.empty):before {
+    margin-top: -7px;
+    margin-left: -5px;
+    border-width: 0 5px 10px 5px;
+    border-color: transparent transparent #dbdbdb;
+}
+.navigation-primary__menu .navigation-menu>li.active>.title>a, .navigation-primary__menu .navigation-menu>li.current>.title>a {
+    color: #35C5F0;
+}
+.navigation-primary__menu .navigation-menu>li {
+    position: relative;
+    display: inline-block;
+    margin: 0 25px -23px -15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.navigation-primary__actions {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+}
+
+.navigation-primary__write-btn {
+    width: 74px;
+    height: 32px;
+    border: 1px solid #35C5F0;
+    border-radius: 16px;
+    font-size: 15px;
+    color: #09ADDB;
+    font-weight: bold;
+    text-align: center;
+    transition: .1s background, .1s color;
+}
+
+
+.navigation-primary__user {
+	display: inline-block;
+}
+.navigation-primary__user__unlogged {
+    font-size: 0;
+    margin-left: 1.5px;
+    margin-bottom: 3px;
+}
+.navigation-primary__user__unlogged>a {
+    display: inline-block;
+    color: #757575;
+    font-size: 15px;
+    font-weight: bold;
+}
+.navigation-primary__user__unlogged>a:after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 15px;
+    padding-left: 10px;
+    margin-right: 10px;
+    vertical-align: -2px;
+    border-right: 1px solid #757575;
+}
+.navigation-primary__button.button-md, .navigation-primary__menu-btn.button-md {
+    display: inline-block;
+}
+.navigation-primary__actions {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+}
+
+
+
+.navigation-secondary-wrap {
+    display: block;
+}
+.navigation-secondary__container {
+    z-index: 501;
+    left: 0;
+    right: 0;
+    transition: top .1s;
+    background-color: white;
+    border-bottom: 1px solid #ededed;
+}
+.navigation-secondary {
+    height: 50px;
+    max-width: 1256px;
+}
+.navigation-secondary__menu {
+    margin: 0 8px 0 -12px;
+    padding-left: 40px;
+}
+.navigation-secondary__menu>ul {
+    padding: 0;
+    text-align: left;
+}
+.navigation-secondary__menu>ul {
+    padding: 0;
+    text-align: left;
+}
+.navigation-secondary__menu>ul>li {
+    display: inline-block;
+}
+.navigation-secondary__menu>ul>li.activee>a{
+    color: #35C5F0;
+    border-color: #35C5F0;
+}
+.navigation-secondary__menu>ul>li>a{
+    font-size: 15px;
+    padding: 18px 12px 14px;
+    color: #424242;
+}
+.navigation-secondary__menu>ul>li>a{
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    font-family: inherit;
+    font-weight: bold;
+    padding: 14px 8px 11px;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    color: #757575;
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
