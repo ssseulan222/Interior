@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/MyPageProfiletop.css" type="text/css">
-<jsp:include page="${pageContext.request.contextPath}/temp/header.jsp" />
+<c:import url="../common/header.jsp" />
 <style type="text/css">
 	body{
 		margin-top: 50px;
@@ -26,7 +26,7 @@
 						<li class="page-nav-item"><a href="./memberMyHome">프로필</a></li>
 						<li class="page-nav-item"><a href="./memberMyShopping">나의쇼핑</a></li>
 						<li class="page-nav-item"><a class="active" href="./memberMyReview">나의리뷰</a></li>
-						<li class="page-nav-item"><a href="#">설정</a></li>
+						<li class="page-nav-item"><a href="./memberUpdate">설정</a></li>
 					</ul>
 				</nav>
 				<nav class="page-myhome-nav">

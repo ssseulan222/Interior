@@ -12,12 +12,86 @@ import javax.sound.midi.Soundbank;
 import com.interior.community.action.Action;
 import com.interior.community.action.ActionForward;
 import com.interior.community.util.DBConnector;
+import com.interior.seller.SellerDTO;
+import com.interior.util.DBConnect;
 
 public class MemberService implements Action {
 	private MemberDAO memberDAO;
 	
 	public MemberService() {
 		memberDAO = new MemberDAO();
+	}
+	public ActionForward memberDelete(HttpServletRequest request, HttpServletResponse response) {
+
+		ActionForward actionForward = new ActionForward();
+		String path = "";
+		boolean check = true;
+		int result = 0;
+		MemberDTO memberDTO = null;
+		String method = request.getMethod();
+		HttpSession session = request.getSession();
+		memberDTO = (MemberDTO) session.getAttribute("m");
+		System.out.println(memberDTO);
+		if (memberDTO != null) {
+
+			if (method.equals("GET")) {
+				path = "../WEB-INF/views/member/memberDelete.jsp";
+			} else {
+				Connection con = null;
+				String email = memberDTO.getEmail();
+
+				try {
+					con = DBConnect.getConnect();
+					result = memberDAO.memberDelete(email, con);
+					if (result > 0) {
+						session.invalidate();
+						request.setAttribute("msg", "탈퇴 성공");
+						request.setAttribute("path", "../index.do");
+						check = true;
+						path = "../WEB-INF/views/result/result.jsp";
+					} else {
+						request.setAttribute("msg", "탈퇴 실패");
+						request.setAttribute("path", "../WEB-INF/views/member/memberDelete.jsp");
+						check = true;
+						path = "../WEB-INF/views/result/result.jsp";
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+			}
+		} else {
+			check = false;
+			path = "../WEB-INF/views/index.do";
+		}
+
+		actionForward.setCheck(check);
+		actionForward.setPath(path);
+
+		return actionForward;
+	}
+	public ActionForward memberUpdate(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/views/member/memberUpdate.jsp");
+		
+		return actionForward;
+		
+	}
+	public ActionForward memberLogout(HttpServletRequest request, HttpServletResponse response) {
+		ActionForward actionForward = new ActionForward();
+		HttpSession session = request.getSession();
+		String path = "";
+		boolean check = false;
+
+		if (session.getAttribute("m") != null) {
+			session.invalidate();
+			path = "../index.do";
+		}
+
+		actionForward.setCheck(check);
+		actionForward.setPath(path);
+		return actionForward;
 	}
 	public ActionForward memberprivacylist(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();

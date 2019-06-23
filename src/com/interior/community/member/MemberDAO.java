@@ -139,6 +139,15 @@ public class MemberDAO {
 		
 	}
 	
+	public int memberDelete(String email, Connection con) throws Exception{
+		int result=0;
+		String sql="delete member where email=?";
+		PreparedStatement st=con.prepareStatement(sql);
+		st.setString(1, email);
+		
+		result=st.executeUpdate();
+		return result;
+	}
 	
 	
 	

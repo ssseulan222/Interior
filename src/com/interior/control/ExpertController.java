@@ -50,11 +50,10 @@ public class ExpertController extends HttpServlet {
 		}
 		else if(command.equals("/ExpertFound")) {
 			actionForward = expertService.list(request, response);
-		}
-		else {
+		}else {
 			actionForward = new ActionForward();
 			actionForward.setCheck(true);
-			actionForward.setPath("../Main.do");
+			actionForward.setPath("../WEB-INF/views/expert/ExpertMain.jsp");
 		}
 		
 		if(actionForward.isCheck()) {

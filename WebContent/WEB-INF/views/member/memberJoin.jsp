@@ -11,31 +11,40 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/memberJoin.css">
 <script src="../js/memberJoin.js" type="text/javascript"></script>
-
+<style type="text/css">
+	.Join_list{
+		display: inline-block;
+		font-size: 18px;
+	}
+	
+</style>
 </head>
 <body>
 <header id="simplefield-gnb" class="simplified-gnb">
-	<div>
-		<a href="${pageContext.request.contextPath}/index.do">오늘의집</a>
+	<div style="margin-top: 50px; margin-left: 50px;">
+		 <a class="navigation-primary__logo" href="${pageContext.request.contextPath}/index.do" style="margin-right: 1px; color:black; text-decoration: none;">
+			<img alt="homepage" src="${pageContext.request.contextPath}/img/home-heart.png" style="height: 35px; width: 45px;"><span>오늘의집</span>
+		</a>
 	</div>
 </header>
 <main role="main">
 	<section id="member_wrap">
 		<div>
-			<div>
+			<div class="Join_list">
 				<label class="form-radio-label"> 
 				<input class="form-radio" type="radio" name="signup-form-type" value="0" checked="">
 					<span class="radio-img" id="radio-img-first"></span>일반 유저
 				</label>
 			</div>
-			<div>
+			<div class="Join_list">
 				<!-- 전문가 페이지 이동 -->
-				<a class="form-radio-label" href="<%=application.getContextPath()%>/seller/sellerJoin"><input type="radio"> <span class="radio-img"></span>판매자회원가입
+				
+				<a class="form-radio-label" href="${pageContext.request.contextPath}/seller/sellerJoin" style="text-decoration: none; color: black;"><input type="radio"> <span class="radio-img"></span>판매자회원가입
 				</a>
 			</div>
-			<div>
+			<div class="Join_list">
 				<!-- 전문가 페이지 이동 -->
-				<a class="form-radio-label" href="#"><input type="radio"> <span class="radio-img"></span>전문가
+				<a class="form-radio-label" href="${pageContext.request.contextPath}/expert/ExpertJoin"  style="text-decoration: none; color: black;"><input type="radio" > <span class="radio-img"></span>전문가
 				</a>
 			</div>
 		</div>
@@ -83,9 +92,9 @@
 			<div class="signup-form__policy__check-all">
 				<label class="bold">약관동의</label>
 				<div class="form-check signup-form__policy__check-all__form-check">
-                    <label class="form-check-label text-heading-5 bold">
-                        <input id="checkAll" class="form-check signup-form__policy__check-all__input" type="checkbox">
-                        <span class="check-img"></span>
+                    <label class="form-check-label text-heading-5 bold ">
+                        <input id="checkAll" class="form-check signup-form__policy__check-all__input" type="checkbox" style="width: 20px; height: 20px; margin-left: 5px;">
+                       
                         전체 동의
                     </label>
                 </div>
@@ -94,8 +103,7 @@
 					<label for="signup-form__policy__more-14__input">만 14세 이상입니다.</label>
 					<div class="form-check signup-form__policy__more-14__form-check">
 					<label class="form-check-label bold">
-                            <input type="checkbox" id="checka" class="check form-check form-check signup-form__policy__item__input signup-form__policy__more-14__input" name="confirm_upper_14">
-                            <span class="check-img"></span>
+                            <input type="checkbox" id="checka" class="check form-check form-check signup-form__policy__item__input signup-form__policy__more-14__input" style="width: 15px; height: 15px;" name="confirm_upper_14">
                             동의 <span class="text-red">(필수)</span>
                         </label>
 					</div>
@@ -109,7 +117,6 @@
                     <div class="form-check signup-form__policy__use-policy__form-check">
                         <label class="form-check-label bold">
                             <input type="checkbox" id="checkb" class="check form-check signup-form__policy__item__input signup-form__policy__use-policy__input" name="confirm_use_policy">
-                            <span class="check-img"></span>
                             동의 <span class="text-red">(필수)</span>
                         </label>
                     </div>
@@ -121,18 +128,16 @@
                     </label>
                     <div class="form-check signup-form__policy__privacy__form-check">
                         <label class="form-check-label bold">
-                            <input type="checkbox" id="checkc" class="check check_font form-check signup-form__policy__item__input signup-form__policy__privacy__input" name="confirm_privacy">
-                            <span class="check-img"></span>
+                            <input type="checkbox" id="checkc" class="check check_font form-check signup-form__policy__item__input signup-form__policy__privacy__input"name="confirm_privacy">
                             동의 <span class="text-red">(필수)</span>
                         </label>
                     </div>
                 </div>
 				<div class="checkbox signup-form__policy__policy-item">
-                    <label for="signup-form__policy__promotion__input">이벤트 등 프로모션 알림 메일 수신</label>
+                    <label for="signup-form__policy__promotion__input" style="font-size: 13px;">이벤트 등 프로모션 알림 메일 수신</label>
                     <div class="form-check signup-form__policy__promotion__form-check">
                         <label class="form-check-label bold">
                             <input type="checkbox" id="checkid" class="check check_font form-check signup-form__policy__item__input signup-form__policy__promotion__input" name="confirm_market_email">
-                            <span class="check-img"></span>
                             동의 <span class="text-gray-light">(선택)</span>
                         </label>
                     </div>
