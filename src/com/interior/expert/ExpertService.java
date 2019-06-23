@@ -51,7 +51,8 @@ public class ExpertService implements Action{
 			location = "서울특별시 강남구";
 			pro = "";
 		}
-		
+		System.out.println(location);
+		System.out.println(pro);
 		
 		SearchMakePage searchMakePage = new SearchMakePage(curPage, kind, search);
 

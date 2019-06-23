@@ -17,8 +17,9 @@
 }
 .board{
 	width: 100%;
-	height: 10%;
-	border: 1px solid bl;
+	height: 150px;
+	box-sizing:border-box;
+	border: 1px solid black;
 }
 #tag {
 	width: 60%;
